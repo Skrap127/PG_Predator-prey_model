@@ -1,0 +1,6 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {chapter}{\'{I}ndice general}{1}{}%
+\contentsline {chapter}{\'{I}ndice de figuras}{1}{}%
+\contentsline {chapter}{\'{I}ndice de tablas}{1}{}%
+\contentsline {chapter}{\numberline {1}Preliminares}{3}{}%
+\contentsline {section}{\numberline {1.1}Ecuaciones diferenciales ordinarias}{3}{}%

@@ -1,0 +1,36 @@
+\documentclass[12pt, twoside]{book}
+
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{mathtools}
+\usepackage{tocbibind}
+\usepackage{tocloft}
+
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\C}{{\mathbb{C}}}
+\newcommand{\Rn}{{\mathbb{R}}^{n}}
+\newcommand{\Rm}{{\mathbb{R}}^{m}}
+\newcommand{\Cn}{{\mathbb{C}}^{n}}
+\newcommand{\Cm}{{\mathbb{C}}^{m}}
+
+\theoremstyle{definition}
+\newtheorem{defi}{Definición}
+\newtheorem{teo}{Teorema}
+\newtheorem{lem}{Lema}
+\newtheorem{cor}{Corolario}
+\newtheorem{eje}{Ejemplo}
+\newtheorem{sol}{Solucion}
+
+\begin{document}
+	\pagenumbering{roman}
+	%\include{portada}
+	%\include{agradecimientos}
+	\tableofcontents
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	\listoffigures
+	\listoftables
+	%\include{introduccion}
+	\include{preliminares}
+\end{document}
