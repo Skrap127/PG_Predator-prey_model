@@ -1,20 +1,107 @@
 \chapter{Preliminares}
     Para el análisis del módelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea que se lleva acabo en el presente trabajo, requerimos de ciertos conceptos fundamentales, los cuales se abarcan en la presente sección, esto, con el objetivo de lograr una mejor compresión de todo lo que se presenta posteriormente.
     
-    \section{Cálculo diferencial e integral}
-    \subsection{Límites y continuidad}
-    \subsection{Derivadas parciales}
-    \subsection{Matriz Jacobiana}
-    \subsection{Gradiente y campos vectoriales}
-    \subsection{Series de Taylor (expansión local)}
+    \section*{Posible lista de conceptos}
     
-    \section{Álgebra lineal}
-    \subsection{Espacios vectoriales}
-    \subsection{Sistemas lineales y no lineales de ecuaciones}
-    \subsection{Cambios de base y transformaciones lineales}
-    \subsection{Autovalores y autovectores}
-    \subsection{Diagonalización de matrices}
-    
+    \begin{enumerate}
+    	\item \textbf{Cálculo diferencial e integral}
+    	\begin{itemize}
+    		\item Límites y continuidad
+    		\item Derivadas parciales
+    		\item Gradiente y campos vectoriales
+    		\item Matriz Jacobiana
+    		\item Series de Taylor (expansión local)
+    	\end{itemize}
+    	
+    	\item \textbf{Álgebra lineal}
+    	\begin{itemize}
+    		\item Espacios vectoriales
+    		\item Autovalores y autovectores
+    		\item Diagonalización de matrices
+    		\item Sistemas lineales y no lineales de ecuaciones
+    		\item Cambios de base y transformaciones lineales
+    	\end{itemize}
+    	
+    	\item \textbf{Ecuaciones diferenciales ordinarias (EDOs)}
+    	\begin{itemize}
+    		\item Ecuaciones diferenciales ordinarias (EDO)
+    		\item Teorema de existencia y unicidad de Picard-Lindelöf
+    		\item Métodos numéricos básicos (Euler, Runge-Kutta)
+    	\end{itemize}
+    	
+    	\item \textbf{Topología y análisis}
+    	\begin{itemize}
+    		\item Espacios métricos
+    		\item Continuidad y compacidad
+    		\item Región compacta
+    		\item Conjuntos abiertos y cerrados
+    		\item Conjuntos invariantes
+    		\item Conjuntos límite
+    		\item Variedades
+    		\item Condición de transversabilidad
+    		\item Reparametrización de sistemas
+    	\end{itemize}
+    	
+    	\item \textbf{Geometría diferencial}
+    	\begin{itemize}
+    		\item Difeomorfismos
+    		\item Variedades diferenciables
+    		\item Campos vectoriales sobre variedades
+    	\end{itemize}
+    	
+    	\item \textbf{Teoría cualitativa de EDOs}
+    	\begin{itemize}
+    		\item Campos vectoriales en el plano
+    		\item Líneas de flujo y trayectorias
+    		\item Diagramas de fase
+    		\item Isoclinas
+    		\item Puntos críticos y clasificación
+    		\item Campo vectorial asociado a un sistema
+    		\item Trayectorias, órbitas y curvas solución
+    		\item Regiones invariantes
+    		\item Separatrices
+    		\item Compactificación de Poincaré
+    		\item Variedades estables e inestables
+    		\item Reescalamiento y reparametrización temporal
+    		\item Desingularización (incluyendo blowing-up)
+    	\end{itemize}
+    	
+    	\item \textbf{Sistemas dinámicos}
+    	\begin{itemize}
+    		\item Sistemas autónomos y no autónomos
+    		\item Sistema autónomo bidimensional
+    		\item Sistemas equivalentes topológicamente
+    		\item Ciclos límite
+    		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.)
+    		\item Diagramas de bifurcación
+    		\item Estabilidad de sistemas no lineales
+    		\item Funciones de Lyapunov
+    		\item Método del número de Lyapunov
+    		\item Órbitas heteroclínicas y homoclínicas
+    		\item Teorema de Poincaré-Bendixson
+    	\end{itemize}
+    	
+    	\item \textbf{Biología matemática / Modelos ecológicos}
+    	\begin{itemize}
+    		\item Ecuaciones logísticas y crecimiento poblacional
+    		\item Modelos presa-depredador clásicos (Lotka-Volterra)
+    		\item Respuestas funcionales de Holling (tipos I, II, III)
+    		\item Modelo Leslie-Gower
+    		\item Modelo May–Holling–Turner
+    		\item Crecimiento logístico
+    		\item Efecto Allee
+    		\item Ecuaciones de tipo Kolmogorov
+    	\end{itemize}
+    	
+    	\item \textbf{Métodos algebraicos y analíticos}
+    	\begin{itemize}
+    		\item Regla de los signos de Descartes
+    		\item Análisis de estabilidad lineal y no lineal
+    		\item Polar blowing-up method
+    		\item Sistemas tangentes
+    	\end{itemize}
+    \end{enumerate}
+   
     \section{Ecuaciones diferenciales ordinarias (EDOs)}
     Una ecuación difrencial ordinaria o EDO es una ecuación para una función desconocida de una sola variable real, que no solo contiene a la función sino también a sus derivadas. De manera general una EDO es de la forma
     \begin{equation*}
@@ -23,65 +110,4 @@
     \end{equation*}
     donde $F$ es una función real de $n+2$ variables y $x = x(t)$ es una función desconocida de una variable real $t$. El máximo orden $n$ de la derivada $x^{(n)}$ es llamado el \textit{orden} de la ecuación diferencial.
     \teo{\textbf{Teorema de existencia y unicidad de Picard-Lindelöf}}
-    \subsection{Métodos numéricos básicos (Euler, Runge-Kutta)}
-    
-    \section{Topología y análisis}
-    \subsection{Conjuntos abiertos y cerrados}
-    \subsection{Conjuntos límite}
-    \subsection{Región compacta}
-    \subsection{Espacios métricos}
-    \subsection{Continuidad y compacidad}
-    \subsection{Conjuntos invariantes}
-    \subsection{Variedades}
-    \subsection{Condición de transversabilidad}
-    \subsection{Reparametrización de sistemas}
-    
-    \section{Geometría diferencial}
-    \subsection{Variedades diferenciables}
-    \subsection{Difeomorfismos}
-    \subsection{Campos vectoriales sobre variedades}
-    
-    \section{Teoría cualitativa de EDOs}
-    \subsection{Campos vectoriales en el plano}
-    \subsection{Líneas de flujo y trayectorias}
-    \subsection{Diagramas de fase}
-    \subsection{Isoclinas}
-    \subsection{Puntos críticos y clasificación}
-    \subsection{Campo vectorial asociado a un sistema}
-    \subsection{Trayectorias, órbitas y curvas solución}
-    \subsection{Regiones invariantes}
-    \subsection{Separatrices}
-    \subsection{Compactificación de Poincaré}
-    \subsection{Variedades estables e inestables}
-    \subsection{Reescalamiento y reparametrización temporal}
-    \subsection{Desingularización (incluyendo blowing-up)}
-    
-    \section{Sistemas dinámicos}
-    \subsection{Sistemas autónomos y no autónomos}
-    \subsection{Sistema autónomo bidimensional}
-    \subsection{Sistemas equivalentes topológicamente}
-    \subsection{Ciclos límite}
-    \subsection{Bifurcaciones (saddle-node, Hopf, pitchfork, etc.)}
-    \subsection{Diagramas de bifurcación}
-    \subsection{Estabilidad de sistemas no lineales}
-    \subsection{Funciones de Lyapunov}
-    \subsection{Método del número de Lyapunov}
-    \subsection{Órbitas heteroclínicas y homoclínicas}
-    \subsection{Teorema de Poincaré Bendixson}
-    
-    \section{Biología matemática / Modelos ecológicos}
-    \subsection{Crecimiento logístico}
-    \subsection{Ecuaciones logísticas y crecimiento poblacional}
-    \subsection{Modelos presa-depredador clásicos (Lotka-Volterra)}
-    \subsection{Respuestas funcionales de Holling (tipos I, II, III)}
-    \subsection{Modelo Leslie-Gower}
-    \subsection{Modelo May–Holling–Turner}
-    \subsection{Efecto Allee}
-    \subsection{Ecuaciones de tipo Kolmogorov}
-    
-    \section{Métodos algebraicos y analíticos}
-    \subsection{Regla de los signos de Descartes}
-    \subsection{Análisis de estabilidad lineal y no lineal}
-    \subsection{Sistemas tangentes}
-    \subsection{Polar blowing-up method}
-    
+   
