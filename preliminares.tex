@@ -24,7 +24,7 @@
     	
     	\item \textbf{Ecuaciones diferenciales ordinarias (EDOs)}
     	\begin{itemize}
-    		\item Ecuaciones diferenciales ordinarias (EDO)
+    		\item Ecuaciones diferenciales ordinarias (EDO) \checkmark
     		\item Teorema de existencia y unicidad de Picard-Lindelöf
     		\item Métodos numéricos básicos (Euler, Runge-Kutta)
     	\end{itemize}
@@ -103,11 +103,44 @@
     \end{enumerate}
    
     \section{Ecuaciones diferenciales ordinarias (EDOs)}
-    Una ecuación difrencial ordinaria o EDO es una ecuación para una función desconocida de una sola variable real, que no solo contiene a la función sino también a sus derivadas. De manera general una EDO es de la forma
-    \begin{equation*}
-    	F(t, x, x^{(1)}, \cdots, x^{(n)}) = 0,
+    Sean $U \subseteq \Rm, V \subseteq \Rn$ y $k\in \N_{0}$. Entonces $C^{k}(U, V)$ denota el conjunto de funciones de $U \longrightarrow V$ continuamente diferenciables hasta el orden k. Adicionalmente, para simplificar denotaremos $C^{k}(U, \R)$ como $C^{k}(U)$. Una \textit{ecuación difrencial ordinaria} o EDO es una ecuación para una función desconocida de una sola variable real, que no solo contiene a la función sino también a sus derivadas. De manera general una EDO es de la forma
+    \begin{equation}
+    	F(t, x, x^{(1)}, \cdots, x^{(k)}) = 0,
     	\label{eq: generalFormEDO}
+    \end{equation}
+    donde $F \in C(U)$ con $U$ un subconjunto abierto de $\R^{k+2}$, $x = x(t) \subseteq C(J)$ con $J \subseteq \R$ y
+    \begin{equation*}
+    	x^{(k)}(t) = \frac{d^{k}x(t)}{dt^{k}}, k \in \N_{0}.
     \end{equation*}
-    donde $F$ es una función real de $n+2$ variables y $x = x(t)$ es una función desconocida de una variable real $t$. El máximo orden $n$ de la derivada $x^{(n)}$ es llamado el \textit{orden} de la ecuación diferencial.
+    Al máximo orden $k$ de la derivada $x^{(k)}$ en \eqref{eq: generalFormEDO} se le llama el \textit{orden} de la ecuación diferencial. Frecuentemente a $t$ se le conoce como la \textit{variable independiente} y a $x$ como la \textit{variable dependiente}.
+    
+    Una \textit{solución} de la EDO \eqref{eq: generalFormEDO}, es una función $\phi \in C^{k}(I)$ con $I \subseteq J$ un intervalo real, tal que
+    \begin{equation}
+    	F(t, \phi(t), \phi^{(1)}(t), \cdots, \phi^{(k)}(t)) = 0, \text{ para todo } t \in I.
+    \end{equation}
+    
+    Un \textit{sistema no lineal} de EDOs \textit{no autónomo} de primer orden es un sistema de la forma
+    \begin{equation}
+    	\dot{x} = f(x, t),
+    	\label{eq:generalFormSisEDOs}
+    \end{equation}
+    donde $f:E \longrightarrow \Rn$ con $E$ un subconjunto abierto de $\R^{n+1}$, $x = (x_{1}, \cdots, x_{n})$ y
+    \begin{equation*}
+    	\dot{x} = \frac{dx}{dt} = 
+    	\begin{bmatrix}
+    		\frac{dx_{1}}{dt} \\
+    		\vdots \\
+    		\frac{dx_{n}}{dt}
+    	\end{bmatrix}.
+    \end{equation*}
+    
+    Si la función $f$ en \eqref{eq:generalFormSisEDOs} no depende de $t$ entonces $f:\tilde{E} \longrightarrow \Rn$ con $\tilde{E}$ un subconjunto abierto de $\Rn$ y al sistema $\dot{x} = f(x)$ se le conoce como un \textit{sistema autónomo}.
+    
+    Un \textit{sistema lineal} es un sistema de la forma
+    \begin{equation}
+    	\dot{x} = A(t)x + b(t),
+    \end{equation}
+    donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, en caso contrario el sistema es \textit{no homogeneo}
+    
     \teo{\textbf{Teorema de existencia y unicidad de Picard-Lindelöf}}
    

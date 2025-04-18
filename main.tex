@@ -6,13 +6,17 @@
 \usepackage{mathtools}
 \usepackage{tocbibind}
 \usepackage{tocloft}
+\usepackage{hyperref}
 
 \newcommand{\R}{{\mathbb{R}}}
+\newcommand{\N}{{\mathbb{N}}}
 \newcommand{\C}{{\mathbb{C}}}
 \newcommand{\Rn}{{\mathbb{R}}^{n}}
 \newcommand{\Rm}{{\mathbb{R}}^{m}}
 \newcommand{\Cn}{{\mathbb{C}}^{n}}
 \newcommand{\Cm}{{\mathbb{C}}^{m}}
+
+\bibliographystyle{plain}
 
 \theoremstyle{definition}
 \newtheorem{defi}{Definición}
@@ -24,13 +28,21 @@
 
 \begin{document}
 	\pagenumbering{roman}
+	
 	%\include{portada}
 	%\include{agradecimientos}
+	
 	\tableofcontents
+	
 	\pagenumbering{arabic}
 	\setcounter{page}{1}
+	
 	\listoffigures
 	\listoftables
+	
 	%\include{introduccion}
+	
 	\include{preliminares}
+	\nocite{*}
+	\bibliography{referencias}
 \end{document}
