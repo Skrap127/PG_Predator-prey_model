@@ -18,14 +18,14 @@
     		\item Espacios vectoriales
     		\item Autovalores y autovectores
     		\item Diagonalización de matrices
-    		\item Sistemas lineales y no lineales de ecuaciones
+    		\item Sistemas lineales y no lineales de ecuaciones \checkmark
     		\item Cambios de base y transformaciones lineales
     	\end{itemize}
     	
     	\item \textbf{Ecuaciones diferenciales ordinarias (EDOs)}
     	\begin{itemize}
     		\item Ecuaciones diferenciales ordinarias (EDO) \checkmark
-    		\item Teorema de existencia y unicidad de Picard-Lindelöf
+    		\item Teorema de existencia y unicidad \checkmark
     		\item Métodos numéricos básicos (Euler, Runge-Kutta)
     	\end{itemize}
     	
@@ -68,8 +68,7 @@
     	
     	\item \textbf{Sistemas dinámicos}
     	\begin{itemize}
-    		\item Sistemas autónomos y no autónomos
-    		\item Sistema autónomo bidimensional
+    		\item Sistemas autónomos y no autónomos \checkmark
     		\item Sistemas equivalentes topológicamente
     		\item Ciclos límite
     		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.)
@@ -133,14 +132,25 @@
     		\frac{dx_{n}}{dt}
     	\end{bmatrix}.
     \end{equation*}
-    
     Si la función $f$ en \eqref{eq:generalFormSisEDOs} no depende de $t$ entonces $f:\tilde{E} \longrightarrow \Rn$ con $\tilde{E}$ un subconjunto abierto de $\Rn$ y al sistema $\dot{x} = f(x)$ se le conoce como un \textit{sistema autónomo}.
     
     Un \textit{sistema lineal} es un sistema de la forma
     \begin{equation}
     	\dot{x} = A(t)x + b(t),
     \end{equation}
-    donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, en caso contrario el sistema es \textit{no homogeneo}
+    donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogeneo}.
     
-    \teo{\textbf{Teorema de existencia y unicidad de Picard-Lindelöf}}
+    \teo{(Teorema de existencia y unicidad).}
+    Sea $E$ un subconjunto abierto de $\Rn$ que contiene a $x_{0}$ y asuma que $f \in C^{1}(E)$. Entonces existe un $a>0$ tal que el problema de valor inicial 
+    \begin{equation}
+    	\left\{
+    	\begin{aligned}
+    		\dot{x} &= f(x) \\
+    		x(0) &= x_{0}
+    	\end{aligned}
+    	\right.
+    \end{equation}
+    tiene una única solución en el intervalo $[-a,a]$.
+   
+   \defi{}
    
