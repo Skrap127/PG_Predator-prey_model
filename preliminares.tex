@@ -1,7 +1,7 @@
 \chapter{Preliminares}
     Para el análisis del módelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea que se lleva acabo en el presente trabajo, requerimos de ciertos conceptos fundamentales, los cuales se abarcan en la presente sección, esto, con el objetivo de lograr una mejor compresión de todo lo que se presenta posteriormente.
     
-    \section*{Posible lista de conceptos}
+    \section*{Posible lista de conceptos a definir}
     
     \begin{enumerate}
     	\item \textbf{Cálculo diferencial e integral}
@@ -16,8 +16,8 @@
     	\item \textbf{Álgebra lineal}
     	\begin{itemize}
     		\item Espacios vectoriales
-    		\item Autovalores y autovectores
-    		\item Diagonalización de matrices
+    		\item Autovalores y autovectores \checkmark
+    		\item Diagonalización de matrices \checkmark
     		\item Sistemas lineales y no lineales de ecuaciones \checkmark
     		\item Cambios de base y transformaciones lineales
     	\end{itemize}
@@ -51,12 +51,11 @@
     	
     	\item \textbf{Teoría cualitativa de EDOs}
     	\begin{itemize}
-    		\item Campos vectoriales en el plano
-    		\item Líneas de flujo y trayectorias
-    		\item Diagramas de fase
-    		\item Isoclinas
+    		\item Campo vectorial asociado a un sistema \checkmark
+    		\item Trayectorias \checkmark
+    		\item Diagramas de fase \checkmark
+    		\item Isoclinas \checkmark
     		\item Puntos críticos y clasificación
-    		\item Campo vectorial asociado a un sistema
     		\item Trayectorias, órbitas y curvas solución
     		\item Regiones invariantes
     		\item Separatrices
@@ -137,8 +136,12 @@
     Un \textit{sistema lineal} es un sistema de la forma
     \begin{equation}
     	\dot{x} = A(t)x + b(t),
+    	\label{eq: sistemaLineal}
     \end{equation}
-    donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogeneo}.
+    donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogeneo}. (En algunas ocasiones todos los anteriores tipos de sistemas pueden ser analizados a través de un sistema de la forma:)
+    \begin{equation}
+    	\dot{x} = Ax
+    \end{equation}
     
     \teo{(Teorema de existencia y unicidad).}
     Sea $E$ un subconjunto abierto de $\Rn$ que contiene a $x_{0}$ y asuma que $f \in C^{1}(E)$. Entonces existe un $a>0$ tal que el problema de valor inicial 
@@ -149,8 +152,40 @@
     		x(0) &= x_{0}
     	\end{aligned}
     	\right.
+    	\label{eq: pvi}
     \end{equation}
     tiene una única solución en el intervalo $[-a,a]$.
+    
+    El sistema \eqref{eq: pvi} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema} como se ejemplifica en la \autoref{fig: vectorFieldExample}. En particular, las soluciones del PVI \eqref{eq: pvi} también se denominan \textit{curvas solución} o \textit{trayectorias}.
+   \begin{figure}
+       \centering
+       \includegraphics[width=0.5\textwidth]{Source/vectorFieldExample.pdf}
+       \caption{Ejemplo del campo vectorial asociado a $f(x,y)=(y,\sin{x})$.}
+       \label{fig: vectorFieldExample}
+   \end{figure}
+   El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: pvi} en el plano $\Rn$ (ver \autoref{fig: retratoFaseExample}).
+   \begin{figure}
+   	\centering
+   	\includegraphics[width=0.5\textwidth]{Source/retratoFaseExample.pdf}
+   	\caption{Ejemplo del retrato fase del sistema asociado a la función $f(x,y)=(y,\sin{x})$.}
+   	\label{fig: retratoFaseExample}
+   \end{figure}
    
-   \defi{}
+   En un \textit{sistema autónomo bidimensional}
+   \begin{equation}
+   	\begin{aligned}
+   		\dot{x} &= f(x, y) \\
+   		\dot{y} &= g(x, y),
+   	\end{aligned}
+   	\label{eq: sisAutBid}
+   \end{equation}
+   podemos encontrar una aproximación global de curvas solución, a través del metodo de las isoclinas. Del sistema \eqref{eq: sisAutBid} obtenemos el sistema de primer orden $dy/dx = g(x, y)/f(x, y)$. Ignorando el hecho de que esto podría no estar bien definido en $f(x, y) = 0$, el método consiste en encontrar curvas $y=h(x)$ o $x=h(y)$ en las que la pendiente del campo vectorial $dy/dx = c$ es constante. Dichas curvas se obtienen solucionando la ecuación
+   \begin{equation}
+    g(x, y) = cf(x, y),
+    \label{eq: pendiente}
+   \end{equation} 
+   y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, pues su importancia radica en la interpretación gráfica de esta.
    
+   \defi{} Sea $\mathcal{M}_{n}(\R)$ el conjunto de matrices cuadradas de tamaño $n$ con entradas en $\R$ y sea $A \in \mathcal{M}_{n}(\R)$. Un escalar $\lambda \in \R$ es un \textit{valor propio} de $A$ si existe un vector no nulo $v \in \Rn$ tal que, $Av = \lambda v$. Un vector $v \in \Rn$ tal que $Av = \lambda v$ es llamado un \textit{vector propio} de $A$ asociado al valor propio $\lambda$.
+   
+   \defi{} Sea $A \in \mathcal{M}_{n}(\R)$ decimos que $A$ es \textit{diagonalizable} si existe una matriz invertible $P \in \mathcal{M}_{n}(\R)$ y una matriz diagonal $D$ tal que $P^{-1}AP = D$.
