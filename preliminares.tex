@@ -2,6 +2,7 @@
     Para el análisis del módelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea que se lleva acabo en el presente trabajo, requerimos de ciertos conceptos fundamentales, los cuales se abarcan en la presente sección, esto, con el objetivo de lograr una mejor compresión de todo lo que se presenta posteriormente.
     
     \section*{Posible lista de conceptos a definir}
+    Conceptos relacionados a los mostrados en \cite{articulo}
     
     \begin{enumerate}
     	\item \textbf{Cálculo diferencial e integral}
@@ -55,8 +56,8 @@
     		\item Trayectorias \checkmark
     		\item Diagramas de fase \checkmark
     		\item Isoclinas \checkmark
-    		\item Puntos críticos y clasificación
-    		\item Trayectorias, órbitas y curvas solución
+    		\item Puntos críticos y clasificación \checkmark
+    		\item Órbitas
     		\item Regiones invariantes
     		\item Separatrices
     		\item Compactificación de Poincaré
@@ -131,7 +132,12 @@
     		\frac{dx_{n}}{dt}
     	\end{bmatrix}.
     \end{equation*}
-    Si la función $f$ en \eqref{eq:generalFormSisEDOs} no depende de $t$ entonces $f:\tilde{E} \longrightarrow \Rn$ con $\tilde{E}$ un subconjunto abierto de $\Rn$ y al sistema $\dot{x} = f(x)$ se le conoce como un \textit{sistema autónomo}.
+    Si la función $f$ en \eqref{eq:generalFormSisEDOs} no depende de $t$ entonces $f:\tilde{E} \longrightarrow \Rn$ con $\tilde{E}$ un subconjunto abierto de $\Rn$ y al sistema 
+    \begin{equation}
+    	\dot{x} = f(x),
+    	\label{eq: sisAut}
+    \end{equation} 
+    se le conoce como un \textit{sistema autónomo}.
     
     Un \textit{sistema lineal} es un sistema de la forma
     \begin{equation}
@@ -141,6 +147,7 @@
     donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogeneo}. (En algunas ocasiones todos los anteriores tipos de sistemas pueden ser analizados a través de un sistema de la forma:)
     \begin{equation}
     	\dot{x} = Ax
+    	\label{eq: sisLinAuto}
     \end{equation}
     
     \teo{(Teorema de existencia y unicidad).}
@@ -156,20 +163,8 @@
     \end{equation}
     tiene una única solución en el intervalo $[-a,a]$.
     
-    El sistema \eqref{eq: pvi} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema} como se ejemplifica en la \autoref{fig: vectorFieldExample}. En particular, las soluciones del PVI \eqref{eq: pvi} también se denominan \textit{curvas solución} o \textit{trayectorias}.
-   \begin{figure}
-       \centering
-       \includegraphics[width=0.5\textwidth]{Source/vectorFieldExample.pdf}
-       \caption{Ejemplo del campo vectorial asociado a $f(x,y)=(y,\sin{x})$.}
-       \label{fig: vectorFieldExample}
-   \end{figure}
-   El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: pvi} en el plano $\Rn$ (ver \autoref{fig: retratoFaseExample}).
-   \begin{figure}
-   	\centering
-   	\includegraphics[width=0.5\textwidth]{Source/retratoFaseExample.pdf}
-   	\caption{Ejemplo del retrato fase del sistema asociado a la función $f(x,y)=(y,\sin{x})$.}
-   	\label{fig: retratoFaseExample}
-   \end{figure}
+    El sistema \eqref{eq: pvi} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del PVI \eqref{eq: pvi} también se denominan \textit{curvas solución} o \textit{trayectorias}.
+   El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: pvi} en el plano $\Rn$.
    
    En un \textit{sistema autónomo bidimensional}
    \begin{equation}
@@ -184,8 +179,20 @@
     g(x, y) = cf(x, y),
     \label{eq: pendiente}
    \end{equation} 
-   y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, pues su importancia radica en la interpretación gráfica de esta.
+   y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, pues su importancia radica en la interpretación gráfica de esta. Se muestra un ejemplo de todo lo anterior en la \autoref{fig: example}.
+   \begin{figure}
+   	\centering
+   	\includegraphics[width=0.7\textwidth]{Source/Example.pdf}
+   	\caption{Ejemplo de campo vectorial, trayectorias, retrato fase e isoclinas ($c=0$) del sistema \eqref{eq: pvi} asociado a $f(x)=(x_{1},\sin{x_{2}})$.}
+   	\label{fig: example}
+   \end{figure}
    
    \defi{} Sea $\mathcal{M}_{n}(\R)$ el conjunto de matrices cuadradas de tamaño $n$ con entradas en $\R$ y sea $A \in \mathcal{M}_{n}(\R)$. Un escalar $\lambda \in \R$ es un \textit{valor propio} de $A$ si existe un vector no nulo $v \in \Rn$ tal que, $Av = \lambda v$. Un vector $v \in \Rn$ tal que $Av = \lambda v$ es llamado un \textit{vector propio} de $A$ asociado al valor propio $\lambda$.
    
    \defi{} Sea $A \in \mathcal{M}_{n}(\R)$ decimos que $A$ es \textit{diagonalizable} si existe una matriz invertible $P \in \mathcal{M}_{n}(\R)$ y una matriz diagonal $D$ tal que $P^{-1}AP = D$.
+   
+   \defi{} Un punto $x_{0} \in \Rn$ es llamado un \textit{punto de equilibrio} o \textit{punto crítico} de \eqref{eq: sisAut} si $f(x_{0})=0$. Un punto crítico $x_{0}$ es llamado un \textit{punto de equilibrio hiperbólico} de \eqref{eq: sisAut} si ningúno de los valores propios de la matriz jacobiana $Df(x_{0})$ tiene parte real cero. El sistema lineal \eqref{eq: sisLinAuto} con la matriz $A = Df(x_{0})$ es llamado la \textit{linealización} de \eqref{eq: sisAut} en el punto $x_{0}$.
+   
+   \defi{} Un punto $x_{0} \in \Rn$ es llamado un \textit{sumidero} si todos los valores propios de la matriz jacobiana $Df(x_{0})$ tienen parte real negativa; es llamado una \textit{fuente} si todos los valores propios de la matriz $Df(x_{0})$ tienen parte real positiva; y es llamado un \textit{punto silla} si es un punto de equilibrio hiperbólico y $Df(x_{0})$ tiene al menos un valor propio con parte real positiva y al menos un valor propio con parte real negativa.
+   
+   
