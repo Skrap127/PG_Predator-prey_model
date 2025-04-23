@@ -74,6 +74,7 @@
     		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.)
     		\item Diagramas de bifurcación
     		\item Estabilidad de sistemas no lineales
+    		\item Teorema de Hartman-Grobman 
     		\item Funciones de Lyapunov
     		\item Método del número de Lyapunov
     		\item Órbitas heteroclínicas y homoclínicas
@@ -182,7 +183,7 @@
    y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, pues su importancia radica en la interpretación gráfica de esta. Se muestra un ejemplo de todo lo anterior en la \autoref{fig: example}.
    \begin{figure}
    	\centering
-   	\includegraphics[width=0.7\textwidth]{Source/Example.pdf}
+   	\includegraphics[width=0.7\textwidth]{img/Example.pdf}
    	\caption{Ejemplo de campo vectorial, trayectorias, retrato fase e isoclinas ($c=0$) del sistema \eqref{eq: pvi} asociado a $f(x)=(x_{1},\sin{x_{2}})$.}
    	\label{fig: example}
    \end{figure}
@@ -194,5 +195,7 @@
    \defi{} Un punto $x_{0} \in \Rn$ es llamado un \textit{punto de equilibrio} o \textit{punto crítico} de \eqref{eq: sisAut} si $f(x_{0})=0$. Un punto crítico $x_{0}$ es llamado un \textit{punto de equilibrio hiperbólico} de \eqref{eq: sisAut} si ningúno de los valores propios de la matriz jacobiana $Df(x_{0})$ tiene parte real cero. El sistema lineal \eqref{eq: sisLinAuto} con la matriz $A = Df(x_{0})$ es llamado la \textit{linealización} de \eqref{eq: sisAut} en el punto $x_{0}$.
    
    \defi{} Un punto $x_{0} \in \Rn$ es llamado un \textit{sumidero} si todos los valores propios de la matriz jacobiana $Df(x_{0})$ tienen parte real negativa; es llamado una \textit{fuente} si todos los valores propios de la matriz $Df(x_{0})$ tienen parte real positiva; y es llamado un \textit{punto silla} si es un punto de equilibrio hiperbólico y $Df(x_{0})$ tiene al menos un valor propio con parte real positiva y al menos un valor propio con parte real negativa.
+   
+   
    
    
