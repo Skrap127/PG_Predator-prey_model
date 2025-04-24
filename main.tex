@@ -8,6 +8,7 @@
 \usepackage{tocloft}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{cleveref}
 
 \newcommand{\R}{{\mathbb{R}}}
 \newcommand{\N}{{\mathbb{N}}}
@@ -19,9 +20,11 @@
 
 \bibliographystyle{plain}
 
-\theoremstyle{definition}
+\theoremstyle{plain}
 \newtheorem{defi}{Definición}
-\newtheorem{teo}{Teorema}
+\newtheorem{teo}{Teorema}[section]
+%\crefformat{teo}{\textbf{#2teorema~#1#3}} %Primera letra minuscula
+\Crefformat{teo}{\textbf{#2Teorema~#1#3}}
 \newtheorem{lem}{Lema}
 \newtheorem{cor}{Corolario}
 \newtheorem{eje}{Ejemplo}
