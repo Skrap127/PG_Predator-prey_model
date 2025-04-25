@@ -47,8 +47,9 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 	
 	\item \textbf{Geometría diferencial}
 	\begin{itemize}
-		\item Difeomorfismos
 		\item Variedades diferenciables
+		\item Difeomorfismos
+		\item Homeomorfismos
 		\item Campos vectoriales sobre variedades
 	\end{itemize}
 	
@@ -76,7 +77,7 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.)
 		\item Diagramas de bifurcación
 		\item Estabilidad de sistemas no lineales
-		\item Teorema de Hartman-Grobman
+		\item Teorema de Hartman-Grobman \checkmark
 		\item Funciones de Lyapunov
 		\item Método del número de Lyapunov
 		\item Órbitas heteroclínicas y homoclínicas
@@ -152,23 +153,23 @@ Si la función $f$ en \eqref{eq:generalFormSisEDOs} no depende de $t$ entonces $
 	\label{eq: sisAut}
 \end{equation} 
 
-se le conoce como un \textit{sistema autónomo}.
+se le conoce como un \textit{sistema no lineal autónomo}.
 
-Un \textit{sistema lineal} es un sistema de la forma
+Un \textit{sistema lineal no autónomo} es un sistema de la forma
 
 \begin{equation}
 	\dot{x} = A(t)x + b(t),
 	\label{eq: sistemaLineal}
 \end{equation}
 
-donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogeneo}. (En algunas ocasiones todos los anteriores tipos de sistemas pueden ser analizados a través de un sistema de la forma:)
+donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogeneo}. En algunas ocasiones todos los anteriores tipos de sistemas pueden ser analizados a través de un sistema de la forma
 
 \begin{equation}
-	\dot{x} = Ax
+	\dot{x} = Ax.
 	\label{eq: sisLinAuto}
 \end{equation}
 
-\begin{teo}[Teorema de existencia y unicidad]\label{teo: Existencia y unicidad}
+\begin{teo}[Existencia y unicidad]\label{teo: Existencia y unicidad}
 	Sea $E$ un subconjunto abierto de $\Rn$ que contiene a $x_{0}$ y asuma que $f \in C^{1}(E)$. Entonces existe un $a>0$ tal que el problema de valor inicial 
 	\begin{equation}
 		\left\{
@@ -184,7 +185,7 @@ donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t)
 
 El sistema \eqref{eq: pvi} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del PVI \eqref{eq: pvi} también se denominan \textit{curvas solución} o \textit{trayectorias}.
 
-El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: pvi} en el plano $\Rn$. \Cref{teo: Existencia y unicidad}
+El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: pvi} en el plano $\Rn$.
 
 En un \textit{sistema autónomo bidimensional}
 \begin{equation}
@@ -233,3 +234,22 @@ y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas
 	\caption{Ejemplo de puntos de equilibrio en el origen de un sistema lineal bidimensional.}
 	\label{fig: EquilibriumPoints}
 \end{figure}
+
+\begin{teo}[Hartman-Grobman]\label{teo: hartman}
+	Sea $E$ un subconjunto abierto de $\Rn$ que contiene al origen, sea $f \in C^{1}(E)$, y sea $\phi_{t}$ el flujo del sistema no lineal \eqref{eq: sisAut}. Suponga que $0$ es un punto de equilibrio hiperbólico. Entonces existe un homeomorfismo $H$ de un conjunto abierto $U$ que contiene al origen hacia un conjunto abierto $V$ que contiene al origen, tal que para cada $x_{0} \in U$, existe un intervalo abierto $I_{0} \subset \R$ que contiene al cero, tal que para todo $x_{0} \in U$ y $t \in I_{0}$
+	
+	\begin{equation}
+		H \circ \phi_{t}(x_{0}) = e^{At}H(x_{0});
+	\end{equation}
+	
+	es decir, H mapea trayectorias de \eqref{eq: sisAut} que estan cerca del origen, hacia trayectorias de \eqref{eq: sisLinAuto} cerca al origen preservando la parametrización por tiempo.
+\end{teo}
+
+Si
+\begin{equation}
+	\dot{x} = f_{\mu}(x) \quad x \in \Rn, \quad \mu \in \R^{k}
+	\label{eq: sisParametro}
+\end{equation}
+es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, el teorema de la función implícita implica que estos puntos son descritos por funciones suaves de $\mu$ que estan lejos de aquellos puntos en los que la matriz jacobiana $Df_{\mu}(x)$ tiene un valor propio cero. El gráfico de cada una de estas funciones es una \textit{rama de equilibrio} de \eqref{eq: sisParametro}. En un punto de equilibrio $(x_{0}, \mu_{0})$ donde $Df_{\mu_{0}}(x_{0})$ tiene un valor propio cero, varias ramas de equilibrio pueden converger, y se dice que $(x_{0}, \mu_{0})$ es un \textit{punto de bifurcación}.
+
+Un \textit{diagrama de bifurcación} de un sistema de la forma \eqref{eq: sisParametro} es el conjunto de todas las ramas de equilibrio mostradas en el espacio $(x, \mu)$.
