@@ -7,15 +7,6 @@ Para el análisis del módelo presa-depredador tipo Leslie-Gower con respuesta f
 Conceptos relacionados a los mostrados en \cite{articulo}
 
 \begin{enumerate}
-	\item \textbf{Cálculo diferencial e integral}
-	\begin{itemize}
-		\item Límites y continuidad
-		\item Derivadas parciales
-		\item Gradiente y campos vectoriales
-		\item Matriz Jacobiana
-		\item Series de Taylor (expansión local)
-	\end{itemize}
-	
 	\item \textbf{Álgebra lineal}
 	\begin{itemize}
 		\item Espacios vectoriales
@@ -73,7 +64,7 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 	\begin{itemize}
 		\item Sistemas autónomos y no autónomos \checkmark
 		\item Sistemas equivalentes topológicamente
-		\item Ciclos límite
+		\item Ciclos límite \checkmark
 		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.)
 		\item Diagramas de bifurcación \checkmark
 		\item Estabilidad de sistemas no lineales
@@ -183,7 +174,9 @@ donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t)
 	tiene una única solución en el intervalo $[-a,a]$.
 \end{teo}
 
-El sistema \eqref{eq: pvi} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del PVI \eqref{eq: pvi} también se denominan \textit{curvas solución} o \textit{trayectorias}. En algunas ocasiones estas trayectorias pueden ser cerradas y aisladas, es decir, no hay más trayectorias cerradas vecinas, dichas curvas solución son denominadas un \textit{ciclo límite}; si todas las trayectorias vecinas se acercan al ciclo límite decimos que el ciclo límite es \textit{estable} o \textit{atractor}, en otros casos el ciclo límite es \textit{inestable} o en casos excepcionales \textit{medio-estable}.
+El sistema \eqref{eq: pvi} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del PVI \eqref{eq: pvi} también se denominan \textit{curvas solución} o \textit{trayectorias}.
+
+
 
 El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: pvi} en el plano $\Rn$.
 
@@ -210,6 +203,15 @@ y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas
 	\includegraphics[width=0.7\textwidth]{img/Example.pdf}
 	\caption{Ejemplo de campo vectorial, trayectorias, retrato fase e isoclinas ($c=0$) del sistema \eqref{eq: pvi} asociado a $f(x)=(x_{1},\sin{x_{2}})$.}
 	\label{fig: example}
+\end{figure}
+
+En algunas ocasiones las trayectorias o curvas solución de un sistema pueden ser cerradas y aisladas, es decir, no hay más trayectorias cerradas vecinas, dichas curvas solución son denominadas un \textit{ciclo límite}; si todas las trayectorias vecinas se acercan al ciclo límite decimos que el ciclo límite es \textit{estable} o \textit{atractor}, en otros casos el ciclo límite es \textit{inestable} o en casos excepcionales \textit{medio-estable}, donde las trayectorias vecinas se alejan y se acercan simultáneamente dentro y fuera del ciclo límite. En la \autoref{fig: CicloLimiteEstableInestable} se muestra un ejemplo de estos dos primeros casos.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/CicloLimEstInest.pdf}
+	\caption{Ejemplo de ciclos limites del sistema \eqref{eq: pvi} asociado a $f(x) = (-x_{2} + x_{1}(r^{4} -3r^{2} + 1), x_{1} + x_{2}(r^{4} -3r^{2} + 1))$ con $r^{2} = x_{1}^{2} + x_{2}^{2}$.}
+	\label{fig: CicloLimiteEstableInestable}
 \end{figure}
 
 \begin{defi}
