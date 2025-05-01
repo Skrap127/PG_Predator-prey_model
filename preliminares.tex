@@ -50,7 +50,7 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 		\item Trayectorias \checkmark
 		\item Diagramas de fase \checkmark
 		\item Isoclinas \checkmark
-		\item Puntos críticos y clasificación \checkmark
+		\item Puntos críticos y clasificación \checkmark (falta ptos. centro)
 		\item Órbitas
 		\item Regiones invariantes
 		\item Separatrices
@@ -63,10 +63,10 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 	\item \textbf{Sistemas dinámicos}
 	\begin{itemize}
 		\item Sistemas autónomos y no autónomos \checkmark
-		\item Sistemas equivalentes topológicamente
+		\item Sistemas equivalentes topológicamente \checkmark
 		\item Ciclos límite \checkmark
 		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.)
-		\item Diagramas de bifurcación \checkmark
+		\item Diagramas de bifurcación
 		\item Estabilidad de sistemas no lineales
 		\item Teorema de Hartman-Grobman \checkmark
 		\item Funciones de Lyapunov
@@ -205,7 +205,7 @@ y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas
 	\label{fig: example}
 \end{figure}
 
-En algunas ocasiones las trayectorias o curvas solución de un sistema pueden ser cerradas y aisladas, es decir, no hay más trayectorias cerradas vecinas, dichas curvas solución son denominadas un \textit{ciclo límite}; si todas las trayectorias vecinas se acercan al ciclo límite decimos que el ciclo límite es \textit{estable} o \textit{atractor}, en otros casos el ciclo límite es \textit{inestable} o en casos excepcionales \textit{medio-estable}, donde las trayectorias vecinas se alejan y se acercan simultáneamente dentro y fuera del ciclo límite. En la \autoref{fig: CicloLimiteEstableInestable} se muestra un ejemplo de estos dos primeros casos.
+En algunas ocasiones las trayectorias o curvas solución de un sistema pueden ser cerradas y aisladas, es decir, no hay más trayectorias cerradas en una cierta región, dichas curvas solución son denominadas un \textit{ciclo límite}; si todas las trayectorias vecinas se acercan al ciclo límite decimos que el ciclo límite es \textit{estable} o \textit{atractor}, en otros casos el ciclo límite es \textit{inestable} o en casos excepcionales \textit{medio-estable}, donde las trayectorias vecinas se alejan y se acercan simultáneamente dentro y fuera del ciclo límite. En la \autoref{fig: CicloLimiteEstableInestable} se muestra un ejemplo de estos dos primeros casos.
 
 \begin{figure}
 	\centering
@@ -247,11 +247,11 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 	es decir, H mapea trayectorias de \eqref{eq: sisAut} que estan cerca del origen, hacia trayectorias de \eqref{eq: sisLinAuto} cerca al origen preservando la parametrización por tiempo.
 \end{teo}
 
+Este importante teorema nos indica que el retrato fase cerca a un punto crítico hiperbólico es topológicamente equivalente al retrato fase de la linealización en dicho punto de equilibrio. Aquí la \textit{equivalencia topológica} es dada principalmente por la existencia de un \textit{homeomorfismo} (una deformación continua con inversa continua) que mapea trayectorias de un retrato fase local hacia el otro, preservando el sentido del tiempo. Intuitivamente, dos retratos fases son topológicamente equivalentes si una es una versión distorsionada de la otra.
+
 Si
 \begin{equation}
 	\dot{x} = f_{\mu}(x) \quad x \in \Rn, \quad \mu \in \R^{k}
 	\label{eq: sisParametro}
 \end{equation}
-es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, el teorema de la función implícita implica que estos puntos son descritos por funciones suaves de $\mu$ que estan lejos de aquellos puntos en los que la matriz jacobiana $Df_{\mu}(x)$ tiene un valor propio cero. El gráfico de cada una de estas funciones es una \textit{rama de equilibrio} de \eqref{eq: sisParametro}. En un punto de equilibrio $(x_{0}, \mu_{0})$ donde $Df_{\mu_{0}}(x_{0})$ tiene un valor propio cero, varias ramas de equilibrio pueden converger, y se dice que $(x_{0}, \mu_{0})$ es un \textit{punto de bifurcación}.
-
-Un \textit{diagrama de bifurcación} de un sistema de la forma \eqref{eq: sisParametro} es el conjunto de todas las ramas de equilibrio mostradas en el espacio $(x, \mu)$.
+es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, la estructura cualitativa del flujo puede cambiar, en particular, puntos críticos pueden ser creados o destruidos, o también su estabilidad puede cambiar, de igual manera trayectorias cerradas pueden aparecer o desaparecer. Estos cambios cualitativos en las dinámicas del sistema son llamadas \textit{bifurcaciones} y los valores paramétricos para los cuales este cambio ocurre son llamados \textit{valores de bifurcación}.
