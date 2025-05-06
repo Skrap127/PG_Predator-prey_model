@@ -23,18 +23,6 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 		\item Métodos numéricos básicos (Euler, Runge-Kutta)
 	\end{itemize}
 	
-	\item \textbf{Topología y análisis}
-	\begin{itemize}
-		\item Espacios métricos
-		\item Continuidad y compacidad
-		\item Región compacta
-		\item Conjuntos abiertos y cerrados
-		\item Conjuntos invariantes
-		\item Conjuntos límite
-		\item Variedades
-		\item Condición de transversabilidad
-		\item Reparametrización de sistemas
-	\end{itemize}
 	
 	\item \textbf{Geometría diferencial}
 	\begin{itemize}
@@ -51,8 +39,7 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 		\item Diagramas de fase \checkmark
 		\item Isoclinas \checkmark
 		\item Puntos críticos y clasificación \checkmark (falta ptos. centro)
-		\item Órbitas
-		\item Regiones invariantes
+		\item Conjuntos invariantes \checkmark
 		\item Separatrices
 		\item Compactificación de Poincaré
 		\item Variedades estables e inestables
@@ -115,9 +102,9 @@ Al máximo orden $k$ de la derivada $x^{(k)}$ en \eqref{eq: generalFormEDO} se l
 
 Una \textit{solución} de la EDO \eqref{eq: generalFormEDO}, es una función $\phi \in C^{k}(I)$ con $I \subseteq J$ un intervalo real, tal que
 
-\begin{equation}
+\begin{equation*}
 	F(t, \phi(t), \phi^{(1)}(t), \cdots, \phi^{(k)}(t)) = 0, \quad \text{para todo } t \in I.
-\end{equation}
+\end{equation*}
 
 Un \textit{sistema no lineal} de EDOs \textit{no autónomo} de primer orden es un sistema de la forma
 
@@ -148,10 +135,10 @@ se le conoce como un \textit{sistema no lineal autónomo}.
 
 Un \textit{sistema lineal no autónomo} es un sistema de la forma
 
-\begin{equation}
+\begin{equation*}
 	\dot{x} = A(t)x + b(t),
 	\label{eq: sistemaLineal}
-\end{equation}
+\end{equation*}
 
 donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogeneo}. En algunas ocasiones todos los anteriores tipos de sistemas pueden ser analizados a través de un sistema de la forma
 
@@ -174,9 +161,13 @@ donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t)
 	tiene una única solución en el intervalo $[-a,a]$.
 \end{teo}
 
-El sistema \eqref{eq: pvi} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del PVI \eqref{eq: pvi} también se denominan \textit{curvas solución} o \textit{trayectorias}.
+Sea $J=(\alpha, \beta)$ la unión de todos los intervalos abiertos $I$ tales que \eqref{eq: pvi} tiene una solución en $I$, llamamos a J el \textit{intervalo maximal de existencia} del PVI \eqref{eq: pvi}.
 
+\begin{defi}
+	Sean $E$ un subconjunto abierto de $\Rn$, $f \in C^{1}(E)$, $x_{0} \in E$ y $\phi_{t}(x_{0})$ la solución del PVI \eqref{eq: pvi} en el intervalo maximal de existencia $I(x_{0})$. Entonces para $t\in I(x_{0})$, el conjunto de funciones $\phi_{t}$ defindas por $\phi_{t}(x_{0}) = \phi(t, x_{0})$ es llamado el flujo de la ecuación diferencial \eqref{eq: sisAut} o también el flujo del campo vectorial $f(x)$.
+\end{defi}
 
+El sistema \eqref{eq: sisAut} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del sistema \eqref{eq: sisAut} también se denominan \textit{curvas solución}, \textit{trayectorias} u \textit{órbitas}. Esto, en el sentido cualitativo.
 
 El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: pvi} en el plano $\Rn$.
 
@@ -191,10 +182,10 @@ En un \textit{sistema autónomo bidimensional}
 
 podemos encontrar una aproximación global de curvas solución, a través del método de las isoclinas. Del sistema \eqref{eq: sisAutBid} obtenemos el sistema de primer orden $dy/dx = g(x, y)/f(x, y)$. Ignorando el hecho de que esto podría no estar bien definido en $f(x, y) = 0$, el método consiste en encontrar curvas $y=h(x)$ o $x=h(y)$ en las que la pendiente del campo vectorial $dy/dx = c$ es constante. Dichas curvas se obtienen solucionando la ecuación
 
-\begin{equation}
+\begin{equation*}
 	g(x, y) = cf(x, y),
 	\label{eq: pendiente}
-\end{equation}
+\end{equation*}
 
 y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, pues su importancia radica en la interpretación gráfica de esta. Se muestra un ejemplo de todo lo anterior en la \autoref{fig: example}.
 
@@ -237,12 +228,16 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 	\label{fig: EquilibriumPoints}
 \end{figure}
 
+\begin{defi}
+	Sean $E$ un subconjunto de $\Rn$, $f \in C^{1}(E)$ y $\phi_{t}$ el flujo del sistema \eqref{eq: sisAut} definida para todo $t \in \R$. Entonces un conjunto $S \subset E$ es llamado invariante con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t\in \R$, y $S$ es llamado invariante positivo (o negativo) con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t \geq 0$ (o $t\leq0$).
+\end{defi}
+
 \begin{teo}[Hartman-Grobman]\label{teo: hartman}
 	Sea $E$ un subconjunto abierto de $\Rn$ que contiene al origen, sea $f \in C^{1}(E)$, y sea $\phi_{t}$ el flujo del sistema no lineal \eqref{eq: sisAut}. Suponga que $0$ es un punto de equilibrio hiperbólico. Entonces existe un homeomorfismo $H$ de un conjunto abierto $U$ que contiene al origen hacia un conjunto abierto $V$ que contiene al origen, tal que para cada $x_{0} \in U$, existe un intervalo abierto $I_{0} \subset \R$ que contiene al cero, tal que para todo $x_{0} \in U$ y $t \in I_{0}$
 	
-	\begin{equation}
+	\begin{equation*}
 		H \circ \phi_{t}(x_{0}) = e^{At}H(x_{0});
-	\end{equation}
+	\end{equation*}
 	
 	es decir, H mapea trayectorias de \eqref{eq: sisAut} que estan cerca del origen, hacia trayectorias de \eqref{eq: sisLinAuto} cerca al origen preservando la parametrización por tiempo.
 \end{teo}
