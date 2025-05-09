@@ -10,7 +10,7 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 	\item \textbf{Álgebra lineal}
 	\begin{itemize}
 		\item Espacios vectoriales
-		\item Autovalores y autovectores \checkmark
+		\item Autovalores y autovectores \checkmark \cite[p. 182]{hoffman1961linear}
 		\item Diagonalización de matrices \checkmark
 		\item Sistemas lineales y no lineales de ecuaciones \checkmark
 		\item Cambios de base y transformaciones lineales
@@ -18,8 +18,8 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 	
 	\item \textbf{Ecuaciones diferenciales ordinarias (EDOs)}
 	\begin{itemize}
-		\item Ecuaciones diferenciales ordinarias (EDO) \checkmark
-		\item Teorema de existencia y unicidad \checkmark
+		\item Ecuaciones diferenciales ordinarias (EDO) \checkmark  \cite[p. 6]{teschl2012}
+		\item Teorema de existencia y unicidad \checkmark \cite[p. 74]{perko2001}
 		\item Métodos numéricos básicos (Euler, Runge-Kutta)
 	\end{itemize}
 	
@@ -34,15 +34,15 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 	
 	\item \textbf{Teoría cualitativa de EDOs}
 	\begin{itemize}
-		\item Campo vectorial asociado a un sistema \checkmark
-		\item Trayectorias \checkmark
+		\item Campo vectorial asociado a un sistema \checkmark \cite[p. 128]{teschl2012}
+		\item Trayectorias \checkmark \cite[p. 128]{teschl2012}
 		\item Diagramas de fase \checkmark
-		\item Isoclinas \checkmark
-		\item Puntos críticos y clasificación \checkmark (falta ptos. centro)
-		\item Conjuntos invariantes \checkmark
+		\item Isoclinas \checkmark  \cite[p. 53-54]{guckenheimer1983}
+		\item Puntos críticos y clasificación \checkmark \cite[p. 102]{perko2001}
+		\item Conjuntos invariantes \checkmark \cite[p. 99]{perko2001}
 		\item Separatrices
 		\item Compactificación de Poincaré
-		\item Variedades estables e inestables
+		\item Variedades estables e inestables \cite[p. 13]{guckenheimer1983}
 		\item Reescalamiento y reparametrización temporal
 		\item Desingularización (incluyendo blowing-up)
 	\end{itemize}
@@ -50,16 +50,17 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 	\item \textbf{Sistemas dinámicos}
 	\begin{itemize}
 		\item Sistemas autónomos y no autónomos \checkmark
-		\item Sistemas equivalentes topológicamente \checkmark
-		\item Ciclos límite \checkmark
-		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.)
+		\item Intervalo maximal de existencia \checkmark \cite[p. 89-90]{perko2001}
+		\item El flujo de un sistema de EDOs \checkmark \cite[p. 96]{perko2001}
+		\item Sistemas equivalentes topológicamente \checkmark \cite[p. 155]{strogatz2014}
+		\item Ciclos límite \checkmark \cite[p. 196]{strogatz2014}
+		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.) \cite[p. 118]{guckenheimer1983} \cite[p. 44, 241]{strogatz2014}
 		\item Diagramas de bifurcación
 		\item Estabilidad de sistemas no lineales
-		\item Teorema de Hartman-Grobman \checkmark
-		\item Funciones de Lyapunov
+		\item Teorema de Hartman-Grobman \checkmark \cite[p. 120-121]{perko2001}
 		\item Método del número de Lyapunov
-		\item Órbitas heteroclínicas y homoclínicas
-		\item Teorema de Poincaré-Bendixson
+		\item Órbitas heteroclínicas y homoclínicas \checkmark \cite[p. 150]{teschl2012}
+		\item Teorema de Poincaré-Bendixson \checkmark \cite[p. 203]{strogatz2014}
 	\end{itemize}
 	
 	\item \textbf{Biología matemática / Modelos ecológicos}
@@ -231,6 +232,30 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 \begin{defi}
 	Sean $E$ un subconjunto de $\Rn$, $f \in C^{1}(E)$ y $\phi_{t}$ el flujo del sistema \eqref{eq: sisAut} definida para todo $t \in \R$. Entonces un conjunto $S \subset E$ es llamado invariante con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t\in \R$, y $S$ es llamado invariante positivo (o negativo) con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t \geq 0$ (o $t\leq0$).
 \end{defi}
+
+\begin{teo}[Poincaré-Bendixson]\label{teo: poincareB}
+	Suponga que:
+	\begin{enumerate}
+		\item $R$ es un subconjunto cerrado y acotado del plano;
+		\item $\dot{x} = f(x)$ es un campo vectorial continuamente diferenciable en un conjunto abierto contenido en $R$;
+		\item $R$ no contiene puntos de equilibrio; y
+		\item Existe una trayectoria $C$ ``confinada'' en $R$, esto en el sentido de que inicia en $R$ y se mantiene en $R$ para todo tiempo futuro. 
+	\end{enumerate}
+	Entonces $C$ es una órbita cerrada, o una espiral que se acerca hacia una órbita cerrada cuando $t \rightarrow \infty$. En todo caso, R contiene una órbita cerrada.
+\end{teo}
+
+\begin{defi}
+	Sea $x_{0}$ un punto crítico del sistema \eqref{eq: sisAut} definimos las variedades locales estable e inestable de $x_{0}$, $W^{s}(x_{0})$, $W^{u}(x_{0})$ como sigue
+	\begin{equation*}
+		\begin{aligned}
+			W^{s}(x_{0}) &= \{ x\in U | \phi_{t}(x) \rightarrow x_{0} \text{ cuando } t\rightarrow \infty, \text{y } \phi_{t}(x)\in U \text{ para todo } t\geq 0 \}, \\
+			W^{u}(x_{0}) &= \{ x\in U | \phi_{t}(x) \rightarrow x_{0} \text{ cuando } t\rightarrow -\infty, \text{y } \phi_{t}(x)\in U \text{ para todo } t \leq 0 \},
+		\end{aligned}
+	\end{equation*}
+	donde $U \subseteq \Rn$ es una vecindad del punto de equilibrio $x_{0}$. Si $U = \Rn$ los conjuntos $W^{s}(x_{0})$ y $W^{u}(x_{0})$ son llamados las variedades globales estable e inestable, respectivamente, del punto crítico $x_{0}$. 
+\end{defi}
+
+En ocasiones puede ocurrir que ciertas orbitas inician en la variedad inestable de un punto de equilibrio $x_{0}$ y finalizan en la variedad estable de otro punto crítico $x_{1}$. Tales trayectorias son llamadas \textit{órbitas heteroclínicas} si $x_{0} \neq x_{1}$ y \textit{órbitas homoclínicas} si $x_{0} = x_{1}$.    
 
 \begin{teo}[Hartman-Grobman]\label{teo: hartman}
 	Sea $E$ un subconjunto abierto de $\Rn$ que contiene al origen, sea $f \in C^{1}(E)$, y sea $\phi_{t}$ el flujo del sistema no lineal \eqref{eq: sisAut}. Suponga que $0$ es un punto de equilibrio hiperbólico. Entonces existe un homeomorfismo $H$ de un conjunto abierto $U$ que contiene al origen hacia un conjunto abierto $V$ que contiene al origen, tal que para cada $x_{0} \in U$, existe un intervalo abierto $I_{0} \subset \R$ que contiene al cero, tal que para todo $x_{0} \in U$ y $t \in I_{0}$
