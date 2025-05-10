@@ -225,7 +225,7 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{img/EquilibriumPoints.pdf}
-	\caption{Ejemplo de puntos de equilibrio en el origen de un sistema lineal bidimensional.}
+	\caption{Ejemplo de puntos de equilibrio en el origen de sistemas lineales bidimensionales.}
 	\label{fig: EquilibriumPoints}
 \end{figure}
 
@@ -255,7 +255,24 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 	donde $U \subseteq \Rn$ es una vecindad del punto de equilibrio $x_{0}$. Si $U = \Rn$ los conjuntos $W^{s}(x_{0})$ y $W^{u}(x_{0})$ son llamados las variedades globales estable e inestable, respectivamente, del punto crítico $x_{0}$. 
 \end{defi}
 
-En ocasiones puede ocurrir que ciertas orbitas inician en la variedad inestable de un punto de equilibrio $x_{0}$ y finalizan en la variedad estable de otro punto crítico $x_{1}$. Tales trayectorias son llamadas \textit{órbitas heteroclínicas} si $x_{0} \neq x_{1}$ y \textit{órbitas homoclínicas} si $x_{0} = x_{1}$.    
+En ocasiones puede ocurrir que ciertas orbitas inician en la variedad inestable de un punto de equilibrio $x_{0}$ y finalizan en la variedad estable de otro punto crítico $x_{1}$. Tales trayectorias son llamadas \textit{órbitas heteroclínicas} si $x_{0} \neq x_{1}$ y \textit{órbitas homoclínicas} si $x_{0} = x_{1}$.
+
+\begin{figure} %[htbp] Quita la ubicación automática
+	\centering
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{img/Heteroclinic.pdf}
+		\caption{Retrato fase del sistema \eqref{eq: sisAut} asociado a $f(x) = (y-y^3, -x-y^2)$.}
+		\label{fig: heteroclinic}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{img/Homoclinic.pdf}
+		\caption{Retrato fase del sistema \eqref{eq: sisAut} asociado a $f(x) = (y, x-x^2)$.}
+		\label{fig: homoclinic}
+	\end{subfigure}
+	\caption{Ejemplos de variedad estable e inestable, órbitas heroclínicas y órbita homoclínica.}
+	\label{fig:comparacion}
+\end{figure}
 
 \begin{teo}[Hartman-Grobman]\label{teo: hartman}
 	Sea $E$ un subconjunto abierto de $\Rn$ que contiene al origen, sea $f \in C^{1}(E)$, y sea $\phi_{t}$ el flujo del sistema no lineal \eqref{eq: sisAut}. Suponga que $0$ es un punto de equilibrio hiperbólico. Entonces existe un homeomorfismo $H$ de un conjunto abierto $U$ que contiene al origen hacia un conjunto abierto $V$ que contiene al origen, tal que para cada $x_{0} \in U$, existe un intervalo abierto $I_{0} \subset \R$ que contiene al cero, tal que para todo $x_{0} \in U$ y $t \in I_{0}$
