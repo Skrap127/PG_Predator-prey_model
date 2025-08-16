@@ -65,8 +65,8 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 	
 	\item \textbf{Biología matemática / Modelos ecológicos}
 	\begin{itemize}
-		\item Ecuaciones logísticas y crecimiento poblacional
-		\item Modelos presa-depredador clásicos (Lotka-Volterra)
+		\item Ecuaciones logísticas y crecimiento poblacional \checkmark
+		\item Modelos presa-depredador clásicos (Lotka-Volterra) \checkmark \cite[p. 79]{murray2002}
 		\item Respuestas funcionales de Holling (tipos I, II, III)
 		\item Modelo Leslie-Gower
 		\item Modelo May–Holling–Turner
@@ -292,3 +292,41 @@ Si
 	\label{eq: sisParametro}
 \end{equation}
 es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, la estructura cualitativa del flujo puede cambiar, en particular, puntos críticos pueden ser creados o destruidos, o también su estabilidad puede cambiar, de igual manera trayectorias cerradas pueden aparecer o desaparecer. Estos cambios cualitativos en las dinámicas del sistema son llamadas \textit{bifurcaciones} y los valores paramétricos para los cuales este cambio ocurre son llamados \textit{valores de bifurcación}.
+
+\section{Modelos ecológicos}
+ 
+Dentro de la biología matemática, los modelos ecológicos desempeñan un papel fundamental para predecir el comportamiento de diversas poblaciones, ya sean de bacterias, plantas, animales, etc. Existen múltiples tipos de modelos ecológicos, los cuales dependen de diversos factores, como el \textit{crecimiento poblacional}. Este crecimiento puede manifestarse de diferentes formas: una población $P(t)$, donde $t$ representa el tiempo, puede experimentar distintos tipos de crecimiento, siendo los más comunes el crecimiento exponencial y el crecimiento logístico.
+
+Los modelos basados en crecimiento exponencial resultan poco realistas a largo plazo, ya que no consideran limitaciones ambientales ni de recursos. Por ello, los modelos logísticos, en los que $P(t)$ presenta un crecimiento limitado y controlado por la capacidad del entorno, resultan más relevantes para el estudio de poblaciones reales. A estos modelos se les denomina \textit{ecuaciones logísticas}.
+
+Como ejemplos representativos de modelos ecológicos, se pueden mencionar los modelos de Lotka-Volterra, May-Holling-Turner y Leslie-Gower, los cuales permiten analizar interacciones entre especies y dinámicas complejas dentro de los ecosistemas.
+
+\subsection*{Modelo Lotka-Volterra}
+
+Volterra (1926) fue el primero en proponer un modelo simple para la depredación de una especie por otra para explicar los niveles oscilatorios de ciertas capturas de peces en el Adriático. Si $N(t)$ es la población de presas y $P(t)$ la del depredador en el tiempo $t$, entonces el modelo de Volterra es
+
+\begin{equation}
+	\left\{
+	\begin{aligned}
+		\dfrac{dN}{dt} = N(a-bP) \\
+		\frac{dP}{dt} = P(cN-d)
+	\end{aligned},
+	\right.
+	\label{eq: lotka-volterra}
+\end{equation}
+donde $a,b,c$ y $d$ son constantes positivas que representan las interacciones entre la presa y el depredador.
+\begin{enumerate}
+	\item La presa, en ausencia de depredación, crece ilimitadamente de forma maltusiana; este es el término $aN$.
+	\item El efecto de la depredación es reducir la tasa de crecimiento per cápita de la presa en un término proporcional a las poblaciones de presas y depredadores; este es el término $-bNP$.
+	\item La contribución de la presa a la tasa de crecimiento de los depredadores es $cNP$, es decir, es proporcional a las presas disponibles, así como al tamaño de la población de depredadores.
+	\item En ausencia de presas para su sustento, la tasa de mortalidad del depredador resulta en una disminución exponencial; es decir, el término $-dP$.
+\end{enumerate}
+El modelo \eqref{eq: lotka-volterra} se conoce como el \textit{modelo de Lotka-Volterra}, ya que Lotka (1920) también derivó las mismas ecuaciones a partir de una reacción química hipotética que, según él, podría exhibir un comportamiento periódico en las concentraciones químicas. Aunque este modelo cuenta con ciertas desventajas como el hecho de que no considera la limitacón de recursos, es un punto de partida para modelos ecológicos más realistas.
+
+\subsection*{Modelo May-Holling-Turner}
+
+
+
+\subsection*{Modelo Leslie-Gower}
+
+
