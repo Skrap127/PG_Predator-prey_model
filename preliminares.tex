@@ -299,7 +299,7 @@ Dentro de la biología matemática, los modelos ecológicos desempeñan un papel
 
 Los modelos basados en crecimiento exponencial resultan poco realistas a largo plazo, ya que no consideran limitaciones ambientales ni de recursos. Por ello, los modelos logísticos, en los que $P(t)$ presenta un crecimiento limitado y controlado por la capacidad del entorno, resultan más relevantes para el estudio de poblaciones reales. A estos modelos se les denomina \textit{ecuaciones logísticas}.
 
-Como ejemplos representativos de modelos ecológicos, se pueden mencionar los modelos de Lotka-Volterra, May-Holling-Turner y Leslie-Gower, los cuales permiten analizar interacciones entre especies y dinámicas complejas dentro de los ecosistemas.
+Como ejemplos representativos de modelos ecológicos, en particular, modelos presa-depredador, se pueden mencionar los modelos de Lotka-Volterra, May-Holling-Turner y Leslie-Gower, los cuales permiten analizar interacciones entre especies y dinámicas complejas dentro de los ecosistemas.
 
 \subsection*{Modelo Lotka-Volterra}
 
@@ -314,7 +314,7 @@ Volterra (1926) fue el primero en proponer un modelo simple para la depredación
 	\right.
 	\label{eq: lotka-volterra}
 \end{equation}
-donde $a,b,c$ y $d$ son constantes positivas que representan las interacciones entre la presa y el depredador.
+donde $a,b,c$ y $d$ son constantes positivas que representan las interacciones entre la presa y el depredador, aquí: $a$ es la tasa de crecimiento de las presas, $b$ es la tasa de captura de los depredadores, $c$ es la tasa de conversión de presas capturadas en nuevos depredadores y $d$ es la tasa de mortalidad de los depredadores, dicho esto, los supuestos en este modelo son:
 \begin{enumerate}
 	\item La presa, en ausencia de depredación, crece ilimitadamente de forma maltusiana; este es el término $aN$.
 	\item El efecto de la depredación es reducir la tasa de crecimiento per cápita de la presa en un término proporcional a las poblaciones de presas y depredadores; este es el término $-bNP$.
@@ -323,10 +323,25 @@ donde $a,b,c$ y $d$ son constantes positivas que representan las interacciones e
 \end{enumerate}
 El modelo \eqref{eq: lotka-volterra} se conoce como el \textit{modelo de Lotka-Volterra}, ya que Lotka (1920) también derivó las mismas ecuaciones a partir de una reacción química hipotética que, según él, podría exhibir un comportamiento periódico en las concentraciones químicas. Aunque este modelo cuenta con ciertas desventajas como el hecho de que no considera la limitacón de recursos, es un punto de partida para modelos ecológicos más realistas.
 
-\subsection*{Modelo May-Holling-Turner}
-
-
-
 \subsection*{Modelo Leslie-Gower}
 
-
+El modelo presa-depredador de Leslie-Gower es una variante del modelo de Lotka-Volterra. La principal diferencia radica en la incorporación de un término adicional que convierte el crecimiento exponencial de las presas, presente en el sistema de Lotka-Volterra, en un crecimiento logístico. En este caso, se considera la capacidad de carga del entorno, lo que limita el crecimiento de la población de presas. El modelo resultante es el siguiente:
+\begin{equation}
+	\left\{
+	\begin{aligned}
+		\dfrac{dN}{dt} &= aN(1-\frac{N}{K})-bNP) \\
+		\frac{dP}{dt} &= P(cN-d)
+	\end{aligned},
+	\right.
+	\label{eq: leslie}
+\end{equation}
+Otra variante que se encuentra en diversas fuentes es aquella en la que se incorpora la capacidad de carga del medio ambiente para los depredadores, denotada como $K_{y}$. Esta capacidad depende de la cantidad de presas disponibles, es decir, $K_{y} = nx$. Como resultado, el sistema se transforma de la siguiente manera:
+\begin{equation}
+	\left\{
+	\begin{aligned}
+		\dfrac{dN}{dt} &= aN(1-\frac{N}{K})-bNP) \\
+		\frac{dP}{dt} &= cPN-dP
+	\end{aligned},
+	\right.
+	\label{eq: leslie-gower}
+\end{equation}
