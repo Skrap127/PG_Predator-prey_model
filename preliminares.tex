@@ -107,6 +107,15 @@ Una \textit{solución} de la EDO \eqref{eq: generalFormEDO}, es una función $\p
 	F(t, \phi(t), \phi^{(1)}(t), \cdots, \phi^{(k)}(t)) = 0, \quad \text{para todo } t \in I.
 \end{equation*}
 
+Desafortudamente no hay mucho que decir de las ecuaciones diferenciales generales de la forma \ref{eq: generalFormEDO}. Por lo tanto, asumiremos que se puede resolver $F$ para la derivada más alta, lo que resulta en una ecuación diferencial de la forma
+
+
+\begin{equation}
+	x^{(k)} = f(t, x, x^{(1)}, \cdots, x^{(k-1)}).
+	\label{eq:EDO}
+\end{equation}
+Por el teorema de la función implícita, esto se puede hacer al menos localmente cerca de algún punto $(t,y)\in U$ si la derivada parcial con respecto a la derivada más alta no se anula en ese punto $\frac{\partial F}{\partial y_{k}} (t,y) \neq 0$. Este tipo de ecuaciones diferenciales son las que consideraremos de ahora en adelante.
+
 Un \textit{sistema no lineal} de EDOs \textit{no autónomo} de primer orden es un sistema de la forma
 
 \begin{equation}
@@ -219,7 +228,7 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 \end{defi}
 
 \begin{defi}
-	Un punto $x_{0} \in \Rn$ es llamado un sumidero si todos los valores propios de la matriz jacobiana $Df(x_{0})$ tienen parte real negativa; es llamado una fuente si todos los valores propios de la matriz $Df(x_{0})$ tienen parte real positiva; y es llamado un punto silla si es un punto de equilibrio hiperbólico y $Df(x_{0})$ tiene al menos un valor propio con parte real positiva y al menos un valor propio con parte real negativa.
+	Un punto $x_{0} \in \Rn$ es llamado un sumidero de \eqref{eq: sisAut} si todos los valores propios de la matriz jacobiana $Df(x_{0})$ tienen parte real negativa; es llamado una fuente de \eqref{eq: sisAut} si todos los valores propios de la matriz $Df(x_{0})$ tienen parte real positiva; y es llamado un punto silla de \eqref{eq: sisAut} si es un punto de equilibrio hiperbólico y $Df(x_{0})$ tiene al menos un valor propio con parte real positiva y al menos un valor propio con parte real negativa.
 \end{defi}
 
 \begin{figure}
@@ -284,14 +293,64 @@ En ocasiones puede ocurrir que ciertas orbitas inician en la variedad inestable 
 	es decir, H mapea trayectorias de \eqref{eq: sisAut} que estan cerca del origen, hacia trayectorias de \eqref{eq: sisLinAuto} cerca al origen preservando la parametrización por tiempo.
 \end{teo}
 
-Este importante teorema nos indica que el retrato fase cerca a un punto crítico hiperbólico es topológicamente equivalente al retrato fase de la linealización en dicho punto de equilibrio. Aquí la \textit{equivalencia topológica} es dada principalmente por la existencia de un \textit{homeomorfismo} (una deformación continua con inversa continua) que mapea trayectorias de un retrato fase local hacia el otro, preservando el sentido del tiempo. Intuitivamente, dos retratos fases son topológicamente equivalentes si una es una versión distorsionada de la otra.
+Este importante teorema nos indica que el retrato fase cerca a un punto crítico hiperbólico es topológicamente equivalente al retrato fase de la linealización en dicho punto de equilibrio. Aquí la \textit{equivalencia topológica} es dada principalmente por la existencia de un \textit{homeomorfismo} (una deformación continua con inversa continua) que mapea trayectorias de un retrato fase local hacia el otro, preservando el sentido del tiempo. Intuitivamente, dos retratos fases son topológicamente equivalentes si una es una versión distorsionada de la otra. A modo de ejemplo, considere la \autoref{fig: exampleHartman}.
+
+\begin{eje}
+   Considere el sistema
+   \begin{equation}
+   	\begin{aligned}
+   		\dot{x} &= -x \\
+   		\dot{y} &= y+x^{2}
+   	\end{aligned}
+   	\label{ej: teoHartamanGrobman}
+   \end{equation}
+   y el homeomorfismo dado por
+   \begin{equation*}
+   	H =
+   	\left[
+   	\begin{array}{c}
+   		x \\
+   		x + \dfrac{y^{2}}{3}
+   	\end{array}
+   	\right],
+   \end{equation*}
+   este homeomorfismo mapea trayectorias del sistema \ref{ej: teoHartamanGrobman} a trayectorias del sistema linealizado preservando la parametrización por tiempo.
+\end{eje}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{img/exampleHartman.pdf}
+	\caption{Retrato fase del sistema \eqref{eq: sisAut} asociado a $f(x,y) = (-x, y+x^2)$ y su respectiva transformación dada por el homeomorfismo $H(x,y)=(x,x+\frac{y^{2}}{3})$}
+	\label{fig: exampleHartman}
+\end{figure}
 
 Si
 \begin{equation}
 	\dot{x} = f_{\mu}(x) \quad x \in \Rn, \quad \mu \in \R^{k}
 	\label{eq: sisParametro}
 \end{equation}
-es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, la estructura cualitativa del flujo puede cambiar, en particular, puntos críticos pueden ser creados o destruidos, o también su estabilidad puede cambiar, de igual manera trayectorias cerradas pueden aparecer o desaparecer. Estos cambios cualitativos en las dinámicas del sistema son llamadas \textit{bifurcaciones} y los valores paramétricos para los cuales este cambio ocurre son llamados \textit{valores de bifurcación}.
+es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, la estructura cualitativa del flujo puede cambiar, en particular, puntos críticos pueden ser creados o destruidos, o también su estabilidad puede cambiar, de igual manera trayectorias cerradas pueden aparecer o desaparecer. Estos cambios cualitativos en las dinámicas del sistema son llamadas \textit{bifurcaciones} y los valores paramétricos para los cuales este cambio ocurre son llamados \textit{valores de bifurcación}. 
+
+\section*{Bifurcación silla-nodo}
+
+La bifurcación silla-nodo es el mecanismo básico en el cual puntos de equilibrio son creados y destruidos dependiendo de los parametros usados en el sistema \ref{eq: sisParametro}. A modo de ejemplo consideremos el sistema dado por
+
+\begin{equation}
+	\begin{aligned}
+		\dot{x} &= \mu -x^{2} \\
+		\dot{y} &= -y
+	\end{aligned}
+	\label{ej: ejeSillaNodo}
+\end{equation}
+
+En la \autoref{fig: bifSillaNodo} consideramos el retrato fase para los diferentes valores de $\mu$.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{img/bifSillaNodo.pdf}
+	\caption{Retrato fase del sistema \eqref{ej: ejeSillaNodo} para diferentes valores de $\mu$.}
+	\label{fig: bifSillaNodo}
+\end{figure}
 
 \section{Modelos ecológicos}
  
