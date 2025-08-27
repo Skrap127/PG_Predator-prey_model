@@ -54,7 +54,7 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 		\item El flujo de un sistema de EDOs \checkmark \cite[p. 96]{perko2001}
 		\item Sistemas equivalentes topológicamente \checkmark \cite[p. 155]{strogatz2014}
 		\item Ciclos límite \checkmark \cite[p. 196]{strogatz2014}
-		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.) \cite[p. 118]{guckenheimer1983} \cite[p. 44, 241]{strogatz2014}
+		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.) \cite[p. 118]{guckenheimer1983} \cite[Capítulos 3 y 8]{strogatz2014}
 		\item Diagramas de bifurcación
 		\item Estabilidad de sistemas no lineales
 		\item Teorema de Hartman-Grobman \checkmark \cite[p. 120-121]{perko2001}
@@ -295,28 +295,6 @@ En ocasiones puede ocurrir que ciertas orbitas inician en la variedad inestable 
 
 Este importante teorema nos indica que el retrato fase cerca a un punto crítico hiperbólico es topológicamente equivalente al retrato fase de la linealización en dicho punto de equilibrio. Aquí la \textit{equivalencia topológica} es dada principalmente por la existencia de un \textit{homeomorfismo} (una deformación continua con inversa continua) que mapea trayectorias de un retrato fase local hacia el otro, preservando el sentido del tiempo. Intuitivamente, dos retratos fases son topológicamente equivalentes si una es una versión distorsionada de la otra. A modo de ejemplo, considere la \autoref{fig: exampleHartman}.
 
-\begin{eje}
-   Considere el sistema
-   \begin{equation}
-   	\begin{aligned}
-   		\dot{x} &= -x \\
-   		\dot{y} &= y+x^{2}
-   	\end{aligned}
-   	\label{ej: teoHartamanGrobman}
-   \end{equation}
-   y el homeomorfismo dado por
-   \begin{equation*}
-   	H =
-   	\left[
-   	\begin{array}{c}
-   		x \\
-   		x + \dfrac{y^{2}}{3}
-   	\end{array}
-   	\right],
-   \end{equation*}
-   este homeomorfismo mapea trayectorias del sistema \ref{ej: teoHartamanGrobman} a trayectorias del sistema linealizado preservando la parametrización por tiempo.
-\end{eje}
-
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{img/exampleHartman.pdf}
@@ -329,28 +307,81 @@ Si
 	\dot{x} = f_{\mu}(x) \quad x \in \Rn, \quad \mu \in \R^{k}
 	\label{eq: sisParametro}
 \end{equation}
-es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, la estructura cualitativa del flujo puede cambiar, en particular, puntos críticos pueden ser creados o destruidos, o también su estabilidad puede cambiar, de igual manera trayectorias cerradas pueden aparecer o desaparecer. Estos cambios cualitativos en las dinámicas del sistema son llamadas \textit{bifurcaciones} y los valores paramétricos para los cuales este cambio ocurre son llamados \textit{valores de bifurcación}. 
+es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, la estructura cualitativa del flujo puede cambiar, en particular, puntos críticos pueden ser creados o destruidos, o también su estabilidad puede cambiar, de igual manera trayectorias cerradas pueden aparecer o desaparecer. Estos cambios cualitativos en las dinámicas del sistema son llamadas \textit{bifurcaciones} y los valores paramétricos para los cuales este cambio ocurre son llamados \textit{valores de bifurcación}. Dependiendo del comportamiento del sistema al manipular dichos parámetros surgen diversos tipos de bifurcación.
 
-\section*{Bifurcación silla-nodo}
+\subsection*{Bifurcación silla-nodo}
 
-La bifurcación silla-nodo es el mecanismo básico en el cual puntos de equilibrio son creados y destruidos dependiendo de los parametros usados en el sistema \ref{eq: sisParametro}. A modo de ejemplo consideremos el sistema dado por
-
-\begin{equation}
-	\begin{aligned}
-		\dot{x} &= \mu -x^{2} \\
-		\dot{y} &= -y
-	\end{aligned}
-	\label{ej: ejeSillaNodo}
-\end{equation}
-
-En la \autoref{fig: bifSillaNodo} consideramos el retrato fase para los diferentes valores de $\mu$.
+La bifurcación silla-nodo es el mecanismo básico en el cual puntos de equilibrio son creados y destruidos dependiendo de los parametros usados en el sistema \ref{eq: sisParametro}. En la \autoref{fig: bifSillaNodo} se ejemplifica este tipo de bifurcación.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{img/bifSillaNodo.pdf}
-	\caption{Retrato fase del sistema \eqref{ej: ejeSillaNodo} para diferentes valores de $\mu$.}
+	\caption{Ejemplo de bifurcación silla-nodo en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(x,y)=(\mu - x^2,-y)$.}
 	\label{fig: bifSillaNodo}
 \end{figure}
+
+\subsection*{Bifurcación transcrítica}
+
+Existen ciertas situaciones científicas en las que debe existir un punto fijo para todos los valores de un parámetro y nunca puede destruirse. Por ejemplo, en ecuaciones logísticas y otros modelos simples para el crecimiento de una sola especie, existe un punto fijo en la población cero, independientemente del valor de la tasa de crecimiento. Sin embargo, dicho punto fijo puede cambiar su estabilidad al variar el parámetro. La bifurcación transcrítica es el mecanismo estándar para tales cambios de estabilidad. En la \autoref{fig: bifTranscritica} se ejemplifica este tipo de bifurcación.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{img/bifTranscritica.pdf}
+	\caption{Ejemplo de bifurcación transcrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(x,y)=(\mu x - x^2,-y)$.}
+	\label{fig: bifTranscritica}
+\end{figure}
+
+\subsection*{Bifurcaciones de pitchfork}
+
+Pasamos ahora a un tercer tipo de bifurcación, la llamada bifurcación de pitchfork o bifurcación en horquilla. Esta bifurcación es común en problemas físicos con simetría. Por ejemplo, muchos problemas presentan simetría espacial entre la izquierda y la derecha. En tales casos, los puntos críticos tienden a aparecer y desaparecer en pares simétricos. Existen dos tipos muy diferentes de bifurcación en horquilla.
+
+\subsubsection*{Bifurcación de pitchfork supercrítica}
+
+Este tipo de bifurcación es característico de sistemas que son invariantes ante el cambio de variables $x \rightarrow -x$. Es decir, si reemplazamos $x$ por $-x$ y luego cancelamos los signos menos resultantes en ambos lados de la ecuación, obtenemos el sistema original. Esta invariancia es la expresión matemática de la simetría izquierda-derecha mencionada anteriormente. (En términos más técnicos, se dice que el campo vectorial es equivariante). Para ejemplificar veáse la \autoref{fig: bifPitchforkSup}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{img/bifPitchforkSup.pdf}
+	\caption{Ejemplo de bifurcación de pitchfork supercrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(x,y)=(\mu x - x^3,-y)$.}
+	\label{fig: bifPitchforkSup}
+\end{figure}
+
+\subsubsection*{Bifurcación de pitchfork subcrítica}
+
+De manera similar que en el supercrítico ahora los puntos críticos solo existen por debajo del valor de bifurcación ($\mu = 0$, en el caso del ejemplo mostrado en la \autoref{fig: bifPitchforkSub}).
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{img/bifPitchforkSub.pdf}
+	\caption{Ejemplo de bifurcación de pitchfork subcrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(x,y)=(\mu x + x^3,-y)$.}
+	\label{fig: bifPitchforkSub}
+\end{figure}
+
+\subsection*{Bifurcaciones de Hopf}
+
+Supongamos que un sistema bidimensional tiene un punto fijo estable. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$.? Los autovalores del Jacobiano son la clave. Si el punto fijo es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ deben estar en el semiplano izquierdo Re$\lambda <0$. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos (Figura a) o bien son conjugados complejos (Figura b). Para desestabilizar el punto fijo, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$.
+
+\subsubsection*{Bifurcación de Hopf supercrítica}
+
+En términos del flujo en el espacio de fases, una bifurcación de Hopf supercrítica ocurre cuando una espiral estable se transforma en una espiral inestable rodeada por un pequeño ciclo límite casi elíptico. Las bifurcaciones de Hopf pueden ocurrir en espacios de fases de cualquier dimensión $n \geq 2$.
+
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=1\textwidth]{img/bifHopfSup.pdf}
+%	\caption{Ejemplo de bifurcación de Hopf supercrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(r,\theta)=(\mu r - r^3,\theta + br^2)$.}
+%	\label{fig: bifHopfSup}
+%\end{figure}
+
+\subsubsection*{Bifurcación de Hopf subcrítica}
+
+Al igual que las bifurcaciones en horquilla, las bifurcaciones de Hopf se presentan en variedades supercríticas y subcríticas. El caso subcrítico es siempre mucho más dramático y potencialmente peligroso en aplicaciones de ingeniería. Tras la bifurcación, las trayectorias deben saltar a un atractor distante, que puede ser un punto fijo, otro ciclo límite, el infinito o, en tres dimensiones o más, un atractor caótico.
+
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=1\textwidth]{img/bifHopfSub.pdf}
+%	\caption{Ejemplo de bifurcación de Hopf subcrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(r,\theta)=(\mu r + r^3 -r^5,\theta + br^2)$.}
+%	\label{fig: bifHopfSub}
+%\end{figure}
 
 \section{Modelos ecológicos}
  
