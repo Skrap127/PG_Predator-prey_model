@@ -107,14 +107,14 @@ Una \textit{solución} de la EDO \eqref{eq: generalFormEDO}, es una función $\p
 	F(t, \phi(t), \phi^{(1)}(t), \cdots, \phi^{(k)}(t)) = 0, \quad \text{para todo } t \in I.
 \end{equation*}
 
-Desafortudamente no hay mucho que decir de las ecuaciones diferenciales generales de la forma \ref{eq: generalFormEDO}. Por lo tanto, asumiremos que se puede resolver $F$ para la derivada más alta, lo que resulta en una ecuación diferencial de la forma
+De ahora en adelante, asumiremos que se puede resolver $F$ para la derivada más alta, lo que resulta en una ecuación diferencial de la forma
 
 
 \begin{equation}
 	x^{(k)} = f(t, x, x^{(1)}, \cdots, x^{(k-1)}).
 	\label{eq:EDO}
 \end{equation}
-Por el teorema de la función implícita, esto se puede hacer al menos localmente cerca de algún punto $(t,y)\in U$ si la derivada parcial con respecto a la derivada más alta no se anula en ese punto $\frac{\partial F}{\partial y_{k}} (t,y) \neq 0$. Este tipo de ecuaciones diferenciales son las que consideraremos de ahora en adelante.
+Por el teorema de la función implícita, esto se puede hacer al menos localmente cerca de algún punto $(t,y)\in U$ si la derivada parcial con respecto a la derivada más alta no se anula en ese punto $\frac{\partial F}{\partial y_{k}} (t,y) \neq 0$.
 
 Un \textit{sistema no lineal} de EDOs \textit{no autónomo} de primer orden es un sistema de la forma
 
@@ -150,7 +150,7 @@ Un \textit{sistema lineal no autónomo} es un sistema de la forma
 	\label{eq: sistemaLineal}
 \end{equation*}
 
-donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogeneo}. En algunas ocasiones todos los anteriores tipos de sistemas pueden ser analizados a través de un sistema de la forma
+donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogeneo}. Un \textit{sistema lineal autónomo} es un sistema de la forma
 
 \begin{equation}
 	\dot{x} = Ax.
@@ -228,7 +228,7 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 \end{defi}
 
 \begin{defi}
-	Un punto $x_{0} \in \Rn$ es llamado un sumidero de \eqref{eq: sisAut} si todos los valores propios de la matriz jacobiana $Df(x_{0})$ tienen parte real negativa; es llamado una fuente de \eqref{eq: sisAut} si todos los valores propios de la matriz $Df(x_{0})$ tienen parte real positiva; y es llamado un punto silla de \eqref{eq: sisAut} si es un punto de equilibrio hiperbólico y $Df(x_{0})$ tiene al menos un valor propio con parte real positiva y al menos un valor propio con parte real negativa.
+	Un punto crítico $x_{0} \in \Rn$ es llamado un sumidero de \eqref{eq: sisAut} si todos los valores propios de la matriz jacobiana $Df(x_{0})$ tienen parte real negativa; es llamado una fuente de \eqref{eq: sisAut} si todos los valores propios de la matriz $Df(x_{0})$ tienen parte real positiva; y es llamado un punto silla de \eqref{eq: sisAut} si es un punto de equilibrio hiperbólico y $Df(x_{0})$ tiene al menos un valor propio con parte real positiva y al menos un valor propio con parte real negativa.
 \end{defi}
 
 \begin{figure}
@@ -313,7 +313,7 @@ es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensi
 
 La bifurcación silla-nodo es el mecanismo básico en el cual puntos de equilibrio son creados y destruidos dependiendo de los parametros usados en el sistema \ref{eq: sisParametro}. En la \autoref{fig: bifSillaNodo} se ejemplifica este tipo de bifurcación.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{img/bifSillaNodo.pdf}
 	\caption{Ejemplo de bifurcación silla-nodo en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(x,y)=(\mu - x^2,-y)$.}
@@ -324,7 +324,7 @@ La bifurcación silla-nodo es el mecanismo básico en el cual puntos de equilibr
 
 Existen ciertas situaciones científicas en las que debe existir un punto fijo para todos los valores de un parámetro y nunca puede destruirse. Por ejemplo, en ecuaciones logísticas y otros modelos simples para el crecimiento de una sola especie, existe un punto fijo en la población cero, independientemente del valor de la tasa de crecimiento. Sin embargo, dicho punto fijo puede cambiar su estabilidad al variar el parámetro. La bifurcación transcrítica es el mecanismo estándar para tales cambios de estabilidad. En la \autoref{fig: bifTranscritica} se ejemplifica este tipo de bifurcación.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{img/bifTranscritica.pdf}
 	\caption{Ejemplo de bifurcación transcrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(x,y)=(\mu x - x^2,-y)$.}
@@ -337,9 +337,24 @@ Pasamos ahora a un tercer tipo de bifurcación, la llamada bifurcación de pitch
 
 \subsubsection*{Bifurcación de pitchfork supercrítica}
 
-Este tipo de bifurcación es característico de sistemas que son invariantes ante el cambio de variables $x \rightarrow -x$. Es decir, si reemplazamos $x$ por $-x$ y luego cancelamos los signos menos resultantes en ambos lados de la ecuación, obtenemos el sistema original. Esta invariancia es la expresión matemática de la simetría izquierda-derecha mencionada anteriormente. (En términos más técnicos, se dice que el campo vectorial es equivariante). Para ejemplificar veáse la \autoref{fig: bifPitchforkSup}.
+Este tipo de bifurcación es característico de sistemas que son invariantes ante el cambio de variables $x \rightarrow -x$. Por ejemplo, consideremos el sistema 
+\begin{equation*}
+	\begin{aligned}
+		\dot{x} &= \mu x +x^3 \\
+		\dot{y} &= -y
+	\end{aligned}
+\end{equation*}
+si reemplazamos $x$ por $-x$ y luego cancelamos los signos menos resultantes en ambos lados de la ecuación, obtenemos el sistema original. 
+\begin{equation*}
+	\begin{aligned}
+		\dot{(-x)} &= \mu (-x) +(-x)^3 \\
+		-\dot{x} &= -(\mu x+x^3) \\
+		\dot{x} &= \mu x +x^3
+	\end{aligned}
+\end{equation*}
+Esta invariancia es la expresión matemática de la simetría izquierda-derecha mencionada anteriormente. (En términos más técnicos, se dice que el campo vectorial es equivariante). El retrato fase de este sistema para diferentes valores de $\mu$ se puede visualizar en la \autoref{fig: bifPitchforkSup}.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{img/bifPitchforkSup.pdf}
 	\caption{Ejemplo de bifurcación de pitchfork supercrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(x,y)=(\mu x - x^3,-y)$.}
@@ -350,7 +365,7 @@ Este tipo de bifurcación es característico de sistemas que son invariantes ant
 
 De manera similar que en el supercrítico ahora los puntos críticos solo existen por debajo del valor de bifurcación ($\mu = 0$, en el caso del ejemplo mostrado en la \autoref{fig: bifPitchforkSub}).
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=1\textwidth]{img/bifPitchforkSub.pdf}
 	\caption{Ejemplo de bifurcación de pitchfork subcrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(x,y)=(\mu x + x^3,-y)$.}
@@ -359,29 +374,29 @@ De manera similar que en el supercrítico ahora los puntos críticos solo existe
 
 \subsection*{Bifurcaciones de Hopf}
 
-Supongamos que un sistema bidimensional tiene un punto fijo estable. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$.? Los autovalores del Jacobiano son la clave. Si el punto fijo es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ deben estar en el semiplano izquierdo Re$\lambda <0$. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos (Figura a) o bien son conjugados complejos (Figura b). Para desestabilizar el punto fijo, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$.
+Supongamos que un sistema bidimensional tiene un punto fijo estable. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$.? Los autovalores del Jacobiano son la clave. Si el punto fijo es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ deben estar en el semiplano izquierdo Re$\lambda <0$. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos o bien son conjugados complejos. Para desestabilizar el punto fijo, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$.
 
 \subsubsection*{Bifurcación de Hopf supercrítica}
 
 En términos del flujo en el espacio de fases, una bifurcación de Hopf supercrítica ocurre cuando una espiral estable se transforma en una espiral inestable rodeada por un pequeño ciclo límite casi elíptico. Las bifurcaciones de Hopf pueden ocurrir en espacios de fases de cualquier dimensión $n \geq 2$.
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\textwidth]{img/bifHopfSup.pdf}
-%	\caption{Ejemplo de bifurcación de Hopf supercrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(r,\theta)=(\mu r - r^3,\theta + br^2)$.}
-%	\label{fig: bifHopfSup}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/bifHopfSup.pdf}
+	\caption{Ejemplo de bifurcación de Hopf supercrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(r,\theta)=(\mu r - r^3,1 + r^2)$.}
+	\label{fig: bifHopfSup}
+\end{figure}
 
 \subsubsection*{Bifurcación de Hopf subcrítica}
 
 Al igual que las bifurcaciones en horquilla, las bifurcaciones de Hopf se presentan en variedades supercríticas y subcríticas. El caso subcrítico es siempre mucho más dramático y potencialmente peligroso en aplicaciones de ingeniería. Tras la bifurcación, las trayectorias deben saltar a un atractor distante, que puede ser un punto fijo, otro ciclo límite, el infinito o, en tres dimensiones o más, un atractor caótico.
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=1\textwidth]{img/bifHopfSub.pdf}
-%	\caption{Ejemplo de bifurcación de Hopf subcrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(r,\theta)=(\mu r + r^3 -r^5,\theta + br^2)$.}
-%	\label{fig: bifHopfSub}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=1\textwidth]{img/bifHopfSub.pdf}
+	\caption{Ejemplo de bifurcación de Hopf subcrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(x,y)=(\mu x-y+x y^2, x+a y+y^3)$.}
+	\label{fig: bifHopfSub}
+\end{figure}
 
 \section{Modelos ecológicos}
  
