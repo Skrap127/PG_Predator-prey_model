@@ -67,7 +67,7 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 	\begin{itemize}
 		\item Ecuaciones logísticas y crecimiento poblacional \checkmark
 		\item Modelos presa-depredador clásicos (Lotka-Volterra) \checkmark \cite[p. 79]{murray2002}
-		\item Respuestas funcionales de Holling (tipos I, II, III)
+		\item Respuestas funcionales de Holling (tipos I, II, III)\checkmark \cite[p. 589]{Begon2006Ecology}
 		\item Modelo Leslie-Gower
 		\item Modelo May–Holling–Turner
 		\item Crecimiento logístico
@@ -402,9 +402,56 @@ Al igual que las bifurcaciones en horquilla, las bifurcaciones de Hopf se presen
  
 Dentro de la biología matemática, los modelos ecológicos desempeñan un papel fundamental para predecir el comportamiento de diversas poblaciones, ya sean de bacterias, plantas, animales, etc. Existen múltiples tipos de modelos ecológicos, los cuales dependen de diversos factores, como el \textit{crecimiento poblacional}. Este crecimiento puede manifestarse de diferentes formas: una población $P(t)$, donde $t$ representa el tiempo, puede experimentar distintos tipos de crecimiento, siendo los más comunes el crecimiento exponencial y el crecimiento logístico.
 
-Los modelos basados en crecimiento exponencial resultan poco realistas a largo plazo, ya que no consideran limitaciones ambientales ni de recursos. Por ello, los modelos logísticos, en los que $P(t)$ presenta un crecimiento limitado y controlado por la capacidad del entorno, resultan más relevantes para el estudio de poblaciones reales. A estos modelos se les denomina \textit{ecuaciones logísticas}.
+Los modelos basados en crecimiento exponencial resultan poco realistas a largo plazo, ya que no consideran limitaciones ambientales ni de recursos. Por ello, los modelos logísticos, en los que $P(t)$ presenta un crecimiento limitado y controlado por la capacidad del entorno, resultan más relevantes para el estudio de poblaciones reales. A estos modelos se les denomina \textit{ecuaciones logísticas}. 
 
-Como ejemplos representativos de modelos ecológicos, en particular, modelos presa-depredador, se pueden mencionar los modelos de Lotka-Volterra, May-Holling-Turner y Leslie-Gower, los cuales permiten analizar interacciones entre especies y dinámicas complejas dentro de los ecosistemas.
+Por ejemplo en los modelos presa-depredador, los efectos beneficiosos que la comida tiene sobre los depredadores individuales son evidentes. En general, cuanto más alimento consumen los depredadores, mayores son sus tasas de crecimiento, desarrollo y natalidad, y menores sus tasas de mortalidad. Esto, después de todo, es la base de la competencia intraespecífica: las altas densidades, que implican pequeñas cantidades de alimento por individuo, conducen a bajas tasas de crecimiento, altas tasas de mortalidad, etc. Sin embargo, existen diversas maneras en que las relaciones entre la tasa de consumo y el beneficio para el consumidor pueden ser más complejas de lo que parecen inicialmente. A estas relaciones se le denominan \textit{respuestas funcionales} y se dividen en varios tipos.
+\subsection*{Respuesta funcional tipo 1}
+Holling (1959) fue el primero en distinguir tres tipos de respuesta funcional. La respuesta funcional más básica, la de tipo 1, es la que se asume por ejemplo en las ecuaciones de Lotka-Volterra: la tasa de consumo aumenta linealmente con la densidad de presas. Esto se indica mediante la constante $b$ en el sistema \ref{eq: lotka-volterra}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{img/type1FunctionalResponse.pdf}
+	\caption{Respuesta funcional de Holling tipo I.}
+	\label{fig: type1FunctionalResponse}
+\end{figure}
+
+\subsection*{Respuesta funcional tipo 2}
+La respuesta funcional observada con mayor frecuencia es la respuesta de tipo 2, en la que la tasa de consumo aumenta con la densidad de presas, pero se desacelera gradualmente hasta alcanzar una meseta en la que la tasa de consumo se mantiene constante independientemente de la densidad de presas.
+
+La respuesta de tipo 2 se explica por el hecho de que un depredador debe dedicar tiempo a manipular cada presa que consume (es decir, perseguirla, dominarla y consumirla, y luego prepararse para la búsqueda). A medida que aumenta la densidad de presas, encontrarla se vuelve cada vez más fácil.
+
+Sin embargo, manipular una presa sigue requiriendo el mismo tiempo, y por lo tanto, la manipulación en general ocupa una proporción cada vez mayor del tiempo del depredador, hasta que, a altas densidades de presas, este dedica prácticamente todo su tiempo a manipularla. Por lo tanto, la tasa de consumo se aproxima y luego alcanza un máximo (la meseta), determinado por el número máximo de manipulaciones que se pueden realizar en el tiempo total disponible.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{img/type2FunctionalResponse.pdf}
+	\caption{Respuesta funcional de Holling tipo II.}
+	\label{fig: type2FunctionalResponse}
+\end{figure}
+
+\subsection*{Respuesta funcional tipo 3}
+ Las respuestas funcionales de tipo 3, a altas densidades de presas, son similares a una respuesta de tipo 2, y las explicaciones para ambas son las mismas. Sin embargo, a bajas densidades de presas, la respuesta de tipo 3 presenta una fase de aceleración, donde un aumento de la densidad conduce a un aumento más que lineal de la tasa de consumo. Por lo tanto, en general, una respuesta de tipo 3 tiene forma de S o sigmoidea.
+ 
+ En general, esta forma sigmoidea y la respuesta funcional de tipo 3 surgirán siempre que un aumento de la densidad de alimento conduzca a un aumento de la eficiencia de búsqueda o tasa de ataque del consumidor, o a una disminución de su tiempo de manipulación, ya que ambas determinan la tasa de consumo. Por ejemplo, un depredador puede interesarse por una especie de presa en particular solo cuando su abundancia relativa en la comunidad de presas es suficientemente alta.
+ 
+ 
+ \begin{figure}[H]
+ 	\centering
+ 	\includegraphics[width=.5\textwidth]{img/type3FunctionalResponse.pdf}
+ 	\caption{Respuesta funcional de Holling tipo III.}
+ 	\label{fig: type3FunctionalResponse}
+ \end{figure}
+ 
+\subsection*{Respuesta funcional tipo 4}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{img/type4FunctionalResponse.pdf}
+	\caption{Respuesta funcional tipo IV.}
+	\label{fig: type4FunctionalResponse}
+\end{figure}
 
 \subsection*{Modelo Lotka-Volterra}
 
