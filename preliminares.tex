@@ -1,4 +1,4 @@
-\chapter{Preliminares}
+ \chapter{Preliminares}
 
 Para el análisis del módelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea que se lleva acabo en el presente trabajo, requerimos de ciertos conceptos fundamentales, los cuales se abarcan en la presente sección, esto, con el objetivo de lograr una mejor compresión de todo lo que se presenta posteriormente.
 
@@ -79,7 +79,7 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 	\begin{itemize}
 		\item Regla de los signos de Descartes
 		\item Análisis de estabilidad lineal y no lineal
-		\item Polar blowing-up method
+		\item Polar blowing-up method \cite[p. 91]{Dumortier2006} \cite[p. 362]{guckenheimer1983} \cite[p. 66]{Chicone2024}
 		\item Sistemas tangentes
 	\end{itemize}
 \end{enumerate}
@@ -224,7 +224,7 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 \end{defi}
 
 \begin{defi}
-	Un punto $x_{0} \in \Rn$ es llamado un punto de equilibrio o punto crítico de \eqref{eq: sisAut} si $f(x_{0})=0$. Un punto crítico $x_{0}$ es llamado un punto de equilibrio hiperbólico de \eqref{eq: sisAut} si ninguno de los valores propios de la matriz jacobiana $Df(x_{0})$ tiene parte real cero. El sistema lineal \eqref{eq: sisLinAuto} con la matriz $A = Df(x_{0})$ es llamado la linealización de \eqref{eq: sisAut} en el punto $x_{0}$.
+	Un punto $x_{0} \in \Rn$ es llamada una singularidad, un punto de equilibrio o punto crítico de \eqref{eq: sisAut} si $f(x_{0})=0$. Un punto crítico $x_{0}$ es llamado un punto de equilibrio hiperbólico de \eqref{eq: sisAut} si ninguno de los valores propios de la matriz jacobiana $Df(x_{0})$ tiene parte real cero. El sistema lineal \eqref{eq: sisLinAuto} con la matriz $A = Df(x_{0})$ es llamado la linealización de \eqref{eq: sisAut} en el punto $x_{0}$.
 \end{defi}
 
 \begin{defi}
@@ -303,6 +303,97 @@ Este importante teorema nos indica que el retrato fase cerca a un punto crítico
 	\caption{Retrato fase del sistema \eqref{eq: sisAut} asociado a $f(x,y) = (-x, y+x^2)$ y su respectiva transformación en el origen dada por el homeomorfismo $H(x,y)=(x,x+\frac{y^{2}}{3})$}
 	\label{fig: exampleHartman}
 \end{figure}
+
+
+Dada la posibilidad de que existan puntos críticos no hiperbólicos en el sistema \eqref{eq: sisAut}, es decir, puntos $x_{0}$ donde alguno de los valores propios de la matriz jacobiana $Df(x_0)$ posee parte real nula, resulta de interés analizar el comportamiento dinámico local en dichos puntos. En estas singularidades no es posible aplicar directamente el \Cref{teo: hartman}, aunque el Teorema de la variedad central nos permita analizar el comportamiento local en los puntos críticos no hiperbólicos donde su matriz jacobiana no se anule (puntos críticos no degenerados), es de nuestro interés analizar el comportamiento de las singularidades que no cumplan esta ultima condición, por lo que se procede a realizar un cambio de coordenadas con el objetivo de eliminar la singularidad y, de esta manera, poder estudiar el comportamiento cualitativo en su entorno mediante uno de estos teoremas. A este procedimiento se le denomina \textit{desingularización del campo vectorial} \eqref{eq: sisAut}. Existen diversas técnicas para desingularizar un sistema dinámico, sin embargo, en este trabajo se enfocará en la desingularización a través del \textit{método de blowing-up} o \textit{blow-up}.
+
+\subsection{Blow-up en $ \R^2$}
+En la teoría cualitativa de los sistemas dinámicos, especialmente para sistemas planos, el blow-up es una herramienta fundamental basada en cambios de variables utilizada para estudiar singularidades. Su objetivo es simplificar el estudio de un punto crítico complicado (generalmente en el origen) transformándolo en un círculo que contiene un número finito de nuevos puntos criticos, a menudo hiperbolicos.
+
+Sea 0 un punto de equilibrio de un campo vectorial $C^{\infty}$, $X$  en $\R^{2}$. Considere la función
+\begin{equation}
+	\begin{aligned}
+		\psi : \mathbb{S}^{2} &\longrightarrow \R^{2} \\
+		(\theta , r) &\longmapsto (r \, \cos{\theta}, r \, \sin{\theta}).
+	\end{aligned}
+\end{equation}
+Podemos definir un campo vectorial suave ($C^{\infty}$), $\tilde{X}$ en el cilindro $\mathbb{S}^{1} \times \mathbb{R}$ tal que la aplicacion lineal $\psi_{*}:T_{p}M \longrightarrow T_{\psi(p)}M$ envia el campo vectorial $\tilde{X}$ a $X$, es decir, $\psi_{*}(\tilde{X})=X$, en el sentido que, $D\psi_{v}(\tilde{X}(v)) = X(\psi(v))$. Esto se llama el retroceso (pull back) de $X$ por $\psi$. No es nada más que $X$ escrito en coordenadas polares. La aplicación $\psi$ es un difeomorfismo suave, por lo tanto, un cambio de coordenadas suave en $\mathbb{S}^{1} \times (0,\infty)$, pero no en $\{r=0\}$; aquí, $\psi$ envía $\{r=0\}$ a $(0,0)$, y como tal, la aplicación inversa $\psi^{-1}$ ``explota'' el origen a un círculo. Para estudiar el retrato de fases de $X$ en un vecindario $V$ del origen, basta claramente estudiar el retrato de fases de $\tilde{X}$ en el vecindario $\psi^{-1}(V)$ del círculo $\mathbb{S}^{1}\times \{0\}$.
+
+Aunque el cilindro es una buena superficie para obtener una visión global de $\tilde{X}$ y su retrato de fases, a menudo es menos apropiado para hacer cálculos, ya que constantemente tenemos que tratar con expresiones trigonométricas. Por esa razón puede ser preferible hacer los cálculos en diferentes cartas.
+
+En las partes del cilindro dadas, respectivamente, por $\theta\in(-\pi/2,\pi/2)$ y $\theta\in(\pi/2,3\pi/2)$ usamos una carta dada por
+$$
+K^{x}:(\theta,r)\mapsto (r\cos\theta,\tan\theta)=(\bar{x},\bar{y}).
+$$
+
+En esta carta la expresión del blow-up $\psi$ está dada por
+$$
+\psi^{x}:(\bar{x},\bar{y})\mapsto (\bar{x},\bar{x}\bar{y}).
+$$
+
+En efecto vemos que
+$$
+\psi=\psi^{x}\circ K^{x}:(\theta,r)\xmapsto{K^{x}}(r\cos\theta,\tan\theta)
+\xmapsto{\psi^{x}}(r\cos\theta,r\cos\theta\tan\theta)=(r\cos\theta,r\sin\theta).
+$$
+
+Llamamos a esto un \textit{blow-up en la dirección $x$}; el retroceso de $X$ mediante $\psi^{x}$ se denota por $\tilde{X}^{x}$, es decir $(\psi^{x})_{*}(\tilde{X}^{x})=X$.
+
+En las partes del cilindro dadas, respectivamente, por $\theta\in(0,\pi)$ y $\theta\in(\pi,2\pi)$ usamos una carta dada por
+$$
+K^{y}:(\theta,r)\mapsto (\cot\theta,r\sin\theta)=(\bar{x},\bar{y}).
+$$
+
+En esta carta la expresión del blow-up $\psi$ está dada por
+$$
+\psi^{y}:(\bar{x},\bar{y})\mapsto (\bar{x}\bar{y},\bar{y}).
+$$
+
+en el sentido de que $\psi=\psi^{y}\circ K^{y}$. Llamamos a esto un \textit{blow-up en la dirección $y$}; el retroceso de $X$ mediante $\psi^{y}$ se denota por $\tilde{X}^{y}$, es decir $(\psi^{y})_{*}(\tilde{X}^{y})=X$. Tanto $\psi^{x}$ como $\psi^{y}$ se llaman \textit{blow-ups direccionales}.
+
+Como se mencionó anteriormente, al aplicar el blow-up al origen, este se transforma en un conjunto que puede contener nuevos puntos de equilibrio. Si alguno de estos puntos no resulta ser hiperbolico, es posible iterar nuevamente el proceso hasta que se logre lo ideal. De este modo, tras un número finito de blow-ups sucesivos, se puede determinar el retrato de fase local asociado a la singularidad original.
+
+\subsection{Compactificación de Poincaré}
+Al investigar la estructura cualitativa del retrato de fase de sistemas de ecuaciones diferenciales ordinarias (EDOs) definidos en todo el plano, resulta especialmente relevante comprender el comportamiento de las trayectorias a medida que las variables $x$ e $y$ tienden a infinito, es decir, su comportamiento ``en el infinito''.
+
+Por ejemplo, estudiar lo que ocurre en el infinito puede permitir identificar con claridad el estado de equilibrio al que se dirige una separatriz que parte de un punto de silla, o bien establecer la existencia de un ciclo límite. En consecuencia, el análisis del comportamiento de las trayectorias en el infinito constituye un aspecto fundamental en el estudio cualitativo de sistemas dinámicos.
+
+Una forma de obtener información sobre el comportamiento de tales trayectorias es (intentar) compactificar el espacio cartesiano, de modo que el campo vectorial se extienda a una esfera unitaria $\mathbb{S}^{2}$ que contenga los ``puntos en el infinito''; este método es atribuido a Poincaré y es conocido como la \textit{compactificación de Poincaré}.
+
+Consideremos el campo vectorial plano dado por
+\begin{equation}
+	\begin{aligned}
+		\dot{x} &= f(x, y) \\
+		\dot{y} &= g(x, y),
+	\end{aligned}
+	\label{eq: camVecPlano}
+\end{equation}
+la esfera unitaria $\mathbb{S}^{2} = \{ (x,y,z) : x^{2} + y^{2} + z^{2} = 1 \}$ y el plano tangente $\Pi$ al polo norte; que es el punto con coordenadas (0,0,1). El traslado del sistema \eqref{eq: camVecPlano} al plano $\Pi$, dada por la función natural $(x,y) \longmapsto (x,y,1)$ es:
+\begin{equation}
+	\begin{aligned}
+		\dot{x} &= f(x, y) \\
+		\dot{y} &= g(x, y) \\
+		\dot{z} &= 0
+	\end{aligned}
+	\label{eq: 3camVec}
+\end{equation}
+La idea es ``proyectar'' el sistema \eqref{eq: camVecPlano} a la esfera unitaria mediante una proyección central; entonces, el comportamiento del sistema cerca del infinito es el mismo que el comportamiento del sistema proyectado cerca del ecuador de la esfera.
+
+La proyección central se define de la siguiente manera: Un punto $p \in \Pi$ se asigna a la esfera asignando el único punto en la esfera que se encuentra en el segmento de línea desde el origen en $\R ^{3}$ hasta el punto $p$ (Veáse la \autoref{fig: poincareCompactification}). Para evitar un campo vectorial especificado por tres componentes, estudiaremos el campo vectorial proyectado restringido a un sistema de coordenadas en la esfera donde el campo vectorial es nuevamente plano. Además, para obtener la compactificación deseada, elegiremos coordenadas locales definidas en conjuntos abiertos que contienen porciones del ecuador de la esfera.
+
+La proyección central $Q: \Pi \rightarrow \mathbb{S}^{2}$ es dada por:
+\begin{equation*}
+	Q(x,y,1)=(X,Y,Z)=(\frac{x}{\sqrt{x^{2}+y^{2}+1}},\frac{y}{\sqrt{x^{2}+y^{2}+1}},\frac{1}{\sqrt{x^{2}+y^{2}+1}}).
+\end{equation*}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\textwidth]{img/poincareCompactification.pdf}
+	\caption{Esfera de Poincaré.}
+	\label{fig: poincareCompactification}
+\end{figure}
+
+\section{Bifurcaciones}
 
 Si
 \begin{equation}
@@ -398,46 +489,6 @@ El caso subcrítico es siempre mucho más dramático y potencialmente peligroso 
 	\includegraphics[width=1\textwidth]{img/bifHopfSub.pdf}
 	\caption{Ejemplo de bifurcación de Hopf subcrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(x,y)=(\mu x-y+x y^2, x+a y+y^3)$.}
 	\label{fig: bifHopfSub}
-\end{figure}
-
-\subsection{Compactificación de Poincaré}
-Al investigar la estructura cualitativa del retrato de fase de sistemas de ecuaciones diferenciales ordinarias (EDOs) definidos en todo el plano, resulta especialmente relevante comprender el comportamiento de las trayectorias a medida que las variables $x$ e $y$ tienden a infinito, es decir, su comportamiento ``en el infinito''.
-
-Por ejemplo, estudiar lo que ocurre en el infinito puede permitir identificar con claridad el estado de equilibrio al que se dirige una separatriz que parte de un punto de silla, o bien establecer la existencia de un ciclo límite. En consecuencia, el análisis del comportamiento de las trayectorias en el infinito constituye un aspecto fundamental en el estudio cualitativo de sistemas dinámicos.
-
-Una forma de obtener información sobre el comportamiento de tales trayectorias es (intentar) compactificar el espacio cartesiano, de modo que el campo vectorial se extienda a una esfera unitaria $\mathbb{S}^{2}$ que contenga los ``puntos en el infinito''; este método es atribuido a Poincaré y es conocido como la \textit{compactificación de Poincaré}.
-
-Consideremos el campo vectorial plano dado por
-\begin{equation}
-	\begin{aligned}
-		\dot{x} &= f(x, y) \\
-		\dot{y} &= g(x, y),
-	\end{aligned}
-	\label{eq: camVecPlano}
-\end{equation}
-la esfera unitaria $\mathbb{S}^{2} = \{ (x,y,z) : x^{2} + y^{2} + z^{2} = 1 \}$ y el plano tangente $\Pi$ al polo norte; que es el punto con coordenadas (0,0,1). El traslado del sistema \eqref{eq: camVecPlano} al plano $\Pi$, dada por la función natural $(x,y) \longmapsto (x,y,1)$ es:
-\begin{equation}
-	\begin{aligned}
-		\dot{x} &= f(x, y) \\
-		\dot{y} &= g(x, y) \\
-		\dot{z} &= 0
-	\end{aligned}
-	\label{eq: 3camVec}
-\end{equation}
-La idea es ``proyectar'' el sistema \eqref{eq: camVecPlano} a la esfera unitaria mediante una proyección central; entonces, el comportamiento del sistema cerca del infinito es el mismo que el comportamiento del sistema proyectado cerca del ecuador de la esfera.
-
-La proyección central se define de la siguiente manera: Un punto $p \in \Pi$ se asigna a la esfera asignando el único punto en la esfera que se encuentra en el segmento de línea desde el origen en $\R ^{3}$ hasta el punto $p$ (Veáse la \autoref{fig: poincareCompactification}). Para evitar un campo vectorial especificado por tres componentes, estudiaremos el campo vectorial proyectado restringido a un sistema de coordenadas en la esfera donde el campo vectorial es nuevamente plano. Además, para obtener la compactificación deseada, elegiremos coordenadas locales definidas en conjuntos abiertos que contienen porciones del ecuador de la esfera.
-
-La proyección central $Q: \Pi \rightarrow \mathbb{S}^{2}$ es dada por:
-\begin{equation*}
-	Q(x,y,1)=(X,Y,Z)=(\frac{x}{\sqrt{x^{2}+y^{2}+1}},\frac{y}{\sqrt{x^{2}+y^{2}+1}},\frac{1}{\sqrt{x^{2}+y^{2}+1}}).
-\end{equation*}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\textwidth]{img/poincareCompactification.pdf}
-	\caption{Esfera de Poincaré.}
-	\label{fig: poincareCompactification}
 \end{figure}
 
 \section{Modelos ecológicos}
