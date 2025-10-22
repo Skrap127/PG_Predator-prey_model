@@ -1,0 +1,500 @@
+% Plantilla para Trabajo de Grado - Universidad del Cauca
+% Departamento de Matemáticas
+
+\documentclass[12pt,letterpaper,oneside]{book}
+
+% ====== PAQUETES =======
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[left=3cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{tocbibind}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{float}
+\usepackage{array}
+\usepackage{longtable}
+
+% ====== CONFIGURACIÓN DE HIPERENLACES =======
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	citecolor=black,
+	urlcolor=blue,
+	pdfborder={0 0 0}
+}
+
+% ====== ESPACIADO =======
+\onehalfspacing
+\setlength{\parskip}{6pt}
+
+% ====== ENCABEZADOS Y PIES DE PÁGINA =======
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% ====== TEOREMAS Y DEFINICIONES =======
+\newtheorem{teorema}{Teorema}[chapter]
+\newtheorem{lema}[teorema]{Lema}
+\newtheorem{proposicion}[teorema]{Proposición}
+\newtheorem{corolario}[teorema]{Corolario}
+\theoremstyle{definition}
+\newtheorem{definicion}[teorema]{Definición}
+\newtheorem{ejemplo}[teorema]{Ejemplo}
+\theoremstyle{remark}
+\newtheorem{observacion}[teorema]{Observación}
+\newtheorem{nota}[teorema]{Nota}
+
+% ====== INFORMACIÓN DEL DOCUMENTO =======
+\newcommand{\tituloTrabajo}{Un modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea}
+\newcommand{\nombreAutor}{Yerson Danilo Chilito Inga}
+\newcommand{\nombreDirector}{Jhon Jairo Pérez}
+\newcommand{\tituloDirector}{Ph.D.} % o Dr., M.Sc., etc.
+\newcommand{\modalidad}{investigación} % o seminario, pasantía, etc.
+\newcommand{\tituloOptar}{Matemático}
+\newcommand{\anioTrabajo}{2025}
+\newcommand{\ciudadTrabajo}{POPAYÁN}
+
+% ====== INICIO DEL DOCUMENTO =======
+\begin{document}
+	
+	% ====== PORTADA =======
+	\begin{titlepage}
+		\centering
+		\vspace*{1cm}
+		
+		{\Large \textbf{\tituloTrabajo}\par}
+		
+		\vspace{6cm}
+		
+		{\large \textbf{\nombreAutor}\par}
+		
+		\vfill
+		
+		{\large \textbf{UNIVERSIDAD DEL CAUCA}\par}
+		{\large FACULTAD DE CIENCIAS NATURALES, EXACTAS Y DE LA EDUCACIÓN\par}
+		{\large DEPARTAMENTO DE MATEMÁTICAS\par}
+		{\large \ciudadTrabajo, CAUCA\par}
+		{\large \anioTrabajo\par}
+	\end{titlepage}
+	
+	% ====== PÁGINA DE TÍTULO (CONTRAPORTADA) =======
+	\newpage
+	\thispagestyle{empty}
+	\begin{center}
+		\vspace*{1cm}
+		{\Large \textbf{\tituloTrabajo}\par}
+		
+		\vspace{3cm}
+		
+		{\large \textbf{\nombreAutor}\par}
+		
+		\vfill
+		
+		{\large ANTEPROYECTO DE TRABAJO DE GRADO\par}
+		\vspace{0.5cm}
+		{\normalsize Presentado como requisito para optar al título de\par}
+		{\large \textbf{\tituloOptar}\par}
+		
+		\vspace{2cm}
+		
+		{\large Director\par}
+		{\large \nombreDirector\ \tituloDirector\par}
+		
+		\vfill
+		
+		{\large \textbf{UNIVERSIDAD DEL CAUCA}\par}
+		{\large FACULTAD DE CIENCIAS NATURALES, EXACTAS Y DE LA EDUCACIÓN\par}
+		{\large DEPARTAMENTO DE MATEMÁTICAS\par}
+		{\large \ciudadTrabajo\par}
+		{\large \anioTrabajo\par}
+	\end{center}
+	
+	% ====== ÍNDICE GENERAL =======
+	\newpage
+	\tableofcontents
+	
+	% ====== ÍNDICE DE FIGURAS (si aplica) =======
+	% \listoffigures
+	
+	% ====== ÍNDICE DE TABLAS (si aplica) =======
+	% \listoftables
+	
+	% ====== CUERPO DEL DOCUMENTO =======
+	\mainmatter
+	\pagestyle{fancy}
+	
+	% ====== CAPÍTULO 1: INTRODUCCIÓN =======
+	\chapter{Introducción}
+	
+	Escriba aquí la introducción de su trabajo...
+	
+	% Contexto del problema
+	% Motivación
+	% Objetivos generales del trabajo
+	% Estructura del documento
+	
+	% ====== CAPÍTULO 2: MARCO TEÓRICO =======
+	\chapter{Marco Teórico}
+	
+	El presente marco teórico aborda los conceptos fundamentales requeridos para el análisis del modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea.
+	
+	\section{Ecuaciones Diferenciales Ordinarias (EDOs)}
+	
+	\begin{definicion}[Ecuación Diferencial Ordinaria]
+		Una \textbf{Ecuación Diferencial Ordinaria (EDO)} es una ecuación para una función desconocida de una sola variable real, que contiene tanto a la función como a sus derivadas. Generalmente se expresa como $F(t, x, x^{(1)}, \ldots, x^{(k)}) = 0$, donde $k$ es el \textbf{orden} de la ecuación diferencial, definido como el máximo orden de la derivada $x^{(k)}$ en la expresión.
+	\end{definicion}
+	
+	\begin{definicion}[Solución de una EDO]
+		Una \textbf{solución} de la EDO es una función $\phi \in C^k(I)$ (con $I$ un intervalo real) tal que satisface la ecuación para todo $t \in I$. Frecuentemente, se asume que la EDO se puede resolver para la derivada más alta, resultando en la forma $x^{(k)} = f(t, x, x^{(1)}, \ldots, x^{(k-1)})$.
+	\end{definicion}
+	
+	\begin{definicion}[Sistema de EDOs]
+		Un \textbf{sistema no lineal de EDOs no autónomo} de primer orden tiene la forma $\dot{x} = f(x, t)$. Si la función $f$ no depende explícitamente de $t$, se denomina \textbf{sistema no lineal autónomo}: $\dot{x} = f(x)$.
+	\end{definicion}
+	
+	\begin{observacion}
+		Un \textbf{sistema lineal autónomo} es de la forma $\dot{x} = Ax$. Un sistema lineal no autónomo es $\dot{x} = A(t)x + b(t)$. Si $b(t) = 0$, el sistema es homogéneo; si $A$ es diagonal, es desacoplado; y si $b(t) \neq 0$, es no homogéneo.
+	\end{observacion}
+	
+	\begin{teorema}[Existencia y Unicidad]
+		Si $E \subseteq \mathbb{R}^n$ es un subconjunto abierto que contiene a $x_0$ y $f \in C^1(E)$, entonces el problema de valor inicial $\dot{x} = f(x)$, $x(0) = x_0$ tiene una \textbf{única solución} en un intervalo $[-\mathfrak{a}, \mathfrak{a}]$ para algún $\mathfrak{a} > 0$.
+	\end{teorema}
+	
+	\begin{definicion}[Flujo y Trayectorias]
+		El conjunto de funciones $\phi_t$ definidas por $\phi_t(x_0) = \phi(t, x_0)$ es llamado el \textbf{flujo} de la ecuación diferencial o el flujo del \textbf{campo vectorial} $f(x)$. Las soluciones del sistema autónomo $\dot{x} = f(x)$ se denominan \textbf{curvas solución}, \textbf{trayectorias} u \textbf{órbitas}.
+	\end{definicion}
+	
+	\begin{definicion}[Retrato Fase]
+		El \textbf{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema en el plano $\mathbb{R}^n$.
+	\end{definicion}
+	
+	\subsection{Conceptos Clave en Análisis Cualitativo}
+	
+	\begin{definicion}[Isoclinas]
+		Son curvas en sistemas autónomos bidimensionales donde la pendiente del campo vectorial $dy/dx = c$ es constante, obtenidas al solucionar $g(x, y) = cf(x, y)$ para el sistema $\dot{x} = f(x, y)$, $\dot{y} = g(x, y)$. Son importantes para la interpretación gráfica.
+	\end{definicion}
+	
+	\begin{definicion}[Ciclos Límite]
+		Son trayectorias o curvas solución que son \textbf{cerradas y aisladas} (es decir, la única trayectoria cerrada en una vecindad). Pueden ser \textbf{estables} (atractores), \textbf{inestables} o \textbf{medio-estables}.
+	\end{definicion}
+	
+	\begin{definicion}[Puntos Críticos/Equilibrio/Singularidad]
+		Un punto $x_0 \in \mathbb{R}^n$ es un punto de equilibrio si $f(x_0) = 0$.
+	\end{definicion}
+	
+	\begin{definicion}[Punto de Equilibrio Hiperbólico]
+		Un punto de equilibrio es hiperbólico si ninguno de los valores propios de la matriz jacobiana $Df(x_0)$ tiene parte real nula.
+	\end{definicion}
+	
+	\begin{definicion}[Clasificación de Puntos Críticos]
+		\begin{itemize}
+			\item \textbf{Sumidero (Sink)}: Todos los valores propios de $Df(x_0)$ tienen parte real negativa.
+			\item \textbf{Fuente (Source)}: Todos los valores propios de $Df(x_0)$ tienen parte real positiva.
+			\item \textbf{Punto Silla (Saddle Point)}: Es hiperbólico y $Df(x_0)$ tiene al menos un valor propio con parte real positiva y al menos uno con parte real negativa.
+		\end{itemize}
+	\end{definicion}
+	
+	\begin{definicion}[Conjuntos Invariantes]
+		Un conjunto $S$ es \textbf{invariante} si $\phi_t \subset S$ para todo $t \in \mathbb{R}$. Es \textbf{invariante positivo} (o negativo) si $\phi_t \subset S$ para $t \geq 0$ (o $t \leq 0$).
+	\end{definicion}
+	
+	\begin{definicion}[Variedades Estables e Inestables]
+		La variedad local estable $W^s(x_0)$ y la inestable $W^u(x_0)$ describen los puntos cercanos a $x_0$ que se acercan a él cuando $t \to \infty$ y $t \to -\infty$, respectivamente. Si $U = \mathbb{R}^n$, son variedades globales.
+	\end{definicion}
+	
+	\begin{definicion}[Órbitas Heteroclínicas y Homoclínicas]
+		Las órbitas \textbf{heteroclínicas} inician en la variedad inestable de un punto $x_0$ y finalizan en la estable de otro $x_1$, con $x_0 \neq x_1$. Las \textbf{homoclínicas} tienen $x_0 = x_1$.
+	\end{definicion}
+	
+	\begin{definicion}[Separatrices]
+		Son trayectorias que dividen el plano de fases en regiones con diferentes comportamientos cualitativos.
+	\end{definicion}
+	
+	\subsection{Teoremas y Técnicas Avanzadas}
+	
+	\begin{teorema}[Poincaré-Bendixson]
+		Si una trayectoria $C$ está confinada en un subconjunto $R$ cerrado y acotado del plano que no contiene puntos de equilibrio (y el campo vectorial es continuamente diferenciable), entonces $R$ contiene una órbita cerrada, y $C$ es una órbita cerrada o una espiral que se acerca a una órbita cerrada cuando $t \to \infty$.
+	\end{teorema}
+	
+	\begin{teorema}[Hartman-Grobman]
+		Si 0 es un punto de equilibrio hiperbólico del sistema no lineal $\dot{x} = f(x)$, existe un \textbf{homeomorfismo} $H$ que mapea trayectorias cerca del origen del sistema no lineal a trayectorias cerca del origen del sistema linealizado $\dot{x} = Ax$ (donde $A = Df(0)$), preservando la parametrización temporal. Este teorema establece que el retrato fase cerca de un punto hiperbólico es \textbf{topológicamente equivalente} al retrato fase de su linealización.
+	\end{teorema}
+	
+	\begin{definicion}[Blow-up (Desingularización)]
+		Es una herramienta utilizada para estudiar singularidades complicadas, especialmente en sistemas planos. Consiste en transformar el punto crítico (generalmente el origen) en un círculo que contiene un número finito de nuevos puntos críticos (a menudo hiperbólicos) mediante cambios de variables, como las coordenadas polares, o los blow-ups direccionales.
+	\end{definicion}
+	
+	\begin{definicion}[Compactificación de Poincaré]
+		Método atribuido a Poincaré que busca compactificar el espacio cartesiano extendiendo el campo vectorial a una esfera unitaria $S^2$ que contiene los ``puntos en el infinito''. Esto permite analizar el comportamiento de las trayectorias cuando las variables tienden a infinito. La proyección central $Q$ asigna un punto en el plano tangente $\Pi$ a un punto en la esfera $S^2$.
+	\end{definicion}
+	
+	\section{Bifurcaciones}
+	
+	Un sistema de ecuaciones diferenciales que depende de un parámetro $k$-dimensional $\mu$ se expresa como $\dot{x} = f_\mu(x)$.
+	
+	\begin{definicion}[Bifurcación]
+		Una \textbf{bifurcación} es el cambio en la estructura cualitativa del flujo que ocurre cuando $\mu$ varía, pudiendo crearse o destruirse puntos críticos, o cambiar su estabilidad, así como aparecer o desaparecer trayectorias cerradas. Los valores de $\mu$ donde ocurre este cambio cualitativo son llamados \textbf{valores de bifurcación}.
+	\end{definicion}
+	
+	\subsection{Tipos de Bifurcaciones}
+	
+	\begin{definicion}[Bifurcación Silla-Nodo (Fold)]
+		Es el mecanismo básico mediante el cual los puntos de equilibrio son creados y destruidos, dependiendo de los parámetros del sistema.
+	\end{definicion}
+	
+	\begin{definicion}[Bifurcación Transcrítica]
+		Es el mecanismo estándar donde un punto fijo que debe existir para todos los valores del parámetro (como la población cero en modelos de crecimiento) cambia su estabilidad al variar el parámetro.
+	\end{definicion}
+	
+	\begin{definicion}[Bifurcaciones de Pitchfork (en Horquilla)]
+		Comunes en problemas físicos con simetría, donde los puntos críticos aparecen y desaparecen en pares simétricos.
+		\begin{itemize}
+			\item \textbf{Supercrítica}: Característico de sistemas invariantes bajo el cambio $x \to -x$.
+			\item \textbf{Subcrítica}: Los puntos críticos solo existen por debajo del valor de bifurcación.
+		\end{itemize}
+	\end{definicion}
+	
+	\begin{definicion}[Bifurcaciones de Hopf]
+		Suceden cuando un punto fijo estable pierde estabilidad al variar un parámetro $\mu$, haciendo que los autovalores del Jacobiano crucen el semiplano derecho (Re$\lambda < 0$ a Re$\lambda > 0$).
+		\begin{itemize}
+			\item \textbf{Supercrítica}: Una espiral estable se transforma en una espiral inestable rodeada por un pequeño ciclo límite.
+			\item \textbf{Subcrítica}: El caso más dramático, donde las trayectorias deben saltar a un atractor distante tras la bifurcación, que puede ser otro punto fijo, un ciclo límite o un atractor caótico (en dimensiones mayores).
+		\end{itemize}
+	\end{definicion}
+	
+	\section{Modelos Ecológicos}
+	
+	Los \textbf{modelos ecológicos} en la biología matemática son fundamentales para predecir el comportamiento de diversas poblaciones.
+	
+	\subsection{Crecimiento Poblacional}
+	
+	El crecimiento poblacional $P(t)$ puede ser:
+	\begin{itemize}
+		\item \textbf{Crecimiento Exponencial}: Poco realista a largo plazo ya que ignora limitaciones ambientales.
+		\item \textbf{Crecimiento Logístico}: Más relevante para poblaciones reales, donde el crecimiento es limitado y controlado por la capacidad de carga del entorno, conocido como \textbf{ecuaciones logísticas}.
+	\end{itemize}
+	
+	\subsection{Respuestas Funcionales de Holling}
+	
+	En los modelos presa-depredador, la \textbf{respuesta funcional} describe la relación entre la tasa de consumo de presas y el beneficio para el consumidor (depredador). Holling (1959) distinguió tres tipos principales:
+	
+	\begin{definicion}[Respuesta Funcional Tipo I]
+		Asumida, por ejemplo, en las ecuaciones de Lotka-Volterra. La tasa de consumo aumenta \textbf{linealmente} con la densidad de presas.
+	\end{definicion}
+	
+	\begin{definicion}[Respuesta Funcional Tipo II]
+		La tasa de consumo aumenta con la densidad de presas, pero se \textbf{desacelera gradualmente} hasta alcanzar una meseta (máximo). Esto se debe a que el depredador dedica tiempo a manipular la presa (perseguir, dominar, consumir).
+	\end{definicion}
+	
+	\begin{definicion}[Respuesta Funcional Tipo III (Sigmoidea)]
+		Similar al Tipo II a altas densidades. Sin embargo, a bajas densidades de presas, presenta una fase de \textbf{aceleración} (forma de S), donde un aumento en la densidad conduce a un aumento más que lineal de la tasa de consumo. Esto surge cuando el depredador aumenta su eficiencia de búsqueda o se interesa en la presa solo cuando su abundancia relativa es alta.
+	\end{definicion}
+	
+	\begin{observacion}
+		También existe el tipo IV de respuesta funcional.
+	\end{observacion}
+	
+	\subsection{Modelos Clásicos Presa-Depredador}
+	
+	\begin{definicion}[Modelo Lotka-Volterra]
+		Propuesto originalmente por Volterra (1926) y Lotka (1920) para explicar los niveles oscilatorios de capturas de peces. Describe la interacción de la población de presas $N(t)$ y depredadores $P(t)$ mediante el sistema:
+		\begin{equation}
+			\begin{cases} 
+				\frac{dN}{dt} = N(a - bP) \\
+				\frac{dP}{dt} = P(cN - d)
+			\end{cases}
+		\end{equation}
+		con $a, b, c, d$ constantes positivas.
+		
+		Los supuestos incluyen: crecimiento ilimitado maltusiano de la presa en ausencia de depredación ($aN$); reducción de la tasa de crecimiento de la presa proporcional a ambas poblaciones ($-bNP$); contribución de la presa al crecimiento del depredador ($cNP$); y mortalidad exponencial del depredador sin presas ($-dP$). Este modelo no considera la limitación de recursos.
+	\end{definicion}
+	
+	\begin{definicion}[Modelo Leslie-Gower]
+		Es una variante del modelo Lotka-Volterra que incorpora el crecimiento logístico para las presas, considerando la capacidad de carga del entorno ($K$):
+		\begin{equation}
+			\begin{cases} 
+				\frac{dN}{dt} = aN\left(1 - \frac{N}{K}\right) - bNP \\
+				\frac{dP}{dt} = P(cN - d)
+			\end{cases}
+		\end{equation}
+		
+		Otra variante incorpora la capacidad de carga del medio ambiente para los depredadores ($K_y$), que depende de la cantidad de presas ($K_y = nx$):
+		\begin{equation}
+			\begin{cases} 
+				\frac{dN}{dt} = aN\left(1 - \frac{N}{K}\right) - bNP \\
+				\frac{dP}{dt} = cPN - dP
+			\end{cases}
+		\end{equation}
+	\end{definicion}
+	
+	% ====== CAPÍTULO 3: OBJETIVOS =======
+	\chapter{Objetivos}
+	
+	\section{Objetivo General}
+	
+	Escriba aquí el objetivo general de su trabajo...
+	
+	\section{Objetivos Específicos}
+	
+	\begin{itemize}
+		\item Primer objetivo específico...
+		\item Segundo objetivo específico...
+		\item Tercer objetivo específico...
+		\item Cuarto objetivo específico...
+	\end{itemize}
+	
+	% ====== CAPÍTULO 4: METODOLOGÍA =======
+	\chapter{Metodología}
+	
+	Descripción de la metodología a seguir...
+	
+	Esta es una investigación documental/experimental que se fundamentará en...
+	
+	\section{Etapas del trabajo}
+	
+	\begin{enumerate}
+		\item[E.1] Primera etapa...
+		\item[E.2] Segunda etapa...
+		\item[E.3] Tercera etapa...
+		\item[E.4] Cuarta etapa...
+	\end{enumerate}
+	
+	\section{Estrategia metodológica}
+	
+	La metodología que se implementará es la siguiente:
+	
+	\begin{enumerate}
+		\item Primer paso...
+		\item Segundo paso...
+		\item Tercer paso...
+	\end{enumerate}
+	
+	% ====== CAPÍTULO 5: RECURSOS =======
+	\chapter{Recursos}
+	
+	\section{Recursos Humanos}
+	
+	\begin{itemize}
+		\item Director del proyecto: \nombreDirector
+		\item Responsable del proyecto: \nombreAutor
+	\end{itemize}
+	
+	\section{Recursos Materiales}
+	
+	\begin{itemize}
+		\item Computador personal
+		\item Libros de la Biblioteca
+		\item Textos digitales
+		\item Software especializado
+		\item Otros recursos...
+	\end{itemize}
+	
+	% ====== CAPÍTULO 6: PRESUPUESTO =======
+	\chapter{Presupuesto}
+	
+	La financiación del proyecto está a cargo del estudiante. La Universidad del Cauca pondrá a disposición salas de estudio, bibliotecas y demás espacios básicos a los que el estudiante tiene derecho en calidad de estudiante matriculado. Además, el Departamento de Matemáticas asignará al director labor académica correspondiente.
+	
+	\vspace{0.5cm}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{4cm}|p{3cm}|c|c|c|}
+			\hline
+			\textbf{Recurso} & \textbf{A cargo de} & \textbf{Cant.} & \textbf{V/Unidad} & \textbf{Total} \\ \hline
+			Material bibliográfico & Estudiante & - & - & \$XX.XXX \\ \hline
+			Papelería & Estudiante & - & - & \$XX.XXX \\ \hline
+			Internet & Estudiante & - & - & \$XX.XXX \\ \hline
+			Fotocopias & Estudiante & XXX & \$XX & \$XX.XXX \\ \hline
+			Otros & Estudiante & - & - & \$XX.XXX \\ \hline
+			\multicolumn{4}{|r|}{\textbf{Total}} & \textbf{\$XXX.XXX} \\ \hline
+		\end{tabular}
+		\caption{Presupuesto del proyecto}
+	\end{table}
+	
+	\vspace{1cm}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{3cm}|p{2.5cm}|c|c|c|c|c|}
+			\hline
+			\textbf{Actividad} & \textbf{A cargo de} & \textbf{Hrs/sem} & \textbf{Hrs/mes} & \textbf{Total hrs} & \textbf{Valor/hr} & \textbf{Total} \\ \hline
+			Asesoría director & Universidad & 2 & 8 & 48 & \$XX.XXX & \$XXX.XXX \\ \hline
+			\multicolumn{6}{|r|}{\textbf{Total}} & \textbf{\$XXX.XXX} \\ \hline
+		\end{tabular}
+		\caption{Costos de asesoría}
+	\end{table}
+	
+	\vspace{0.5cm}
+	\noindent\textbf{Costo aproximado del proyecto:} \$XXX.XXX
+	
+	% ====== CAPÍTULO 7: CRONOGRAMA =======
+	\chapter{Cronograma de Actividades}
+	
+	\begin{table}[H]
+		\centering
+		\begin{tabular}{|p{6cm}|c|c|c|c|c|c|}
+			\hline
+			\textbf{Etapas/Actividades} & \multicolumn{6}{c|}{\textbf{Meses}} \\ \cline{2-7}
+			& \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} \\ \hline
+			Revisión Bibliográfica & X & X & X & X & X & X \\ \hline
+			Traducción de documentos & & & & & & \\ \hline
+			Análisis y síntesis & & & & & & \\ \hline
+			Exposición/Presentación I & & & & & & \\ \hline
+			Exposición/Presentación II & & & & & & \\ \hline
+			Exposición/Presentación III & & & & & & \\ \hline
+			Elaboración documento final & & & & & & \\ \hline
+			Sustentación & & & & & & \\ \hline
+		\end{tabular}
+		\caption{Cronograma de actividades}
+	\end{table}
+	
+	% ====== BIBLIOGRAFÍA =======
+	\begin{thebibliography}{99}
+		\addcontentsline{toc}{chapter}{Referencias Bibliográficas}
+		
+		\bibitem{articulo}
+		González-Olivares, E., Tintinago-Ruiz, P. C., y Rojas-Palma, A. (2015). A Leslie–Gower-type predator–prey model with sigmoid functional response. \textit{International Journal of Computer Mathematics}, 92(9), 1895--1909. https://doi.org/10.1080/00207160.2014.889818
+		
+		\bibitem{teschl2012}
+		Teschl, G. (2012). \textit{Ordinary Differential Equations and Dynamical Systems}. Springer. ISBN: 978-0-8218-8328-0
+		
+		\bibitem{perko2001}
+		Perko, L. (2001). \textit{Differential Equations and Dynamical Systems} (3ra ed.). Springer. ISBN: 978-0387951164
+		
+		\bibitem{guckenheimer1983}
+		Guckenheimer, J., y Holmes, P. (1983). \textit{Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector Fields}. Springer. ISBN: 978-0387908199
+		
+		\bibitem{hoffman1961}
+		Hoffman, K., y Kunze, R. (1961). \textit{Linear Algebra} (1ra ed.). Prentice-Hall.
+		
+		\bibitem{strogatz2014}
+		Strogatz, S. H. (2014). \textit{Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering} (2da ed.). Westview Press. ISBN: 978-0813349107
+		
+		\bibitem{murray2002}
+		Murray, J. D. (2002). \textit{Mathematical Biology I: An Introduction} (3ra ed.). Springer. ISBN: 978-0387952239
+		
+		\bibitem{begon2006}
+		Begon, M., Townsend, C. R., y Harper, J. L. (2006). \textit{Ecology: From Individuals to Ecosystems} (4ta ed.). Blackwell Publishing, Malden, MA.
+		
+		\bibitem{chicone2024}
+		Chicone, C. (2024). \textit{Ordinary Differential Equations with Applications} (3ra ed., Vol. 34). Texts in Applied Mathematics. Springer, Cham. ISBN: 978-3-031-51652-8. https://doi.org/10.1007/978-3-031-51652-8
+		
+		\bibitem{andronov1973}
+		Andronov, A. A., Leontovich, E. A., Gordon, I. I., y Maier, A. G. (1973). \textit{Qualitative Theory of Second-Order Dynamic Systems}. Wiley, New York, NY.
+		
+		\bibitem{dumortier2006}
+		Dumortier, F., Llibre, J., y Artés, J. C. (2006). \textit{Qualitative Theory of Planar Differential Systems}. Universitext. Springer, Berlin / Heidelberg. ISBN: 978-3-540-32893-3. https://doi.org/10.1007/978-3-540-32902-2
+		
+	\end{thebibliography}
+	
+	% ====== APÉNDICES (si aplica) =======
+	% \appendix
+	% \chapter{Primer Apéndice}
+	% Contenido del primer apéndice...
+	
+\end{document}
