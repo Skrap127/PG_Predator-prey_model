@@ -53,7 +53,7 @@
 \newcommand{\tituloTrabajo}{Un modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea}
 \newcommand{\nombreAutor}{Yerson Danilo Chilito Inga}
 \newcommand{\nombreDirector}{Jhon Jairo Pérez}
-\newcommand{\tituloDirector}{Ph.D.} % o Dr., M.Sc., etc.
+\newcommand{\tituloDirector}{Dr.} % o Dr., M.Sc., etc.
 \newcommand{\modalidad}{investigación} % o seminario, pasantía, etc.
 \newcommand{\tituloOptar}{Matemático}
 \newcommand{\anioTrabajo}{2025}
@@ -103,7 +103,7 @@
 		\vspace{2cm}
 		
 		{\large Director\par}
-		{\large \nombreDirector\ \tituloDirector\par}
+		{\large \tituloDirector\ \nombreDirector\par}
 		
 		\vfill
 		
@@ -131,7 +131,7 @@
 	% ====== CAPÍTULO 1: INTRODUCCIÓN =======
 	\chapter{Introducción}
 	
-	Escriba aquí la introducción de su trabajo...
+	
 	
 	% Contexto del problema
 	% Motivación
@@ -154,11 +154,11 @@
 	\end{definicion}
 	
 	\begin{definicion}[Sistema de EDOs]
-		Un \textbf{sistema no lineal de EDOs no autónomo} de primer orden tiene la forma $\dot{x} = f(x, t)$. Si la función $f$ no depende explícitamente de $t$, se denomina \textbf{sistema no lineal autónomo}: $\dot{x} = f(x)$.
+		Un \textbf{sistema no lineal de EDOs no autónomo} de primer orden tiene la forma $\dot{x} = f(x, t)$. Si la función $f$ no depende explícitamente de $t$, se denomina \textbf{sistema no lineal autónomo} de primer orden: $\dot{x} = f(x)$.
 	\end{definicion}
 	
 	\begin{observacion}
-		Un \textbf{sistema lineal autónomo} es de la forma $\dot{x} = Ax$. Un sistema lineal no autónomo es $\dot{x} = A(t)x + b(t)$. Si $b(t) = 0$, el sistema es homogéneo; si $A$ es diagonal, es desacoplado; y si $b(t) \neq 0$, es no homogéneo.
+		Un \textbf{sistema lineal autónomo} de primer orden es de la forma $\dot{x} = Ax$. Un sistema lineal no autónomo es $\dot{x} = A(t)x + b(t)$. Si $b(t) = 0$, el sistema es homogéneo y si $b(t) \neq 0$, es no homogéneo; si $A$ es diagonal, es desacoplado.
 	\end{observacion}
 	
 	\begin{teorema}[Existencia y Unicidad]
@@ -170,15 +170,15 @@
 	\end{definicion}
 	
 	\begin{definicion}[Retrato Fase]
-		El \textbf{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema en el plano $\mathbb{R}^n$.
+		El \textbf{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema en $\mathbb{R}^n$.
 	\end{definicion}
 	
 	\subsection{Conceptos Clave en Análisis Cualitativo}
 	
 	\begin{definicion}[Isoclinas]
-		Son curvas en sistemas autónomos bidimensionales donde la pendiente del campo vectorial $dy/dx = c$ es constante, obtenidas al solucionar $g(x, y) = cf(x, y)$ para el sistema $\dot{x} = f(x, y)$, $\dot{y} = g(x, y)$. Son importantes para la interpretación gráfica.
+		En sistemas autónomos bidimensionales las isoclinas son curvas donde la pendiente del campo vectorial $dy/dx = c$ es constante, estas son obtenidas al solucionar $g(x, y) = cf(x, y)$ para el sistema $\dot{x} = f(x, y)$, $\dot{y} = g(x, y)$.
 	\end{definicion}
-	
+	Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, ya que su importancia radica en la interpretación gráfica de esta.
 	\begin{definicion}[Ciclos Límite]
 		Son trayectorias o curvas solución que son \textbf{cerradas y aisladas} (es decir, la única trayectoria cerrada en una vecindad). Pueden ser \textbf{estables} (atractores), \textbf{inestables} o \textbf{medio-estables}.
 	\end{definicion}
@@ -204,7 +204,7 @@
 	\end{definicion}
 	
 	\begin{definicion}[Variedades Estables e Inestables]
-		La variedad local estable $W^s(x_0)$ y la inestable $W^u(x_0)$ describen los puntos cercanos a $x_0$ que se acercan a él cuando $t \to \infty$ y $t \to -\infty$, respectivamente. Si $U = \mathbb{R}^n$, son variedades globales.
+		Dado un abierto $U \subset \mathbb{R}^n$ y un punto de equilibrio $x_0 \in U$, la variedad local estable $W^s(x_0)$ y la inestable $W^u(x_0)$ describen los puntos $x \in U$ tales que $\phi_t(x) \rightarrow x_0$ cuando $t \to \infty$ y $t \to -\infty$, respectivamente. Si $U = \mathbb{R}^n$, son variedades globales.
 	\end{definicion}
 	
 	\begin{definicion}[Órbitas Heteroclínicas y Homoclínicas]
@@ -222,17 +222,19 @@
 	\end{teorema}
 	
 	\begin{teorema}[Hartman-Grobman]
-		Si 0 es un punto de equilibrio hiperbólico del sistema no lineal $\dot{x} = f(x)$, existe un \textbf{homeomorfismo} $H$ que mapea trayectorias cerca del origen del sistema no lineal a trayectorias cerca del origen del sistema linealizado $\dot{x} = Ax$ (donde $A = Df(0)$), preservando la parametrización temporal. Este teorema establece que el retrato fase cerca de un punto hiperbólico es \textbf{topológicamente equivalente} al retrato fase de su linealización.
+		Si 0 es un punto de equilibrio hiperbólico del sistema no lineal $\dot{x} = f(x)$, existe un \textbf{homeomorfismo} $H$ que mapea trayectorias cerca del origen del sistema no lineal a trayectorias cerca del origen del sistema linealizado $\dot{x} = Ax$ (donde $A = Df(0)$), preservando la parametrización temporal.
 	\end{teorema}
 	
-	\begin{definicion}[Blow-up (Desingularización)]
+	Este teorema establece que el retrato fase cerca de un punto hiperbólico es \textbf{topológicamente equivalente} al retrato fase de su linealización.
+	
+	A continuación, presentaremos una breve descripción de dos técnicas ampliamente utilizadas en los sistemas de ecuaciones diferenciales.
+	
+	\textbf{Blow-up (Desingularización)}:
 		Es una herramienta utilizada para estudiar singularidades complicadas, especialmente en sistemas planos. Consiste en transformar el punto crítico (generalmente el origen) en un círculo que contiene un número finito de nuevos puntos críticos (a menudo hiperbólicos) mediante cambios de variables, como las coordenadas polares, o los blow-ups direccionales.
-	\end{definicion}
-	
-	\begin{definicion}[Compactificación de Poincaré]
-		Método atribuido a Poincaré que busca compactificar el espacio cartesiano extendiendo el campo vectorial a una esfera unitaria $S^2$ que contiene los ``puntos en el infinito''. Esto permite analizar el comportamiento de las trayectorias cuando las variables tienden a infinito. La proyección central $Q$ asigna un punto en el plano tangente $\Pi$ a un punto en la esfera $S^2$.
-	\end{definicion}
-	
+
+	\textbf{Compactificación de Poincaré}:
+		Método atribuido a Poincaré que busca compactificar el espacio cartesiano extendiendo el campo vectorial bidimensional a una esfera unitaria $S^2$ que contiene los ``puntos en el infinito''. Esto permite analizar el comportamiento de las trayectorias cuando las variables tienden a infinito. La proyección central $$Q(x,y,1)=(\frac{x}{\sqrt{x^{2}+y^{2}+1}},\frac{y}{\sqrt{x^{2}+y^{2}+1}},\frac{1}{\sqrt{x^{2}+y^{2}+1}}),$$ asigna un punto del plano tangente $\Pi$, a un punto en la esfera $S^2$.
+
 	\section{Bifurcaciones}
 	
 	Un sistema de ecuaciones diferenciales que depende de un parámetro $k$-dimensional $\mu$ se expresa como $\dot{x} = f_\mu(x)$.
@@ -241,67 +243,60 @@
 		Una \textbf{bifurcación} es el cambio en la estructura cualitativa del flujo que ocurre cuando $\mu$ varía, pudiendo crearse o destruirse puntos críticos, o cambiar su estabilidad, así como aparecer o desaparecer trayectorias cerradas. Los valores de $\mu$ donde ocurre este cambio cualitativo son llamados \textbf{valores de bifurcación}.
 	\end{definicion}
 	
-	\subsection{Tipos de Bifurcaciones}
+	Ahora, mostraremos algunos de los tipos de bifurcaciones más conocidos.
 	
-	\begin{definicion}[Bifurcación Silla-Nodo (Fold)]
+	\textbf{Bifurcación Silla-Nodo}:
 		Es el mecanismo básico mediante el cual los puntos de equilibrio son creados y destruidos, dependiendo de los parámetros del sistema.
-	\end{definicion}
 	
-	\begin{definicion}[Bifurcación Transcrítica]
+	\textbf{Bifurcación Transcrítica}:
 		Es el mecanismo estándar donde un punto fijo que debe existir para todos los valores del parámetro (como la población cero en modelos de crecimiento) cambia su estabilidad al variar el parámetro.
-	\end{definicion}
 	
-	\begin{definicion}[Bifurcaciones de Pitchfork (en Horquilla)]
+	\textbf{Bifurcaciones de Pitchfork (en Horquilla)}:
 		Comunes en problemas físicos con simetría, donde los puntos críticos aparecen y desaparecen en pares simétricos.
 		\begin{itemize}
 			\item \textbf{Supercrítica}: Característico de sistemas invariantes bajo el cambio $x \to -x$.
 			\item \textbf{Subcrítica}: Los puntos críticos solo existen por debajo del valor de bifurcación.
 		\end{itemize}
-	\end{definicion}
 	
-	\begin{definicion}[Bifurcaciones de Hopf]
+	\textbf{Bifurcaciones de Hopf}:
 		Suceden cuando un punto fijo estable pierde estabilidad al variar un parámetro $\mu$, haciendo que los autovalores del Jacobiano crucen el semiplano derecho (Re$\lambda < 0$ a Re$\lambda > 0$).
 		\begin{itemize}
 			\item \textbf{Supercrítica}: Una espiral estable se transforma en una espiral inestable rodeada por un pequeño ciclo límite.
 			\item \textbf{Subcrítica}: El caso más dramático, donde las trayectorias deben saltar a un atractor distante tras la bifurcación, que puede ser otro punto fijo, un ciclo límite o un atractor caótico (en dimensiones mayores).
 		\end{itemize}
-	\end{definicion}
-	
+		
 	\section{Modelos Ecológicos}
 	
 	Los \textbf{modelos ecológicos} en la biología matemática son fundamentales para predecir el comportamiento de diversas poblaciones.
 	
 	\subsection{Crecimiento Poblacional}
 	
-	El crecimiento poblacional $P(t)$ puede ser:
+	El crecimiento poblacional $P(t)$ puede ser de distintas formas, entre las mas destacadas están:
 	\begin{itemize}
 		\item \textbf{Crecimiento Exponencial}: Poco realista a largo plazo ya que ignora limitaciones ambientales.
-		\item \textbf{Crecimiento Logístico}: Más relevante para poblaciones reales, donde el crecimiento es limitado y controlado por la capacidad de carga del entorno, conocido como \textbf{ecuaciones logísticas}.
+		\item \textbf{Crecimiento Logístico}: Más relevante para poblaciones reales, donde el crecimiento es limitado y controlado por la capacidad de carga del entorno.
 	\end{itemize}
 	
 	\subsection{Respuestas Funcionales de Holling}
 	
 	En los modelos presa-depredador, la \textbf{respuesta funcional} describe la relación entre la tasa de consumo de presas y el beneficio para el consumidor (depredador). Holling (1959) distinguió tres tipos principales:
 	
-	\begin{definicion}[Respuesta Funcional Tipo I]
+	\textbf{Respuesta Funcional Tipo I}:
 		Asumida, por ejemplo, en las ecuaciones de Lotka-Volterra. La tasa de consumo aumenta \textbf{linealmente} con la densidad de presas.
-	\end{definicion}
 	
-	\begin{definicion}[Respuesta Funcional Tipo II]
+	\textbf{Respuesta Funcional Tipo II}:
 		La tasa de consumo aumenta con la densidad de presas, pero se \textbf{desacelera gradualmente} hasta alcanzar una meseta (máximo). Esto se debe a que el depredador dedica tiempo a manipular la presa (perseguir, dominar, consumir).
-	\end{definicion}
 	
-	\begin{definicion}[Respuesta Funcional Tipo III (Sigmoidea)]
+	\textbf{Respuesta Funcional Tipo III (Sigmoidea)}:
 		Similar al Tipo II a altas densidades. Sin embargo, a bajas densidades de presas, presenta una fase de \textbf{aceleración} (forma de S), donde un aumento en la densidad conduce a un aumento más que lineal de la tasa de consumo. Esto surge cuando el depredador aumenta su eficiencia de búsqueda o se interesa en la presa solo cuando su abundancia relativa es alta.
-	\end{definicion}
 	
 	\begin{observacion}
-		También existe el tipo IV de respuesta funcional.
+		También existen más tipos de respuesta funcional.
 	\end{observacion}
 	
 	\subsection{Modelos Clásicos Presa-Depredador}
 	
-	\begin{definicion}[Modelo Lotka-Volterra]
+	\textbf{Modelo Lotka-Volterra}:
 		Propuesto originalmente por Volterra (1926) y Lotka (1920) para explicar los niveles oscilatorios de capturas de peces. Describe la interacción de la población de presas $N(t)$ y depredadores $P(t)$ mediante el sistema:
 		\begin{equation}
 			\begin{cases} 
@@ -312,9 +307,8 @@
 		con $a, b, c, d$ constantes positivas.
 		
 		Los supuestos incluyen: crecimiento ilimitado maltusiano de la presa en ausencia de depredación ($aN$); reducción de la tasa de crecimiento de la presa proporcional a ambas poblaciones ($-bNP$); contribución de la presa al crecimiento del depredador ($cNP$); y mortalidad exponencial del depredador sin presas ($-dP$). Este modelo no considera la limitación de recursos.
-	\end{definicion}
 	
-	\begin{definicion}[Modelo Leslie-Gower]
+	\textbf{Modelo Leslie-Gower}:
 		Es una variante del modelo Lotka-Volterra que incorpora el crecimiento logístico para las presas, considerando la capacidad de carga del entorno ($K$):
 		\begin{equation}
 			\begin{cases} 
@@ -330,22 +324,21 @@
 				\frac{dP}{dt} = cPN - dP
 			\end{cases}
 		\end{equation}
-	\end{definicion}
 	
 	% ====== CAPÍTULO 3: OBJETIVOS =======
 	\chapter{Objetivos}
 	
 	\section{Objetivo General}
 	
-	Escriba aquí el objetivo general de su trabajo...
+	Analizar cualitativamente un modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea.
 	
 	\section{Objetivos Específicos}
 	
 	\begin{itemize}
-		\item Primer objetivo específico...
-		\item Segundo objetivo específico...
-		\item Tercer objetivo específico...
-		\item Cuarto objetivo específico...
+		\item Hallar puntos críticos del sistema.
+		\item Analizar la estabilidad de dichos puntos críticos.
+		\item Analizar la posibilidad de hallar comportamientos cualitativos especiales en el sistema (ciclos límites, bifurcaciones, etc.).
+		\item Determinar el comportamiento a futuro de las especies.
 	\end{itemize}
 	
 	% ====== CAPÍTULO 4: METODOLOGÍA =======
@@ -420,11 +413,11 @@
 	
 	\begin{table}[H]
 		\centering
-		\begin{tabular}{|p{3cm}|p{2.5cm}|c|c|c|c|c|}
+		\begin{tabular}{|p{3cm}|p{2.5cm}|c|c|c|c|}
 			\hline
-			\textbf{Actividad} & \textbf{A cargo de} & \textbf{Hrs/sem} & \textbf{Hrs/mes} & \textbf{Total hrs} & \textbf{Valor/hr} & \textbf{Total} \\ \hline
-			Asesoría director & Universidad & 2 & 8 & 48 & \$XX.XXX & \$XXX.XXX \\ \hline
-			\multicolumn{6}{|r|}{\textbf{Total}} & \textbf{\$XXX.XXX} \\ \hline
+			\textbf{Actividad} & \textbf{A cargo de} & \textbf{Hrs/sem} & \textbf{Hrs/mes} & \textbf{Total hrs} & \textbf{Valor/hr} \\ \hline
+			Asesoría director & Universidad & 2 & 8 & 48 & \$XX.XXX \\ \hline
+			\multicolumn{5}{|r|}{\textbf{Total}} & \textbf{\$XXX.XXX} \\ \hline
 		\end{tabular}
 		\caption{Costos de asesoría}
 	\end{table}
