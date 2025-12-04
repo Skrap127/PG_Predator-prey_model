@@ -62,8 +62,9 @@
 % ====== INICIO DEL DOCUMENTO =======
 \begin{document}
 	
+	\frontmatter
 	% ====== PORTADA =======
-	\begin{titlepage}
+	\begin{center}
 		\centering
 		\vspace*{1cm}
 		
@@ -80,7 +81,7 @@
 		{\large DEPARTAMENTO DE MATEMÁTICAS\par}
 		{\large \ciudadTrabajo, CAUCA\par}
 		{\large \anioTrabajo\par}
-	\end{titlepage}
+	\end{center}
 	
 	% ====== PÁGINA DE TÍTULO (CONTRAPORTADA) =======
 	\newpage
@@ -115,7 +116,6 @@
 	\end{center}
 	
 	% ====== ÍNDICE GENERAL =======
-	\newpage
 	\tableofcontents
 	
 	% ====== ÍNDICE DE FIGURAS (si aplica) =======
@@ -131,7 +131,19 @@
 	% ====== CAPÍTULO 1: INTRODUCCIÓN =======
 	\chapter{Introducción}
 	
+	% En el transcurso del tiempo las ecuaciones diferenciales han sido fundamentales para estudiar situaciones de la vida real, el estudio de estos modelos que representan estos casos (ecologicos, fisicos, vida cotidiana) se es de vital importancia para dar un enfoque analitico a las situaciones cotidianas, debido a que muchos de estos modelos no se les puede encontrar una solucion explicita, es importante conocer metodos distintos a lo analitico para determinar o conocer el estado del problema a un tiempo futuro, para ello se emplean otras tecnicas dentro de la teoria cualitativo para conocer mas detalles del comportamiento del modelo en el transcurso del tiempo. Como ejemplo de estos tipos de modelos, en el presente trabajo nos enfocaremos en el estudio de un modelo presa-depredador tipo leslie-gower con respuesta funcional sigmoidea, aunque el nombre de este modelo es un poco largo es simplemente un modelo en el que la presa y el depredador constan de ciertas circunstancias, por ejemplo, el tipo de crecimiento de las poblaciones, la capacidad de carga del medio ambiente, la tasa de consumo del depredador, esta ultima viendose asociada a los tipos respuestas funcionales. La principal motivacion del estudio de este modelo es poder conocer a futuro el comportamiento de aquellas especies presa y depredadores que se ajuste bajo las condiciones planteadas en el modelo, por ejemplo, la interaccion entre focas y salmones en un rio, u otras especies que se comporten bajo estas condiciones (de crecimiento, consumo, capacidad de entorno, etc.) y con esta motivacion el dar un ejemplo explicito de aplicabilidad de las matematicas en la vida real. Para ello se tiene como objetivo estudiar cualitativamente este modelo, es decir, hallar los puntos criticos del sistema, analizar su estabilidad, y hallar posibles comportamientos cualitativos especiales: ciclos limites (preservacion de especies), bifurcaciones, etc. Esto con el fin de determinar el comportamiento a futuro de las especies.
 	
+	Las ecuaciones diferenciales han demostrado ser instrumentos fundamentales para modelar fenómenos de la vida real, particularmente en ecología, física y procesos biológicos cotidianos. Dado que la mayoría de estos modelos no admiten soluciones explícitas, el análisis cualitativo se torna esencial para caracterizar el comportamiento dinámico a largo plazo, empleando técnicas como la localización de puntos de equilibrio, su estabilidad y la detección de fenómenos globales tales como ciclos límite o bifurcaciones. Este trabajo, se centrará en el estudio de un modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea propuesto por González-Olivares et al. (2015) \cite{articulo}, caracterizado por el sistema
+	\begin{equation*}
+		\begin{cases} 
+			\frac{dx}{dt} = (r \left(1 - \frac{x}{K}\right) - \frac{q x y}{x^2 + a^2})x \\ 
+			\frac{dy}{dt} = s \left(1 - \frac{y}{n x}\right) y
+		\end{cases},
+	\end{equation*}
+	
+	donde $x(t)$ y $y(t)$ representan las densidades de presa y depredador, respectivamente; $r$ es la tasa intrínseca de crecimiento de la presa, $K$ su capacidad de carga ambiental, $q$ la tasa máxima de consumo por depredador, $a$ representa la cantidad de presas necesarias para lograr la mitad de la tasa de saturación, $s$ la tasa de crecimiento intrínseco del depredador y $n$ una medida de la calidad alimenticia convertida en nuevos depredadores \cite[p. 1895]{articulo}.
+	
+	La relevancia ecológica de este modelo radica en su capacidad para describir interacciones reales donde la respuesta funcional sigmoidea estabiliza las poblaciones, como en el caso de focas y salmones en ríos, donde la depredación es mínima a bajas densidades de presa pero intensiva a densidades elevadas \cite[p. 1896]{articulo}. Los objetivos principales consisten en un análisis cualitativo exhaustivo: localización y estabilidad de puntos críticos, existencia de comportamientos cualitativos especiales como, ciclos límites, bifurcaciones de Hopf y curvas separatrices \cite{articulo}. Este enfoque permitirá predecir la coexistencia o extinción de especies, ilustrando la aplicabilidad matemática en la conservación ecológica.
 	
 	% Contexto del problema
 	% Motivación
@@ -191,7 +203,7 @@
 		Un punto de equilibrio es hiperbólico si ninguno de los valores propios de la matriz jacobiana $Df(x_0)$ tiene parte real nula.
 	\end{definicion}
 	
-	\begin{definicion}[Clasificación de Puntos Críticos]
+	\begin{definicion}[Clasificación de Puntos Críticos] \
 		\begin{itemize}
 			\item \textbf{Sumidero (Sink)}: Todos los valores propios de $Df(x_0)$ tienen parte real negativa.
 			\item \textbf{Fuente (Source)}: Todos los valores propios de $Df(x_0)$ tienen parte real positiva.
@@ -233,7 +245,7 @@
 		Es una herramienta utilizada para estudiar singularidades complicadas, especialmente en sistemas planos. Consiste en transformar el punto crítico (generalmente el origen) en un círculo que contiene un número finito de nuevos puntos críticos (a menudo hiperbólicos) mediante cambios de variables, como las coordenadas polares, o los blow-ups direccionales.
 
 	\textbf{Compactificación de Poincaré}:
-		Método atribuido a Poincaré que busca compactificar el espacio cartesiano extendiendo el campo vectorial bidimensional a una esfera unitaria $S^2$ que contiene los ``puntos en el infinito''. Esto permite analizar el comportamiento de las trayectorias cuando las variables tienden a infinito. La proyección central $$Q(x,y,1)=(\frac{x}{\sqrt{x^{2}+y^{2}+1}},\frac{y}{\sqrt{x^{2}+y^{2}+1}},\frac{1}{\sqrt{x^{2}+y^{2}+1}}),$$ asigna un punto del plano tangente $\Pi$, a un punto en la esfera $S^2$.
+		Método atribuido a Poincaré que busca compactificar el espacio cartesiano extendiendo el campo vectorial bidimensional a una esfera unitaria $S^2$ que contiene los ``puntos en el infinito''. Esto permite analizar el comportamiento de las trayectorias cuando las variables tienden a infinito. La proyección central $$Q(x,y,1)=(\frac{x}{\sqrt{x^{2}+y^{2}+1}},\frac{y}{\sqrt{x^{2}+y^{2}+1}},\frac{1}{\sqrt{x^{2}+y^{2}+1}}),$$ asigna un punto del plano tangente (al polo norte $N=(0,0,1)$) $\Pi$, a un punto en la esfera $S^2$.
 
 	\section{Bifurcaciones}
 	
@@ -448,7 +460,6 @@
 	
 	% ====== BIBLIOGRAFÍA =======
 	\begin{thebibliography}{99}
-		\addcontentsline{toc}{chapter}{Referencias Bibliográficas}
 		
 		\bibitem{articulo}
 		González-Olivares, E., Tintinago-Ruiz, P. C., y Rojas-Palma, A. (2015). A Leslie–Gower-type predator–prey model with sigmoid functional response. \textit{International Journal of Computer Mathematics}, 92(9), 1895--1909. https://doi.org/10.1080/00207160.2014.889818
@@ -457,10 +468,10 @@
 		Teschl, G. (2012). \textit{Ordinary Differential Equations and Dynamical Systems}. Springer. ISBN: 978-0-8218-8328-0
 		
 		\bibitem{perko2001}
-		Perko, L. (2001). \textit{Differential Equations and Dynamical Systems} (3ra ed.). Springer. ISBN: 978-0387951164
+		Perko, L. (2001). \textit{Differential Equations and Dynamical Systems} (3ra ed.). Springer. ISBN: 978-0-387-95116-4. https://doi.org/10.1007/978-1-4613-0003-8
 		
 		\bibitem{guckenheimer1983}
-		Guckenheimer, J., y Holmes, P. (1983). \textit{Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector Fields}. Springer. ISBN: 978-0387908199
+		Guckenheimer, J., y Holmes, P. (1983). \textit{Nonlinear Oscillations, Dynamical Systems, and Bifurcations of Vector Fields}. Springer. ISBN: 978-1-4612-7020-1. https://doi.org/10.1007/978-1-4612-1140-2
 		
 		\bibitem{hoffman1961}
 		Hoffman, K., y Kunze, R. (1961). \textit{Linear Algebra} (1ra ed.). Prentice-Hall.
@@ -469,25 +480,21 @@
 		Strogatz, S. H. (2014). \textit{Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering} (2da ed.). Westview Press. ISBN: 978-0813349107
 		
 		\bibitem{murray2002}
-		Murray, J. D. (2002). \textit{Mathematical Biology I: An Introduction} (3ra ed.). Springer. ISBN: 978-0387952239
+		Murray, J. D. (2002). \textit{Mathematical Biology I: An Introduction} (3ra ed.). Springer. ISBN: 978-0-387-95223-9. https://doi.org/10.1007/b98868
 		
 		\bibitem{begon2006}
 		Begon, M., Townsend, C. R., y Harper, J. L. (2006). \textit{Ecology: From Individuals to Ecosystems} (4ta ed.). Blackwell Publishing, Malden, MA.
 		
 		\bibitem{chicone2024}
-		Chicone, C. (2024). \textit{Ordinary Differential Equations with Applications} (3ra ed., Vol. 34). Texts in Applied Mathematics. Springer, Cham. ISBN: 978-3-031-51652-8. https://doi.org/10.1007/978-3-031-51652-8
+		Chicone, C. (1999). \textit{Ordinary differential equations with applications} (1st ed. 1999.). Springer. ISBN: 978-0-387-22623-1. https://doi.org/10.1007/b97645
+		%ISBN: 0-387-98535-2
 		
 		\bibitem{andronov1973}
-		Andronov, A. A., Leontovich, E. A., Gordon, I. I., y Maier, A. G. (1973). \textit{Qualitative Theory of Second-Order Dynamic Systems}. Wiley, New York, NY.
+		Andronov, A. A., Leontovich, E. A., Gordon, I. I., y Maier, A. G. (1973). \textit{Qualitative Theory of Second-Order Dynamic Systems}. Wiley, New York, NY. ISBN: 9780706512922
 		
 		\bibitem{dumortier2006}
 		Dumortier, F., Llibre, J., y Artés, J. C. (2006). \textit{Qualitative Theory of Planar Differential Systems}. Universitext. Springer, Berlin / Heidelberg. ISBN: 978-3-540-32893-3. https://doi.org/10.1007/978-3-540-32902-2
 		
 	\end{thebibliography}
-	
-	% ====== APÉNDICES (si aplica) =======
-	% \appendix
-	% \chapter{Primer Apéndice}
-	% Contenido del primer apéndice...
 	
 \end{document}
