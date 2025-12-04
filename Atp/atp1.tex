@@ -143,7 +143,7 @@
 	
 	donde $x(t)$ y $y(t)$ representan las densidades de presa y depredador, respectivamente; $r$ es la tasa intrínseca de crecimiento de la presa, $K$ su capacidad de carga ambiental, $q$ la tasa máxima de consumo por depredador, $a$ representa la cantidad de presas necesarias para lograr la mitad de la tasa de saturación, $s$ la tasa de crecimiento intrínseco del depredador y $n$ una medida de la calidad alimenticia convertida en nuevos depredadores \cite[p. 1895]{articulo}.
 	
-	La relevancia ecológica de este modelo radica en su capacidad para describir interacciones reales donde la respuesta funcional sigmoidea estabiliza las poblaciones, como en el caso de focas y salmones en ríos, donde la depredación es mínima a bajas densidades de presa pero intensiva a densidades elevadas \cite[p. 1896]{articulo}. Los objetivos principales consisten en un análisis cualitativo exhaustivo: localización y estabilidad de puntos críticos, existencia de comportamientos cualitativos especiales como, ciclos límites, bifurcaciones de Hopf y curvas separatrices \cite{articulo}. Este enfoque permitirá predecir la coexistencia o extinción de especies, ilustrando la aplicabilidad matemática en la conservación ecológica.
+	La relevancia ecológica de este modelo radica en su capacidad para describir interacciones reales donde la respuesta funcional sigmoidea estabiliza las poblaciones, como en el caso de focas y salmones en ríos, donde la depredación es mínima a bajas densidades de presa pero intensiva a densidades elevadas \cite[p. 1896]{articulo}. Los objetivos principales consisten en un análisis cualitativo exhaustivo: localización y estabilidad de puntos críticos, existencia de comportamientos cualitativos especiales como, ciclos límites, bifurcaciones y curvas separatrices \cite{articulo}. Este enfoque permitirá predecir la coexistencia o extinción de especies, ilustrando la aplicabilidad matemática en la conservación ecológica.
 	
 	% Contexto del problema
 	% Motivación
@@ -166,7 +166,11 @@
 	\end{definicion}
 	
 	\begin{definicion}[Sistema de EDOs]
-		Un \textbf{sistema no lineal de EDOs no autónomo} de primer orden tiene la forma $\dot{x} = f(x, t)$. Si la función $f$ no depende explícitamente de $t$, se denomina \textbf{sistema no lineal autónomo} de primer orden: $\dot{x} = f(x)$.
+		Un \textbf{sistema no lineal de EDOs no autónomo} de primer orden tiene la forma $\dot{x} = f(x, t)$. Si la función $f$ no depende explícitamente de $t$, se denomina \textbf{sistema no lineal autónomo} de primer orden: 
+		\begin{equation}
+			\dot{x} = f(x).
+		\end{equation}
+		\label{eq: sistema}
 	\end{definicion}
 	
 	\begin{observacion}
@@ -174,11 +178,13 @@
 	\end{observacion}
 	
 	\begin{teorema}[Existencia y Unicidad]
-		Si $E \subseteq \mathbb{R}^n$ es un subconjunto abierto que contiene a $x_0$ y $f \in C^1(E)$, entonces el problema de valor inicial $\dot{x} = f(x)$, $x(0) = x_0$ tiene una \textbf{única solución} en un intervalo $[-\mathfrak{a}, \mathfrak{a}]$ para algún $\mathfrak{a} > 0$.
+		Sea $E \subseteq \mathbb{R}^n$ es un subconjunto abierto y $f \in C^1(E)$, entonces para cada $x_0 \in E$, el problema de valor inicial $\dot{x} = f(x)$, $x(0) = x_0$ tiene una \textbf{única solución} $x(t)$ en un intervalo $[-\mathfrak{a}, \mathfrak{a}]$ para algún $\mathfrak{a} > 0$.
 	\end{teorema}
 	
+	Para indicar que la solucion depende de $x_0$, escribiremos $x(t)=\phi_t(x_0) = \phi(t, x_0)$ 
+	
 	\begin{definicion}[Flujo y Trayectorias]
-		El conjunto de funciones $\phi_t$ definidas por $\phi_t(x_0) = \phi(t, x_0)$ es llamado el \textbf{flujo} de la ecuación diferencial o el flujo del \textbf{campo vectorial} $f(x)$. Las soluciones del sistema autónomo $\dot{x} = f(x)$ se denominan \textbf{curvas solución}, \textbf{trayectorias} u \textbf{órbitas}.
+		El conjunto de funciones $\phi_t$ definidas por $\phi_t(x_0)$ es llamado el \textbf{flujo} de la ecuación diferencial o el flujo del \textbf{campo vectorial} $f(x)$. Las soluciones del sistema autónomo $\dot{x} = f(x)$ se denominan \textbf{curvas solución}, \textbf{trayectorias} u \textbf{órbitas}.
 	\end{definicion}
 	
 	\begin{definicion}[Retrato Fase]
@@ -196,7 +202,7 @@
 	\end{definicion}
 	
 	\begin{definicion}[Puntos Críticos/Equilibrio/Singularidad]
-		Un punto $x_0 \in \mathbb{R}^n$ es un punto de equilibrio si $f(x_0) = 0$.
+		Un punto $x_0 \in \mathbb{R}^n$ es un punto de equilibrio del sistema \eqref{eq: sistema} si $f(x_0) = 0$.
 	\end{definicion}
 	
 	\begin{definicion}[Punto de Equilibrio Hiperbólico]
@@ -212,7 +218,7 @@
 	\end{definicion}
 	
 	\begin{definicion}[Conjuntos Invariantes]
-		Un conjunto $S$ es \textbf{invariante} si $\phi_t \subset S$ para todo $t \in \mathbb{R}$. Es \textbf{invariante positivo} (o negativo) si $\phi_t \subset S$ para $t \geq 0$ (o $t \leq 0$).
+		Un conjunto $S \subset \mathbb{R}^n$ es \textbf{invariante} si $\phi_t \subset S$ para todo $t \in \mathbb{R}$. Es \textbf{invariante positivo} (o negativo) si $\phi_t \subset S$ para $t \geq 0$ (o $t \leq 0$).
 	\end{definicion}
 	
 	\begin{definicion}[Variedades Estables e Inestables]
@@ -245,7 +251,7 @@
 		Es una herramienta utilizada para estudiar singularidades complicadas, especialmente en sistemas planos. Consiste en transformar el punto crítico (generalmente el origen) en un círculo que contiene un número finito de nuevos puntos críticos (a menudo hiperbólicos) mediante cambios de variables, como las coordenadas polares, o los blow-ups direccionales.
 
 	\textbf{Compactificación de Poincaré}:
-		Método atribuido a Poincaré que busca compactificar el espacio cartesiano extendiendo el campo vectorial bidimensional a una esfera unitaria $S^2$ que contiene los ``puntos en el infinito''. Esto permite analizar el comportamiento de las trayectorias cuando las variables tienden a infinito. La proyección central $$Q(x,y,1)=(\frac{x}{\sqrt{x^{2}+y^{2}+1}},\frac{y}{\sqrt{x^{2}+y^{2}+1}},\frac{1}{\sqrt{x^{2}+y^{2}+1}}),$$ asigna un punto del plano tangente (al polo norte $N=(0,0,1)$) $\Pi$, a un punto en la esfera $S^2$.
+		Método atribuido a Poincaré que busca compactificar el espacio cartesiano extendiendo el campo vectorial bidimensional a una esfera unitaria $S^2$ que contiene los ``puntos en el infinito''. Esto permite analizar el comportamiento de las trayectorias cuando las variables tienden a infinito. La proyección central $$Q(x,y,1)=(\frac{x}{\sqrt{x^{2}+y^{2}+1}},\frac{y}{\sqrt{x^{2}+y^{2}+1}},\frac{1}{\sqrt{x^{2}+y^{2}+1}}),$$ asigna un punto del plano $\Pi$ tangente al polo norte $N=(0,0,1)$, a un punto en la esfera $S^2$.
 
 	\section{Bifurcaciones}
 	
@@ -412,10 +418,10 @@
 			\hline
 			\textbf{Recurso} & \textbf{A cargo de} & \textbf{Cant.} & \textbf{V/Unidad} & \textbf{Total} \\ \hline
 			Material bibliográfico & Estudiante & - & - & \$XX.XXX \\ \hline
-			Papelería & Estudiante & - & - & \$XX.XXX \\ \hline
-			Internet & Estudiante & - & - & \$XX.XXX \\ \hline
-			Fotocopias & Estudiante & XXX & \$XX & \$XX.XXX \\ \hline
-			Otros & Estudiante & - & - & \$XX.XXX \\ \hline
+			Papelería & Estudiante & 2 & 18.000 & 36.000 \\ \hline
+			Internet & Estudiante & Ilimitado & 90.000 & 540.000 \\ \hline
+			Fotocopias & Estudiante & 100 & 100 & 10.000 \\ \hline
+			Otros & Estudiante & Ilimitado &  & 300.000 \\ \hline
 			\multicolumn{4}{|r|}{\textbf{Total}} & \textbf{\$XXX.XXX} \\ \hline
 		\end{tabular}
 		\caption{Presupuesto del proyecto}
@@ -446,13 +452,10 @@
 			\hline
 			\textbf{Etapas/Actividades} & \multicolumn{6}{c|}{\textbf{Meses}} \\ \cline{2-7}
 			& \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} \\ \hline
-			Revisión Bibliográfica & X & X & X & X & X & X \\ \hline
+			Revisión Bibliográfica & X & X & & & & \\ \hline
 			Traducción de documentos & & & & & & \\ \hline
 			Análisis y síntesis & & & & & & \\ \hline
-			Exposición/Presentación I & & & & & & \\ \hline
-			Exposición/Presentación II & & & & & & \\ \hline
-			Exposición/Presentación III & & & & & & \\ \hline
-			Elaboración documento final & & & & & & \\ \hline
+			Elaboración documento final & & & & & X  & X \\ \hline
 			Sustentación & & & & & & \\ \hline
 		\end{tabular}
 		\caption{Cronograma de actividades}
