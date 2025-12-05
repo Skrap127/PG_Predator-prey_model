@@ -1,0 +1,356 @@
+\documentclass[aspectratio=169]{beamer}
+
+% Tema
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Paquetes
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{cleveref}
+
+% Teoremas y definiciones
+\newtheorem{teo}{Teorema}[section]
+%\crefformat{teo}{\textbf{#2teorema~#1#3}} %Primera letra minuscula
+\Crefformat{teo}{\textbf{#2Teorema~#1#3}}
+\newtheorem{lem}{Lema}
+\newtheorem{cor}{Corolario}
+\theoremstyle{definition}
+\newtheorem{defi}{Definición}
+\newtheorem{eje}{Ejemplo}
+\newtheorem{sol}{Solucion}
+
+\bibliographystyle{plain}
+
+
+% Información de la presentación
+\title[Modelo Leslie-Gower con respuesta sigmoidea]{Un modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea}
+\author[Yerson Chilito]{Yerson Danilo Chilito Inga}
+\institute[U. del Cauca]{
+	Universidad del Cauca \\
+	Departamento de Matemáticas \\
+	\vspace{0.3cm}
+	Director: Dr. Jhon Jairo Pérez
+}
+\date{2025}
+
+\begin{document}
+	
+	% Portada
+	\begin{frame}
+		\titlepage
+	\end{frame}
+	
+	% Índice
+	\begin{frame}{Contenido}
+		\tableofcontents
+	\end{frame}
+	
+	% Introducción
+	\section{Introducción}
+	
+	\begin{frame}{Introducción}
+		\begin{block}{Contexto}
+			Las ecuaciones diferenciales son instrumentos fundamentales para modelar fenómenos de la vida real, particularmente en ecología, física y procesos biológicos.
+		\end{block}
+		
+		\vspace{0.5cm}
+		
+		\begin{itemize}
+			\item La mayoría de estos modelos no admiten soluciones explícitas
+			\item El análisis cualitativo es esencial para caracterizar el comportamiento dinámico
+			\item Técnicas: localización de puntos de equilibrio, estabilidad, ciclos límite, bifurcaciones
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{El Modelo}
+		\begin{block}{Sistema de Ecuaciones}
+			\begin{equation*}
+				\begin{cases} 
+					\frac{dx}{dt} = \left(r \left(1 - \frac{x}{K}\right) - \frac{q x y}{x^2 + a^2}\right)x \\ 
+					\frac{dy}{dt} = s \left(1 - \frac{y}{n x}\right) y
+				\end{cases}
+			\end{equation*}
+		\end{block}
+		
+		\textbf{Variables y Parámetros:}
+		\begin{itemize}
+			\item $x(t)$, $y(t)$: densidades de presa y depredador
+			\item $r$: tasa intrínseca de crecimiento de la presa
+			\item $K$: capacidad de carga ambiental
+			\item $q$: tasa máxima de consumo por depredador
+			\item $a$: cantidad de presas para media saturación
+			\item $s$: tasa de crecimiento del depredador
+			\item $n$: calidad alimenticia convertida en nuevos depredadores
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Relevancia Ecológica}
+		\begin{block}{Aplicaciones Reales}
+			El modelo describe interacciones donde la respuesta funcional sigmoidea estabiliza las poblaciones.
+		\end{block}
+		
+		\vspace{0.5cm}
+		
+		\textbf{Ejemplo:} Interacción entre focas y salmones en ríos
+		\begin{itemize}
+			\item Depredación mínima a bajas densidades de presa
+			\item Depredación intensiva a densidades elevadas
+		\end{itemize}
+		
+		\vspace{0.5cm}
+		
+		\begin{alertblock}{Importancia}
+			Permite predecir la coexistencia o extinción de especies, ilustrando la aplicabilidad matemática en la conservación ecológica.
+		\end{alertblock}
+	\end{frame}
+	
+	% Marco Teórico
+	\section{Marco Teórico}
+	
+	\begin{frame}{Ecuaciones Diferenciales Ordinarias}
+		\begin{defi}[EDO]
+			Una EDO es una ecuación para una función desconocida de una variable real, que contiene la función y sus derivadas: $F(t, x, x^{(1)}, \ldots, x^{(k)}) = 0$
+		\end{defi}
+		
+		\vspace{0.3cm}
+		
+		\begin{defi}[Sistema Autónomo]
+			Sistema de primer orden de la forma:
+			\begin{equation*}
+				\dot{x} = f(x)
+			\end{equation*}
+		\end{defi}
+		
+		\vspace{0.3cm}
+		
+		\begin{teo}[Existencia y Unicidad]
+			Si $E \subseteq \mathbb{R}^n$ es abierto y $f \in C^1(E)$, entonces para cada $x_0 \in E$, el PVI tiene una única solución en algún intervalo.
+		\end{teo}
+	\end{frame}
+	
+	\begin{frame}{Conceptos Clave}
+		\begin{itemize}
+			\item \textbf{Flujo y Trayectorias}: Conjunto de soluciones $\phi_t(x_0)$
+			\item \textbf{Retrato Fase}: Conjunto de todas las curvas solución en $\mathbb{R}^n$
+			\item \textbf{Isoclinas}: Curvas donde la pendiente es constante
+			\item \textbf{Ciclos Límite}: Trayectorias cerradas y aisladas (estables, inestables o medio-estables)
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Puntos de Equilibrio}
+		\begin{defi}[Punto de Equilibrio]
+			$x_0 \in \mathbb{R}^n$ es un punto de equilibrio si $f(x_0) = 0$
+		\end{defi}
+		
+		\vspace{0.3cm}
+		
+		\textbf{Clasificación (puntos hiperbólicos):}
+		\begin{itemize}
+			\item \textbf{Sumidero}: Todos los valores propios con parte real negativa
+			\item \textbf{Fuente}: Todos los valores propios con parte real positiva
+			\item \textbf{Punto Silla}: Valores propios con partes reales de signos opuestos
+		\end{itemize}
+		
+		\vspace{0.3cm}
+		
+		\begin{itemize}
+			\item \textbf{Variedades Estables/Inestables}: Describen puntos que tienden al equilibrio cuando $t \to \infty$ o $t \to -\infty$
+			\item \textbf{Separatrices}: Dividen el plano en regiones con diferentes comportamientos
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Teoremas Fundamentales}
+		\begin{teo}[Poincaré-Bendixson]
+			Si una trayectoria está confinada en un subconjunto cerrado y acotado del plano sin puntos de equilibrio, entonces contiene una órbita cerrada.
+		\end{teo}
+		
+		\vspace{0.5cm}
+		
+		\begin{teo}[Hartman-Grobman]
+			El retrato fase cerca de un punto hiperbólico es topológicamente equivalente al de su linealización.
+		\end{teo}
+	\end{frame}
+	
+	\begin{frame}{Técnicas Avanzadas}
+		\begin{block}{Blow-up (Desingularización)}
+			Herramienta para estudiar singularidades complicadas mediante transformación del punto crítico en un círculo con nuevos puntos críticos (a menudo hiperbólicos).
+		\end{block}
+		
+		\vspace{0.5cm}
+		
+		\begin{block}{Compactificación de Poincaré}
+			Método que compactifica el espacio cartesiano extendiendo el campo vectorial a una esfera unitaria $S^2$, permitiendo analizar el comportamiento cuando las variables tienden a infinito.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Bifurcaciones}
+		\begin{defi}[Bifurcación]
+			Cambio en la estructura cualitativa del flujo cuando un parámetro $\mu$ varía.
+		\end{defi}
+		
+		\vspace{0.3cm}
+		
+		\textbf{Tipos principales:}
+		\begin{itemize}
+			\item \textbf{Silla-Nodo}: Creación y destrucción de puntos de equilibrio
+			\item \textbf{Transcrítica}: Cambio de estabilidad de punto fijo existente
+			\item \textbf{Pitchfork}: Aparición de pares simétricos (supercrítica/subcrítica)
+			\item \textbf{Hopf}: Punto fijo estable se vuelve inestable, aparecen ciclos límite (supercrítica/subcrítica)
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Modelos Ecológicos: Crecimiento Poblacional}
+		\begin{itemize}
+			\item \textbf{Crecimiento Exponencial}: Poco realista a largo plazo, ignora limitaciones ambientales
+			\item \textbf{Crecimiento Logístico}: Más relevante, el crecimiento es limitado por la capacidad de carga del entorno
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Respuestas Funcionales de Holling}
+		\begin{defi}[Respuesta Funcional]
+			Relación entre la tasa de consumo de presas y el beneficio para el depredador.
+		\end{defi}
+		
+		\vspace{0.3cm}
+		
+		\textbf{Tres tipos principales:}
+		\begin{itemize}
+			\item \textbf{Tipo I}: Aumento lineal con la densidad de presas
+			\item \textbf{Tipo II}: Aumento con desaceleración gradual hasta una meseta
+			\item \textbf{Tipo III (Sigmoidea)}: Fase de aceleración a bajas densidades (forma de S), luego meseta. El depredador aumenta su eficiencia cuando la presa es abundante
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Modelos Clásicos Presa-Depredador}
+		\begin{block}{Modelo Lotka-Volterra}
+			\begin{equation*}
+				\begin{cases} 
+					\frac{dN}{dt} = N(a - bP) \\
+					\frac{dP}{dt} = P(cN - d)
+				\end{cases}
+			\end{equation*}
+			Crecimiento maltusiano de la presa, sin limitación de recursos.
+		\end{block}
+		
+		\vspace{0.3cm}
+		
+		\begin{block}{Modelo Leslie-Gower}
+			Variante que incorpora crecimiento logístico y capacidad de carga ($K$) del entorno para las presas, y capacidad de carga para depredadores dependiente de las presas ($K_P = dN$).
+		\end{block}
+	\end{frame}
+	
+	% Objetivos
+	\section{Objetivos}
+	
+	\begin{frame}{Objetivo General}
+		\begin{block}{}
+			\centering
+			\large
+			Analizar cualitativamente un modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Objetivos Específicos}
+		\begin{enumerate}
+			\item Hallar puntos críticos del sistema
+			\vspace{0.3cm}
+			\item Analizar la estabilidad de dichos puntos críticos
+			\vspace{0.3cm}
+			\item Analizar la posibilidad de hallar comportamientos cualitativos especiales en el sistema (ciclos límites, bifurcaciones, etc.)
+			\vspace{0.3cm}
+			\item Determinar el comportamiento a futuro de las especies
+		\end{enumerate}
+	\end{frame}
+	
+	% Metodología
+	\section{Metodología}
+	
+	\begin{frame}{Metodología}
+		\begin{block}{Tipo de Investigación}
+			Investigación documental que se fundamentará en el análisis matemático del modelo propuesto por González-Olivares et al. (2015).
+		\end{block}
+		
+		\vspace{0.5cm}
+		
+		\textbf{Etapas del trabajo:}
+		\begin{enumerate}
+			\item Revisión bibliográfica
+			\item Análisis y síntesis del marco teórico
+			\item Aplicación de técnicas de análisis cualitativo
+			\item Elaboración del documento final
+		\end{enumerate}
+	\end{frame}
+	
+	% Recursos y Presupuesto
+	\section{Recursos y Presupuesto}
+	
+	\begin{frame}{Recursos}
+		\begin{columns}
+			\column{0.5\textwidth}
+			\textbf{Recursos Humanos:}
+			\begin{itemize}
+				\item Director: Dr. Jhon Jairo Pérez
+				\item Responsable: Yerson Danilo Chilito Inga
+			\end{itemize}
+			
+			\column{0.5\textwidth}
+			\textbf{Recursos Materiales:}
+			\begin{itemize}
+				\item Computador personal
+				\item Libros de biblioteca
+				\item Textos digitales
+				\item Software especializado
+			\end{itemize}
+		\end{columns}
+		
+		\vspace{0.8cm}
+		
+		\begin{block}{Financiación}
+			A cargo del estudiante. La Universidad del Cauca proporciona salas de estudio, bibliotecas y espacios básicos. El Departamento de Matemáticas asigna labor académica al director.
+		\end{block}
+	\end{frame}
+	
+	\begin{frame}{Cronograma}
+		\begin{table}
+			\centering
+			\small
+			\begin{tabular}{|l|c|c|c|c|c|c|}
+				\hline
+				\textbf{Actividad} & \textbf{M1} & \textbf{M2} & \textbf{M3} & \textbf{M4} & \textbf{M5} & \textbf{M6} \\ \hline
+				Revisión bibliográfica & X & X & & & & \\ \hline
+				Análisis y síntesis & & & X & X & & \\ \hline
+				Documento final & & & & & X & X \\ \hline
+				Sustentación & & & & & & X \\ \hline
+			\end{tabular}
+		\end{table}
+	\end{frame}
+	
+	% Referencias
+	\section{Referencias}
+	
+	\begin{frame}{Referencias Principales}
+		\footnotesize
+		\begin{itemize}
+			\item González-Olivares, E., Tintinago-Ruiz, P. C., y Rojas-Palma, A. (2015). A Leslie–Gower-type predator–prey model with sigmoid functional response. \textit{International Journal of Computer Mathematics}, 92(9), 1895--1909.
+			\item Murray, J. D. (2002). \textit{Mathematical Biology I: An Introduction} (3ra ed.). Springer.
+			\item Perko, L. (2001). \textit{Differential Equations and Dynamical Systems} (3ra ed.). Springer.
+			\item Strogatz, S. H. (2014). \textit{Nonlinear Dynamics and Chaos}. Westview Press.
+			\item Teschl, G. (2012). \textit{Ordinary Differential Equations and Dynamical Systems}. Springer.			
+		\end{itemize}
+	\end{frame}
+	
+	% Cierre
+	\begin{frame}[plain]
+		\begin{center}
+			\Huge ¡Gracias por su atención!
+			
+			\vspace{1cm}
+			
+			\Large Preguntas
+		\end{center}
+	\end{frame}
+	
+\end{document}

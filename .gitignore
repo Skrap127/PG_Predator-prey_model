@@ -9,3 +9,5 @@
 *.aux
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
+*.snm
+*.nav
