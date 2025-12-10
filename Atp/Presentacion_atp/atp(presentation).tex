@@ -119,9 +119,10 @@
 		
 		\begin{defi}[Sistema Autónomo]
 			Sistema de primer orden de la forma:
-			\begin{equation*}
+			\begin{equation}
 				\dot{x} = f(x)
-			\end{equation*}
+				\label{eq: sistema}
+			\end{equation}
 		\end{defi}
 		
 		\vspace{0.3cm}
@@ -132,12 +133,31 @@
 	\end{frame}
 	
 	\begin{frame}{Conceptos Clave}
-		\begin{itemize}
-			\item \textbf{Flujo y Trayectorias}: Conjunto de soluciones $\phi_t(x_0)$
-			\item \textbf{Retrato Fase}: Conjunto de todas las curvas solución en $\mathbb{R}^n$
-			\item \textbf{Isoclinas}: Curvas donde la pendiente es constante
-			\item \textbf{Ciclos Límite}: Trayectorias cerradas y aisladas (estables, inestables o medio-estables)
-		\end{itemize}
+		\begin{columns}
+			\column{0.5\textwidth}
+			\begin{itemize}
+				\item \textbf{Flujo y Trayectorias}: Conjunto de soluciones $\phi_t(x_0)$
+				\item \textbf{Retrato Fase}: Conjunto de todas las curvas solución en $\mathbb{R}^n$
+				\item \textbf{Isoclinas}: Curvas donde la pendiente es constante
+				\item \textbf{Ciclos Límite}: Trayectorias cerradas y aisladas (estables, inestables o medio-estables)
+			\end{itemize}
+			\column{0.5\textwidth}
+			\begin{figure}
+				\centering
+				\includegraphics[width=1\textwidth]{/home/skrap127/Documentos/1_/img/Example.pdf}
+				\caption{Ejemplo de campo vectorial, trayectorias, retrato fase e isoclinas del sistema \eqref{eq: sistema} asociado a $f(x)=(x_{1},\sin{x_{2}})$.}
+				\label{fig: example}
+			\end{figure}
+		\end{columns}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.6\textwidth]{/home/skrap127/Documentos/1_/img/CicloLimEstInest.pdf}
+			\caption{Ejemplo de ciclos limites del sistema \eqref{eq: sistema} asociado a $f(x) = (-x_{2} + x_{1}(r^{4} -3r^{2} + 1), x_{1} + x_{2}(r^{4} -3r^{2} + 1))$ con $r^{2} = x_{1}^{2} + x_{2}^{2}$.}
+			\label{fig: CicloLimiteEstableInestable}
+		\end{figure}
 	\end{frame}
 	
 	\begin{frame}{Puntos de Equilibrio}
@@ -148,18 +168,28 @@
 		\vspace{0.3cm}
 		
 		\textbf{Clasificación (puntos hiperbólicos):}
+		Depende de los valores propios de la matriz jacobiana $Df(x_0)$.
 		\begin{itemize}
 			\item \textbf{Sumidero}: Todos los valores propios con parte real negativa
 			\item \textbf{Fuente}: Todos los valores propios con parte real positiva
 			\item \textbf{Punto Silla}: Valores propios con partes reales de signos opuestos
 		\end{itemize}
 		
-		\vspace{0.3cm}
+		Otros conceptos relacionados son:
 		
 		\begin{itemize}
 			\item \textbf{Variedades Estables/Inestables}: Describen puntos que tienden al equilibrio cuando $t \to \infty$ o $t \to -\infty$
 			\item \textbf{Separatrices}: Dividen el plano en regiones con diferentes comportamientos
 		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1\textwidth]{/home/skrap127/Documentos/1_/img/EquilibriumPoints.pdf}
+			\caption{Ejemplo de puntos de equilibrio en el origen de sistemas lineales bidimensionales.}
+			\label{fig: EquilibriumPoints}
+		\end{figure}
 	\end{frame}
 	
 	\begin{frame}{Teoremas Fundamentales}
@@ -174,6 +204,15 @@
 		\end{teo}
 	\end{frame}
 	
+	\begin{frame}
+		\begin{figure}
+			\centering
+			\includegraphics[width=1\textwidth]{/home/skrap127/Documentos/1_/img/exampleHartman.pdf}
+			\caption{Retrato fase del sistema \eqref{eq: sistema} asociado a $f(x,y) = (-x, y+x^2)$ y su respectiva transformación en el origen dada por el homeomorfismo $H(x,y)=(x,x+\frac{y^{2}}{3})$}
+			\label{fig: exampleHartman}
+		\end{figure}
+	\end{frame}
+	
 	\begin{frame}{Técnicas Avanzadas}
 		\begin{block}{Blow-up (Desingularización)}
 			Herramienta para estudiar singularidades complicadas mediante transformación del punto crítico en un círculo con nuevos puntos críticos (a menudo hiperbólicos).
@@ -186,9 +225,22 @@
 		\end{block}
 	\end{frame}
 	
+	\begin{frame}
+		\begin{figure}
+			\centering
+			\includegraphics[width=.6\textwidth]{/home/skrap127/Documentos/1_/img/poincareCompactification.pdf}
+			\caption{Esfera de Poincaré.}
+			\label{fig: poincareCompactification}
+		\end{figure}
+	\end{frame}
+	
 	\begin{frame}{Bifurcaciones}
 		\begin{defi}[Bifurcación]
-			Cambio en la estructura cualitativa del flujo cuando un parámetro $\mu$ varía.
+			Cambio en la estructura cualitativa del flujo del sistema \begin{equation}
+				\dot{x} = f_{\mu}(x) \quad x \in \mathbb{R}^{n}, \quad \mu \in \mathbb{R}^{k}
+				\label{eq: sisParametro}
+			\end{equation}
+			cuando un parámetro $\mu$ varía.
 		\end{defi}
 		
 		\vspace{0.3cm}
@@ -200,6 +252,15 @@
 			\item \textbf{Pitchfork}: Aparición de pares simétricos (supercrítica/subcrítica)
 			\item \textbf{Hopf}: Punto fijo estable se vuelve inestable, aparecen ciclos límite (supercrítica/subcrítica)
 		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=1\textwidth]{/home/skrap127/Documentos/1_/img/bifHopfSup.pdf}
+			\caption{Ejemplo de bifurcación de Hopf supercrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(r,\theta)=(\mu r - r^3,1 + r^2)$.}
+			\label{fig: bifHopfSup}
+		\end{figure}
 	\end{frame}
 	
 	\begin{frame}{Modelos Ecológicos: Crecimiento Poblacional}
