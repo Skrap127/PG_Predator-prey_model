@@ -10,6 +10,7 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{graphicx}
 \usepackage{cleveref}
+\usepackage{xcolor}
 
 % Teoremas y definiciones
 \newtheorem{teo}{Teorema}[section]
@@ -69,8 +70,8 @@
 		\begin{block}{Sistema de Ecuaciones}
 			\begin{equation*}
 				\begin{cases} 
-					\frac{dx}{dt} = \left(r \left(1 - \frac{x}{K}\right) - \frac{q x y}{x^2 + a^2}\right)x \\ 
-					\frac{dy}{dt} = s \left(1 - \frac{y}{n x}\right) y
+					\frac{dx}{dt} = \left({\color{red} r \left(1 - \frac{x}{K}\right)} - {\color{blue}\frac{q x y}{x^2 + a^2}} \right)x \\ 
+					\frac{dy}{dt} = {\color{cyan} s \left(1 - \frac{y}{n x}\right)} y
 				\end{cases}
 			\end{equation*}
 		\end{block}
@@ -162,7 +163,7 @@
 	
 	\begin{frame}{Puntos de Equilibrio}
 		\begin{defi}[Punto de Equilibrio]
-			$x_0 \in \mathbb{R}^n$ es un punto de equilibrio si $f(x_0) = 0$
+			$x_0 \in \mathbb{R}^n$ es un punto de equilibrio de \eqref{eq: sistema}, si $f(x_0) = 0$. Además, se le llama hiperbólico si ninguno de los valores propios de la matriz jacobiana $Df(x_0)$ tiene parte real nula, en caso contrario se le dice no hiperbólico.
 		\end{defi}
 		
 		\vspace{0.3cm}
