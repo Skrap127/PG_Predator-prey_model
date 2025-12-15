@@ -145,7 +145,7 @@
 			\column{0.5\textwidth}
 			\begin{figure}
 				\centering
-				\includegraphics[width=1\textwidth]{/home/skrap127/Documentos/1_/img/Example.pdf}
+				\includegraphics[width=1\textwidth]{img/Example.pdf}
 				\caption{Ejemplo de campo vectorial, trayectorias, retrato fase e isoclinas del sistema \eqref{eq: sistema} asociado a $f(x)=(x_{1},\sin{x_{2}})$.}
 				\label{fig: example}
 			\end{figure}
@@ -155,7 +155,7 @@
 	\begin{frame}
 		\begin{figure}
 			\centering
-			\includegraphics[width=0.6\textwidth]{/home/skrap127/Documentos/1_/img/CicloLimEstInest.pdf}
+			\includegraphics[width=0.6\textwidth]{img/CicloLimEstInest.pdf}
 			\caption{Ejemplo de ciclos limites del sistema \eqref{eq: sistema} asociado a $f(x) = (-x_{2} + x_{1}(r^{4} -3r^{2} + 1), x_{1} + x_{2}(r^{4} -3r^{2} + 1))$ con $r^{2} = x_{1}^{2} + x_{2}^{2}$.}
 			\label{fig: CicloLimiteEstableInestable}
 		\end{figure}
@@ -175,40 +175,50 @@
 			\item \textbf{Fuente}: Todos los valores propios con parte real positiva
 			\item \textbf{Punto Silla}: Valores propios con partes reales de signos opuestos
 		\end{itemize}
-		
-		Otros conceptos relacionados son:
-		
-		\begin{itemize}
-			\item \textbf{Variedades Estables/Inestables}: Describen puntos que tienden al equilibrio cuando $t \to \infty$ o $t \to -\infty$
-			\item \textbf{Separatrices}: Dividen el plano en regiones con diferentes comportamientos
-		\end{itemize}
 	\end{frame}
 	
 	\begin{frame}
 		\begin{figure}
 			\centering
-			\includegraphics[width=1\textwidth]{/home/skrap127/Documentos/1_/img/EquilibriumPoints.pdf}
+			\includegraphics[width=1\textwidth]{img/EquilibriumPoints.pdf}
 			\caption{Ejemplo de puntos de equilibrio en el origen de sistemas lineales bidimensionales.}
 			\label{fig: EquilibriumPoints}
 		\end{figure}
 	\end{frame}
+	
+	\begin{frame}
+		\textbf{Clasificación (puntos no hiperbólicos en $\mathbb{R}^2$):}
+		Cuando al menos un valor propio tiene parte real nula.
+		
+		\vspace{0.3cm}
+		
+		\begin{itemize}
+			\item \textbf{Basados en Autovalores Imaginarios Puros}: Si los autovalores son puramente imaginarios, el punto es un centro lineal. La adición de términos no lineales puede hacer que el punto se convierta en: centro, foco o foco-centro.
+			\vspace{0.2cm}
+			\item \textbf{Basados en un Único Autovalor Cero}: Si exactamente un autovalor es cero, el punto se denomina semi-hiperbólico, y puede ser:  Silla-nodo o Silla Topológica.
+			\vspace{0.2cm}
+			\item \textbf{Basados en Dos Autovalores Cero}: Estos puntos presentan un comportamiento más complejo y pueden ser focos, centros, nodos, sillas o cúspides
+		\end{itemize}
+	\end{frame}	
 	
 	\begin{frame}{Teoremas Fundamentales}
 		\begin{teo}[Poincaré-Bendixson]
 			Si una trayectoria está confinada en un subconjunto cerrado y acotado del plano sin puntos de equilibrio, entonces contiene una órbita cerrada.
 		\end{teo}
 		
-		\vspace{0.5cm}
-		
 		\begin{teo}[Hartman-Grobman]
-			El retrato fase cerca de un punto hiperbólico es topológicamente equivalente al de su linealización.
+			El retrato fase cerca de un punto hiperbólico $x_0$, es topológicamente equivalente al de su sistema linealizado: $$\dot{x} = Df(x_0)(x-x_0).$$
 		\end{teo}
+		
+		\begin{teo}[Variedad Central]
+			Cerca de un punto de equilibrio, la dinámica de un sistema se puede reducir a una variedad central de menor dimensión. El comportamiento del sistema cerca del equilibrio queda determinado por lo que ocurre sobre esa variedad.
+		\end{teo}	
 	\end{frame}
 	
 	\begin{frame}
 		\begin{figure}
 			\centering
-			\includegraphics[width=1\textwidth]{/home/skrap127/Documentos/1_/img/exampleHartman.pdf}
+			\includegraphics[width=1\textwidth]{img/exampleHartman.pdf}
 			\caption{Retrato fase del sistema \eqref{eq: sistema} asociado a $f(x,y) = (-x, y+x^2)$ y su respectiva transformación en el origen dada por el homeomorfismo $H(x,y)=(x,x+\frac{y^{2}}{3})$}
 			\label{fig: exampleHartman}
 		\end{figure}
@@ -229,7 +239,7 @@
 	\begin{frame}
 		\begin{figure}
 			\centering
-			\includegraphics[width=.6\textwidth]{/home/skrap127/Documentos/1_/img/poincareCompactification.pdf}
+			\includegraphics[width=.6\textwidth]{img/poincareCompactification.pdf}
 			\caption{Esfera de Poincaré.}
 			\label{fig: poincareCompactification}
 		\end{figure}
@@ -258,7 +268,7 @@
 	\begin{frame}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=1\textwidth]{/home/skrap127/Documentos/1_/img/bifHopfSup.pdf}
+			\includegraphics[width=1\textwidth]{img/bifHopfSup.pdf}
 			\caption{Ejemplo de bifurcación de Hopf supercrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(r,\theta)=(\mu r - r^3,1 + r^2)$.}
 			\label{fig: bifHopfSup}
 		\end{figure}
@@ -291,20 +301,20 @@
 			\column{0.5\textwidth}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=.5\textwidth]{/home/skrap127/Documentos/1_/img/type1FunctionalResponse.pdf}
+				\includegraphics[width=.5\textwidth]{img/type1FunctionalResponse.pdf}
 				\caption{Respuesta funcional de Holling tipo I.}
 				\label{fig: type1FunctionalResponse}
 			\end{figure}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=.5\textwidth]{/home/skrap127/Documentos/1_/img/type2FunctionalResponse.pdf}
+				\includegraphics[width=.5\textwidth]{img/type2FunctionalResponse.pdf}
 				\caption{Respuesta funcional de Holling tipo II.}
 				\label{fig: type2FunctionalResponse}
 			\end{figure}
 			\column{0.5\textwidth}
 			\begin{figure}[H]
 				\centering
-				\includegraphics[width=1\textwidth]{/home/skrap127/Documentos/1_/img/type3FunctionalResponse.pdf}
+				\includegraphics[width=1\textwidth]{img/type3FunctionalResponse.pdf}
 				\caption{Respuesta funcional de Holling tipo III.}
 				\label{fig: type3FunctionalResponse}
 			\end{figure}
