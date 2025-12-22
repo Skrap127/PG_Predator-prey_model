@@ -151,7 +151,7 @@
 	% ====== CAPÍTULO 2: MARCO TEÓRICO =======
 	\chapter{Marco Teórico}
 	
-	El presente marco teórico aborda los conceptos fundamentales requeridos para el análisis del modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea.
+	El presente marco teórico aborda los conceptos fundamentales requeridos para el análisis del modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea propuesto por González-Olivares et al. (2015) \cite{articulo}.
 	
 	\section{Ecuaciones Diferenciales Ordinarias (EDOs)}
 	
@@ -203,16 +203,38 @@
 		Un punto $x_0 \in \mathbb{R}^n$ es un punto de equilibrio del sistema \eqref{eq: sistema} si $f(x_0) = 0$.
 	\end{definicion}
 	
-	\begin{definicion}[Punto de Equilibrio Hiperbólico]
-		Un punto de equilibrio es hiperbólico si ninguno de los valores propios de la matriz jacobiana $Df(x_0)$ tiene parte real nula.
+	\begin{definicion}[Punto de Equilibrio Hiperbólico y No Hiperbólico]
+		Un punto de equilibrio es hiperbólico si ninguno de los valores propios de la matriz jacobiana $Df(x_0)$ tiene parte real nula, en caso contrario se le dice no hiperbólico.
 	\end{definicion}
 	
-	\begin{definicion}[Clasificación de Puntos Críticos] \
+	\begin{definicion}[Clasificación de Puntos Críticos Hiperbólicos en $\mathbb{R}^n$] \
 		\begin{itemize}
 			\item \textbf{Sumidero (Sink)}: Todos los valores propios de $Df(x_0)$ tienen parte real negativa.
 			\item \textbf{Fuente (Source)}: Todos los valores propios de $Df(x_0)$ tienen parte real positiva.
 			\item \textbf{Punto Silla (Saddle Point)}: Es hiperbólico y $Df(x_0)$ tiene al menos un valor propio con parte real positiva y al menos uno con parte real negativa.
 		\end{itemize}
+	\end{definicion}
+	
+	\begin{definicion}[Clasificación de Puntos Críticos No Hiperbólicos en $\mathbb{R}^2$] \
+		\begin{enumerate}
+			\item \textbf{Basados en Autovalores Imaginarios Puros} (Si los autovalores son $\lambda_{1,2} = \pm i\omega$, con $\omega \neq 0$):
+			\begin{itemize}
+				\item El punto se denomina \textbf{centro lineal}.
+				\item La adición de \textbf{términos no lineales} puede hacer que el punto se convierta en: \textbf{centro}, \textbf{foco} o \textbf{foco-centro}.
+			\end{itemize}
+			
+			\item \textbf{Basados en un Único Autovalor Cero} (Si exactamente un autovalor es $\lambda = 0$):
+			\begin{itemize}
+				\item El punto se denomina \textbf{semi-hiperbólico}.
+				\item Tipos posibles: \textbf{Silla-nodo} o \textbf{Silla Topológica}.
+			\end{itemize}
+			
+			\item \textbf{Basados en Dos Autovalores Cero} (Si ambos autovalores son $\lambda_{1,2} = 0$):
+			\begin{itemize}
+				\item Estos puntos presentan un \textbf{comportamiento más complejo}.
+				\item Tipos posibles: \textbf{focos}, \textbf{centros}, \textbf{nodos}, \textbf{sillas} o \textbf{cúspides}.
+			\end{itemize}
+		\end{enumerate}
 	\end{definicion}
 	
 	\begin{definicion}[Conjuntos Invariantes]
@@ -346,15 +368,13 @@
 	
 	\section{Objetivo General}
 	
-	Analizar cualitativamente un modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea.
+	Analizar cualitativamente el modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea propuesto por González-Olivares et al. (2015) \cite{articulo}.
 	
 	\section{Objetivos Específicos}
 	
 	\begin{itemize}
-		\item Hallar puntos críticos del sistema.
-		\item Analizar la estabilidad de dichos puntos críticos.
-		\item Analizar la posibilidad de hallar comportamientos cualitativos especiales en el sistema (ciclos límites, bifurcaciones, etc.).
-		\item Determinar el comportamiento a futuro de las especies.
+		\item Hallar los puntos críticos del sistema y analizar su estabilidad local.
+		\item Analizar comportamientos cualitativos especiales ya establecidos, como la bifurcación de Hopf, ciclos límites estables y curva separatriz.
 	\end{itemize}
 	
 	% ====== CAPÍTULO 4: METODOLOGÍA =======
