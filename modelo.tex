@@ -1,0 +1,90 @@
+\chapter{El modelo de Leslie-Gower con respuesta funcional sigmoidea}
+
+En este capítulo se analiza el modelo presa-depredador de tipo Leslie-Gower propuesto por González-Olivares et al. (2015)\cite{articulo}, en el cual la población de presas exhibe una respuesta funcional de Holling tipo III, caracterizada por su forma sigmoidea.
+
+\section{Descripción del modelo}
+
+El modelo se describe mediante el siguiente sistema autónomo de ecuaciones diferenciales ordinarias de tipo Kolmogorov:
+
+\begin{equation}
+	X_{\mu} =
+	\begin{cases}
+		\dfrac{dx}{dt} = \left(r \left(1 - \dfrac{x}{K}\right) - \dfrac{q x y}{x^2 + a^2}\right) x, \\
+		\dfrac{dy}{dt} = s \left(1 - \dfrac{y}{n x}\right) y,
+	\end{cases}
+	\label{eq:modelo}
+\end{equation}
+
+donde $x(t)$ y $y(t)$ representan las densidades poblacionales de presas y depredadores, respectivamente, para $t \geq 0$. Los parámetros $\mu = (r, a, s, K, n, q) \in \R^6_{+}$ son estrictamente positivos y tienen el siguiente significado biológico \cite{articulo}[p.~1898]:
+
+\begin{itemize}
+	\item $r$: tasa de crecimiento intrínseco de las presas;
+	\item $K$: capacidad de carga ambiental de las presas;
+	\item $q$: tasa máxima de consumo per cápita de los depredadores (tasa de saciedad);
+	\item $a$: cantidad de presas necesarias para alcanzar la mitad de $q$ (media de la tasa de saturación);
+	\item $s$: tasa de crecimiento intrínseco de los depredadores;
+	\item $n$: medida de la calidad alimenticia, que indica la eficiencia de conversión de presas consumidas en nuevos depredadores.
+\end{itemize}
+
+El sistema \eqref{eq:modelo} no está definido en $x=0$ (eje $y$), por lo que el dominio biológicamente relevante es el conjunto $\Omega = \{ (x,y) \in \R^2 \mid x > 0, \; y \geq 0 \}$.
+
+\section{Puntos de equilibrio}
+
+Los puntos críticos se obtienen resolviendo $f(X) = 0$, donde $\dot{X} = f(X)$ con $X = (x,y)$, es decir:
+
+\begin{equation}
+	\begin{cases}
+		\left(r \left(1 - \dfrac{x}{K}\right) - \dfrac{q x y}{x^2 + a^2}\right) x = 0, \\
+		s \left(1 - \dfrac{y}{n x}\right) y = 0.
+	\end{cases}
+	\label{eq:sistema-eq}
+\end{equation}
+
+De la segunda ecuación, $y = 0$ o $y = n x$. De la primera ecuación, el primer término debe ser igual a cero, despejando $y$:
+
+\begin{equation}
+	y = \dfrac{r}{q x} \left(1 - \dfrac{x}{K}\right) (x^2 + a^2).
+	\label{eq:isoclina-presa}
+\end{equation}
+
+Para $y=0$, se obtiene $x = K$, por lo que $(K,0)$ es un candidato. El equilibrio interior $(x_e, y_e)$ existe en el primer cuadrante si y solo si $x_e < K$, determinado por la intersección de las isoclinas $y = n x$ y \eqref{eq:isoclina-presa} \cite{articulo}[p.~1898].
+
+\subsection{Análisis de estabilidad del punto $(K,0)$}
+
+El punto $(K,0)$ es un punto de silla. Considerando $f_1(x,y) = r x - \frac{r x^2}{K} - \frac{q x^2 y}{x^2 + a^2}$ y $f_2(x,y) = s y - \frac{s y^2}{n x}$, la matriz jacobiana es:
+
+\begin{equation}
+	Df(X) =
+	\begin{bmatrix}
+		r - \dfrac{2 r x}{K} - \dfrac{(2 q x y)(x^2 + a^2) - 2 x (q x^2 y)}{(x^2 + a^2)^2} & -\dfrac{q x^2}{x^2 + a^2} \\
+		-\dfrac{s y^2}{n x^2} & s - \dfrac{2 s y}{n x}
+	\end{bmatrix}.
+	\label{eq:jacobiana}
+\end{equation}
+
+En $(K,0)$:
+
+\begin{equation}
+	Df(K,0) =
+	\begin{bmatrix}
+		-r & -\dfrac{q K^2}{K^2 + a^2} \\
+		0 & s
+	\end{bmatrix}.
+	\label{eq:jacobiana-K0}
+\end{equation}
+
+Los valores propios se hallan del polinomio característico $\lambda^2 - \operatorname{tr}(A) \lambda + \det(A) = 0$, con $A = Df(K,0)$:
+
+\begin{equation}
+	\lambda^2 - (s - r) \lambda - r s = 0.
+	\label{eq:car-K0}
+\end{equation}
+
+Por la fórmula cuadrática:
+
+\begin{align}
+	\lambda &= \frac{s - r \pm \sqrt{(s - r)^2 + 4 r s}}{2} = \frac{s - r \pm (r + s)}{2},
+	\label{eq:valores-propios}
+\end{align}
+
+obteniendo $\lambda_1 = s > 0$ y $\lambda_2 = -r < 0$. Dado que tienen signos opuestos, $(K,0)$ es un punto silla.

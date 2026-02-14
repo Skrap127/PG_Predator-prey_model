@@ -1,0 +1,145 @@
+{\chapter{El modelo de Leslie-Gower con respuesta funcional sigmoidea}
+	En este capitulo analizaremos un modelo presa-depredador tipo Leslie-Gower propuesto por González-Olivares et al. (2015) \cite{articulo}, donde la población consta de una respuesta funcional de Holling tipo III.
+	
+	\section{El modelo}
+	El modelo a estudiar es expresado por el sistema de ecuaciones diferenciales ordinarias	 autónomo de tipo Kolmogorov, dado por
+	
+	\begin{equation}
+		X_{\mu}
+		\begin{cases} 
+			\frac{dx}{dt} = (r \left(1 - \frac{x}{K}\right) - \frac{q x y}{x^2 + a^2})x \\ 
+			\frac{dy}{dt} = s \left(1 - \frac{y}{n x}\right) y
+		\end{cases},
+		\label{eq: modelo}
+	\end{equation}
+	
+	donde $x(t)$ y $y(t)$ representan las densidades de presa y depredador, respectivamente, en cada instante $t \geq 0$. Aquí $\mu = (r, a, s, K, n, q) \in \R^{6}_{+}$, es decir, todos los parámetros son estrictamente positivos, donde cada uno de ellos consta de los siguientes significados biológicos:
+	
+	\begin{itemize}
+		\item $r$ representa la tasa de crecimiento intrínseca de la presa,
+		\item $K$ representa la capacidad de carga ambiental de la presa,
+		\item $q$ representa la taxa máxima de consumo per cápita de los depredadores (tasa de saciedad),
+		\item $a$ representa la cantidad de presas necesarias para lograr la mitad de
+		q (es decir, es la mitad de la tasa de saturación),
+		\item $s$ representa la tasa de crecimiento intrínseca de los depredadores, y
+		\item $n$ representa una medida de la calidad del alimento e indica cómo los depredadores convierten las presas comidas en nuevos nacimientos de depredadores.
+	\end{itemize}
+	
+	Observemos que el sistema \eqref{eq: modelo} no esta definido en $x=0$, es decir, en el eje $y$, por lo que el conjunto de definición para este sistema en el sentido biológico (recordemos que las variables x e y representan las densidades de las poblaciones a estudiar), esta dado por el primer cuadrante del plano euclidiano sin incluir el eje $y$, es decir, el conjunto $$\Omega = \{ (x,y) \in \R^{2} \; | \; x>0, \; y \geq 0 \}.$$ Ahora, para determinar los puntos críticos debemos hallar aquellos que hagan anular al sistema, es decir, se basa en hallar las soluciones del sistema:
+	
+	\begin{equation}
+		\begin{cases} 
+			(r \left(1 - \frac{x}{K}\right) - \frac{q x y}{x^2 + a^2})x = 0\\ 
+			s \left(1 - \frac{y}{n x}\right) y = 0
+		\end{cases},
+		\label{eq: modelo1}
+	\end{equation}
+	
+	la primera ecuación solo se anula cuando
+	
+	\begin{equation}
+		\begin{aligned}
+			& r \left(1 - \frac{x}{K}\right) = \frac{q x y}{x^2 + a^2} \\
+			& \dfrac{r}{qx} \left( 1-\dfrac{x}{K} \right) (x^2+a^2) = y,
+		\end{aligned}
+		\label{eq: despeje}
+	\end{equation}
+	
+	y la segunda si $y = 0$ o $y = nx$. Si reemplazamos $y=0$ en \eqref{eq: despeje}, llegamos a que $1-\dfrac{x}{K} = 0$ (puesto que $r,a \in \R_{+}$), es decir, $x = K$. Por lo tanto, los candidatos a ser puntos críticos del sistema \eqref{eq: modelo} son $(K,0)$ y los puntos $(x_{e},y_{e})$ que satisfacen las ecuaciones de las isoclinas
+	\begin{equation}
+		y=nx, \qquad y= \dfrac{r}{qx} \left( 1-\dfrac{x}{K} \right) (x^2+a^2).
+	\end{equation}
+	Con esta información y denotando el sistema \eqref{eq: modelo} como $\dot{X}=f(X)$, donde $X=(x,y)$, podemos determinar que:
+	
+	\begin{enumerate}
+		\item El punto $(x_{e}, y_{e})$ esta en el primer cuadrante del campo vectorial $f(X)$ sí y solo si, $x_{e}<K$ y por tanto, será un punto crítico del sistema. Dado el caso de que $x_{e}>K$ el único punto de equilibrio de nuestro interés será el punto $(K,0)$.
+		\item El punto crítico $(K,0)$ es un punto silla, en efecto, si
+		\begin{equation}
+			\begin{aligned}
+				f_{1} &= rx - \dfrac{rx^{2}}{k} - \dfrac{qx^{2}y}{x^{2}+a^{2}} \\
+				f_{2} &= sy - \dfrac{sy^{2}}{nx}
+			\end{aligned},
+		\end{equation}
+		entonces
+		\begin{equation}
+			\begin{aligned}
+				\dfrac{df_{1}}{dx} &= r - \dfrac{2rx}{K} - \dfrac{\dfrac{d}{dx}(qx^{2}y)(x^{2}+a^{2})-(qx^{2}y)\dfrac{d}{dx}(x^{2}+a^{2})}{(x^{2}+a^{2})^{2}} \\
+				&= r - \dfrac{2rx}{K} - \dfrac{(2qxy)(x^{2}+a^{2})-(2x)(qx^{2}y)}{(x^{2}+a^{2})^{2}} \\
+				\dfrac{df_{1}}{dy} &= - \dfrac{qx^{2}}{x^{2}+a^{2}} \\ \\
+				\dfrac{df_{2}}{dx} &= - \dfrac{sy^{2}}{nx^{2}} \\
+				\dfrac{df_{2}}{dy} &= s - \dfrac{2sy}{nx} 
+			\end{aligned},
+		\end{equation}
+		por lo que 
+		\begin{equation}
+			Df(X) = 
+			\begin{bmatrix}
+				r - \dfrac{2rx}{K} - \dfrac{(2qxy)(x^{2}+a^{2})-(2x)(qx^{2}y)}{(x^{2}+a^{2})^{2}} & - \dfrac{qx^{2}}{x^{2}+a^{2}} \\
+				- \dfrac{sy^{2}}{nx^{2}} & s - \dfrac{2sy}{nx}
+			\end{bmatrix}
+		\end{equation}
+		así
+		\begin{equation}
+			Df((K,0)) =
+			\begin{bmatrix}
+				-r & \dfrac{-qK^{2}}{K^{2}+a^{2}} \\
+				0 & s
+			\end{bmatrix}.
+		\end{equation}
+		Luego, haciendo uso de la formula del polinomio característico para matrices $2 \times 2$, hallamos los valores propios de la matriz $A = Df((K,0))$:
+		\begin{equation}
+			\begin{aligned}
+				\lambda^{2} - tra(A)\lambda + det(A) &= 0 \\
+				\lambda^{2} - (r-s)\lambda + (-rs) &= 0
+			\end{aligned},
+		\end{equation}
+		así, por la formula cuadrática
+		\begin{equation}
+			\begin{aligned}
+				\lambda &= \dfrac{-(r-s) \pm \sqrt{(r-s)^{2}+4rs}}{2} \\
+				&= \dfrac{s-r \pm \sqrt{r^{2}+2rs+s^{2}}}{2} \\
+				&= \dfrac{s-r \pm \sqrt{(r+s)^{2}}}{2} \\
+				&= \dfrac{s-r \pm (r+s)}{2} 
+			\end{aligned}
+		\end{equation}
+		obteniendo así las dos posibles raíces del polinomio característico: $$\lambda_{1} = s, \; \lambda_{2}=-r$$ puesto que $r,s \in \R_{+}$ tenemos dos valores propios de signos contrarios, es decir, el punto $(K,0)$ es un punto silla del sistema \eqref{eq: modelo}.
+    \end{enumerate}
+    
+    Con el fin de analizar mas detalladamente el comportamiento del sistema, y con tal de facilitar más los cálculos se procede a realizar un cambio de variables junto con reescalado temporal, el cual se evidencia en la siguiente proposición.
+    
+    \begin{pro}
+    	El sistema \eqref{eq: modelo} es topológicamente equivalente al sistema:
+    	\begin{equation}
+    		Y_{\eta}
+    		\begin{cases}
+    			\dfrac{du}{d \tau} = ((1 - u)(u^{2} + A^{2}) - Q u v)u^{2} \\
+    			\dfrac{dv}{d \tau} = B(u - v)(u^{2} + A^{2})v
+    		\end{cases},
+    	\end{equation}
+    	donde, $\eta = (A, Q, B) \in [0, 1] \times \R^{2}_{+}$ con $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r}, \; B = \dfrac{s}{r}$.
+    \end{pro}
+    
+    \begin{proof}
+    	Sea $x = Ku$ y $y = nKv$ sustituyendo en el campo vectorial \eqref{eq: modelo} obtenemos:
+    	\begin{equation*}
+    		\begin{cases}
+    			K\dfrac{du}{dt} = (r \left(1-\dfrac{Ku}{K}\right) - \dfrac{qKunKv}{(Ku)^{2}+a^{2}}) Ku \\
+    			nK\dfrac{dv}{dt} = s \left(1-\dfrac{nKv}{nKu}\right)nKv
+    		\end{cases}
+    	\end{equation*}
+    	simplificando y factorizando
+    	\begin{equation*}
+    		\begin{cases}
+    			\dfrac{du}{dt} = r\left((1-u) - \dfrac{qn}{r} \dfrac{uv}{u^{2}+\left(\dfrac{a}{K}\right)^{2}}\right)u \\
+    			\dfrac{dv}{dt} = s \left(1-\dfrac{v}{u}\right)v
+    		\end{cases}
+    	\end{equation*}
+    	ahora, haciendo el reescalado temporal $\tau = \left(\dfrac{r}{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}\right)t,$ tenemos que $$\dfrac{1}{dt} = \dfrac{r}{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)} \dfrac{1}{d\tau}$$ reemplazando y simplificando:
+    	\begin{equation*}
+    		\begin{cases}
+    			\dfrac{du}{d\tau} = \left((1-u)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right) - \dfrac{qn}{r} uv\right)u^{2} \\
+    			\dfrac{dv}{d\tau} = \dfrac{s}{r} \left(u-v\right)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)v
+    		\end{cases}
+    	\end{equation*}
+    	por último, haciendo $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r} \; \text{y} \; B = \dfrac{s}{r}$, se sigue el resultado.
+    \end{proof}
