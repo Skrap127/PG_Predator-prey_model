@@ -10,7 +10,7 @@
 			\frac{dx}{dt} = (r \left(1 - \frac{x}{K}\right) - \frac{q x y}{x^2 + a^2})x \\ 
 			\frac{dy}{dt} = s \left(1 - \frac{y}{n x}\right) y
 		\end{cases},
-		\label{eq: modelo}
+		\label{eq: modelo1}
 	\end{equation}
 	
 	donde $x(t)$ y $y(t)$ representan las densidades de presa y depredador, respectivamente, en cada instante $t \geq 0$. Aquí $\mu = (r, a, s, K, n, q) \in \R^{6}_{+}$, es decir, todos los parámetros son estrictamente positivos, donde cada uno de ellos consta de los siguientes significados biológicos:
@@ -25,14 +25,13 @@
 		\item $n$ representa una medida de la calidad del alimento e indica cómo los depredadores convierten las presas comidas en nuevos nacimientos de depredadores.
 	\end{itemize}
 	
-	Observemos que el sistema \eqref{eq: modelo} no esta definido en $x=0$, es decir, en el eje $y$, por lo que el conjunto de definición para este sistema en el sentido biológico (recordemos que las variables x e y representan las densidades de las poblaciones a estudiar), esta dado por el primer cuadrante del plano euclidiano sin incluir el eje $y$, es decir, el conjunto $$\Omega = \{ (x,y) \in \R^{2} \; | \; x>0, \; y \geq 0 \}.$$ Ahora, para determinar los puntos críticos debemos hallar aquellos que hagan anular al sistema, es decir, se basa en hallar las soluciones del sistema:
+	Observemos que el sistema \eqref{eq: modelo1} no esta definido en $x=0$, es decir, en el eje $y$, por lo que el conjunto de definición para este sistema en el sentido biológico (recordemos que las variables x e y representan las densidades de las poblaciones a estudiar), esta dado por el primer cuadrante del plano euclidiano sin incluir el eje $y$, es decir, el conjunto $$\Omega = \{ (x,y) \in \R^{2} \; | \; x>0, \; y \geq 0 \}.$$ Ahora, para determinar los puntos críticos debemos hallar aquellos que hagan anular al sistema, es decir, se basa en hallar las soluciones del sistema:
 	
 	\begin{equation}
 		\begin{cases} 
 			(r \left(1 - \frac{x}{K}\right) - \frac{q x y}{x^2 + a^2})x = 0\\ 
 			s \left(1 - \frac{y}{n x}\right) y = 0
 		\end{cases},
-		\label{eq: modelo1}
 	\end{equation}
 	
 	la primera ecuación solo se anula cuando
@@ -45,11 +44,11 @@
 		\label{eq: despeje}
 	\end{equation}
 	
-	y la segunda si $y = 0$ o $y = nx$. Si reemplazamos $y=0$ en \eqref{eq: despeje}, llegamos a que $1-\dfrac{x}{K} = 0$ (puesto que $r,a \in \R_{+}$), es decir, $x = K$. Por lo tanto, los candidatos a ser puntos críticos del sistema \eqref{eq: modelo} son $(K,0)$ y los puntos $(x_{e},y_{e})$ que satisfacen las ecuaciones de las isoclinas
+	y la segunda si $y = 0$ o $y = nx$. Si reemplazamos $y=0$ en \eqref{eq: despeje}, llegamos a que $1-\dfrac{x}{K} = 0$ (puesto que $r,a \in \R_{+}$), es decir, $x = K$. Por lo tanto, los candidatos a ser puntos críticos del sistema \eqref{eq: modelo1} son $(K,0)$ y los puntos $(x_{e},y_{e})$ que satisfacen las ecuaciones de las isoclinas
 	\begin{equation}
 		y=nx, \qquad y= \dfrac{r}{qx} \left( 1-\dfrac{x}{K} \right) (x^2+a^2).
 	\end{equation}
-	Con esta información y denotando el sistema \eqref{eq: modelo} como $\dot{X}=f(X)$, donde $X=(x,y)$, podemos determinar que:
+	Con esta información y denotando el sistema \eqref{eq: modelo1} como $\dot{X}=f(X)$, donde $X=(x,y)$, podemos determinar que:
 	
 	\begin{enumerate}
 		\item El punto $(x_{e}, y_{e})$ esta en el primer cuadrante del campo vectorial $f(X)$ sí y solo si, $x_{e}<K$ y por tanto, será un punto crítico del sistema. Dado el caso de que $x_{e}>K$ el único punto de equilibrio de nuestro interés será el punto $(K,0)$.
@@ -102,25 +101,26 @@
 				&= \dfrac{s-r \pm (r+s)}{2} 
 			\end{aligned}
 		\end{equation}
-		obteniendo así las dos posibles raíces del polinomio característico: $$\lambda_{1} = s, \; \lambda_{2}=-r$$ puesto que $r,s \in \R_{+}$ tenemos dos valores propios de signos contrarios, es decir, el punto $(K,0)$ es un punto silla del sistema \eqref{eq: modelo}.
+		obteniendo así las dos posibles raíces del polinomio característico: $$\lambda_{1} = s, \; \lambda_{2}=-r$$ puesto que $r,s \in \R_{+}$ tenemos dos valores propios de signos contrarios, es decir, el punto $(K,0)$ es un punto silla del sistema \eqref{eq: modelo1}.
     \end{enumerate}
     
     Con el fin de analizar mas detalladamente el comportamiento del sistema, y con tal de facilitar más los cálculos se procede a realizar un cambio de variables junto con reescalado temporal, el cual se evidencia en la siguiente proposición.
     
     \begin{pro}
-    	El sistema \eqref{eq: modelo} es topológicamente equivalente al sistema:
+    	El sistema \eqref{eq: modelo1} es topológicamente equivalente al sistema:
     	\begin{equation}
     		Y_{\eta}
     		\begin{cases}
     			\dfrac{du}{d \tau} = ((1 - u)(u^{2} + A^{2}) - Q u v)u^{2} \\
     			\dfrac{dv}{d \tau} = B(u - v)(u^{2} + A^{2})v
     		\end{cases},
+    		\label{eq: modelo2}
     	\end{equation}
     	donde, $\eta = (A, Q, B) \in [0, 1] \times \R^{2}_{+}$ con $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r}, \; B = \dfrac{s}{r}$.
     \end{pro}
     
     \begin{proof}
-    	Sea $x = Ku$ y $y = nKv$ sustituyendo en el campo vectorial \eqref{eq: modelo} obtenemos:
+    	Sea $x = Ku$ y $y = nKv$ sustituyendo en el campo vectorial \eqref{eq: modelo1} obtenemos:
     	\begin{equation*}
     		\begin{cases}
     			K\dfrac{du}{dt} = (r \left(1-\dfrac{Ku}{K}\right) - \dfrac{qKunKv}{(Ku)^{2}+a^{2}}) Ku \\
@@ -143,3 +143,25 @@
     	\end{equation*}
     	por último, haciendo $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r} \; \text{y} \; B = \dfrac{s}{r}$, se sigue el resultado.
     \end{proof}
+    
+    El sistema \eqref{eq: modelo2} está definido en $$\bar{\Omega} = \{ (u, v) \in \R^{2} \; | \; u \geq 0, \; v \geq 0 \}.$$
+    
+    \begin{remark}
+    	Dado que $a$ representa un umbral ecológico inferior a la capacidad máxima de presas, se asume naturalmente $0<a<K$, lo que implica $0<A<1$.
+    \end{remark}
+    \begin{remark}
+	    	La función $\varphi : \bar{\Omega} \times \R \rightarrow \Omega \times \R$, dada por
+	    	\begin{equation*}
+	    		\varphi(u, v, \tau) = \left( Ku, \; nKv, \; \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} \tau \right) = (x, y, t),
+	    	\end{equation*}
+	    	define una correspondencia biunívoca y suave entre el sistema \eqref{eq: modelo1} y el \eqref{eq: modelo2}, por lo que $\varphi$ es un difeomorfismo. Además, la matriz jacobiana de la transformación
+	    	\begin{equation}
+	    		D\varphi(u, v, \tau) =
+	    		\begin{bmatrix}
+	    			K & 0 & 0 \\
+	    			0 & nK & 0 \\
+	    			\dfrac{3u^{2}+\left(\dfrac{a}{K}\right)^{2}}{r} & 0 & \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r}
+	    		\end{bmatrix},
+	    	\end{equation}
+	    	tiene determinante $nK^{2} \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} > 0$, por lo que la transformación $\varphi$ preserva la orientación por tiempo. Además, como por definición todo difeomorfismo es un homeomorfismo, el sistema \eqref{eq: modelo1} es topológicamente equivalente al sistema \eqref{eq: modelo2}.
+    \end{remark}
