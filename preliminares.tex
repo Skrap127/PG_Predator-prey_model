@@ -34,6 +34,7 @@ Conceptos relacionados a los mostrados en \cite{articulo}
 	
 	\item \textbf{Teoría cualitativa de EDOs}
 	\begin{itemize}
+		\item Sistemas diferenciales polinómicos \checkmark \cite[p. I]{Dumortier2006}
 		\item Campo vectorial asociado a un sistema \checkmark \cite[p. 128]{teschl2012}
 		\item Trayectorias \checkmark \cite[p. 128]{teschl2012}
 		\item Diagramas de fase \checkmark
@@ -205,6 +206,8 @@ y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas
 	\caption{Ejemplo de campo vectorial, trayectorias, retrato fase e isoclinas ($c=0$) del sistema \eqref{eq: pvi} asociado a $f(x)=(x_{1},\sin{x_{2}})$.}
 	\label{fig: example}
 \end{figure}
+
+Otro caso relevante para nuestro estudio corresponde al sistema autónomo bidimensional \eqref{eq: sisAutBid}, o sistema planar, definido por funciones polinómicas $f$ y $g$ (denotadas, por ejemplo, como $P(x,y)$ y $Q(x,y)$). A este tipo de sistemas se les denomina \emph{sistemas diferenciales polinómicos} de grado $n$, donde $n$ representa el grado máximo de los polinomios que componen el sistema. Usualmente, se asocian a un campo vectorial $X = P(x,y) \frac{\partial}{\partial x} + Q(x,y) \frac{\partial}{\partial y}$, con $P$ y $Q$ funciones $C^r$ definidas en un abierto $U \subset \R^2$; una notación simplificada es $X = (P,Q)$. No existe distinción entre el campo vectorial $X$ y el sistema polinómico, ya que ambas representan meras formas equivalentes de denotación.
 
 En algunas ocasiones las trayectorias o curvas solución de un sistema pueden ser cerradas y aisladas, es decir, no hay más trayectorias cerradas en una cierta región, dichas curvas solución son denominadas un \textit{ciclo límite}; si todas las trayectorias vecinas se acercan al ciclo límite decimos que el ciclo límite es \textit{estable} o \textit{atractor}, en otros casos el ciclo límite es \textit{inestable} o en casos excepcionales \textit{medio-estable}, donde las trayectorias vecinas se alejan y se acercan simultáneamente dentro y fuera del ciclo límite. En la \autoref{fig: CicloLimiteEstableInestable} se muestra un ejemplo de estos dos primeros casos.
 

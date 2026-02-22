@@ -111,7 +111,7 @@
     	\begin{equation}
     		Y_{\eta}
     		\begin{cases}
-    			\dfrac{du}{d \tau} = ((1 - u)(u^{2} + A^{2}) - Q u v)u^{2} \\
+    			\dfrac{du}{d \tau} = ((1 - u)(u^{2} + A^{2}) - Q u v)u^{2}\\
     			\dfrac{dv}{d \tau} = B(u - v)(u^{2} + A^{2})v
     		\end{cases},
     		\label{eq: modelo2}
@@ -163,5 +163,16 @@
 	    			\dfrac{3u^{2}+\left(\dfrac{a}{K}\right)^{2}}{r} & 0 & \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r}
 	    		\end{bmatrix},
 	    	\end{equation}
-	    	tiene determinante $nK^{2} \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} > 0$, por lo que la transformación $\varphi$ preserva la orientación por tiempo. Además, como por definición todo difeomorfismo es un homeomorfismo, el sistema \eqref{eq: modelo1} es topológicamente equivalente al sistema \eqref{eq: modelo2}.
+	    	tiene determinante $nK^{2} \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} > 0$, por lo que la transformación $\varphi$ preserva la orientación por tiempo. Además, como por definición todo difeomorfismo es un homeomorfismo, el sistema $X_{\mu}$ es topológicamente equivalente al sistema $Y_{\eta} = \varphi \circ X_{\mu}$. Donde, $Y_{\eta} = P(u,v)\dfrac{\partial}{\partial u} + Q(u,v)\dfrac{\partial}{\partial v}$ esta asociado al sistema polinomial de orden 5 \eqref{eq: modelo2}.
     \end{remark}
+    
+    Recordemos que el modelo original \eqref{eq: modelo1} no está definido en $(0,0)$ debido a la forma de la respuesta funcional Leslie-Gower. Al expresar el sistema como un campo polinomial de quinto orden, los autores logran una extensión topológicamente equivalente que sí es válida en el origen. Esto permite estudiar la extinción simultánea de ambas especies, algo que el modelo original impedía analíticamente.
+    
+    Determinemos ahora los puntos criticos del sistema polinomial \eqref{eq: modelo2}, i.e., hallemos las soluciones del sistema
+    \begin{equation}
+    	\begin{cases} 
+    		((1 - u)(u^{2} + A^{2}) - Q u v)u^{2} = 0\\
+    		B(u - v)(u^{2} + A^{2})v = 0
+    	\end{cases}.
+    \end{equation}
+    De la primera ecuación $u=0$ o $(1 - u)(u^{2} + A^{2}) = Q u v$. De la segunda, $v=0$ o $v=u$. Si $u=0$ entonces $v=0$ por lo que $(0,0)$ es un punto de equilibrio. Si $(1 - u)(u^{2} + A^{2}) = Q u v$ y $v=0$ entonces $1-u=0$ por lo que $u=1$, es decir, $(1,0)$ es otro punto de equilibrio. Finalmente, el punto $(u_{e}, v_{e})$ es un punto de equilibrio determinado por la interseccion de las isoclinas $v = \dfrac{1}{Qu}(1 - u)(u^{2} + A^{2})$ y $v = u$.
