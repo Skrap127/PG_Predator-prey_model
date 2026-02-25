@@ -166,8 +166,20 @@ De la primera: $u=0$ o
 de la segunda: $v=0$ o $v=u$. Así, $(0,0)$ y $(1,0)$ son equilibrios; el equilibrio $(u_e, v_e)$ surge de la intersección de las isoclinas $v = u$ y \eqref{eq:isoclina-presa_modelo2} \cite{articulo}, esto es equivalente a hallar las raíces del polinomio de grado 3:
 \begin{equation}
 	P(u) = Qu^{2} - (1-u)(u^2 + A^2) = u^{3} + (Q-1)u^{2} + A^{2}u - A^{2}.
+	\label{eq:polinomioIsoclinasModelo2}
 \end{equation}
-Debido a la naturaleza de nuestro problema, solo son de interés las raíces reales positivas de $P$. Para determinar la cantidad de raíces reales (positivas y negativas), haremos uso de la regla del signo de Decartes.
+Debido a la naturaleza de nuestro problema, solo son de interés las raíces reales positivas de $P$. Para determinar la cantidad de raíces reales (positivas y negativas), haremos uso de la regla del signo de Decartes \cite{murray2002}[p.~509] y nos apoyaremos en el Teorema fundamental del álgebra.
+
+\begin{pro}
+	El pol
+\end{pro}
+\begin{proof}
+	Según la naturaleza del coeficiente del segundo termino del polinomio \eqref{eq:polinomioIsoclinasModelo2}, obtenemos los siguientes casos: 
+	\begin{itemize}
+		\item Si $Q-1 \geq 0, \; P(u)$ tiene 1 cambio de signo, y $$P(-u)=-u^{3}+(Q-1)u^{2}-A^{2}u-A^{2}$$ tiene 2 cambios de signo. Por lo tanto, $P(u)$ tiene una raíz real positiva y dos negativas, o una raíz real positiva y dos complejas.
+		\item Si $Q-1<0, \; P(u)$ tiene 3 cambios de signo y $P(-u)$ tiene 0 cambios de signo. Por lo tanto, $P(u)$ tiene tres raíces reales positivas, o una sola raíz real positiva y dos complejas.
+	\end{itemize}
+\end{proof}
 
 %https://www-mathplanet-com.translate.goog/education/algebra-2/polynomial-functions/descartes-rule-of-sign?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es
 
