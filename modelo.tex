@@ -1,4 +1,4 @@
-\chapter{El modelo de Leslie-Gower con respuesta funcional sigmoidea}
+\chapter[Modelo de Leslie-Gower]{El modelo de Leslie-Gower con respuesta funcional sigmoidea}
 
 En este capítulo se analiza el modelo presa-depredador de tipo Leslie-Gower propuesto por González-Olivares et al. (2015)\cite{articulo}, en el cual la población de presas exhibe una respuesta funcional de Holling tipo III, caracterizada por su forma sigmoidea.
 
@@ -171,7 +171,7 @@ de la segunda: $v=0$ o $v=u$. Así, $(0,0)$ y $(1,0)$ son equilibrios; el equili
 Debido a la naturaleza de nuestro problema, solo son de interés las raíces reales positivas de $P$. Para determinar la cantidad de raíces reales (positivas y negativas), haremos uso de la regla del signo de Decartes \cite{murray2002}[p.~509] y nos apoyaremos en el Teorema fundamental del álgebra.
 
 \begin{pro}
-	El pol
+	El polinomio \eqref{eq:polinomioIsoclinasModelo2} tiene una única raíz real positiva.
 \end{pro}
 \begin{proof}
 	Según la naturaleza del coeficiente del segundo termino del polinomio \eqref{eq:polinomioIsoclinasModelo2}, obtenemos los siguientes casos: 
@@ -179,7 +179,12 @@ Debido a la naturaleza de nuestro problema, solo son de interés las raíces rea
 		\item Si $Q-1 \geq 0, \; P(u)$ tiene 1 cambio de signo, y $$P(-u)=-u^{3}+(Q-1)u^{2}-A^{2}u-A^{2}$$ tiene 2 cambios de signo. Por lo tanto, $P(u)$ tiene una raíz real positiva y dos negativas, o una raíz real positiva y dos complejas.
 		\item Si $Q-1<0, \; P(u)$ tiene 3 cambios de signo y $P(-u)$ tiene 0 cambios de signo. Por lo tanto, $P(u)$ tiene tres raíces reales positivas, o una sola raíz real positiva y dos complejas.
 	\end{itemize}
+	En todo caso, se garantiza la existencia de al menos una raíz real positiva, además, nótese que: $$P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$$ así por el teorema del valor intermedio, esta raíz $H \in (0,1)$, esto también se puede deducir de la isoclina \eqref{eq:isoclina-presa_modelo2}. Descartemos ahora la posible existencia de tres raíces reales positivas simultáneamente; para ello observemos que el cociente entre $P(u)$ y el monomio $u - H$ es $$P_{1}(u) = u^{2}+(Q-1+H)u+(Q-1+H)H+A^{2}$$ con resto $$R(u) = H^{3}+(Q-1)H^{2}+A^{2}H-A^{2} = 0,$$ de aquí $$Q-1+H = \frac{(1-H)A^{2}}{H^{2}}>0$$ reemplazando en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\frac{(1-H)A^{2}}{H^{2}}u+(\frac{(1-H)A^{2}}{H}+A^{2}),$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq:polinomioIsoclinasModelo2} consta de una única raíz real positiva.
 \end{proof}
+
+\begin{remark}
+	Con esta ultima proposición se concluye que el sistema \eqref{eq: modelo2} consta de tres puntos de equilibrio biológicamente relevantes: $(0,0), \; (1,0) \text{ y } (H,H).$
+\end{remark}
 
 %https://www-mathplanet-com.translate.goog/education/algebra-2/polynomial-functions/descartes-rule-of-sign?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es
 
