@@ -99,7 +99,7 @@ Con el propósito de analizar detalladamente el comportamiento cualitativo del s
 		\end{cases},
 		\label{eq: modelo2}
 	\end{equation}
-	donde, $\eta = (A, Q, B) \in [0, 1] \times \R^{2}_{+}$ con $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r}, \; B = \dfrac{s}{r}$ \cite{articulo}.
+	donde, $\eta = (A, Q, B) \in (0, 1) \times \R^{2}_{+}$ con $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r}, \; B = \dfrac{s}{r}$ \cite{articulo}.
 \end{pro}
 
 \begin{proof}
@@ -163,7 +163,7 @@ De la primera: $u=0$ o
 	v = \dfrac{(1-u)(u^2 + A^2)}{Q u} ;
 	\label{eq:isoclina-presa_modelo2}
 \end{equation}
-de la segunda: $v=0$ o $v=u$. Así, $(0,0)$ y $(1,0)$ son equilibrios; el equilibrio $(u_e, v_e)$ surge de la intersección de las isoclinas $v = u$ y \eqref{eq:isoclina-presa_modelo2} \cite{articulo}, esto es equivalente a hallar las raíces del polinomio de grado 3:
+de la segunda: $v=0$ o $v=u$. Así, $(0,0)$ y $(1,0)$ son equilibrios; el equilibrio $(u_e, v_e)$ surge de la intersección de las isoclinas \eqref{eq:isoclina-presa_modelo2} y $v = u$ \cite{articulo}, esto es equivalente a hallar las raíces del polinomio de grado 3:
 \begin{equation}
 	P(u) = Qu^{2} - (1-u)(u^2 + A^2) = u^{3} + (Q-1)u^{2} + A^{2}u - A^{2}.
 	\label{eq:polinomioIsoclinasModelo2}
@@ -179,7 +179,7 @@ Debido a la naturaleza de nuestro problema, solo son de interés las raíces rea
 		\item Si $Q-1 \geq 0, \; P(u)$ tiene 1 cambio de signo, y $$P(-u)=-u^{3}+(Q-1)u^{2}-A^{2}u-A^{2}$$ tiene 2 cambios de signo. Por lo tanto, $P(u)$ tiene una raíz real positiva y dos negativas, o una raíz real positiva y dos complejas.
 		\item Si $Q-1<0, \; P(u)$ tiene 3 cambios de signo y $P(-u)$ tiene 0 cambios de signo. Por lo tanto, $P(u)$ tiene tres raíces reales positivas, o una sola raíz real positiva y dos complejas.
 	\end{itemize}
-	En todo caso, se garantiza la existencia de al menos una raíz real positiva, además, nótese que: $$P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$$ así por el teorema del valor intermedio, esta raíz $H \in (0,1)$, esto también se puede deducir de la isoclina \eqref{eq:isoclina-presa_modelo2}. Descartemos ahora la posible existencia de tres raíces reales positivas simultáneamente; para ello observemos que el cociente entre $P(u)$ y el monomio $u - H$ es $$P_{1}(u) = u^{2}+(Q-1+H)u+(Q-1+H)H+A^{2}$$ con resto $$R(u) = H^{3}+(Q-1)H^{2}+A^{2}H-A^{2} = 0,$$ de aquí $$Q-1+H = \frac{(1-H)A^{2}}{H^{2}}>0$$ reemplazando en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\frac{(1-H)A^{2}}{H^{2}}u+(\frac{(1-H)A^{2}}{H}+A^{2}),$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq:polinomioIsoclinasModelo2} consta de una única raíz real positiva.
+	En todo caso, se garantiza la existencia de al menos una raíz real positiva, además, nótese que: $$P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$$ así por el teorema del valor intermedio, esta raíz $H \in (0,1)$, esto también se puede deducir de la isoclina \eqref{eq:isoclina-presa_modelo2}. Descartemos ahora la posible existencia de tres raíces reales positivas simultáneamente; para ello observemos que el cociente entre $P(u)$ y el monomio $u - H$ es $$P_{1}(u) = u^{2}+(Q-1+H)u+(Q-1+H)H+A^{2}$$ con resto $$R(u) = H^{3}+(Q-1)H^{2}+A^{2}H-A^{2} = 0,$$ de aquí $$Q-1+H = \frac{(1-H)A^{2}}{H^{2}}>0$$ reemplazando en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\frac{(1-H)A^{2}}{H^{2}}u+\left(\frac{(1-H)A^{2}}{H}+A^{2}\right),$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq:polinomioIsoclinasModelo2} consta de una única raíz real positiva.
 \end{proof}
 
 \begin{remark}
@@ -189,11 +189,59 @@ Debido a la naturaleza de nuestro problema, solo son de interés las raíces rea
 %https://www-mathplanet-com.translate.goog/education/algebra-2/polynomial-functions/descartes-rule-of-sign?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es
 
 Ahora, considerando $$g_1(u, v) = ((1 - u)(u^{2} + A^{2}) - Q u v)u^{2}=-Qu^3v-u^5+ u^4-A^2u^3+A^2u^2$$ y $$g_2(u, v) = B(u - v)(u^{2} + A^{2})v = Bu^3v-Bu^2v^2+A^2Buv-A^2Bv^2$$ la matriz jacobiana es:
-\begin{equation}
+\begin{equation*}
 	Dg(Y) =
 	\begin{bmatrix}
 			-5u^{4} + 4u^{3} - (3A^{2} + 3Qv)u^{2} + 2A^{2}u & -Qu^{3} \\
 			3Bu^{2}v+BvA^{2}-2Bv^{2}u & B(u^{2}+A^{2})(u-2v)
 		\end{bmatrix}.
 	\label{eq:jacobianaModelo2}
+\end{equation*}
+En $(0,0)$:
+\begin{equation*}
+	Dg(0,0) =
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & 0
+	\end{bmatrix}.
+	\label{eq:jacobianaModelo2En(0,0)}
+\end{equation*}
+En particular, para este punto de equilibrio al obtener la matriz nula, deducimos que el punto crítico $(0,0)$ es un punto no hiperbólico y degenerado por lo que no es posible determinar la estabilidad de este punto por medio de la linealización ni el teorema de la variedad central, por ello, para analizar el comportamiento de este punto de equilibrio se recurrirá posteriormente a una desingularización a través del método de blowing-up.
+
+En $(1,0)$:
+\begin{equation*}
+	Dg(1,0) =
+	\begin{bmatrix}
+		-(1+A^{2}) & -Q \\
+		0 & B(1+A^{2})
+	\end{bmatrix}.
+	\label{eq:jacobianaModelo2En(1,0)}
+\end{equation*}
+Los valores propios se hallan del polinomio característico $\lambda^2 - \operatorname{tr}(A) \lambda + \det(A) = 0$, con $A = Dg(1,0)$:
+\begin{equation}
+	\lambda^2 - (B - 1)(1+A^{2}) \lambda - B(1+A^{2})^{2} = 0
+	\label{eq:car-(1,0)}.
+\end{equation}
+Por la fórmula cuadrática:
+\begin{align}
+	\lambda &= \frac{(B - 1)(1+A^{2}) \pm \sqrt{(B - 1)^2(1+A^{2})^2 + 4B(1+A^{2})^{2}}}{2}\\
+	&= \frac{(B - 1)(1+A^{2}) \pm (B + 1)(1+A^{2})}{2} \\
+	&= \frac{(B - 1) \pm (B + 1)}{2}(1+A^{2})
+	\label{eq:valores-propiosDg(1,0)}
+\end{align}
+obteniendo $\lambda_1 = B(1+A^{2}) > 0$ y $\lambda_2 = -(1+A^{2}) < 0$. Dado que tienen signos opuestos, $(1,0)$ es un punto silla.
+
+En $(H,H)$:
+\begin{equation*}
+	Dg(H,H) =
+	\begin{bmatrix}
+		-5H^{4}+(4+3Q)H^{3}-3A^{2}H^{2}+2A^{2}H & -QH^{3} \\
+		BH^{3}+BA^{2}H & -BH^{3}-BA^{2}H
+	\end{bmatrix}.
+	\label{eq:jacobianaModelo2En(H,H)}
+\end{equation*}
+Los valores propios se hallan del polinomio característico $\lambda^2 - \operatorname{tr}(A) \lambda + \det(A) = 0$, con $A = Dg(H,H)$:
+\begin{equation}
+	\lambda^2 - (B - 1)(1+A^{2}) \lambda - B(1+A^{2})^{2} = 0
+	\label{eq:car-(H,H)}.
 \end{equation}
