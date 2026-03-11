@@ -179,7 +179,7 @@ Debido a la naturaleza de nuestro problema, solo son de interés las raíces rea
 		\item Si $Q-1 \geq 0, \; P(u)$ tiene 1 cambio de signo, y $$P(-u)=-u^{3}+(Q-1)u^{2}-A^{2}u-A^{2}$$ tiene 2 cambios de signo. Por lo tanto, $P(u)$ tiene una raíz real positiva y dos negativas, o una raíz real positiva y dos complejas.
 		\item Si $Q-1<0, \; P(u)$ tiene 3 cambios de signo y $P(-u)$ tiene 0 cambios de signo. Por lo tanto, $P(u)$ tiene tres raíces reales positivas, o una sola raíz real positiva y dos complejas.
 	\end{itemize}
-	En todo caso, se garantiza la existencia de al menos una raíz real positiva, además, nótese que: $$P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$$ así por el teorema del valor intermedio, esta raíz $H \in (0,1)$, esto también se puede deducir de la isoclina \eqref{eq:isoclina-presa_modelo2}. Descartemos ahora la posible existencia de tres raíces reales positivas simultáneamente; para ello observemos que el cociente entre $P(u)$ y el monomio $u - H$ es $$P_{1}(u) = u^{2}+(Q-1+H)u+(Q-1+H)H+A^{2}$$ con resto $$R(u) = H^{3}+(Q-1)H^{2}+A^{2}H-A^{2} = 0,$$ de aquí $$Q-1+H = \frac{(1-H)A^{2}}{H^{2}}>0$$ reemplazando en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\frac{(1-H)A^{2}}{H^{2}}u+\left(\frac{(1-H)A^{2}}{H}+A^{2}\right),$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq:polinomioIsoclinasModelo2} consta de una única raíz real positiva.
+	En todo caso, se garantiza la existencia de al menos una raíz real positiva, además, nótese que: $$P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$$ así por el teorema del valor intermedio, esta raíz $H \in (0,1)$, esto también se puede deducir de la isoclina \eqref{eq:isoclina-presa_modelo2}. Descartemos ahora la posible existencia de tres raíces reales positivas simultáneamente; para ello observemos que el cociente entre $P(u)$ y el monomio $u - H$ es $$P_{1}(u) = u^{2}+(Q-1+H)u+(Q-1+H)H+A^{2}$$ con resto $$R(u) = H^{3}+(Q-1)H^{2}+A^{2}H-A^{2} = 0,$$ de aquí $$Q-1+H = \frac{(1-H)A^{2}}{H^{2}}>0$$ reemplazando en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\frac{(1-H)A^{2}}{H^{2}}u+\frac{A^{2}}{H},$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq:polinomioIsoclinasModelo2} consta de una única raíz real positiva.
 \end{proof}
 
 \begin{remark}
@@ -197,17 +197,8 @@ Ahora, considerando $$g_1(u, v) = ((1 - u)(u^{2} + A^{2}) - Q u v)u^{2}=-Qu^3v-u
 		\end{bmatrix}.
 	\label{eq:jacobianaModelo2}
 \end{equation*}
-En $(0,0)$:
-\begin{equation*}
-	Dg(0,0) =
-	\begin{bmatrix}
-		0 & 0 \\
-		0 & 0
-	\end{bmatrix}.
-	\label{eq:jacobianaModelo2En(0,0)}
-\end{equation*}
-En particular, para este punto de equilibrio al obtener la matriz nula, deducimos que el punto crítico $(0,0)$ es un punto no hiperbólico y degenerado por lo que no es posible determinar la estabilidad de este punto por medio de la linealización ni el teorema de la variedad central, por ello, para analizar el comportamiento de este punto de equilibrio se recurrirá posteriormente a una desingularización a través del método de blowing-up.
 
+\subsection{Estabilidad del punto de equilibrio $(1,0)$}
 En $(1,0)$:
 \begin{equation*}
 	Dg(1,0) =
@@ -231,6 +222,43 @@ Por la fórmula cuadrática:
 \end{align}
 obteniendo $\lambda_1 = B(1+A^{2}) > 0$ y $\lambda_2 = -(1+A^{2}) < 0$. Dado que tienen signos opuestos, $(1,0)$ es un punto silla.
 
+\subsection{Estabilidad del punto de equilibrio $(0,0)$}
+En $(0,0)$:
+\begin{equation*}
+	Dg(0,0) =
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & 0
+	\end{bmatrix}.
+	\label{eq:jacobianaModelo2En(0,0)}
+\end{equation*}
+En particular, para este punto de equilibrio al obtener la matriz nula, deducimos que el punto crítico $(0,0)$ es un punto no hiperbólico y degenerado por lo que no es posible determinar la estabilidad de este punto por medio de la linealización ni el teorema de la variedad central, por ello, para analizar el comportamiento de este punto de equilibrio se recurrirá a desingularizarlo a través del método de blowing-up.
+
+Para ello, escribamos el sistema \eqref{eq: modelo2} en coordenadas polares. Sustituyendo $u = r \cos(\theta)$ y $v = r \sin(\theta)$, obtenemos que $r=u^{2}+v^{2}$ y $\theta = \arctg\left(\dfrac{v}{u}\right)$, derivando con respecto al tiempo: $$\dot{r}=\cos(\theta)\dot{u} + \sin(\theta)\dot{v} \;\text{ y }\; \dot{\theta}=\dfrac{\dot{v}\cos(\theta)-\dot{u}\sin(\theta)}{r}.$$ Reemplazando en el sistema \eqref{eq: modelo2}, obtenemos:
+\begin{equation*}
+	\begin{cases}
+		\dot{r} &= r^{2} f(r, \theta)
+		\\
+		\dot{\theta} &= r g(r, \theta)
+	\end{cases},
+\end{equation*}
+donde
+\begin{equation*}
+	\begin{aligned}
+		f(r, \theta) &= -Qr^{2}\cos^{4}(\theta)\sin(\theta)- r^{3}\cos^{6}(\theta)+ r^{2}\cos^{5}(\theta) \\ &-A^{2}r\cos^{4}(\theta)+ A^{2}\cos^{3}(\theta) + Br^{2}\cos^{3}(\theta)\sin^{2}(\theta) \\ &-Br^{2}\cos^{2}(\theta)\sin^{3}(\theta)+ A^{2}B\cos(\theta)\sin^{2}(\theta)- A^{2}B\sin^{3}(\theta)
+		\\
+		g(r, \theta) &= Br^{2}\cos^{4}(\theta)\sin(\theta)- Br^{2}\cos^{3}(\theta)\sin^{2}(\theta)+ A^{2}B\cos^{2}(\theta)\sin(\theta) \\ &-A^{2}B\cos(\theta)\sin^{2}(\theta)+ Qr^{2}\cos^{3}(\theta)\sin^{2}(\theta) + r^{3}\cos^{5}(\theta)\sin(\theta) \\ &-r^{2}\cos^{4}(\theta)\sin(\theta)+ A^{2}r\cos^{3}(\theta)\sin(\theta)- A^{2}\cos^{2}(\theta)\sin(\theta)
+	\end{aligned},
+\end{equation*}
+es decir, obtuvimos el campo vectorial $$\tilde{Y_{\eta}}(r,\theta) = r^{2}f(r,\theta) \partial_r + rg(r,\theta) \partial_\theta.$$ Dividiendo por $r$ obtenemos un nuevo campo $$\bar{Y_{\eta}}(r,\theta) = rf(r,\theta) \partial_r + g(r,\theta) \partial_\theta,$$ el cual, en $\{r=0\}$ es cualitativamente equivalente a una vecindad $V$ del origen del campo vectorial $Y_{\eta}$ dado por el sistema \eqref{eq: modelo2}, es decir, basta analizar el retrato fase del campo vectorial:
+\begin{equation*}
+	\begin{aligned}
+		\bar{Y_{\eta}}(0,\theta) &= A^{2}B\cos^{2}(\theta)\sin(\theta) - A^{2}B\cos(\theta)\sin^{2}(\theta)- A^{2}\cos^{2}(\theta)\sin(\theta) \\
+		&= A^{2}(\cos(\theta)\sin(\theta))(B\cos(\theta)-B\sin(\theta)-\cos(\theta)).
+	\end{aligned}
+\end{equation*}
+Hallemos los puntos críticos.
+\subsection{Estabilidad del punto de equilibrio $(H,H)$}
 En $(H,H)$:
 \begin{equation*}
 	Dg(H,H) =
