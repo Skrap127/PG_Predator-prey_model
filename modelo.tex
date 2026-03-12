@@ -127,7 +127,7 @@ Con el propósito de analizar detalladamente el comportamiento cualitativo del s
 	Definiendo $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r} \; \text{y} \; B = \dfrac{s}{r}$, se llega al resultado \cite{articulo}.
 \end{proof}
 
-El sistema \eqref{eq: modelo2} está definido en $$\bar{\Omega} = \{ (u, v) \in \R^{2} \; | \; u \geq 0, \; v \geq 0 \}.$$
+El sistema \eqref{eq: modelo2} está definido en $$\tilde{\Omega} = \{ (u, v) \in \R^{2} \; | \; u \geq 0, \; v \geq 0 \}.$$
 
 \begin{remark}
 	Dado que $a$ representa un umbral ecológico inferior a la capacidad de carga $K$ de las presas, se asume $0 < a < K$, lo que implica $0 < A < 1$.
@@ -234,7 +234,7 @@ En $(0,0)$:
 \end{equation*}
 En particular, para este punto de equilibrio al obtener la matriz nula, deducimos que el punto crítico $(0,0)$ es un punto no hiperbólico y degenerado por lo que no es posible determinar la estabilidad de este punto por medio de la linealización ni el teorema de la variedad central, por ello, para analizar el comportamiento de este punto de equilibrio se recurrirá a desingularizarlo a través del método de blowing-up.
 
-Para ello, escribamos el sistema \eqref{eq: modelo2} en coordenadas polares. Sustituyendo $u = r \cos(\theta)$ y $v = r \sin(\theta)$, obtenemos que $r=u^{2}+v^{2}$ y $\theta = \arctg\left(\dfrac{v}{u}\right)$, derivando con respecto al tiempo: $$\dot{r}=\cos(\theta)\dot{u} + \sin(\theta)\dot{v} \;\text{ y }\; \dot{\theta}=\dfrac{\dot{v}\cos(\theta)-\dot{u}\sin(\theta)}{r}.$$ Reemplazando en el sistema \eqref{eq: modelo2}, obtenemos:
+Para ello, escribamos el sistema \eqref{eq: modelo2} en coordenadas polares. Sustituyendo $u = r \cos(\theta)$ y $v = r \sin(\theta)$, obtenemos que $r^{2}=u^{2}+v^{2} \;\text{ y }\; \theta = \arctg\left(\dfrac{v}{u}\right)$ con $u\neq0$. Derivando con respecto al tiempo $\tau$: $$\dot{r}=\cos(\theta)\dot{u} + \sin(\theta)\dot{v} \;\text{ y }\; \dot{\theta}=\dfrac{\dot{v}\cos(\theta)-\dot{u}\sin(\theta)}{r}.$$ Reemplazando $\dot{u}$ y $\dot{v}$ obtenemos el sistema:
 \begin{equation*}
 	\begin{cases}
 		\dot{r} &= r^{2} f(r, \theta)
@@ -254,22 +254,106 @@ es decir, obtuvimos el campo vectorial $$\tilde{Y_{\eta}}(r,\theta) = r^{2}f(r,\
 \begin{equation*}
 	\begin{aligned}
 		\bar{Y_{\eta}}(0,\theta) &= A^{2}B\cos^{2}(\theta)\sin(\theta) - A^{2}B\cos(\theta)\sin^{2}(\theta)- A^{2}\cos^{2}(\theta)\sin(\theta) \\
-		&= A^{2}(\cos(\theta)\sin(\theta))(B\cos(\theta)-B\sin(\theta)-\cos(\theta)).
+		&= A^{2}\cos(\theta)\sin(\theta)(B\cos(\theta)-B\sin(\theta)-\cos(\theta)),
 	\end{aligned}
 \end{equation*}
-Hallemos los puntos críticos.
-\subsection{Estabilidad del punto de equilibrio $(H,H)$}
-En $(H,H)$:
+para determinar el comportamiento del sistema \eqref{eq: modelo2} en el origen.
+
+Hallemos los puntos críticos de $\bar{Y_{\eta}}(0,\theta)$ ubicados en el primer cuadrante. Igualando el campo vectorial $\bar{Y_{\eta}}(0,\theta)$ a cero, debe ocurrir al menos que $\cos(\theta)$, $\sin(\theta)$ o $B\cos(\theta)-B\sin(\theta)-\cos(\theta)$ se anule. Esto ocurre para los valores $\theta = 0, \; \theta = \dfrac{\pi}{2}$ y los que cumplan la igualdad $$\dfrac{B-1}{B}\cos(\theta)=\sin(\theta),$$ es decir, $\theta = \arctg\left( \dfrac{B-1}{B} \right)$.
+
+Ahora, dada la matriz jacobiana:
 \begin{equation*}
-	Dg(H,H) =
+	D\bar{Y_{\eta}}(0,\theta) =
 	\begin{bmatrix}
-		-5H^{4}+(4+3Q)H^{3}-3A^{2}H^{2}+2A^{2}H & -QH^{3} \\
-		BH^{3}+BA^{2}H & -BH^{3}-BA^{2}H
-	\end{bmatrix}.
-	\label{eq:jacobianaModelo2En(H,H)}
+		h_{1}(\theta)  & 0\\
+		A^{2}\cos^{3}(\theta)\sin(\theta) & h_{2}(\theta)
+	\end{bmatrix},
+	\label{eq:jacobianaModelo2Polar}
 \end{equation*}
-Los valores propios se hallan del polinomio característico $\lambda^2 - \operatorname{tr}(A) \lambda + \det(A) = 0$, con $A = Dg(H,H)$:
-\begin{equation}
-	\lambda^2 - (B - 1)(1+A^{2}) \lambda - B(1+A^{2})^{2} = 0
-	\label{eq:car-(H,H)}.
-\end{equation}
+con
+\begin{equation*}
+	\begin{aligned}
+		h_{1}(\theta) &= A^{2}\cos^{3}(\theta) + A^{2}B[\cos(\theta)\sin^{2}(\theta) - \sin^{3}(\theta)] \\
+		h_{2}(\theta) &= A^{2}B[\sin^{3}(\theta) + \cos^{3}(\theta) - 2\sin^{2}(\theta)\cos(\theta) - 2\sin(\theta)\cos^{2}(\theta)] \\
+		& + A^{2}[2\cos(\theta)\sin^{2}(\theta) + \cos^{3}(\theta)].
+	\end{aligned}
+\end{equation*}
+Tenemos que:
+\begin{equation*}
+	D\bar{Y_{\eta}}\left(0,\dfrac{\pi}{2}\right) =
+	\begin{bmatrix}
+			-A^{2}B  & 0 \\
+			0 & A^{2}B
+		\end{bmatrix},
+	\label{eq:jacobianaModelo2PolarEn(0,pi2)}
+\end{equation*}
+con valores propios $\lambda_1 = -A^{2}B>0$ y $\lambda_2 = A^{2}B$. Por lo tanto, $\left(0,\dfrac{\pi}{2}\right)$ es un punto silla de $\bar{Y_{\eta}}(r,\theta)$.
+
+Ahora, denotando $b = \left( \dfrac{B-1}{B} \right)$ y tomando en cuenta las identidades
+\begin{equation*}
+	\begin{aligned}
+		\sin(\arctg(b)) &= \dfrac{b}{\sqrt{1+b^{2}}} \\
+		\cos(\arctg(b)) &= \dfrac{1}{\sqrt{1+b^{2}}}
+	\end{aligned},
+\end{equation*}
+llegamos a que
+\begin{equation*}
+	D\bar{Y_{\eta}}\left(0,\arctg(b)\right) = \dfrac{A^{2}}{(1+b^{2})^{3/2}}
+	\begin{bmatrix}
+		a_{11} & 0 \\
+		\dfrac{b}{(1+b^{2})^{1/2}} & a_{22}
+	\end{bmatrix},
+\end{equation*}
+donde
+\begin{equation*}
+	\begin{aligned}
+		a_{11} &= 1 + Bb^{2}(1-b) \\
+		a_{22} &= B(b^{3}-2b+1) -2b^{2}(B-1) + 2
+	\end{aligned}
+\end{equation*}
+reemplazando $b = \left( \dfrac{B-1}{B} \right)$, obtenemos que:
+\begin{equation*}
+	\begin{aligned}
+		a_{11} &= 1 + B\dfrac{(B-1)^{2}}{B^{2}}\left(1-\dfrac{B-1}{B}\right) \\ 
+		&=\dfrac{1-2B}{B^{2}} \\
+		a_{22} &= B\left(\dfrac{(B-1)^{3}}{B^{3}}-2\dfrac{B-1}{B}+1\right) -2\dfrac{(B-1)^{2}}{B^{2}}(B-1) + 2 \\ 
+		&= 4 - B - \dfrac{(B-1)^{3}}{B^{2}} \\
+		1+b^{2} &= \dfrac{2B^{2}-2B+1}{B^{2}}
+	\end{aligned}
+\end{equation*}
+Así,
+\begin{equation*}
+	D\bar{Y_{\eta}}\left(0,\arctg(b)\right) = \dfrac{A^{2}B^{3}}{(2B^{2}-2B+1)^{3/2}}
+	\begin{bmatrix}
+		\dfrac{1-2B}{B^{2}} & 0 \\
+		\dfrac{B-1}{(2B^{2}-2B+1)^{1/2}} & 4 - B - \dfrac{(B-1)^{3}}{B^{2}}
+	\end{bmatrix}.
+	\label{eq:jacobianaModelo2PolarEn(0,b)}
+\end{equation*}
+Con valores propios $\lambda_1 = \dfrac{1-2B}{B^{2}}$ y $\lambda_2  = 4 - B - \dfrac{(B-1)^{3}}{B^{2}}$.
+
+Por último para el punto crítico $(0,0)$, obtenemos la matriz:
+\begin{equation*}
+	D\bar{Y_{\eta}}(0,0) =
+	\begin{bmatrix}
+		A^{2}  & 0 \\
+		0 & A^{2}(B-1)
+	\end{bmatrix},
+	\label{eq:jacobianaModelo2PolarEn(0,0)}
+\end{equation*}
+con valores propios $\lambda_1 = A^{2}>0$ y $\lambda_2 = A^{2}(B-1)$. Por lo tanto, $(0,0)$ es un punto silla de $\bar{Y_{\eta}}(r,\theta)$ si $B<1$, es una fuente si $B>1$ y un punto crítico no hiperbólico si $B=1$.
+%\subsection{Estabilidad del punto de equilibrio $(H,H)$}
+%En $(H,H)$:
+%\begin{equation*}
+%	Dg(H,H) =
+%	\begin{bmatrix}
+%		-5H^{4}+(4+3Q)H^{3}-3A^{2}H^{2}+2A^{2}H & -QH^{3} \\
+%		BH^{3}+BA^{2}H & -BH^{3}-BA^{2}H
+%	\end{bmatrix}.
+%	\label{eq:jacobianaModelo2En(H,H)}
+%\end{equation*}
+%Los valores propios se hallan del polinomio característico $\lambda^2 - \operatorname{tr}(A) \lambda + \det(A) = 0$, con $A = Dg(H,H)$:
+%\begin{equation}
+%	\lambda^2 - (B - 1)(1+A^{2}) \lambda - B(1+A^{2})^{2} = 0
+%	\label{eq:car-(H,H)}.
+%\end{equation}
