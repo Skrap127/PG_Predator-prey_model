@@ -87,7 +87,7 @@ Para $y=0$, se obtiene $x = K$, por lo que $(K,0)$ es un candidato. El equilibri
 %
 %obteniendo $\lambda_1 = s > 0$ y $\lambda_2 = -r < 0$. Dado que tienen signos opuestos, $(K,0)$ es un punto silla.
 
-Con el propósito de analizar detalladamente el comportamiento cualitativo del sistema y simplificar los cálculos, se realiza un cambio de variables acompañado de un reescalado temporal, como se detalla en la proposición siguiente \cite{articulo}.
+Con el propósito de analizar el comportamiento cualitativo del sistema y simplificar los cálculos algebraicos, introducimos el cambio de variables $x = K u$ y $y = n K v$, la cual define una transformacion lineal y por ende, un difeomorfismo entre el sistema \eqref{eq:modelo1} y el resultante al realizar los cambios. Posteriormente, se realiza un reescalado de la variable temporal mediante la relación diferencial $d\tau = r/[u(u^2+A^2)]dt $, donde $A = a/K$. Dado que el factor de escala $r/[u(u^2+A^2)]$ es una función suave y positiva en el conjunto de definición $\bar{\Omega} = \{ (u, v) \in \R^{2} \; | \; u > 0, \; v \geq 0 \}$, la dirección de las trayectorias se preserva \cite{chicone2024}[p.~14]. Esto da paso a la siguiente proposición.
 
 \begin{pro}
 	El sistema \eqref{eq:modelo1} es topológicamente equivalente al sistema
@@ -127,8 +127,6 @@ Con el propósito de analizar detalladamente el comportamiento cualitativo del s
 	Definiendo $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r} \; \text{y} \; B = \dfrac{s}{r}$, se llega al resultado \cite{articulo}.
 \end{proof}
 
-El sistema \eqref{eq: modelo2} está definido en $$\tilde{\Omega} = \{ (u, v) \in \R^{2} \; | \; u \geq 0, \; v \geq 0 \}.$$
-
 \begin{remark}
 	Dado que $a$ representa un umbral ecológico inferior a la capacidad de carga $K$ de las presas, se asume $0 < a < K$, lo que implica $0 < A < 1$.
 \end{remark}
@@ -146,11 +144,22 @@ El sistema \eqref{eq: modelo2} está definido en $$\tilde{\Omega} = \{ (u, v) \i
 			\dfrac{3u^{2}+\left(\dfrac{a}{K}\right)^{2}}{r} & 0 & \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r}
 		\end{bmatrix},
 	\end{equation}
-	tiene $\det D\varphi = nK^{2} \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} > 0$ para $u > 0$, por lo que preserva la orientación temporal \cite{articulo}. Así, $Y_{\eta} = \varphi \circ X_{\mu}$ es topológicamente equivalente al sistema \eqref{eq:modelo1}, donde $Y_{\eta} = P(u,v) \partial_u + Q(u,v) \partial_v$ define un sistema polinómico de grado 5 \cite{articulo}.
+	tiene $\det D\varphi = nK^{2} \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} > 0$ para $u > 0$, por lo que preserva la orientación temporal \cite{articulo}. Así, $Y_{\eta} = \varphi \circ X_{\mu}$ es topológicamente equivalente al sistema \eqref{eq:modelo1}, donde $Y_{\eta}$ define un sistema polinómico de grado 5 \cite{articulo}.
 \end{remark}
-
-Recordemos que el modelo original \eqref{eq:modelo1}, no está definido en el eje $y$ y en particular en $(0,0)$ debido a la forma de la respuesta funcional Leslie-Gower. Al expresar el sistema como un campo polinomial de quinto orden, los autores logran una extensión topológicamente equivalente que sí es válida en el origen. Esto permite estudiar la extinción simultánea de ambas especies, algo que el modelo original impedía analíticamente.
-
+\begin{remark}
+	Desde la perspectiva de la teoría cualitativa, resulta conveniente representar el sistema diferencial autónomo \eqref{eq: modelo2} mediante su campo vectorial asociado $Y_{\eta} = P(u,v) \partial_u + Q(u,v) \partial_v$, donde las componentes del campo están definidas por: 
+	\begin{equation*}
+		\begin{aligned}
+			P(u, v) &= ((1 - u)(u^{2} + A^{2}) - Q u v)u^{2} \; \; \; \; \; \text{y}
+			Q(u, v) &= B(u - v)(u^{2} + A^{2})v
+		\end{aligned}.
+	\end{equation*}
+	Esta formalización se fundamenta en que si una población se encuentra en la posición $(u,v)$ en un tiempo $\tau$, el sistema \eqref{eq: modelo2} asigna un único vector tangente $(P(u, v), Q(u, v))$, permitiendo así interpretar las soluciones como curvas integrales cuya geometría es dictada por la estructura del operador diferencial $Y_{\eta}$.
+\end{remark}
+\begin{remark}
+    El sistema \eqref{eq: modelo2} está definido en $$\tilde{\Omega} = \{ (u, v) \in \R^{2} \; | \; u \geq 0, \; v \geq 0 \}.$$
+    Recordemos que el modelo original \eqref{eq:modelo1}, no está definido en el eje $y$ y en particular en $(0,0)$ debido a la forma de la respuesta funcional Leslie-Gower. Al expresar el sistema como un campo polinomial de quinto orden, los autores logran una extensión topológicamente equivalente que sí es válida en el origen. Esto permite estudiar la extinción simultánea de ambas especies, algo que el modelo original impedía analíticamente.
+\end{remark}
 Los puntos críticos de \eqref{eq: modelo2} se obtienen resolviendo $g(Y) = 0$, donde $\dot{Y} = g(Y)$ con $Y = (u,v)$, es decir:
 \begin{equation}
 	\begin{cases}
@@ -174,7 +183,7 @@ Debido a la naturaleza de nuestro problema, solo son de interés las raíces rea
 	El polinomio \eqref{eq:polinomioIsoclinasModelo2} tiene una única raíz real positiva.
 \end{pro}
 \begin{proof}
-	Según la naturaleza del coeficiente del segundo termino del polinomio \eqref{eq:polinomioIsoclinasModelo2}, obtenemos los siguientes casos: 
+	Según la naturaleza del coeficiente del segundo termino del po+-linomio \eqref{eq:polinomioIsoclinasModelo2}, obtenemos los siguientes casos: 
 	\begin{itemize}
 		\item Si $Q-1 \geq 0, \; P(u)$ tiene 1 cambio de signo, y $$P(-u)=-u^{3}+(Q-1)u^{2}-A^{2}u-A^{2}$$ tiene 2 cambios de signo. Por lo tanto, $P(u)$ tiene una raíz real positiva y dos negativas, o una raíz real positiva y dos complejas.
 		\item Si $Q-1<0, \; P(u)$ tiene 3 cambios de signo y $P(-u)$ tiene 0 cambios de signo. Por lo tanto, $P(u)$ tiene tres raíces reales positivas, o una sola raíz real positiva y dos complejas.
@@ -208,19 +217,7 @@ En $(1,0)$:
 	\end{bmatrix}.
 	\label{eq:jacobianaModelo2En(1,0)}
 \end{equation*}
-Los valores propios se hallan del polinomio característico $\lambda^2 - \operatorname{tr}(A) \lambda + \det(A) = 0$, con $A = Dg(1,0)$:
-\begin{equation}
-	\lambda^2 - (B - 1)(1+A^{2}) \lambda - B(1+A^{2})^{2} = 0
-	\label{eq:car-(1,0)}.
-\end{equation}
-Por la fórmula cuadrática:
-\begin{align}
-	\lambda &= \frac{(B - 1)(1+A^{2}) \pm \sqrt{(B - 1)^2(1+A^{2})^2 + 4B(1+A^{2})^{2}}}{2}\\
-	&= \frac{(B - 1)(1+A^{2}) \pm (B + 1)(1+A^{2})}{2} \\
-	&= \frac{(B - 1) \pm (B + 1)}{2}(1+A^{2})
-	\label{eq:valores-propiosDg(1,0)}
-\end{align}
-obteniendo $\lambda_1 = B(1+A^{2}) > 0$ y $\lambda_2 = -(1+A^{2}) < 0$. Dado que tienen signos opuestos, $(1,0)$ es un punto silla.
+Los valores propios son $\lambda_1 = -(1+A^{2}) < 0$ y $\lambda_2 = B(1+A^{2}) > 0$. Dado que tienen signos opuestos, $(1,0)$ es un punto silla.
 
 \subsection{Estabilidad del punto de equilibrio $(0,0)$}
 En $(0,0)$:
@@ -234,7 +231,7 @@ En $(0,0)$:
 \end{equation*}
 En particular, para este punto de equilibrio al obtener la matriz nula, deducimos que el punto crítico $(0,0)$ es un punto no hiperbólico y degenerado por lo que no es posible determinar la estabilidad de este punto por medio de la linealización ni el teorema de la variedad central, por ello, para analizar el comportamiento de este punto de equilibrio se recurrirá a desingularizarlo a través del método de blowing-up.
 
-Para ello, escribamos el sistema \eqref{eq: modelo2} en coordenadas polares. Sustituyendo $u = r \cos(\theta)$ y $v = r \sin(\theta)$, obtenemos que $r^{2}=u^{2}+v^{2} \;\text{ y }\; \theta = \arctg\left(\dfrac{v}{u}\right)$ con $u\neq0$. Derivando con respecto al tiempo $\tau$: $$\dot{r}=\cos(\theta)\dot{u} + \sin(\theta)\dot{v} \;\text{ y }\; \dot{\theta}=\dfrac{\dot{v}\cos(\theta)-\dot{u}\sin(\theta)}{r}.$$ Reemplazando $\dot{u}$ y $\dot{v}$ obtenemos el sistema:
+Para ello, escribamos el sistema \eqref{eq: modelo2} en coordenadas polares. Sustituyendo $u = r \cos\theta$ y $v = r \sin\theta$, obtenemos que $r^{2}=u^{2}+v^{2} \;\text{ y }\; \theta = \arctg\left(\dfrac{v}{u}\right)$ con $u\neq0$. Derivando con respecto al tiempo $\tau$: $$\dot{r}=\cos\theta\dot{u} + \sin\theta\dot{v} \;\text{ y }\; \dot{\theta}=\dfrac{\dot{v}\cos\theta-\dot{u}\sin\theta}{r}.$$ Reemplazando $\dot{u}$ y $\dot{v}$ obtenemos el sistema:
 \begin{equation*}
 	\begin{cases}
 		\dot{r} &= r^{2} f(r, \theta)
@@ -245,37 +242,37 @@ Para ello, escribamos el sistema \eqref{eq: modelo2} en coordenadas polares. Sus
 donde
 \begin{equation*}
 	\begin{aligned}
-		f(r, \theta) &= -Qr^{2}\cos^{4}(\theta)\sin(\theta)- r^{3}\cos^{6}(\theta)+ r^{2}\cos^{5}(\theta) \\ &-A^{2}r\cos^{4}(\theta)+ A^{2}\cos^{3}(\theta) + Br^{2}\cos^{3}(\theta)\sin^{2}(\theta) \\ &-Br^{2}\cos^{2}(\theta)\sin^{3}(\theta)+ A^{2}B\cos(\theta)\sin^{2}(\theta)- A^{2}B\sin^{3}(\theta)
+		f(r, \theta) &= -Qr^{2}\cos^{4}\theta\sin\theta- r^{3}\cos^{6}\theta+ r^{2}\cos^{5}\theta \\ &-A^{2}r\cos^{4}\theta+ A^{2}\cos^{3}\theta + Br^{2}\cos^{3}\theta\sin^{2}\theta \\ &-Br^{2}\cos^{2}\theta\sin^{3}\theta+ A^{2}B\cos\theta\sin^{2}\theta- A^{2}B\sin^{3}\theta
 		\\
-		g(r, \theta) &= Br^{2}\cos^{4}(\theta)\sin(\theta)- Br^{2}\cos^{3}(\theta)\sin^{2}(\theta)+ A^{2}B\cos^{2}(\theta)\sin(\theta) \\ &-A^{2}B\cos(\theta)\sin^{2}(\theta)+ Qr^{2}\cos^{3}(\theta)\sin^{2}(\theta) + r^{3}\cos^{5}(\theta)\sin(\theta) \\ &-r^{2}\cos^{4}(\theta)\sin(\theta)+ A^{2}r\cos^{3}(\theta)\sin(\theta)- A^{2}\cos^{2}(\theta)\sin(\theta)
+		g(r, \theta) &= Br^{2}\cos^{4}\theta\sin\theta- Br^{2}\cos^{3}\theta\sin^{2}\theta+ A^{2}B\cos^{2}\theta\sin\theta \\ &-A^{2}B\cos\theta\sin^{2}\theta+ Qr^{2}\cos^{3}\theta\sin^{2}\theta + r^{3}\cos^{5}\theta\sin\theta \\ &-r^{2}\cos^{4}\theta\sin\theta+ A^{2}r\cos^{3}\theta\sin\theta- A^{2}\cos^{2}\theta\sin\theta
 	\end{aligned},
 \end{equation*}
 es decir, obtuvimos el campo vectorial $$\tilde{Y_{\eta}}(r,\theta) = r^{2}f(r,\theta) \partial_r + rg(r,\theta) \partial_\theta.$$ Dividiendo por $r$ obtenemos un nuevo campo $$\bar{Y_{\eta}}(r,\theta) = rf(r,\theta) \partial_r + g(r,\theta) \partial_\theta,$$ el cual, en $\{r=0\}$ es cualitativamente equivalente a una vecindad $V$ del origen del campo vectorial $Y_{\eta}$ dado por el sistema \eqref{eq: modelo2}, es decir, basta analizar el retrato fase del campo vectorial:
 \begin{equation*}
 	\begin{aligned}
-		\bar{Y_{\eta}}(0,\theta) &= A^{2}B\cos^{2}(\theta)\sin(\theta) - A^{2}B\cos(\theta)\sin^{2}(\theta)- A^{2}\cos^{2}(\theta)\sin(\theta) \\
-		&= A^{2}\cos(\theta)\sin(\theta)(B\cos(\theta)-B\sin(\theta)-\cos(\theta)),
+		\bar{Y_{\eta}}(0,\theta) = g(0, \theta) &= A^{2}B\cos^{2}\theta\sin\theta - A^{2}B\cos\theta\sin^{2}\theta- A^{2}\cos^{2}\theta\sin\theta \\
+		&= A^{2}\cos\theta\sin\theta (B\cos\theta-B\sin\theta-\cos\theta),
 	\end{aligned}
 \end{equation*}
 para determinar el comportamiento del sistema \eqref{eq: modelo2} en el origen.
 
-Hallemos los puntos críticos de $\bar{Y_{\eta}}(0,\theta)$ ubicados en el primer cuadrante. Igualando el campo vectorial $\bar{Y_{\eta}}(0,\theta)$ a cero, debe ocurrir al menos que $\cos(\theta)$, $\sin(\theta)$ o $B\cos(\theta)-B\sin(\theta)-\cos(\theta)$ se anule. Esto ocurre para los valores $\theta = 0, \; \theta = \dfrac{\pi}{2}$ y los que cumplan la igualdad $$\dfrac{B-1}{B}\cos(\theta)=\sin(\theta),$$ es decir, $\theta = \arctg\left( \dfrac{B-1}{B} \right)$.
+Hallemos los puntos críticos de $\bar{Y_{\eta}}(0,\theta)$ ubicados en el primer cuadrante. Igualando el campo vectorial $\bar{Y_{\eta}}(0,\theta)$ a cero, debe ocurrir al menos que $\cos\theta$, $\sin\theta$ o $B\cos\theta-B\sin\theta-\cos\theta$ se anule. Esto ocurre para los valores $\theta = 0, \; \theta = \dfrac{\pi}{2}$ y los que cumplan la igualdad $$\dfrac{B-1}{B}\cos\theta=\sin\theta,$$ es decir, $\theta = \arctg\left( \dfrac{B-1}{B} \right)$; aquí, notemos que el escenario de relevancia es para el caso $B>1$, pues para $B=1$ estaríamos hablando de $\theta = 0$ y para $B<1$, $\theta$ no estaría en el primer cuadrante.
 
 Ahora, dada la matriz jacobiana:
 \begin{equation*}
 	D\bar{Y_{\eta}}(0,\theta) =
 	\begin{bmatrix}
 		h_{1}(\theta)  & 0\\
-		A^{2}\cos^{3}(\theta)\sin(\theta) & h_{2}(\theta)
+		A^{2}\cos^{3}\theta\sin\theta & h_{2}(\theta)
 	\end{bmatrix},
 	\label{eq:jacobianaModelo2Polar}
 \end{equation*}
 con
 \begin{equation*}
 	\begin{aligned}
-		h_{1}(\theta) &= A^{2}\cos^{3}(\theta) + A^{2}B[\cos(\theta)\sin^{2}(\theta) - \sin^{3}(\theta)] \\
-		h_{2}(\theta) &= A^{2}B[\sin^{3}(\theta) + \cos^{3}(\theta) - 2\sin^{2}(\theta)\cos(\theta) - 2\sin(\theta)\cos^{2}(\theta)] \\
-		& + A^{2}[2\cos(\theta)\sin^{2}(\theta) - \cos^{3}(\theta)].
+		h_{1}(\theta) &= A^{2}\cos^{3}\theta + A^{2}B[\cos\theta\sin^{2}\theta - \sin^{3}\theta] \\
+		h_{2}(\theta) &= A^{2}B[\sin^{3}\theta + \cos^{3}\theta - 2\sin^{2}\theta\cos\theta - 2\sin\theta\cos^{2}\theta] \\
+		& + A^{2}[2\cos\theta\sin^{2}\theta - \cos^{3}\theta].
 	\end{aligned}
 \end{equation*}
 
@@ -291,8 +288,22 @@ En el punto crítico $(0,0)$, obtenemos la matriz:
 \end{equation*}
 con valores propios $\lambda_1 = A^{2}>0$ y $\lambda_2 = A^{2}(B-1)$. Por lo tanto, $(0,0)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$ si $B<1$, es una fuente si $B>1$ y un punto crítico no hiperbólico si $B=1$. Aquí observamos qué la estabilidad de este punto de equilibrio depende del parámetro $B$, la cual influirá en la estructura cualitativa del campo $\bar{Y_{\eta}}(r,\theta)$ y por ende en la del sistema \eqref{eq: modelo2}. Así, obtenemos que hay un cambio cualitativo en el valor de bifurcación $B=1$, posteriormente se analizará que tipo de bifurcación se presenta en este modelo.
 
-Ahora, debido a que en el caso $B=1$ el punto $(0,\arctg(b))$ es un punto no hiperbólico y su matriz jacobiana no se anula, procederemos a usar el Teorema de la variedad central para determinar su estabilidad.
+Ahora, debido a que en el caso $B=1$ el punto $(0,0)$ es un punto no hiperbólico, no es posible aplicar el teorema de Harmant-Grobman para determinar su estabilidad y por ello recurriremos al teorema de la variedad central.
 
+Recordemos que este último nos garantiza la existencia de una curva invariante $r = h(\theta)$ que define la variedad central en una vecindad del origen, cuyo flujo esta determinado por la ecuación diferencial $\dot{\theta} = g(h(\theta), \theta)$. En nuestro caso, al estar determinando la estabilidad de los puntos críticos en el circulo ${r = 0}$, esto conlleva a la omisión de tener que especificar como esta definida la curva invariante $h(\theta)$. Por ende, para precisar la estabilidad del origen para el caso $B = 1$, solo basta determinar el flujo de la ecuación diferencial $\dot{\theta} = g(0, \theta) = - A^2 \sin ^2 \theta \cos \theta$; para ello, hallemos los primeros términos de la expansión en serie de Taylor de $-A^2 \sin ^2 \theta \cos \theta$ alrededor de $\theta = 0$. Como
+
+\begin{equation*}
+	\begin{aligned}
+		\sin \theta &= \theta - \dfrac{\theta^3}{3!} + \mathcal{O}(\theta^ 5) \\
+		\sin^2 \theta &= \theta^2 + \mathcal{O}(\theta^ 4) \\
+		\cos \theta &= 1 - \dfrac{\theta^2}{2!} + \mathcal{O}(\theta^ 4)
+	\end{aligned},
+\end{equation*}
+tenemos que
+\begin{equation*}
+	\dot{\theta} = - A^2 \sin ^2 \theta \cos \theta = -A^2 \theta^2 + \mathcal{O}(\theta^ 4).
+\end{equation*}
+Así, como el orden del primer termino de la expansión es par, se concluye que el origen para el caso $B=1$ es un punto silla-nodo \cite{perko2001}[p.~157].
 \subsubsection*{Estabilidad en $(0,\pi/2)$}
 
 Tenemos que:
@@ -308,7 +319,7 @@ con valores propios $\lambda_1 = -A^{2}B<0$ y $\lambda_2 = A^{2}B>0$. Por lo tan
 
 \subsubsection*{Estabilidad en $(0,\arctg(b))$}
 
-Ahora, denotando $b = \left( \dfrac{B-1}{B} \right)$ y tomando en cuenta las identidades
+Ahora, denotando $b = \left( \dfrac{B-1}{B} \right)$, donde $B>1$, y tomando en cuenta las identidades
 \begin{equation*}
 	\begin{aligned}
 		\sin(\arctg(b)) &= \dfrac{b}{\sqrt{1+b^{2}}} \\
@@ -349,7 +360,7 @@ Así,
 	\end{bmatrix},
 	\label{eq:jacobianaModelo2PolarEn(0,b)}
 \end{equation*}
-donde $\alpha = \dfrac{A^{2}B^{2}}{(2B^{2}-2B+1)^{3/2}}>0$. Con valores propios $$\lambda_1 =\alpha \dfrac{2B^{2}-2B+1}{B^{2}}>0 \; \text{y} \; \lambda_2  = -\alpha \dfrac{(B-1)(2B^{2}-2B+1)}{B}.$$ Por lo tanto, $(0,\arctg(b))$ es una fuente de $\bar{Y_{\eta}}(0,\theta)$ si $B<1$, es un punto silla si $B>1$ y un punto crítico no hiperbólico si $B=1$.
+donde $\alpha = \dfrac{A^{2}B^{2}}{(2B^{2}-2B+1)^{3/2}}>0$. Con valores propios $$\lambda_1 =\alpha \dfrac{2B^{2}-2B+1}{B^{2}}>0 \; \text{y} \; \lambda_2  = -\alpha \dfrac{(B-1)(2B^{2}-2B+1)}{B}<0.$$ Por lo tanto, $(0,\arctg(b))$ es un punto silla.
 \begin{figure}
 	\centering
 	\includegraphics[width=.7\textwidth]{img/blowingUpPolar.pdf}
