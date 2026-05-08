@@ -150,16 +150,32 @@ Con el propósito de analizar el comportamiento cualitativo del sistema y simpli
 	Desde la perspectiva de la teoría cualitativa, resulta conveniente representar el sistema diferencial autónomo \eqref{eq: modelo2} mediante su campo vectorial asociado $Y_{\eta} = P(u,v) \partial_u + Q(u,v) \partial_v$, donde las componentes del campo están definidas por: 
 	\begin{equation*}
 		\begin{aligned}
-			P(u, v) &= ((1 - u)(u^{2} + A^{2}) - Q u v)u^{2} \; \; \; \; \; \text{y}
+			P(u, v) &= ((1 - u)(u^{2} + A^{2}) - Q u v)u^{2} \; \; \; \text{y} \; \; \;
 			Q(u, v) &= B(u - v)(u^{2} + A^{2})v
 		\end{aligned}.
 	\end{equation*}
-	Esta formalización se fundamenta en que si una población se encuentra en la posición $(u,v)$ en un tiempo $\tau$, el sistema \eqref{eq: modelo2} asigna un único vector tangente $(P(u, v), Q(u, v))$, permitiendo así interpretar las soluciones como curvas integrales cuya geometría es dictada por la estructura del operador diferencial $Y_{\eta}$.
+	Esta formalización se fundamenta en que si una población se encuentra en la posición $(u,v)$ en un tiempo $\tau$, el sistema \eqref{eq: modelo2} asigna un único vector tangente $(P(u, v), Q(u, v))$, permitiendo así interpretar las soluciones como curvas integrales cuya geometría es dictada por la estructura del operador diferencial $Y_{\eta}$. Otra forma de expresar el campo vectorial es escribiéndolo como $X = (P(u, v), Q(u, v))$
 \end{remark}
 \begin{remark}
     El sistema \eqref{eq: modelo2} está definido en $$\tilde{\Omega} = \{ (u, v) \in \R^{2} \; | \; u \geq 0, \; v \geq 0 \}.$$
     Recordemos que el modelo original \eqref{eq:modelo1}, no está definido en el eje $y$ y en particular en $(0,0)$ debido a la forma de la respuesta funcional Leslie-Gower. Al expresar el sistema como un campo polinomial de quinto orden, los autores logran una extensión topológicamente equivalente que sí es válida en el origen. Esto permite estudiar la extinción simultánea de ambas especies, algo que el modelo original impedía analíticamente.
 \end{remark}
+
+\begin{lem}
+	El conjunto $\Gamma = \{ (u, v) \in \R^{2} \; | \; 0 \leq u \leq 1, \; 0 \leq v \leq 1 \} \subset \tilde{\Omega}$ es una región positivamente invariante.
+\end{lem}
+\begin{proof}
+	Como el sistema \eqref{eq: modelo2} es de tipo Kolmogorov los ejes coordenados son conjuntos invariantes, por lo que basta demostrar que el flujo sobre las fronteras derecha y superior se dirigen hacia el interior de la región. Supongamos que $0 \leq v \leq 1$, reemplazando $u=1$ en la primera ecuación del sistema \eqref{eq: modelo2}, tenemos que: $$\left. \dfrac{du}{d\tau} \right|_{u=1} = -Qv \leq 0,$$ donde, $\dot{u} = 0$, solo si $v=0$. En el punto $(1,0)$, el campo vectorial se reduce a $(0,0)$, esto indica que cualquier trayectoria que comience exactamente aquí, se mantendrá en este punto; y para $v>0$, $\dot{u} = -Qv < 0$ por lo que el flujo sobre la frontera derecha, se dirige hacia la izquierda.
+	
+	Ahora, para $v=1$, tenemos $\dot{v}=B(u-1)(u^2+A^2)$. Dado que $0\leq u \leq1$, el factor $(u-1)$ es no positivo, lo que implica $\dot{v} \leq0$. Específicamente, $\dot{v} =0$ si y solo si $u=1$. En el punto $(1,1)$, el campo vectorial se reduce a $(-Q,0)$, lo que indica un flujo puramente horizontal hacia la izquierda, manteniendo así el flujo del campo sobre el borde superior o entrando al interior de la región $\Gamma$ en el caso $u<1$. Por lo tanto, el cuadrado unitario $\Gamma$ es una región positivamente invariante.
+\end{proof}
+\begin{lem}
+	Las soluciones del sistema \eqref{eq: modelo2} son acotadas.
+\end{lem}
+\begin{proof}
+	proof
+\end{proof}
+
 Los puntos críticos de \eqref{eq: modelo2} se obtienen resolviendo $g(Y) = 0$, donde $\dot{Y} = g(Y)$ con $Y = (u,v)$, es decir:
 \begin{equation}
 	\begin{cases}
@@ -192,7 +208,7 @@ Debido a la naturaleza de nuestro problema, solo son de interés las raíces rea
 \end{proof}
 
 \begin{remark}
-	Con esta ultima proposición se concluye que el sistema \eqref{eq: modelo2} consta de tres puntos de equilibrio biológicamente relevantes: $(0,0), \; (1,0) \text{ y } (H,H).$
+	Con esta ultima proposición se concluye que el sistema \eqref{eq: modelo2} posee tres puntos de equilibrio biológicamente relevantes: $(0,0), \; (1,0) \text{ y } (H,H),$ donde, $H \in (0,1)$.
 \end{remark}
 
 %https://www-mathplanet-com.translate.goog/education/algebra-2/polynomial-functions/descartes-rule-of-sign?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es
@@ -229,7 +245,7 @@ En $(0,0)$:
 	\end{bmatrix}.
 	\label{eq:jacobianaModelo2En(0,0)}
 \end{equation*}
-En particular, para este punto de equilibrio al obtener la matriz nula, deducimos que el punto crítico $(0,0)$ es un punto no hiperbólico y degenerado por lo que no es posible determinar la estabilidad de este punto por medio de la linealización ni el teorema de la variedad central, por ello, para analizar el comportamiento de este punto de equilibrio se recurrirá a desingularizarlo a través del método de blowing-up.
+En particular, para este punto de equilibrio al obtener la matriz nula, deducimos que el punto crítico $(0,0)$ es un punto no hiperbólico y degenerado, por lo que no es posible determinar la estabilidad de este punto por medio de la linealización ni el teorema de la variedad central, por ello, para analizar el comportamiento de este punto de equilibrio se recurrirá a desingularizarlo a través del método de blowing-up polar.
 
 Para ello, escribamos el sistema \eqref{eq: modelo2} en coordenadas polares. Sustituyendo $u = r \cos\theta$ y $v = r \sin\theta$, obtenemos que $r^{2}=u^{2}+v^{2} \;\text{ y }\; \theta = \arctg\left(\dfrac{v}{u}\right)$ con $u\neq0$. Derivando con respecto al tiempo $\tau$: $$\dot{r}=\cos\theta\dot{u} + \sin\theta\dot{v} \;\text{ y }\; \dot{\theta}=\dfrac{\dot{v}\cos\theta-\dot{u}\sin\theta}{r}.$$ Reemplazando $\dot{u}$ y $\dot{v}$ obtenemos el sistema:
 \begin{equation*}
@@ -254,9 +270,9 @@ es decir, obtuvimos el campo vectorial $$\tilde{Y_{\eta}}(r,\theta) = r^{2}f(r,\
 		&= A^{2}\cos\theta\sin\theta (B\cos\theta-B\sin\theta-\cos\theta),
 	\end{aligned}
 \end{equation*}
-para determinar el comportamiento del sistema \eqref{eq: modelo2} en el origen.
+para determinar el comportamiento del sistema \eqref{eq: modelo2} en una vecindad del origen.
 
-Hallemos los puntos críticos de $\bar{Y_{\eta}}(0,\theta)$ ubicados en el primer cuadrante. Igualando el campo vectorial $\bar{Y_{\eta}}(0,\theta)$ a cero, debe ocurrir al menos que $\cos\theta$, $\sin\theta$ o $B\cos\theta-B\sin\theta-\cos\theta$ se anule. Esto ocurre para los valores $\theta = 0, \; \theta = \dfrac{\pi}{2}$ y los que cumplan la igualdad $$\dfrac{B-1}{B}\cos\theta=\sin\theta,$$ es decir, $\theta = \arctg\left( \dfrac{B-1}{B} \right)$; aquí, notemos que el escenario de relevancia es para el caso $B>1$, pues para $B=1$ estaríamos hablando de $\theta = 0$ y para $B<1$, $\theta$ no estaría en el primer cuadrante.
+Hallemos los puntos críticos de $\bar{Y_{\eta}}(0,\theta)$ ubicados en el primer cuadrante. Igualando el campo vectorial $\bar{Y_{\eta}}(0,\theta)$ a cero, debe ocurrir al menos que $\cos\theta$, $\sin\theta$ o $B\cos\theta-B\sin\theta-\cos\theta$ se anule. Esto ocurre para los valores $\theta_1 = 0, \; \theta_2 = \dfrac{\pi}{2}$ y los que cumplan la igualdad $$\dfrac{B-1}{B}\cos\theta=\sin\theta,$$ es decir, $\theta_3 = \arctg\left( \dfrac{B-1}{B} \right)$; aquí, notemos que el escenario de relevancia es para el caso $B>1$, pues para $B=1$ estaríamos hablando de $\theta_3 = \theta_1 = 0$ y para $B<1$, $\theta_3$ no estaría en el primer cuadrante.
 
 Ahora, dada la matriz jacobiana:
 \begin{equation*}
@@ -276,7 +292,7 @@ con
 	\end{aligned}
 \end{equation*}
 
-\subsubsection*{Estabilidad en $(0,0)$}
+\subsubsection*{Estabilidad en $(0, \theta_1)$}
 En el punto crítico $(0,0)$, obtenemos la matriz:
 \begin{equation*}
 	D\bar{Y_{\eta}}(0,0) =
@@ -286,9 +302,9 @@ En el punto crítico $(0,0)$, obtenemos la matriz:
 	\end{bmatrix},
 	\label{eq:jacobianaModelo2PolarEn(0,0)}
 \end{equation*}
-con valores propios $\lambda_1 = A^{2}>0$ y $\lambda_2 = A^{2}(B-1)$. Por lo tanto, $(0,0)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$ si $B<1$, es una fuente si $B>1$ y un punto crítico no hiperbólico si $B=1$. Aquí observamos qué la estabilidad de este punto de equilibrio depende del parámetro $B$, la cual influirá en la estructura cualitativa del campo $\bar{Y_{\eta}}(r,\theta)$ y por ende en la del sistema \eqref{eq: modelo2}. Así, obtenemos que hay un cambio cualitativo en el valor de bifurcación $B=1$, posteriormente se analizará que tipo de bifurcación se presenta en este modelo.
+con valores propios $\lambda_r = A^{2}>0$ y $\lambda_\theta = A^{2}(B-1)$. Por lo tanto, $(0, \theta_1)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$ si $B<1$, es una fuente si $B>1$ y un punto crítico no hiperbólico si $B=1$. Aquí observamos qué la estabilidad de este punto de equilibrio depende del parámetro $B$, la cual influirá en la estructura cualitativa del campo $\bar{Y_{\eta}}(r,\theta)$ y por ende en la del sistema \eqref{eq: modelo2}. % Así, obtenemos que hay un cambio cualitativo en el valor de bifurcación $B=1$, posteriormente se analizará que tipo de bifurcación se presenta en este modelo.
 
-Ahora, debido a que en el caso $B=1$ el punto $(0,0)$ es un punto no hiperbólico, no es posible aplicar el teorema de Harmant-Grobman para determinar su estabilidad y por ello recurriremos al teorema de la variedad central.
+Ahora, debido a que en el caso $B=1$ el punto $(0,\theta_1)$ es un punto no hiperbólico, no es posible aplicar el teorema de Harmant-Grobman para determinar su estabilidad y por ello recurriremos al teorema de la variedad central.
 
 Recordemos que este último nos garantiza la existencia de una curva invariante $r = h(\theta)$ que define la variedad central en una vecindad del origen, cuyo flujo esta determinado por la ecuación diferencial $\dot{\theta} = g(h(\theta), \theta)$. En nuestro caso, al estar determinando la estabilidad de los puntos críticos en el circulo ${r = 0}$, esto conlleva a la omisión de tener que especificar como esta definida la curva invariante $h(\theta)$. Por ende, para precisar la estabilidad del origen para el caso $B = 1$, solo basta determinar el flujo de la ecuación diferencial $\dot{\theta} = g(0, \theta) = - A^2 \sin ^2 \theta \cos \theta$; para ello, hallemos los primeros términos de la expansión en serie de Taylor de $-A^2 \sin ^2 \theta \cos \theta$ alrededor de $\theta = 0$. Como
 
@@ -303,8 +319,9 @@ tenemos que
 \begin{equation*}
 	\dot{\theta} = - A^2 \sin ^2 \theta \cos \theta = -A^2 \theta^2 + \mathcal{O}(\theta^ 4).
 \end{equation*}
-Así, como el orden del primer termino de la expansión es par, se concluye que el origen para el caso $B=1$ es un punto silla-nodo \cite{perko2001}[p.~157].
-\subsubsection*{Estabilidad en $(0,\pi/2)$}
+Así, como el orden del primer termino de la expansión es par, se concluye que $(0, \theta_1)$ para el caso $B=1$ es un punto silla-nodo de $\bar{Y_{\eta}}(0,\theta)$ \cite{perko2001}[p.~157].
+
+\subsubsection*{Estabilidad en $(0, \theta_2)$}
 
 Tenemos que:
 \begin{equation*}
@@ -315,9 +332,9 @@ Tenemos que:
 		\end{bmatrix},
 	\label{eq:jacobianaModelo2PolarEn(0,pi2)}
 \end{equation*}
-con valores propios $\lambda_1 = -A^{2}B<0$ y $\lambda_2 = A^{2}B>0$. Por lo tanto, $\left(0,\dfrac{\pi}{2}\right)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$.
+con valores propios $\lambda_r = -A^{2}B<0$ y $\lambda_\theta = A^{2}B>0$. Por lo tanto, $\left(0,\theta_2\right)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$.
 
-\subsubsection*{Estabilidad en $(0,\arctg(b))$}
+\subsubsection*{Estabilidad en $(0, \theta_3)$}
 
 Ahora, denotando $b = \left( \dfrac{B-1}{B} \right)$, donde $B>1$, y tomando en cuenta las identidades
 \begin{equation*}
@@ -355,18 +372,20 @@ Así,
 \begin{equation*}
 	D\bar{Y_{\eta}}\left(0,\arctg(b)\right) = \alpha
 	\begin{bmatrix}
-		\dfrac{2B^{2}-2B+1}{B} & 0 \\
+		\dfrac{2B^{2}-2B+1}{B^2} & 0 \\
 		\dfrac{(B-1)B}{(2B^{2}-2B+1)^{1/2}} & -\dfrac{(B-1)(2B^{2}-2B+1)}{B}
 	\end{bmatrix},
 	\label{eq:jacobianaModelo2PolarEn(0,b)}
 \end{equation*}
-donde $\alpha = \dfrac{A^{2}B^{2}}{(2B^{2}-2B+1)^{3/2}}>0$. Con valores propios $$\lambda_1 =\alpha \dfrac{2B^{2}-2B+1}{B^{2}}>0 \; \text{y} \; \lambda_2  = -\alpha \dfrac{(B-1)(2B^{2}-2B+1)}{B}<0.$$ Por lo tanto, $(0,\arctg(b))$ es un punto silla.
+donde $\alpha = \dfrac{A^{2}B^{2}}{(2B^{2}-2B+1)^{3/2}}>0$. Con valores propios $$\lambda_r =\alpha \dfrac{2B^{2}-2B+1}{B^{2}}>0 \; \text{y} \; \lambda_\theta  = -\alpha \dfrac{(B-1)(2B^{2}-2B+1)}{B}<0.$$ Por lo tanto, $(0,\theta_3)$ es un punto silla.
 \begin{figure}
 	\centering
 	\includegraphics[width=.7\textwidth]{img/blowingUpPolar.pdf}
 	\caption{Blow-up en el origen del sistema \eqref{eq: modelo2} para el caso $B>1$.}
 	\label{fig: BlowUp Modelo 2}
 \end{figure}
+
+Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto con sus respectivos valores propios radiales y tangenciales, podemos determinar como se comporta cualitativamente el origen del campo $Y_{\eta}$ en una cierta vecindad. Este comportamiento se puede evidenciar en la figura \ref{fig: BlowUp Modelo 2}, en donde, para el caso $B\leq1$ vemos que el primer cuadrante consta de un único sector hiperbólico, y para $B>1$ de uno parabólico y uno hiperbólico. Recordemos que la finalidad de la técnica del blow-up es determinar el comportamiento del origen en $Y_{\eta}$, en sí, este proceso nos permite determinar que trayectorias entran o salen del origen, y son determinadas por la pendiente $\tan \theta^*$, donde $\theta^*$ es un punto crítico de $\bar{Y_{\eta}}$. Por ende, en el primer cuadrante de $Y_{\eta}$ hay tres de estas trayectorias: $v=0$ que corresponde a la orbita con pendiente $\tan\theta_1=0$, $u=0$ que corresponde a la orbita con pendiente $\tan\theta_2= \infty$ y la orbita determinada por la pendiente $\tan\theta_3=\dfrac{B-1}{B}$, la cual, esta última solo se da para el caso $B>1$, y además define una curva separatriz puesto que divide el retrato de fase en dos sectores con comportamientos cualitativos distintos (parabólico e hiperbólico).
 
 %\subsection{Estabilidad del punto de equilibrio $(H,H)$}
 %En $(H,H)$:

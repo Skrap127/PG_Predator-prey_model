@@ -1,2 +1,12 @@
 \chapter{Introducción}
-	nada
+	Las ecuaciones diferenciales han demostrado ser instrumentos fundamentales para modelar fenómenos de la vida real, particularmente en ecología, física y procesos biológicos cotidianos. Dado que la mayoría de estos modelos no admiten soluciones explícitas, el análisis cualitativo se torna esencial para caracterizar el comportamiento dinámico a largo plazo, empleando técnicas como la localización de puntos de equilibrio, su estabilidad y la detección de fenómenos globales tales como ciclos límite o bifurcaciones. Este trabajo, se centrará en el estudio de un modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea propuesto por González-Olivares et al. (2015) \cite{articulo}, caracterizado por el sistema
+	\begin{equation*}
+		\begin{cases} 
+			\frac{dx}{dt} = (r \left(1 - \frac{x}{K}\right) - \frac{q x y}{x^2 + a^2})x \\ 
+			\frac{dy}{dt} = s \left(1 - \frac{y}{n x}\right) y
+		\end{cases},
+	\end{equation*}
+	
+	donde $x(t)$ y $y(t)$ representan las densidades de presa y depredador, respectivamente; $r$ es la tasa intrínseca de crecimiento de la presa, $K$ su capacidad de carga ambiental, $q$ la tasa máxima de consumo por depredador, $a$ representa la cantidad de presas necesarias para lograr la mitad de la tasa de saturación, $s$ la tasa de crecimiento intrínseco del depredador y $n$ una medida de la calidad alimenticia convertida en nuevos depredadores \cite[p. 1895]{articulo}.
+	
+	La relevancia ecológica de este modelo radica en su capacidad para describir interacciones reales donde la respuesta funcional sigmoidea estabiliza las poblaciones, como en el caso de focas y salmones en ríos, donde la depredación es mínima a bajas densidades de presa pero intensiva a densidades elevadas \cite[p. 1896]{articulo}. Los objetivos principales consisten en un análisis cualitativo exhaustivo: localización y estabilidad de puntos críticos, existencia de comportamientos cualitativos especiales como, ciclos límites, bifurcaciones y curvas separatrices \cite{articulo}. Este enfoque permitirá predecir la coexistencia o extinción de especies, ilustrando la aplicabilidad matemática en la conservación ecológica.
