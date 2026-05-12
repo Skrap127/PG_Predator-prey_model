@@ -169,13 +169,15 @@ Con el propósito de analizar el comportamiento cualitativo del sistema y simpli
 	
 	Ahora, para $v=1$, tenemos $\dot{v}=B(u-1)(u^2+A^2)$. Dado que $0\leq u \leq1$, el factor $(u-1)$ es no positivo, lo que implica $\dot{v} \leq0$. Específicamente, $\dot{v} =0$ si y solo si $u=1$. En el punto $(1,1)$, el campo vectorial se reduce a $(-Q,0)$, lo que indica un flujo puramente horizontal hacia la izquierda, manteniendo así el flujo del campo sobre el borde superior o entrando al interior de la región $\Gamma$ en el caso $u<1$. Por lo tanto, el cuadrado unitario $\Gamma$ es una región positivamente invariante.
 \end{proof}
-\begin{lem}
+\begin{remark}
+	Es claro que el conjunto $\Gamma \subset \R^2$ es conexo y cerrado, por lo que $\Gamma$ es una región de atrapamiento. Además, al ser $\Gamma$ un conjunto acotado, da paso al siguiente corolario.
+\end{remark}
+\begin{cor}
 	Las soluciones del sistema \eqref{eq: modelo2} son acotadas.
-\end{lem}
+\end{cor}
 \begin{proof}
-	proof
+	proof.
 \end{proof}
-
 Los puntos críticos de \eqref{eq: modelo2} se obtienen resolviendo $g(Y) = 0$, donde $\dot{Y} = g(Y)$ con $Y = (u,v)$, es decir:
 \begin{equation}
 	\begin{cases}
@@ -197,6 +199,7 @@ Debido a la naturaleza de nuestro problema, solo son de interés las raíces rea
 
 \begin{pro}
 	El polinomio \eqref{eq:polinomioIsoclinasModelo2} tiene una única raíz real positiva.
+	\label{pro:exitenciaH}
 \end{pro}
 \begin{proof}
 	Según la naturaleza del coeficiente del segundo termino del po+-linomio \eqref{eq:polinomioIsoclinasModelo2}, obtenemos los siguientes casos: 
@@ -387,18 +390,37 @@ donde $\alpha = \dfrac{A^{2}B^{2}}{(2B^{2}-2B+1)^{3/2}}>0$. Con valores propios 
 
 Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto con sus respectivos valores propios radiales y tangenciales, podemos determinar como se comporta cualitativamente el origen del campo $Y_{\eta}$ en una cierta vecindad. Este comportamiento se puede evidenciar en la figura \ref{fig: BlowUp Modelo 2}, en donde, para el caso $B\leq1$ vemos que el primer cuadrante consta de un único sector hiperbólico, y para $B>1$ de uno parabólico y uno hiperbólico. Recordemos que la finalidad de la técnica del blow-up es determinar el comportamiento del origen en $Y_{\eta}$, en sí, este proceso nos permite determinar que trayectorias entran o salen del origen, y son determinadas por la pendiente $\tan \theta^*$, donde $\theta^*$ es un punto crítico de $\bar{Y_{\eta}}$. Por ende, en el primer cuadrante de $Y_{\eta}$ hay tres de estas trayectorias: $v=0$ que corresponde a la orbita con pendiente $\tan\theta_1=0$, $u=0$ que corresponde a la orbita con pendiente $\tan\theta_2= \infty$ y la orbita determinada por la pendiente $\tan\theta_3=\dfrac{B-1}{B}$, la cual, esta última solo se da para el caso $B>1$, y además define una curva separatriz puesto que divide el retrato de fase en dos sectores con comportamientos cualitativos distintos (parabólico e hiperbólico).
 
-%\subsection{Estabilidad del punto de equilibrio $(H,H)$}
-%En $(H,H)$:
-%\begin{equation*}
-%	Dg(H,H) =
-%	\begin{bmatrix}
-%		-5H^{4}+(4+3Q)H^{3}-3A^{2}H^{2}+2A^{2}H & -QH^{3} \\
-%		BH^{3}+BA^{2}H & -BH^{3}-BA^{2}H
-%	\end{bmatrix}.
-%	\label{eq:jacobianaModelo2En(H,H)}
-%\end{equation*}
-%Los valores propios se hallan del polinomio característico $\lambda^2 - \operatorname{tr}(A) \lambda + \det(A) = 0$, con $A = Dg(H,H)$:
-%\begin{equation}
-%	\lambda^2 - (B - 1)(1+A^{2}) \lambda - B(1+A^{2})^{2} = 0
-%	\label{eq:car-(H,H)}.
-%\end{equation}
+\subsection{Estabilidad del punto de equilibrio $(H,H)$}
+Con el fin de reducir los posibles casos que se pueden dar en los valores propios, reduciremos la cantidad de parámetros realizando la sustitución $$Q=\dfrac{(1-H)(A^2+H^{2})}{H^{2}},$$ anteriormente discutida en la \Cref{pro:exitenciaH}. Así, tendríamos que en $(H,H)$:
+\begin{equation*}
+	Dg(H,H) =
+	\begin{bmatrix}
+		-H(H^{2}(2H-1)+A^2) & -H(1-H)(A^2+H^2) \\
+		BH(A^{2}+H^{2}) & -BH(A^{2}+H^{2})
+	\end{bmatrix}.
+	\label{eq:jacobianaModelo2En(H,H)}
+\end{equation*}
+Los valores propios se hallan del polinomio característico $\lambda^2 - \operatorname{tr}(A) \lambda + \det(A) = 0$, con $A = Dg(H,H)$, estos es:
+\begin{equation*}
+	\lambda = \dfrac{\operatorname{tr}(A) \pm \sqrt{\Delta}}{2},
+\end{equation*}
+donde, $\Delta = (\operatorname{tr}(A))^2 - 4\det(A)$ y
+\begin{equation*}
+	\begin{aligned}
+		\operatorname{tr}(A) &= -H(B(A^{2}+H^{2})+H^{2}(2H-1)+A^2) \\
+		\det(A) &= BH^2(A^2+H^2)(H^3+A^2(2-H))
+	\end{aligned}.
+\end{equation*}
+Como $H \in (0, 1)$, $\det(A)>0$ por lo que $(H,H)$ es un punto no degenerado e hiperbólico o punto centro; además, no puede ser un punto silla. Así la estabilidad estaría determinada por el signo de la traza y del discriminante $\Delta$, dando paso a los siguientes casos:
+\begin{itemize}
+	\item Si $B<(H^2(2H-1) + A^2)/(A^2 + H^2)$ y
+	\subitem $\Delta < 0$, $(H,H)$ es un foco inestable.
+	\subitem $\Delta = 0$, $(H,H)$ es un nodo degenerado inestable.
+	\subitem $\Delta > 0$, $(H,H)$ es un nodo inestable.
+	\item Si $B=(H^2(2H-1) + A^2)/(A^2 + H^2)$, $(H,H)$ es un centro lineal.
+	\item Si $B>(H^2(2H-1) + A^2)/(A^2 + H^2)$ y
+	\subitem $\Delta < 0$, $(H,H)$ es un foco estable.
+	
+	\subitem $\Delta = 0$, $(H,H)$ es un nodo degenerado estable.
+	\subitem $\Delta > 0$, $(H,H)$ es un nodo estable.
+\end{itemize}
