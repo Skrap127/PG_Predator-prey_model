@@ -171,6 +171,7 @@ Con el propósito de analizar el comportamiento cualitativo del sistema y simpli
 \end{proof}
 \begin{remark}
 	Es claro que el conjunto $\Gamma \subset \R^2$ es conexo y cerrado, por lo que $\Gamma$ es una región de atrapamiento. Además, al ser $\Gamma$ un conjunto acotado, da paso al siguiente corolario.
+	\label{re:atrapamiento}
 \end{remark}
 \begin{cor}
 	Las soluciones del sistema \eqref{eq: modelo2} son acotadas.
@@ -411,16 +412,17 @@ donde, $\Delta = (\operatorname{tr}(A))^2 - 4\det(A)$ y
 		\det(A) &= BH^2(A^2+H^2)(H^3+A^2(2-H))
 	\end{aligned}.
 \end{equation*}
-Como $H \in (0, 1)$, $\det(A)>0$ por lo que $(H,H)$ es un punto no degenerado e hiperbólico o punto centro; además, no puede ser un punto silla. Así la estabilidad estaría determinada por el signo de la traza y del discriminante $\Delta$, dando paso a los siguientes casos:
+Como $H \in (0, 1)$, $\det(A)>0$ por lo que $(H,H)$ es un punto no degenerado e hiperbólico o punto centro; además, no puede ser un punto silla. Así la estabilidad estaría determinada por el signo de la traza y del discriminante $\Delta$, para ello notemos que $\operatorname{tr}(A)=0$ si $B=(H^2(1-2H) - A^2)/(A^2 + H^2):=B_c$, y puesto que $B>0$, esto se da bajo las restricciones: $H<1/2$ y $A^2 < H^2(1-2H)$. Este hecho da paso a los siguientes casos:
 \begin{itemize}
-	\item Si $B<(H^2(2H-1) + A^2)/(A^2 + H^2)$ y
+	\item Si $B<B_c$ y
 	\subitem $\Delta < 0$, $(H,H)$ es un foco inestable.
 	\subitem $\Delta = 0$, $(H,H)$ es un nodo degenerado inestable.
 	\subitem $\Delta > 0$, $(H,H)$ es un nodo inestable.
-	\item Si $B=(H^2(2H-1) + A^2)/(A^2 + H^2)$, $(H,H)$ es un centro lineal.
-	\item Si $B>(H^2(2H-1) + A^2)/(A^2 + H^2)$ y
+	\item Si $B=B_c$, $(H,H)$ es un centro lineal.
+	\item Si $B>B_c$ y
 	\subitem $\Delta < 0$, $(H,H)$ es un foco estable.
-	
 	\subitem $\Delta = 0$, $(H,H)$ es un nodo degenerado estable.
 	\subitem $\Delta > 0$, $(H,H)$ es un nodo estable.
 \end{itemize}
+
+Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el caso $B=B_c$, ya que es susceptible a cambios cualitativos con mínimas perturbaciones paramétricas, se es de importancia verificar si $(H, H)$ es un punto centro o un foco débil. Con el propósito de validar la estructura cualitativa en este caso, calcularemos el número de Lyapunov; esto no es sólo con este fin, sino con el de validar que tipo de bifurcación de Hopf se nos presenta, puesto que dicha característica esta garantizada debido a la región de atrapamiento $\Gamma$ descrita en la \Cref{re:atrapamiento}, y del hecho de que $(H,H)$ es un repulsor para el caso $B<B_c$, existe un ciclo límite según el Teorema de Poincaré-Bendixson.
