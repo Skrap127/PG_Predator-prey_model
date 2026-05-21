@@ -381,7 +381,7 @@ Así,
 	\end{bmatrix},
 	\label{eq:jacobianaModelo2PolarEn(0,b)}
 \end{equation*}
-donde $\alpha = \dfrac{A^{2}B^{2}}{(2B^{2}-2B+1)^{3/2}}>0$. Con valores propios $$\lambda_r =\alpha \dfrac{2B^{2}-2B+1}{B^{2}}>0 \; \text{y} \; \lambda_\theta  = -\alpha \dfrac{(B-1)(2B^{2}-2B+1)}{B}<0.$$ Por lo tanto, $(0,\theta_3)$ es un punto silla.
+donde $\alpha = \dfrac{A^{2}B^{3}}{(2B^{2}-2B+1)^{3/2}}>0$. Con valores propios $$\lambda_r =\alpha \dfrac{2B^{2}-2B+1}{B^{2}}>0 \; \text{y} \; \lambda_\theta  = -\alpha \dfrac{(B-1)(2B^{2}-2B+1)}{B}<0.$$ Por lo tanto, $(0,\theta_3)$ es un punto silla.
 \begin{figure}
 	\centering
 	\includegraphics[width=.7\textwidth]{img/blowingUpPolar.pdf}
@@ -392,7 +392,12 @@ donde $\alpha = \dfrac{A^{2}B^{2}}{(2B^{2}-2B+1)^{3/2}}>0$. Con valores propios 
 Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto con sus respectivos valores propios radiales y tangenciales, podemos determinar como se comporta cualitativamente el origen del campo $Y_{\eta}$ en una cierta vecindad. Este comportamiento se puede evidenciar en la figura \ref{fig: BlowUp Modelo 2}, en donde, para el caso $B\leq1$ vemos que el primer cuadrante consta de un único sector hiperbólico, y para $B>1$ de uno parabólico y uno hiperbólico. Recordemos que la finalidad de la técnica del blow-up es determinar el comportamiento del origen en $Y_{\eta}$, en sí, este proceso nos permite determinar que trayectorias entran o salen del origen, y son determinadas por la pendiente $\tan \theta^*$, donde $\theta^*$ es un punto crítico de $\bar{Y_{\eta}}$. Por ende, en el primer cuadrante de $Y_{\eta}$ hay tres de estas trayectorias: $v=0$ que corresponde a la orbita con pendiente $\tan\theta_1=0$, $u=0$ que corresponde a la orbita con pendiente $\tan\theta_2= \infty$ y la orbita determinada por la pendiente $\tan\theta_3=\dfrac{B-1}{B}$, la cual, esta última solo se da para el caso $B>1$, y además define una curva separatriz puesto que divide el retrato de fase en dos sectores con comportamientos cualitativos distintos (parabólico e hiperbólico).
 
 \subsection{Estabilidad del punto de equilibrio $(H,H)$}
-Con el fin de reducir los posibles casos que se pueden dar en los valores propios, reduciremos la cantidad de parámetros realizando la sustitución $$Q=\dfrac{(1-H)(A^2+H^{2})}{H^{2}},$$ anteriormente discutida en la \Cref{pro:exitenciaH}. Así, tendríamos que en $(H,H)$:
+Con el fin de reducir los posibles casos que se pueden dar en los valores propios, reduciremos la cantidad de parámetros realizando la sustitución
+\begin{equation}
+	Q=\dfrac{(1-H)(A^2+H^{2})}{H^{2}},
+	\label{eq: Q}
+\end{equation}
+anteriormente discutida en la \Cref{pro:exitenciaH}. Así, tendríamos que en $(H,H)$:
 \begin{equation*}
 	Dg(H,H) =
 	\begin{bmatrix}
@@ -426,3 +431,15 @@ Como $H \in (0, 1)$, $\det(A)>0$ por lo que $(H,H)$ es un punto no degenerado e 
 \end{itemize}
 
 Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el caso $B=B_c$, ya que es susceptible a cambios cualitativos con mínimas perturbaciones paramétricas, se es de importancia verificar si $(H, H)$ es un punto centro o un foco débil. Con el propósito de validar la estructura cualitativa en este caso, calcularemos el número de Lyapunov; esto no es sólo con este fin, sino con el de validar que tipo de bifurcación de Hopf se nos presenta, puesto que dicha característica esta garantizada debido a la región de atrapamiento $\Gamma$ descrita en la \Cref{re:atrapamiento}, y del hecho de que $(H,H)$ es un repulsor para el caso $B<B_c$, existe un ciclo límite según el Teorema de Poincaré-Bendixson.
+
+\subsubsection{Calculo del coeficiente de Lyapunov}
+Para proceder con el calculo del primer coeficiente de Lyapunov, debemos trasladar el punto de equilibrio $(H, H)$ al origen. Para ello, realicemos las sustituciones $u = \bar{u} + H$ y $v = \bar{v} + H$ en el sistema \eqref{eq: modelo2}; pero, antes de ello realizamos la sustitución \eqref{eq: Q} con el fin de reducir la cantidad de parámetros. Estos cambios se ven reflejados de la siguiente manera:
+
+\begin{equation}
+	W_{\eta}:
+	\begin{cases}
+		\dfrac{d\bar{u}}{d \tau} = (H+\bar{u})^2 \left((-H-\bar{u}+1) (A^2+(H+\bar{u})^2) - \frac{(1-H) (A^2+H^2)}{H^2} (H+\bar{u}) (H+\bar{v})\right) \\
+		\dfrac{d\bar{v}}{d \tau} = B (H+\bar{v}) (\bar{u}-\bar{v}) \left(A^2+(H+\bar{u})^2\right)
+	\end{cases},
+	\label{eq: modelo2Hen0}
+\end{equation}
