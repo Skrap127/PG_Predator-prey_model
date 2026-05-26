@@ -15,7 +15,7 @@ El modelo se describe mediante el siguiente sistema autónomo de ecuaciones dife
 	\label{eq:modelo1}
 \end{equation}
 
-donde $x(t)$ y $y(t)$ representan las densidades poblacionales de presas y depredadores, respectivamente, para $t \geq 0$. Los parámetros $\mu = (r, a, s, K, n, q) \in \R^6_{+}$ son estrictamente positivos y tienen el siguiente significado biológico \cite{articulo}[p.~1898]:
+donde $x(t)$ y $y(t)$ representan las densidades poblacionales de presas y depredadores, respectivamente, para $t \geq 0$. Los parámetros $\mu = (r, a, s, K, n, q) \in \R^6_{+}$ son estrictamente positivos y tienen el siguiente significado biológico:
 
 \begin{itemize}
 	\item $r$: tasa de crecimiento intrínseco de las presas;
@@ -30,7 +30,7 @@ El sistema \eqref{eq:modelo1} no está definido en $x=0$ (eje $y$), por lo que e
 
 \section{Análisis}
 
-Los puntos críticos se obtienen resolviendo $f(X) = 0$, donde $\dot{X} = f(X)$ con $X = (x,y)$, es decir:
+Dado un sistema $\dot{X} = f(X)$ con $X = (x,y)$, los puntos críticos se obtienen resolviendo $f(X) = 0$. Para el sistema \eqref{eq:modelo1}, esto es:
 
 \begin{equation}
 	\begin{cases}
@@ -40,14 +40,9 @@ Los puntos críticos se obtienen resolviendo $f(X) = 0$, donde $\dot{X} = f(X)$ 
 	\label{eq:sistema-eq}
 \end{equation}
 
-De la segunda ecuación, $y = 0$ o $y = n x$. De la primera ecuación, el primer término debe ser igual a cero, despejando $y$:
+De la segunda ecuación, $y = 0$ o $y = n x$. Para $y=0$, se obtiene $x = K$, por tanto $(K,0)$ es un punto crítico. De las intersecciones de las isoclinas $$y = n x, \; \; \; \; \; \; y = \dfrac{r}{q x} \left(1 - \dfrac{x}{K}\right) (x^2 + a^2),$$
 
-\begin{equation}
-	y = \dfrac{r}{q x} \left(1 - \dfrac{x}{K}\right) (x^2 + a^2).
-	\label{eq:isoclina-presa}
-\end{equation}
-
-Para $y=0$, se obtiene $x = K$, por lo que $(K,0)$ es un candidato. El equilibrio interior $(x_e, y_e)$ existe en el primer cuadrante si y solo si $x_e < K$, determinado por la intersección de las isoclinas $y = n x$ y \eqref{eq:isoclina-presa} \cite{articulo}[p.~1898].
+se obtinene los demás puntos críticos del sistema, donde se verificará más adelante que solo existe una solución $(x_e, y_e) \in \R^2$,  el cual existe en el primer cuadrante si y solo si $x_e < K$.
 % Ctrl + T (comentar); Ctrl + U (descomentar)
 %El punto $(K,0)$ es un punto de silla. Considerando $f_1(x,y) = r x - \frac{r x^2}{K} - \frac{q x^2 y}{x^2 + a^2}$ y $f_2(x,y) = s y - \frac{s y^2}{n x}$, la matriz jacobiana es:
 %
@@ -87,7 +82,21 @@ Para $y=0$, se obtiene $x = K$, por lo que $(K,0)$ es un candidato. El equilibri
 %
 %obteniendo $\lambda_1 = s > 0$ y $\lambda_2 = -r < 0$. Dado que tienen signos opuestos, $(K,0)$ es un punto silla.
 
-Con el propósito de analizar el comportamiento cualitativo del sistema y simplificar los cálculos algebraicos, introducimos el cambio de variables $x = K u$ y $y = n K v$, la cual define una transformacion lineal y por ende, un difeomorfismo entre el sistema \eqref{eq:modelo1} y el resultante al realizar los cambios. Posteriormente, se realiza un reescalado de la variable temporal mediante la relación diferencial $d\tau = r/[u(u^2+A^2)]dt $, donde $A = a/K$. Dado que el factor de escala $r/[u(u^2+A^2)]$ es una función suave y positiva en el conjunto de definición $\bar{\Omega} = \{ (u, v) \in \R^{2} \; | \; u > 0, \; v \geq 0 \}$, la dirección de las trayectorias se preserva \cite{chicone2024}[p.~14]. Esto da paso a la siguiente proposición.
+Con el propósito de analizar el comportamiento cualitativo del sistema y simplificar los cálculos algebraicos, introducimos el cambio de variables $x = K u$ y $y = n K v$, la cual define una transformacion lineal y por ende, un difeomorfismo entre el sistema \eqref{eq:modelo1} y el resultante:
+\begin{equation*}
+	\begin{cases}
+		\dfrac{du}{dt} = r\left((1-u) - \dfrac{qn}{r} \dfrac{uv}{u^{2}+\left(\dfrac{a}{K}\right)^{2}}\right)u \\
+		\dfrac{dv}{dt} = s \left(1-\dfrac{v}{u}\right)v
+	\end{cases}.
+\end{equation*}
+Posteriormente, se realiza un reescalado de la variable temporal mediante la relación diferencial $d\tau = r/[u(u^2+A^2)]dt $, donde $A = a/K$. Dado que el factor de escala $r/[u(u^2+A^2)]$ es una función suave y positiva en el conjunto de definición $\bar{\Omega} = \{ (u, v) \in \R^{2} \; | \; u > 0, \; v \geq 0 \}$, la dirección de las trayectorias se preserva \cite{chicone2024}[p.~14](Colocar proposicion 1.14 en preli), por lo que el sistema resultante al aplicar el reescalado será topológicamente equivalente, este es:
+\begin{equation*}
+	\begin{cases}
+		\dfrac{du}{d\tau} = \left((1-u)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right) - \dfrac{qn}{r} uv\right)u^{2} \\
+		\dfrac{dv}{d\tau} = \dfrac{s}{r} \left(u-v\right)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)v
+	\end{cases}
+\end{equation*}
+Esto da paso a la siguiente proposición.
 
 \begin{pro}
 	El sistema \eqref{eq:modelo1} es topológicamente equivalente al sistema
@@ -99,53 +108,35 @@ Con el propósito de analizar el comportamiento cualitativo del sistema y simpli
 		\end{cases},
 		\label{eq: modelo2}
 	\end{equation}
-	donde, $\eta = (A, Q, B) \in (0, 1) \times \R^{2}_{+}$ con $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r}, \; B = \dfrac{s}{r}$ \cite{articulo}.
+	donde, $\eta = (A, Q, B) \in (0, 1) \times \R^{2}_{+}$ con $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r}, \; B = \dfrac{s}{r}$.
 \end{pro}
 
 \begin{proof}
-	Sea $x = K u$ y $y = n K v$. Sustituyendo en el campo vectorial \eqref{eq:modelo1}, se obtiene
+	La transformación $\varphi : \bar{\Omega} \times \R \rightarrow \Omega \times \R$, dada por
 	\begin{equation*}
-		\begin{cases}
-			K\dfrac{du}{dt} = (r \left(1-\dfrac{Ku}{K}\right) - \dfrac{qKunKv}{(Ku)^{2}+a^{2}}) Ku \\
-			nK\dfrac{dv}{dt} = s \left(1-\dfrac{nKv}{nKu}\right)nKv
-		\end{cases}
-	\end{equation*}
-	Simplificando y factorizando,
-	\begin{equation*}
-		\begin{cases}
-			\dfrac{du}{dt} = r\left((1-u) - \dfrac{qn}{r} \dfrac{uv}{u^{2}+\left(\dfrac{a}{K}\right)^{2}}\right)u \\
-			\dfrac{dv}{dt} = s \left(1-\dfrac{v}{u}\right)v
-		\end{cases}.
-	\end{equation*}
-	Aplicando el reescalado temporal $\tau = \left(\dfrac{r}{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}\right)t$, se tiene $\dfrac{1}{dt} = \dfrac{r}{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)} \dfrac{1}{d\tau}$. Reemplazando y simplificando,
-	\begin{equation*}
-		\begin{cases}
-			\dfrac{du}{d\tau} = \left((1-u)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right) - \dfrac{qn}{r} uv\right)u^{2} \\
-			\dfrac{dv}{d\tau} = \dfrac{s}{r} \left(u-v\right)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)v
-		\end{cases}
-	\end{equation*}
-	Definiendo $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r} \; \text{y} \; B = \dfrac{s}{r}$, se llega al resultado \cite{articulo}.
+		\varphi(u, v, \tau) = \left( Ku, \; nKv, \; \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} \tau \right) = (x, y, t),
+	\end{equation*} define una correspondencia biunívoca y suave entre el sistema \eqref{eq:modelo1} y el \eqref{eq: modelo2}, por lo que $\varphi$ es un difeomorfismo suave, así, $Y_{\eta} = \varphi \circ X_{\mu}$ es topológicamente equivalente al sistema \eqref{eq:modelo1}, donde $Y_{\eta}$ define un sistema polinómico de grado 5.
 \end{proof}
 
 \begin{remark}
 	Dado que $a$ representa un umbral ecológico inferior a la capacidad de carga $K$ de las presas, se asume $0 < a < K$, lo que implica $0 < A < 1$.
 \end{remark}
 
-\begin{remark}
-	La transformación $\varphi : \bar{\Omega} \times \R \rightarrow \Omega \times \R$, dada por
-	\begin{equation*}
-		\varphi(u, v, \tau) = \left( Ku, \; nKv, \; \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} \tau \right) = (x, y, t),
-	\end{equation*} define una correspondencia biunívoca y suave entre el sistema \eqref{eq:modelo1} y el \eqref{eq: modelo2}, por lo que $\varphi$ es un difeomorfismo suave. Su matriz jacobiana
-	\begin{equation}
-		D\varphi(u, v, \tau) =
-		\begin{bmatrix}
-			K & 0 & 0 \\
-			0 & nK & 0 \\
-			\dfrac{3u^{2}+\left(\dfrac{a}{K}\right)^{2}}{r} & 0 & \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r}
-		\end{bmatrix},
-	\end{equation}
-	tiene $\det D\varphi = nK^{2} \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} > 0$ para $u > 0$, por lo que preserva la orientación temporal \cite{articulo}. Así, $Y_{\eta} = \varphi \circ X_{\mu}$ es topológicamente equivalente al sistema \eqref{eq:modelo1}, donde $Y_{\eta}$ define un sistema polinómico de grado 5 \cite{articulo}.
-\end{remark}
+%\begin{remark}
+%	La transformación $\varphi : \bar{\Omega} \times \R \rightarrow \Omega \times \R$, dada por
+%	\begin{equation*}
+%		\varphi(u, v, \tau) = \left( Ku, \; nKv, \; \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} \tau \right) = (x, y, t),
+%	\end{equation*} define una correspondencia biunívoca y suave entre el sistema \eqref{eq:modelo1} y el \eqref{eq: modelo2}, por lo que $\varphi$ es un difeomorfismo suave. Su matriz jacobiana
+%	\begin{equation}
+%		D\varphi(u, v, \tau) =
+%		\begin{bmatrix}
+%			K & 0 & 0 \\
+%			0 & nK & 0 \\
+%			\dfrac{3u^{2}+\left(\dfrac{a}{K}\right)^{2}}{r} & 0 & \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r}
+%		\end{bmatrix},
+%	\end{equation}
+%	tiene $\det D\varphi = nK^{2} \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} > 0$ para $u > 0$, por lo que preserva la orientación temporal \cite{articulo}. Así, $Y_{\eta} = \varphi \circ X_{\mu}$ es topológicamente equivalente al sistema \eqref{eq:modelo1}, donde $Y_{\eta}$ define un sistema polinómico de grado 5 \cite{articulo}.
+%\end{remark}
 \begin{remark}
 	Desde la perspectiva de la teoría cualitativa, resulta conveniente representar el sistema diferencial autónomo \eqref{eq: modelo2} mediante su campo vectorial asociado $Y_{\eta} = P(u,v) \partial_u + Q(u,v) \partial_v$, donde las componentes del campo están definidas por: 
 	\begin{equation*}
@@ -154,7 +145,7 @@ Con el propósito de analizar el comportamiento cualitativo del sistema y simpli
 			Q(u, v) &= B(u - v)(u^{2} + A^{2})v
 		\end{aligned}.
 	\end{equation*}
-	Esta formalización se fundamenta en que si una población se encuentra en la posición $(u,v)$ en un tiempo $\tau$, el sistema \eqref{eq: modelo2} asigna un único vector tangente $(P(u, v), Q(u, v))$, permitiendo así interpretar las soluciones como curvas integrales cuya geometría es dictada por la estructura del operador diferencial $Y_{\eta}$. Otra forma de expresar el campo vectorial es escribiéndolo como $X = (P(u, v), Q(u, v))$
+	Esta formalización se fundamenta en que si una población se encuentra en la posición $(u,v)$ en un tiempo $\tau$, el sistema \eqref{eq: modelo2} asigna un único vector tangente $(P(u, v), Q(u, v))$, permitiendo así interpretar las soluciones como curvas integrales cuya geometría es dictada por la estructura del operador diferencial $Y_{\eta}$. Otra forma de expresar el campo vectorial es escribiéndolo como $X = (P(u, v), Q(u, v))$.
 \end{remark}
 \begin{remark}
     El sistema \eqref{eq: modelo2} está definido en $$\tilde{\Omega} = \{ (u, v) \in \R^{2} \; | \; u \geq 0, \; v \geq 0 \}.$$
@@ -203,7 +194,7 @@ Debido a la naturaleza de nuestro problema, solo son de interés las raíces rea
 	\label{pro:exitenciaH}
 \end{pro}
 \begin{proof}
-	Según la naturaleza del coeficiente del segundo termino del po+-linomio \eqref{eq:polinomioIsoclinasModelo2}, obtenemos los siguientes casos: 
+	Según la naturaleza del coeficiente del segundo termino del polinomio \eqref{eq:polinomioIsoclinasModelo2}, obtenemos los siguientes casos: 
 	\begin{itemize}
 		\item Si $Q-1 \geq 0, \; P(u)$ tiene 1 cambio de signo, y $$P(-u)=-u^{3}+(Q-1)u^{2}-A^{2}u-A^{2}$$ tiene 2 cambios de signo. Por lo tanto, $P(u)$ tiene una raíz real positiva y dos negativas, o una raíz real positiva y dos complejas.
 		\item Si $Q-1<0, \; P(u)$ tiene 3 cambios de signo y $P(-u)$ tiene 0 cambios de signo. Por lo tanto, $P(u)$ tiene tres raíces reales positivas, o una sola raíz real positiva y dos complejas.
@@ -430,7 +421,7 @@ Como $H \in (0, 1)$, $\det(A)>0$ por lo que $(H,H)$ es un punto no degenerado e 
 	\subitem $\Delta > 0$, $(H,H)$ es un nodo estable.
 \end{itemize}
 
-Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el caso $B=B_c$, ya que es susceptible a cambios cualitativos con mínimas perturbaciones paramétricas, se es de importancia verificar si $(H, H)$ es un punto centro o un foco débil. Con el propósito de validar la estructura cualitativa en este caso, calcularemos el número de Lyapunov; esto no es sólo con este fin, sino con el de validar que tipo de bifurcación de Hopf se nos presenta, puesto que dicha característica esta garantizada debido a la región de atrapamiento $\Gamma$ descrita en la \Cref{re:atrapamiento}, y del hecho de que $(H,H)$ es un repulsor para el caso $B<B_c$, existe un ciclo límite según el Teorema de Poincaré-Bendixson.
+Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el caso $B=B_c$, ya que en este caso el punto de equilibrio es no hiperbólico, se es de importancia verificar si $(H, H)$ es un punto centro o un foco débil en el sistema no linealizado. Con el propósito de validar la estructura cualitativa en este caso, calcularemos el número de Lyapunov; esto no es sólo con este fin, sino con el de validar que tipo de bifurcación de Hopf se nos presenta, puesto que dicha característica esta garantizada debido a la región de atrapamiento $\Gamma$ descrita en la \Cref{re:atrapamiento}, y del hecho de que $(H,H)$ es un repulsor para el caso $B<B_c$, existe un ciclo límite según el Teorema de Poincaré-Bendixson.
 
 \subsubsection{Calculo del coeficiente de Lyapunov}
 Para proceder con el calculo del primer coeficiente de Lyapunov, debemos trasladar el punto de equilibrio $(H, H)$ al origen. Para ello, realicemos las sustituciones $u = \bar{u} + H$ y $v = \bar{v} + H$ en el sistema \eqref{eq: modelo2}; pero, antes de ello realizamos la sustitución \eqref{eq: Q} con el fin de reducir la cantidad de parámetros. Estos cambios se ven reflejados de la siguiente manera:
