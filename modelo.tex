@@ -151,14 +151,24 @@ Esto da paso a la siguiente proposición.
     El sistema \eqref{eq: modelo2} está definido en $$\tilde{\Omega} = \{ (u, v) \in \R^{2} \; | \; u \geq 0, \; v \geq 0 \}.$$
     Recordemos que el modelo original \eqref{eq:modelo1}, no está definido en el eje $y$ y en particular en $(0,0)$ debido a la forma de la respuesta funcional Leslie-Gower. Al expresar el sistema como un campo polinomial de quinto orden, los autores logran una extensión topológicamente equivalente que sí es válida en el origen. Esto permite estudiar la extinción simultánea de ambas especies, algo que el modelo original impedía analíticamente.
 \end{remark}
-
+Del cambio de variable $x = Ku$, podemos deducir que en un sentido biológico el máximo valor que puede tomar $u$ es $1$, debido a que $K$ representa el umbral máximo de presas que puede soportar el ambiente. Suponiendo que $u \in [0, 1]$, se puede evidenciar de la segunda ecuación del sistema \eqref{eq: modelo2}; que, para $v > 1$ el flujo se dirige hacia abajo en todos estos casos. Esto da paso al siguiente lema.
 \begin{lem}
 	El conjunto $\Gamma = \{ (u, v) \in \R^{2} \; | \; 0 \leq u \leq 1, \; 0 \leq v \leq 1 \} \subset \tilde{\Omega}$ es una región positivamente invariante.
 \end{lem}
 \begin{proof}
-	Como el sistema \eqref{eq: modelo2} es de tipo Kolmogorov los ejes coordenados son conjuntos invariantes, por lo que basta demostrar que el flujo sobre las fronteras derecha y superior se dirigen hacia el interior de la región. Supongamos que $0 \leq v \leq 1$, reemplazando $u=1$ en la primera ecuación del sistema \eqref{eq: modelo2}, tenemos que: $$\left. \dfrac{du}{d\tau} \right|_{u=1} = -Qv \leq 0,$$ donde, $\dot{u} = 0$, solo si $v=0$. En el punto $(1,0)$, el campo vectorial se reduce a $(0,0)$, esto indica que cualquier trayectoria que comience exactamente aquí, se mantendrá en este punto; y para $v>0$, $\dot{u} = -Qv < 0$ por lo que el flujo sobre la frontera derecha, se dirige hacia la izquierda.
+	Del sistema \eqref{eq: modelo2} deducimos que 
 	
-	Ahora, para $v=1$, tenemos $\dot{v}=B(u-1)(u^2+A^2)$. Dado que $0\leq u \leq1$, el factor $(u-1)$ es no positivo, lo que implica $\dot{v} \leq0$. Específicamente, $\dot{v} =0$ si y solo si $u=1$. En el punto $(1,1)$, el campo vectorial se reduce a $(-Q,0)$, lo que indica un flujo puramente horizontal hacia la izquierda, manteniendo así el flujo del campo sobre el borde superior o entrando al interior de la región $\Gamma$ en el caso $u<1$. Por lo tanto, el cuadrado unitario $\Gamma$ es una región positivamente invariante.
+	\begin{itemize}
+		\item para $u = 0$, $\dot{u} = 0$ y $\dot{v} = -A^2Bv^2 \leq 0$; es decir, el flujo se mantiene sobre este eje y además decrece para el caso $v\neq0$. En el vértice $(0, 0)$ el campo se reduce a $(0,0)$, esto indica que cualquier trayectoria que comience exactamente aquí, se mantendrá en este punto.
+		
+		\item para $v = 0$, $\dot{u} = (1 - u)(u^{2} + A^{2})u^{2} \geq 0$ (puesto que $u \in [0, 1]$) y $\dot{v} = 0$; así, al igual que en el caso $u=0$, el flujo se mantiene sobre este eje; es decir, los ejes coordenados son conjuntos invariantes. En el vértice $(1, 0)$ el campo se reduce a $(0,0)$, así el flujo no ''sale" de la región propuesta.
+		
+		\item para $u=1$, $\dot{u} = -Qv \leq 0$ y $\dot{v} = B(1 - v)(1 + A^{2})v \geq 0$. Donde, $\dot{u} = 0$, solo si $v=0$; este sería el caso del vértice $(1,0)$ anteriormente analizado. Así para $v>0$, $\dot{u} < 0$ y $\dot{v} > 0$ por lo que el flujo sobre la frontera derecha, se dirige hacia la izquierda y hacia arriba. 
+		
+		\item para $v=1$, tenemos que $\dot{v}=B(u-1)(u^2+A^2)$. Dado que $0\leq u \leq1$, el factor $(u-1)$ es no positivo, lo que implica $\dot{v} \leq0$. Específicamente, $\dot{v} =0$ si y solo si $u=1$. En el vértice $(1,1)$, el campo vectorial se reduce a $(-Q,0)$, lo que indica un flujo puramente horizontal hacia la izquierda, manteniendo así el flujo del campo sobre el borde superior o entrando al interior de la región $\Gamma$ en el caso $u<1$.
+	\end{itemize}
+	
+	Por lo tanto, el cuadrado unitario $\Gamma$ es una región positivamente invariante.
 \end{proof}
 \begin{remark}
 	Es claro que el conjunto $\Gamma \subset \R^2$ es conexo y cerrado, por lo que $\Gamma$ es una región de atrapamiento. Además, al ser $\Gamma$ un conjunto acotado, da paso al siguiente corolario.
@@ -419,7 +429,7 @@ Como $H \in (0, 1)$, $\det(A)>0$ por lo que $(H,H)$ es un punto no degenerado e 
 	\subitem $\Delta < 0$, $(H,H)$ es un foco estable.
 	\subitem $\Delta = 0$, $(H,H)$ es un nodo degenerado estable.
 	\subitem $\Delta > 0$, $(H,H)$ es un nodo estable.
-\end{itemize}
+\end{itemize}				
 
 Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el caso $B=B_c$, ya que en este caso el punto de equilibrio es no hiperbólico, se es de importancia verificar si $(H, H)$ es un punto centro o un foco débil en el sistema no linealizado. Con el propósito de validar la estructura cualitativa en este caso, calcularemos el número de Lyapunov; esto no es sólo con este fin, sino con el de validar que tipo de bifurcación de Hopf se nos presenta, puesto que dicha característica esta garantizada debido a la región de atrapamiento $\Gamma$ descrita en la \Cref{re:atrapamiento}, y del hecho de que $(H,H)$ es un repulsor para el caso $B<B_c$, existe un ciclo límite según el Teorema de Poincaré-Bendixson.
 
