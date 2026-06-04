@@ -399,14 +399,14 @@ Con el fin de reducir los posibles casos que se pueden dar en los valores propio
 	\label{eq: Q}
 \end{equation}
 anteriormente discutida en la \Cref{pro:exitenciaH}. Así, tendríamos que en $(H,H)$:
-\begin{equation*}
+\begin{equation}
 	Dg(H,H) =
 	\begin{bmatrix}
 		-H(H^{2}(2H-1)+A^2) & -H(1-H)(A^2+H^2) \\
 		BH(A^{2}+H^{2}) & -BH(A^{2}+H^{2})
 	\end{bmatrix}.
 	\label{eq:jacobianaModelo2En(H,H)}
-\end{equation*}
+\end{equation}
 Los valores propios se hallan del polinomio característico $\lambda^2 - \operatorname{tr}(A) \lambda + \det(A) = 0$, con $A = Dg(H,H)$, estos es:
 \begin{equation*}
 	\lambda = \dfrac{\operatorname{tr}(A) \pm \sqrt{\Delta}}{2},
@@ -418,7 +418,12 @@ donde, $\Delta = (\operatorname{tr}(A))^2 - 4\det(A)$ y
 		\det(A) &= BH^2(A^2+H^2)(H^3+A^2(2-H))
 	\end{aligned}.
 \end{equation*}
-Como $H \in (0, 1)$, $\det(A)>0$ por lo que $(H,H)$ es un punto no degenerado e hiperbólico o punto centro; además, no puede ser un punto silla. Así la estabilidad estaría determinada por el signo de la traza y del discriminante $\Delta$, para ello notemos que $\operatorname{tr}(A)=0$ si $B=(H^2(1-2H) - A^2)/(A^2 + H^2):=B_c$, y puesto que $B>0$, esto se da bajo las restricciones: $H<1/2$ y $A^2 < H^2(1-2H)$. Este hecho da paso a los siguientes casos:
+Como $H \in (0, 1)$, $\det(A)>0$ por lo que $(H,H)$ es un punto no degenerado e hiperbólico o punto centro; además, no puede ser un punto silla. Así la estabilidad estaría determinada por el signo de la traza y del discriminante $\Delta$, para ello notemos que $\operatorname{tr}(A)=0$ si
+\begin{equation}
+	B = \dfrac{H^2(1-2H) - A^2}{A^2 + H^2} := B_c,
+	\label{eq: Bcritico}
+\end{equation}
+y puesto que $B>0$, esto se da bajo las restricciones: $H<1/2$ y $A^2 < H^2(1-2H)$. Este hecho da paso a los siguientes casos:
 \begin{itemize}
 	\item Si $B<B_c$ y
 	\subitem $\Delta < 0$, $(H,H)$ es un foco inestable.
@@ -434,13 +439,171 @@ Como $H \in (0, 1)$, $\det(A)>0$ por lo que $(H,H)$ es un punto no degenerado e 
 Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el caso $B=B_c$, ya que en este caso el punto de equilibrio es no hiperbólico, se es de importancia verificar si $(H, H)$ es un punto centro o un foco débil en el sistema no linealizado. Con el propósito de validar la estructura cualitativa en este caso, calcularemos el número de Lyapunov; esto no es sólo con este fin, sino con el de validar que tipo de bifurcación de Hopf se nos presenta, puesto que dicha característica esta garantizada debido a la región de atrapamiento $\Gamma$ descrita en la \Cref{re:atrapamiento}, y del hecho de que $(H,H)$ es un repulsor para el caso $B<B_c$, existe un ciclo límite según el Teorema de Poincaré-Bendixson.
 
 \subsubsection{Calculo del coeficiente de Lyapunov}
-Para proceder con el calculo del primer coeficiente de Lyapunov, debemos trasladar el punto de equilibrio $(H, H)$ al origen. Para ello, realicemos las sustituciones $u = \bar{u} + H$ y $v = \bar{v} + H$ en el sistema \eqref{eq: modelo2}; pero, antes de ello realizamos la sustitución \eqref{eq: Q} con el fin de reducir la cantidad de parámetros. Estos cambios se ven reflejados de la siguiente manera:
-
+Para proceder con el calculo del primer coeficiente de Lyapunov, debemos trasladar el punto de equilibrio $(H, H)$ al origen. Para ello, realicemos las sustituciones $u = \bar{u} + H$ y $v = \bar{v} + H$ en el sistema \eqref{eq: modelo2} y reemplazamos el valor crítico $B_c$ con el fin de que la traza se anule. Estos cambios se ven reflejados de la siguiente manera:
 \begin{equation}
 	W_{\eta}:
 	\begin{cases}
-		\dfrac{d\bar{u}}{d \tau} = (H+\bar{u})^2 \left((-H-\bar{u}+1) (A^2+(H+\bar{u})^2) - \frac{(1-H) (A^2+H^2)}{H^2} (H+\bar{u}) (H+\bar{v})\right) \\
-		\dfrac{d\bar{v}}{d \tau} = B (H+\bar{v}) (\bar{u}-\bar{v}) \left(A^2+(H+\bar{u})^2\right)
+		\dfrac{d\bar{u}}{d \tau} = h_1(u, v)\\
+		\dfrac{d\bar{v}}{d \tau} = h_2(u, v)
 	\end{cases},
 	\label{eq: modelo2Hen0}
 \end{equation}
+donde,
+\begin{equation*}
+	\begin{aligned}
+		h_1(\bar{u}, \bar{v}) &= [(1 - \bar{u} - H)[(\bar{u} + H)^{2} + A^{2}] - Q (\bar{u} + H) (\bar{v} + H)](\bar{u} + H)^{2} \\
+		h_2(\bar{u}, \bar{v}) &= B_c(\bar{u} - \bar{v})[(\bar{u} + H)^{2} + A^{2}](\bar{v} + H)
+	\end{aligned}
+\end{equation*}
+La matriz jacobiana en el origen estaría dada simplemente por la matriz \eqref{eq:jacobianaModelo2En(H,H)} sustituyendo $B=B_c$:
+\begin{equation*}
+	Dh(0,0) =
+	\begin{bmatrix}
+		H[H^{2}(1-2H)-A^2] & -H[(1-H)(A^2+H^2)] \\
+		H[H^2(1-2H) - A^2] & - H[H^2(1-2H) - A^2]
+	\end{bmatrix} :=
+	\begin{bmatrix}
+	a & b \\
+	a & - a
+	\end{bmatrix}.
+	\label{eq:jacobianamodelo2Hen0}
+\end{equation*}
+Ahora debemos transformar el sistema a su forma normal:
+\begin{equation}
+	\begin{cases}
+		\dot{X_1} = -\omega X_2 + G_1(X_1, X_2) \\
+		\dot{X_2} = \omega X_1 + G_2(X_1, X_2)
+	\end{cases},
+	\label{eq: normalForm}
+\end{equation}
+donde $\omega = \sqrt{\det (A)}$. Para ello debemos hallar un autovector asociado al valor propio complejo puro positivo de la matriz jacobiana $Dh(0,0)$: $$\omega i= \sqrt{\det (A)} \; i = H\sqrt{(H^2(1-2H) - A^2)(H^3+A^2(2-H))} \; i.$$ Esto es equivalente a solucionar el sistema, $(Dh(0, 0) - \omega i I)U = 0$, esto es:
+\begin{equation}
+	\begin{cases}
+	    (a - \omega i)U_1 + b U_2 = 0\\
+		a U_1 - (a + \omega i)U_2 = 0
+	\end{cases},
+	\label{eq: VectoresPropiosOmega}
+\end{equation}
+De aquí $U_1 = [1 + (a+b)/\omega i]U_2$. Tomando $U_2 = 1$, una posible solución es el vector:
+\begin{equation}
+	\begin{pmatrix}
+		1 \\
+		1 
+	\end{pmatrix} +
+	\begin{pmatrix}
+		\sqrt{\dfrac{H^3+A^2(2-H)}{H^2(1-2H) - A^2}} \\
+		0
+	\end{pmatrix} i
+	:=
+	\begin{pmatrix}
+		1 \\
+		1 
+	\end{pmatrix} +
+	\begin{pmatrix}
+		d\\
+		0
+	\end{pmatrix} i
+\end{equation}
+Así, nuestra matriz de transformación esta dada por
+\begin{equation*}
+	P =
+	\begin{pmatrix}
+		d && 1 \\
+		0 && 1
+	\end{pmatrix}\; \; \; \; \text{con inversa} \; \; \; \;
+		P^{-1} = \dfrac{1}{d}
+	\begin{pmatrix}
+		1 && -1 \\
+		0 && d
+	\end{pmatrix}.
+\end{equation*}
+Ahora, con el fin de identificar la parte no lineal de nuestro sistema, realizamos $(h_1(\bar{u}, \bar{v}), h_2(\bar{u}, \bar{v}))^{T} - Dh(0,0)(\bar{u}, \bar{v})^{T}$. La cual resulta estar compuesta por:
+\begin{equation}
+	\begin{aligned}
+		F_1(\bar{u}, \bar{v}) = h_1(\bar{u}, \bar{v}) - a\bar{u} - b\bar{v}\\
+		F_2(\bar{u}, \bar{v}) = h_2(\bar{u}, \bar{v}) - a\bar{u} + a\bar{v}
+	\end{aligned}
+\end{equation}
+Así el sistema \eqref{eq: modelo2Hen0} pasa a ser:
+\begin{equation}
+	W_{\eta}:
+	\begin{cases}
+		\dfrac{d\bar{u}}{d \tau} = a\bar{u} + b\bar{v} + F_1(\bar{u}, \bar{v})\\
+		\dfrac{d\bar{v}}{d \tau} = a\bar{u} - a\bar{v} + F_2(\bar{u}, \bar{v})
+	\end{cases},
+\end{equation}
+Dado que el sistema aún no posee la simetría esperada, debemos realizar la sustitución $(\bar{u}, \bar{v})^{T} = P \cdot (X, Y)^{T}$. El sistema transformado estará dado por $\dot{X} = P^{-1}Dh(0,0)P(X, Y)^{T}+P^{-1}F(P(X, Y)^{T})$, es decir:
+\begin{equation}
+	\begin{cases}
+		\dot{X} = -\omega Y + G_1(X, Y) \\
+		\dot{Y} = \omega X + G_2(X, Y)
+	\end{cases}
+	\label{eq: normalFormWn}
+\end{equation}
+donde
+\begin{equation*}
+	\begin{aligned}
+		G_1(X, Y) &= \dfrac{1}{d}[F_1(dX + Y, Y) -F_2(dX + Y, Y)] \\
+		&= \dfrac{1}{d}[h_1(dX + Y, Y) - h_2(dX + Y, Y) - (a+b)Y] \\
+		G_2(X, Y) &= F_2(dX + Y, Y) \\
+		&= h_2(dX + Y, Y) - adX
+	\end{aligned}
+\end{equation*}
+contienen los terminos de orden superior del sistema. Nos ayudaremos de Mathematica para obetener la expansión de Taylor de orden 3.
+\begin{equation*}
+	\begin{aligned}
+		G_1(X, Y) &= X [c \left((2-6 H) A^2+H^2 (-20 H-9 Q+12)\right) Y\\
+		&-3 \left(c \left(A^2+H (10 H+3 Q-4)\right)\right) Y^2\\
+		&+c (-20 H-3 Q+4) Y^3+\mathcal{O}\left(Y^4\right)]\\
+		&+X^2 [c^2 \left((1-3 H) A^2+H^2 (-10 H-3 Q+6)\right)\\
+		&-3 \left(c^2 \left(A^2+2 H (5 H+Q-2)\right)\right) Y-3 \left(c^2 (10 H+Q-2)\right) Y^2\\
+		&-10 c^2 Y^3+\mathcal{O}\left(Y^4\right)]\\
+		&+X^3 [-c^3 \left(A^2+H (10 H+Q-4)\right)\\
+		&-c^3 (20 H+Q-4) Y-10 c^3 Y^2+\mathcal{O}\left(Y^4\right)]+\mathcal{O}\left(X^4\right) \\
+		&+Y^2 \left[A^2 (1-3 H)-2 H^2 (5 H+3 Q-3)\right] \\
+		&+Y^3 \left[-A^2-2 H (5 H+2 Q-2)\right]+\mathcal{O}\left(Y^4\right)\\
+		G_2(X, Y) &= X \left[B_c d \left(A^2+3 H^2\right) Y+3 B_c d H Y^2+B_c d Y^3+\mathcal{O}\left(Y^4\right)\right] \\
+		&+X^2 \left[2 B_c d^2 H^2+4 B_c d^2 H Y+2 B_c d^2 Y^2+\mathcal{O}\left(Y^4\right)\right]\\
+		&+X^3 \left[B_c d^3 H+B_c d^3 Y+\mathcal{O}\left(Y^4\right)\right]+\mathcal{O}\left(X^4\right)
+	\end{aligned}
+\end{equation*}
+El primer coeficiente de Lyapunov estará dado por
+\begin{equation*}
+	\begin{aligned}
+		L_1 &= \frac{1}{16} [ G_{1,xxx} + G_{1,xyy} + G_{2,xxy} + G_{2,yyy} \\
+		&+ \frac{1}{\omega} ( G_{1,xy}(G_{1,xx} + G_{1,yy}) - G_{2,xy}(G_{2,xx} + G_{2,yy}) \\
+		&- G_{1,xx}G_{2,xx} + G_{1,yy}G_{2,yy} )]
+	\end{aligned}
+\end{equation*}
+donde cada derivada parcial está evaluada en el origen, las cuales están dadas por:
+\begin{equation*}
+	\begin{aligned}
+		G_{1,XX} &= 2 d \left(A^2 (1-3 H)-H^2 (2 B_c+10 H+3 Q-6)\right) \\
+		G_{1,YY} &= \dfrac{1}{d}[A^2 (2-6 H)-4 H^2 (5 H+3 Q-3)] \\
+		G_{1,XY} &= -\left(A^2 (B_c+6 H-2)\right)-H^2 (3 B_c+20 H+9 Q-12) \\
+		G_{1,XXX} &= -6 d^2 \left(A^2+H (B_c+10 H+Q-4)\right) \\
+		G_{1,XYY} &= -6 \left(A^2+H (B_c+10 H+3 Q-4)\right) \\ 
+		\\
+		G_{2,XX} &= 4 B_c d^2 H^2 \\
+		G_{2,YY} &= 0 \\
+		G_{2,XY} &= B_c d \left(A^2+3 H^2\right) \\
+		G_{2,XXY} &= 8 B_c d^2 H \\
+		G_{2,YYY} &= 0 \\
+	\end{aligned}
+\end{equation*}
+Reemplazando los valores conocidos $a, \; b, \; d, \; B_c$ y $Q$ nos queda:
+\begin{equation*}
+	\begin{aligned}
+		G_{1,XX} &= 2 d \left(\frac{-2 A^4+A^2 (3-7 H) H^2-3 H^5+H^4}{A^2+H^2}\right) \\
+		G_{1,YY} &= \dfrac{1}{d}[2 A^2 (3 H-5)-8 H^3] \\
+		G_{1,XY} &= \frac{3 A^4 (H-2)-2 A^2 (3 H+1) H^2-5 H^5}{A^2+H^2} \\
+		G_{1,XXX} &= -6 d^2 \left(\frac{A^4+3 A^2 H^2 (3 H-1)+H^4 (7 H-2)}{H \left(A^2+H^2\right)}\right) \\
+		G_{1,XYY} &= -6 \left(-\frac{2 A^2 \left(A^2+H\right)}{A^2+H^2}+\frac{3 A^2}{H}+5 H^2\right) \\ 
+		\\
+		G_{2,XX} &= \frac{4 H^2 \left(H^3-A^2 (H-2)\right)}{A^2+H^2} \\
+		G_{2,YY} &= 0 \\
+		G_{2,XY} &= 3 H^2-\frac{A^2 \sqrt{\frac{A^2 (H-2)-H^3}{A^2+H^2 (2 H-1)}} \left(A^2+H^2 (2 H-1)\right)}{A^2+H^2} \\
+		G_{2,XXY} &= \frac{8 H \left(H^3-A^2 (H-2)\right)}{A^2+H^2} \\
+		G_{2,YYY} &= 0 \\
+	\end{aligned}
+\end{equation*}
