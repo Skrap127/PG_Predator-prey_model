@@ -240,6 +240,13 @@ En $(1,0)$:
 \end{equation*}
 Los valores propios son $\lambda_1 = -(1+A^{2}) < 0$ y $\lambda_2 = B(1+A^{2}) > 0$. Dado que tienen signos opuestos, $(1,0)$ es un punto silla.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=.5\textwidth]{img/puntoDeEquilibrio(1,0).pdf}
+	\caption{Punto de equilibrio $(1, 0)$ para valores paramétricos aleatorios.}
+	\label{fig: eq(1,0)Modelo2}
+\end{figure}
+
 \subsection{Estabilidad del punto de equilibrio $(0,0)$}
 En $(0,0)$:
 \begin{equation*}
@@ -392,6 +399,23 @@ donde $\alpha = \dfrac{A^{2}B^{3}}{(2B^{2}-2B+1)^{3/2}}>0$. Con valores propios 
 
 Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto con sus respectivos valores propios radiales y tangenciales, podemos determinar como se comporta cualitativamente el origen del campo $Y_{\eta}$ en una cierta vecindad. Este comportamiento se puede evidenciar en la figura \ref{fig: BlowUp Modelo 2}, en donde, para el caso $B\leq1$ vemos que el primer cuadrante consta de un único sector hiperbólico, y para $B>1$ de uno parabólico y uno hiperbólico. Recordemos que la finalidad de la técnica del blow-up es determinar el comportamiento del origen en $Y_{\eta}$, en sí, este proceso nos permite determinar que trayectorias entran o salen del origen, y son determinadas por la pendiente $\tan \theta^*$, donde $\theta^*$ es un punto crítico de $\bar{Y_{\eta}}$. Por ende, en el primer cuadrante de $Y_{\eta}$ hay tres de estas trayectorias: $v=0$ que corresponde a la orbita con pendiente $\tan\theta_1=0$, $u=0$ que corresponde a la orbita con pendiente $\tan\theta_2= \infty$ y la orbita determinada por la pendiente $\tan\theta_3=\dfrac{B-1}{B}$, la cual, esta última solo se da para el caso $B>1$, y además define una curva separatriz puesto que divide el retrato de fase en dos sectores con comportamientos cualitativos distintos (parabólico e hiperbólico).
 
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{img/puntoDeEquilibrio(0,0)conBmenor1.pdf}
+		\caption{Retrato fase del sistema \eqref{eq: modelo2} cerca al origen para valores paramétricos aleatorios con $B < 1$.}
+		\label{fig: eq(0,0)Modelo2Bmenor1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{img/puntoDeEquilibrio(0,0)conBmayor1.pdf}
+		\caption{Retrato fase del sistema \eqref{eq: modelo2} cerca al origen para valores paramétricos aleatorios con $B > 1$.}
+		\label{fig: eq(0,0)Modelo2Bmayor1}
+	\end{subfigure}
+	\caption{Retrato fase del sistema \eqref{eq: modelo2} cerca al origen.}
+	\label{fig: eq(0,0)Modelo2}
+\end{figure}
+
 \subsection{Estabilidad del punto de equilibrio $(H,H)$}
 Con el fin de reducir los posibles casos que se pueden dar en los valores propios, reduciremos la cantidad de parámetros realizando la sustitución
 \begin{equation}
@@ -436,7 +460,14 @@ y puesto que $B>0$, esto se da bajo las restricciones: $H<1/2$ y $A^2 < H^2(1-2H
 	\subitem $\Delta > 0$, $(H,H)$ es un nodo estable.
 \end{itemize}				
 
-Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el caso $B=B_c$, ya que en este caso el punto de equilibrio es no hiperbólico, se es de importancia verificar si $(H, H)$ es un punto centro o un foco débil en el sistema no linealizado. Con el propósito de validar la estructura cualitativa en este caso, calcularemos el número de Lyapunov; esto no es sólo con este fin, sino con el de validar que tipo de bifurcación de Hopf se nos presenta, puesto que dicha característica esta garantizada debido a la región de atrapamiento $\Gamma$ descrita en la \Cref{re:atrapamiento}, y del hecho de que $(H,H)$ es un repulsor para el caso $B<B_c$, existe un ciclo límite según el Teorema de Poincaré-Bendixson.
+Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el caso $B=B_c$, ya que en este caso el punto de equilibrio es no hiperbólico, se es de importancia verificar si $(H, H)$ es un punto centro o un foco débil en el sistema no linealizado. Con el propósito de validar la estructura cualitativa en este caso, calcularemos el número de Lyapunov; esto no es sólo con este fin, sino con el de validar que tipo de bifurcación de Hopf se nos presenta, puesto que dicha característica esta garantizada debido a la región de atrapamiento $\Gamma$ descrita en la \Cref{re:atrapamiento}, y del hecho de que $(H,H)$ es un repulsor para el caso $B<B_c$, por lo que existe un ciclo límite según el Teorema de Poincaré-Bendixson.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{img/puntoDeEquilibrio(H,H).pdf}
+	\caption{Punto de equilibrio $(H, H)$ para diferentes valores paramétricos.}
+	\label{fig: eq(H,H)Modelo2}
+\end{figure}
 
 \subsubsection{Calculo del coeficiente de Lyapunov}
 Para proceder con el calculo del primer coeficiente de Lyapunov, debemos trasladar el punto de equilibrio $(H, H)$ al origen. Para ello, realicemos las sustituciones $u = \bar{u} + H$ y $v = \bar{v} + H$ en el sistema \eqref{eq: modelo2} y reemplazamos el valor crítico $B_c$ con el fin de que la traza se anule. Estos cambios se ven reflejados de la siguiente manera:
@@ -532,7 +563,7 @@ Así el sistema \eqref{eq: modelo2Hen0} pasa a ser:
 		\dfrac{d\bar{v}}{d \tau} = a\bar{u} - a\bar{v} + F_2(\bar{u}, \bar{v})
 	\end{cases},
 \end{equation}
-Dado que el sistema aún no posee la simetría esperada, debemos realizar la sustitución $(\bar{u}, \bar{v})^{T} = P \cdot (X, Y)^{T}$. El sistema transformado estará dado por $\dot{X} = P^{-1}Dh(0,0)P(X, Y)^{T}+P^{-1}F(P(X, Y)^{T})$, es decir:
+Dado que el sistema aún no posee la simetría esperada, debemos realizar la sustitución $(\bar{u}, \bar{v})^{T} = P \cdot (X, Y)^{T}$. El sistema transformado estará dado por $(\dot{X}, \dot{Y})^T = P^{-1}Dh(0,0)P(X, Y)^{T}+P^{-1}F(P(X, Y)^{T})$, es decir:
 \begin{equation}
 	\begin{cases}
 		\dot{X} = -\omega Y + G_1(X, Y) \\
@@ -549,7 +580,7 @@ donde
 		&= h_2(dX + Y, Y) - adX
 	\end{aligned}
 \end{equation*}
-contienen los terminos de orden superior del sistema. Nos ayudaremos de Mathematica para obetener la expansión de Taylor de orden 3.
+contienen los terminos de orden superior del sistema. Nos ayudaremos de Mathematica para obetener la expansión de Taylor de orden 3 de estas expresiones.
 \begin{equation*}
 	\begin{aligned}
 		G_1(X, Y) &= X [\left((3-B_c) A^2+6 m+13 n-H^2 (3 B_c+9 Q+1)\right) Y \\ 
@@ -592,10 +623,26 @@ donde cada derivada parcial está evaluada en el origen, las cuales están dadas
 		G_{2,YYY} &= 0
 	\end{aligned}
 \end{equation*}
-Reemplazando los valores conocidos $d, \; m, \; n, \; B_c$ y $Q$, tenemos que $L_1 = 0$ cuando $$[3H(3-H)-4]A^4 + 4H^3A^2 + (3-H)H^5 = 0.$$ La curva de Lyapunov puede observarse en la \autoref{fig: curvaL_1AH}.
-\begin{figure}[htbp]
+Reemplazando los valores conocidos $d, \; m, \; n, \; B_c$ y $Q$, tenemos que $$L_1 = -\dfrac{A^2 H(1 - H)([3H(3 - H)-4]A^4 +4H^3A^2 + (3 - H)H^5)}{2(A^2 + H^2)(H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2)},$$ donde el signo de $L_1$ dependerá exclusivamente del valor $$-\left([3H(3-H)-4]A^4 + 4H^3A^2 + (3-H)H^5 \right).$$ La curva de Lyapunov puede observarse en la \autoref{fig: curvaL_1AH}. Para el caso $L_1 > 0$, tendríamos un ciclo límite inestable, este caso es de vital importancia debido a las características del sistema, como la región $\Gamma$ es invariante, y los demás puntos críticos no poseen propiedades atractoras dentro de la región, las trayectorias fuera del ciclo límite inestable deben tender a otro ciclo limite estable, esto garantiza la existencia de otro ciclo límite para este caso.
+\begin{figure}
 	\centering
 	\includegraphics[width=.8\textwidth]{img/CurvaLyapunovAH.pdf}
-	\caption{cAPTION.}
+	\caption{Curva $L_1 = 0$ y la región dada por las restricciones $H<1/2$ y $A^2 < H(1-2H)$.}
 	\label{fig: curvaL_1AH}
+\end{figure}
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{img/HopfSuperCentrolineal.pdf}
+		\caption{Bifurcación de Hopf supercrítica ($L_1 = -0.0250864$) del sistema \eqref{eq: modelo2} para los valores $A = 0.05; \; H = 0.4; \; B=B_c=0.181538$ y $Q=0.609375$ con el punto crítico de estudio como un foco débil inestable.}
+		\label{fig: bifurcacionHopfsup}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{img/HopfSubCentrolineal.pdf}
+		\caption{Bifurcación de Hopf subcrítica ($L_1 = 0.0589$) del sistema \eqref{eq: modelo2} para los valores $A = 0.05; \; H = 0.06; \; B=B_c=0.109508$ y $Q=1.59278$ con el punto crítico de estudio como un foco débil estable.}
+		\label{fig: bifurcacionHopfsub}
+	\end{subfigure}
+	\caption{Bifurcación de Hopf del sistema \eqref{eq: modelo2}.}
+	\label{fig: bifurcacionHopf}
 \end{figure}
