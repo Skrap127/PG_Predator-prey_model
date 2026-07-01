@@ -151,7 +151,7 @@ Esto da paso a la siguiente proposición.
     El sistema \eqref{eq: modelo2} está definido en $$\tilde{\Omega} = \{ (u, v) \in \R^{2} \; | \; u \geq 0, \; v \geq 0 \}.$$
     Recordemos que el modelo original \eqref{eq:modelo1}, no está definido en el eje $y$ y en particular en $(0,0)$ debido a la forma de la respuesta funcional Leslie-Gower. Al expresar el sistema como un campo polinomial de quinto orden, los autores logran una extensión topológicamente equivalente que sí es válida en el origen. Esto permite estudiar la extinción simultánea de ambas especies, algo que el modelo original impedía analíticamente.
 \end{remark}
-Del cambio de variable $x = Ku$, podemos deducir que en un sentido biológico el máximo valor que puede tomar $u$ es $1$, debido a que $K$ representa el umbral máximo de presas que puede soportar el ambiente. Suponiendo que $u \in [0, 1]$, se puede evidenciar de la segunda ecuación del sistema \eqref{eq: modelo2}; que, para $v > 1$ el flujo se dirige hacia abajo en todos estos casos. Esto da paso al siguiente lema.
+Del cambio de variable $x = Ku$, podemos deducir que en un sentido biológico el máximo valor que puede tomar $u$ es $1$, debido a que $K$ representa el umbral máximo de presas que puede soportar el ambiente. Además como $y = nx$ representa la capacidad de carga del depredador, el máximo valor que puede tomar $y$ es $nK$, así del cambio de variable $y = n K v$, el máximo valor que puede tomar $v$ es también $1$. Por lo que sólo tiene sentido biológico analizar la siguiente región. % Suponiendo que $u \in [0, 1]$, se puede evidenciar de la segunda ecuación del sistema \eqref{eq: modelo2}; que, para $v > 1$ el flujo se dirige hacia abajo en todos estos casos. Esto da paso al siguiente lema.
 \begin{lem}
 	El conjunto $\Gamma = \{ (u, v) \in \R^{2} \; | \; 0 \leq u \leq 1, \; 0 \leq v \leq 1 \} \subset \tilde{\Omega}$ es una región positivamente invariante.
 \end{lem}
@@ -417,6 +417,7 @@ Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto
 \end{figure}
 
 \subsection{Estabilidad del punto de equilibrio $(H,H)$}
+\label{sec: HH}
 Con el fin de reducir los posibles casos que se pueden dar en los valores propios, reduciremos la cantidad de parámetros realizando la sustitución
 \begin{equation}
 	Q=\dfrac{(1-H)(A^2+H^{2})}{H^{2}},
@@ -431,18 +432,18 @@ anteriormente discutida en la \Cref{pro:exitenciaH}. Así, tendríamos que en $(
 	\end{bmatrix}.
 	\label{eq:jacobianaModelo2En(H,H)}
 \end{equation}
-Los valores propios se hallan del polinomio característico $\lambda^2 - \operatorname{tr}(A) \lambda + \det(A) = 0$, con $A = Dg(H,H)$, estos es:
+Los valores propios se hallan del polinomio característico $\lambda^2 - \operatorname{tr}(M) \lambda + \det(M) = 0$, con $M = Dg(H,H)$, estos es:
 \begin{equation*}
-	\lambda = \dfrac{\operatorname{tr}(A) \pm \sqrt{\Delta}}{2},
+	\lambda(\mu) = \dfrac{\operatorname{tr}(M) \pm \sqrt{\Delta}}{2},
 \end{equation*}
-donde, $\Delta = (\operatorname{tr}(A))^2 - 4\det(A)$ y
+donde $\mu = (A, \; B)$, $\Delta = (\operatorname{tr}(M))^2 - 4\det(M)$ y
 \begin{equation*}
 	\begin{aligned}
-		\operatorname{tr}(A) &= -H(B(A^{2}+H^{2})+H^{2}(2H-1)+A^2) \\
-		\det(A) &= BH^2(A^2+H^2)(H^3+A^2(2-H))
+		\operatorname{tr}(M) &= -H(B(A^{2}+H^{2})+H^{2}(2H-1)+A^2) \\
+		\det(M) &= BH^2(A^2+H^2)(H^3+A^2(2-H))
 	\end{aligned}.
 \end{equation*}
-Como $H \in (0, 1)$, $\det(A)>0$ por lo que $(H,H)$ es un punto no degenerado e hiperbólico o punto centro; además, no puede ser un punto silla. Así la estabilidad estaría determinada por el signo de la traza y del discriminante $\Delta$, para ello notemos que $\operatorname{tr}(A)=0$ si
+Como $H \in (0, 1)$, $\det(M)>0$ por lo que $(H,H)$ es un punto no degenerado e hiperbólico o un centro lineal; además, no puede ser un punto silla. Así la estabilidad estaría determinada por el signo de la traza y del discriminante $\Delta$, para ello notemos que $\operatorname{tr}(M)=0$ si
 \begin{equation}
 	B = \dfrac{H^2(1-2H) - A^2}{A^2 + H^2} := B_c,
 	\label{eq: Bcritico}
@@ -460,7 +461,21 @@ y puesto que $B>0$, esto se da bajo las restricciones: $H<1/2$ y $A^2 < H^2(1-2H
 	\subitem $\Delta > 0$, $(H,H)$ es un nodo estable.
 \end{itemize}				
 
-Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el caso $B=B_c$, ya que en este caso el punto de equilibrio es no hiperbólico, se es de importancia verificar si $(H, H)$ es un punto centro o un foco débil en el sistema no linealizado. Con el propósito de validar la estructura cualitativa en este caso, calcularemos el número de Lyapunov; esto no es sólo con este fin, sino con el de validar que tipo de bifurcación de Hopf se nos presenta, puesto que dicha característica esta garantizada debido a la región de atrapamiento $\Gamma$ descrita en la \Cref{re:atrapamiento}, y del hecho de que $(H,H)$ es un repulsor para el caso $B<B_c$, por lo que existe un ciclo límite según el Teorema de Poincaré-Bendixson.
+Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el caso $B=B_c$, ya que en este caso el punto de equilibrio es no hiperbólico, se es de importancia verificar si $(H, H)$ es un punto centro o un foco débil en el sistema no linealizado. Con el propósito de validar la estructura cualitativa en este caso, calcularemos el número de Lyapunov; esto no es sólo con este fin, sino con el de validar que tipo de bifurcación de Hopf se nos presenta, puesto que dicha característica esta garantizada debido al siguiente teorema.
+
+\begin{teo}
+	Una bifurcación de Hopf ocurre en el equilibrio $(H, H)$ para el valor de bifurcación $B = B_c$.
+\end{teo}
+\begin{proof}
+    Para que ocurra una bifurcación de Hopf se deben satisfacer la condición espectral y la de transversalidad. Por lo anteriormente planteado, el Jacobiano de la función evaluado en el equilibrio $(H, H)$ para $B = B_c$, posee un par de autovalores imaginarios puros $\lambda_1, \; \lambda_2 = \pm \omega i$, donde $\omega = \sqrt{\det (M)} > 0$, satisfaciendo así la condición espectral. Por otra parte, la velocidad de cruce de la parte real de los autovalores respecto al parámetro de bifurcación $B$, debe ser distinta de cero en el punto crítico:
+    \begin{equation*}
+    	\begin{aligned}
+    		\left. \frac{d}{dB}(Re(\lambda(\mu))) \right|_{B=B_c} &= \left. \frac{d}{dB}\left(\frac{\operatorname{tr}(M)}{2}\right) \right|_{B=B_c} \\
+    		&= -\frac{1}{2}H(A^{2}+H^{2}) \neq 0
+    	\end{aligned}
+    \end{equation*}
+    Cumpliendo así las condiciones para que una bifurcación de Hopf ocurra para $B = B_c$.
+\end{proof}
 
 \begin{figure}
 	\centering
@@ -469,8 +484,8 @@ Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el
 	\label{fig: eq(H,H)Modelo2}
 \end{figure}
 
-\subsubsection{Calculo del coeficiente de Lyapunov}
-Para proceder con el calculo del primer coeficiente de Lyapunov, debemos trasladar el punto de equilibrio $(H, H)$ al origen. Para ello, realicemos las sustituciones $u = \bar{u} + H$ y $v = \bar{v} + H$ en el sistema \eqref{eq: modelo2} y reemplazamos el valor crítico $B_c$ con el fin de que la traza se anule. Estos cambios se ven reflejados de la siguiente manera:
+\subsubsection{Calculo del primer coeficiente de Lyapunov}
+Para proceder con el calculo del primer coeficiente de Lyapunov, debemos trasladar el punto de equilibrio $(H, H)$ al origen. Para ello, realicemos las sustituciones $u = \bar{u} + H$ y $v = \bar{v} + H$ en el sistema \eqref{eq: modelo2} y reemplazamos el valor crítico $B_c$ con el fin de obtener $(H,H)$ como un centro lineal (Valores propios complejos puros en la matriz jacobiana del sistema trasladado en el punto $(H,H)$). Estos cambios se ven reflejados de la siguiente manera:
 \begin{equation}
 	W_{\eta}:
 	\begin{cases}
@@ -486,7 +501,7 @@ donde,
 		h_2(\bar{u}, \bar{v}) &= B_c(\bar{u} - \bar{v})[(\bar{u} + H)^{2} + A^{2}](\bar{v} + H)
 	\end{aligned}
 \end{equation*}
-La matriz jacobiana en el origen estaría dada simplemente por la matriz \eqref{eq:jacobianaModelo2En(H,H)} sustituyendo $B=B_c$:
+Por la igualdad \eqref{eq: Q}, la matriz jacobiana del sistema \eqref{eq: modelo2Hen0} en el origen estaría dada simplemente por la matriz \eqref{eq:jacobianaModelo2En(H,H)} sustituyendo $B=B_c$:
 \begin{equation*}
 	Dh(0,0) =
 	\begin{bmatrix}
@@ -507,7 +522,7 @@ Ahora debemos transformar el sistema a su forma normal:
 	\end{cases},
 	\label{eq: normalForm}
 \end{equation}
-donde $\omega = \sqrt{\det (A)}$. Para ello debemos hallar un autovector asociado al valor propio complejo puro positivo de la matriz jacobiana $Dh(0,0)$: $$\omega i= \sqrt{\det (A)} \; i = H\sqrt{(H^3+A^2(2-H))(H^2(1-2H) - A^2)} \; i := H \sqrt{mn} \; i.$$ Esto es equivalente a solucionar el sistema, $(Dh(0, 0) - \omega i I)U = 0$, esto es:
+donde $\omega = \sqrt{\det (M)}$. Para ello debemos hallar un autovector asociado al valor propio complejo puro positivo de la matriz jacobiana $Dh(0,0)$: $$\omega i= \sqrt{\det (M)} \; i = H\sqrt{(H^3+A^2(2-H))(H^2(1-2H) - A^2)} \; i := H \sqrt{mn} \; i.$$ Esto es equivalente a solucionar el sistema, $(Dh(0, 0) - \omega i I)U = 0$, esto es:
 \begin{equation}
 	\begin{cases}
 	    (a - \omega i)U_1 + b U_2 = 0\\
@@ -580,10 +595,10 @@ donde
 		&= h_2(dX + Y, Y) - adX
 	\end{aligned}
 \end{equation*}
-contienen los terminos de orden superior del sistema. Nos ayudaremos de Mathematica para obetener la expansión de Taylor de orden 3 de estas expresiones.
+contienen los terminos de orden superior del sistema. La expansión de Taylor de orden 3 de estas expresiones, estarán dadas por
 \begin{equation*}
 	\begin{aligned}
-		G_1(X, Y) &= X [\left((3-B_c) A^2+6 m+13 n-H^2 (3 B_c+9 Q+1)\right) Y \\ 
+		G_1(X, Y) &= X [\left((3-B_c) A^2+6 m+13 n-H^2 (3 B_c+9 Q+1)\right) Y \\
 		&-3 \left(A^2+H (B_c+10 H+3 Q-4)\right) Y^2 \\
 		&+(-B_c-20 H-3 Q+4) Y^3+\mathcal{O}\left(Y^4\right)] \\
 		&+X^2 [\frac{1}{2} d \left(3 A^2+6 m+13 n-H^2 (4 B_c+6 Q+1)\right) \\
@@ -623,7 +638,20 @@ donde cada derivada parcial está evaluada en el origen, las cuales están dadas
 		G_{2,YYY} &= 0
 	\end{aligned}
 \end{equation*}
-Reemplazando los valores conocidos $d, \; m, \; n, \; B_c$ y $Q$, tenemos que $$L_1 = -\dfrac{A^2 H(1 - H)([3H(3 - H)-4]A^4 +4H^3A^2 + (3 - H)H^5)}{2(A^2 + H^2)(H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2)},$$ donde el signo de $L_1$ dependerá exclusivamente del valor $$-\left([3H(3-H)-4]A^4 + 4H^3A^2 + (3-H)H^5 \right).$$ La curva de Lyapunov puede observarse en la \autoref{fig: curvaL_1AH}. Para el caso $L_1 > 0$, tendríamos un ciclo límite inestable, este caso es de vital importancia debido a las características del sistema, como la región $\Gamma$ es invariante, y los demás puntos críticos no poseen propiedades atractoras dentro de la región, las trayectorias fuera del ciclo límite inestable deben tender a otro ciclo limite estable, esto garantiza la existencia de otro ciclo límite para este caso.
+Reemplazando los valores conocidos $d, \; m, \; n, \; B_c$ y $Q$, tenemos que $$L_1 = \dfrac{A^2 H(1 - H)([4 - 3H(3 - H)]A^4 -4H^3A^2 - (3 - H)H^5)}{2(A^2 + H^2)(H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2)},$$ donde el signo de $L_1$ dependerá exclusivamente del valor
+\begin{equation}
+	[4 - 3H(3-H)]A^4 - 4H^3A^2 - (3-H)H^5,
+	\label{eq: sgnL1}
+\end{equation}
+con $4 - 3H(3-H) > 0$ puesto que $H \in (0, 1/2)$. El primer coeficiente de Lyapunov se anulará para:
+\begin{equation*}
+	\begin{aligned}
+		A^2 &= \dfrac{4H^3 \pm \sqrt{16 H^6 + 4[4 - 3H(3-H)] (3-H)H^5}}{2 [4-3H(3-H)]} \\
+		&= \dfrac{2H^3 + H^2(1 - H)\sqrt{3H(4 - H)}}{4-3H(3-H)} := A^2_c
+	\end{aligned}
+	\label{eq: parametroBifHopfGeneralizada}
+\end{equation*}
+La curva $L_1 = 0$ y la región de restricciones del sistema, puede observarse en la \autoref{fig: curvaL_1AH}. El modelo contará con una bifurcación subcrítica ($L_1 > 0$) y un ciclo límite inestable para los valores de $A$ y $H$ que se encuentren por encima de esta curva y dentro de la región restrictiva, de manera análoga el sistema poseerá una bifurcación supercrítica con un ciclo límite estable para los valores que se encuentren debajo de esta curva y dentro de la región dada por las restricciones del sistema. El caso $L_1 > 0$, es de vital importancia debido a las características del sistema, como la región $\Gamma$ es invariante, y los demás puntos críticos no poseen propiedades atractoras dentro de la región, las trayectorias fuera del ciclo límite inestable deben tender a otro ciclo limite estable según el teorema de Poincaré-Bendixson, esto garantiza la existencia de un ciclo límite adicional en este caso.
 \begin{figure}
 	\centering
 	\includegraphics[width=.8\textwidth]{img/CurvaLyapunovAH.pdf}
@@ -646,3 +674,34 @@ Reemplazando los valores conocidos $d, \; m, \; n, \; B_c$ y $Q$, tenemos que $$
 	\caption{Bifurcación de Hopf del sistema \eqref{eq: modelo2}.}
 	\label{fig: bifurcacionHopf}
 \end{figure}
+
+Ahora, nótese que para el valor paramétrico \eqref{eq: parametroBifHopfGeneralizada}, el primer coeficiente de lyapunov se anula, teniendo como consecuencia no poder definir la estabilidad del punto de equilibrio $(H, H)$, en este caso. Para poder determinarla debemos proceder a calcular el segundo coeficiente de lyapunov. Esto además nos permitirá determinar que tipo de bifurcación de Bautin se nos presenta.
+
+\begin{teo}
+	Una bifurcación de Bautín (Hopf generalizada) ocurre en el equilibrio $(H, H)$ para los valores de bifurcación $\mu_0 = (A_c, B_c)$.
+\end{teo}
+\begin{proof}
+	Este hecho se da simplemente del caso de que el sistema posee valores propios complejos puros para $B=B_c$, y de que $L_1 = 0$ para $A = A_c$. Donde
+	\begin{equation}
+		B_c = \frac{2-3H - \sqrt{3H(4 - H)}}{2}
+	\end{equation}
+	bajo la restricción $H < (3 - \sqrt{6})/3 \approx 0.1835$ que serían los valores para las cuales se satisfacen las restricciones $H<1/2$, $A^2 < H^2(1-2H)$ planteadas en la \autoref{sec: HH} al sustituir $A = A_c$.
+\end{proof}
+
+\subsubsection{Calculo del segundo coeficiente de Lyapunov}
+Procedemos a reemplazar el valor paramétrico $A=A_c$ en el sistema \eqref{eq: modelo2Hen0} con el fin de se satisfagan las condiciones necesarias para la bifurcación de Bautin.
+\begin{equation}
+	Z_{\eta}:
+	\begin{cases}
+		\dfrac{d\bar{u}}{d \tau} = \bar{h_1}(u, v)\\
+		\dfrac{d\bar{v}}{d \tau} = \bar{h_2}(u, v)
+	\end{cases},
+	\label{eq: modelo2Hen0Ac}
+\end{equation}
+donde,
+\begin{equation*}
+	\begin{aligned}
+		\bar{h_1}(\bar{u}, \bar{v}) &= [(1 - \bar{u} - H)[(\bar{u} + H)^{2} + A_c^{2}] - Q (\bar{u} + H) (\bar{v} + H)](\bar{u} + H)^{2} \\
+		\bar{h_2}(\bar{u}, \bar{v}) &= B_c(\bar{u} - \bar{v})[(\bar{u} + H)^{2} + A_c^{2}](\bar{v} + H)
+	\end{aligned}
+\end{equation*}
