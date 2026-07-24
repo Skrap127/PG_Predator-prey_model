@@ -94,10 +94,10 @@ Sean $U \subseteq \Rm, V \subseteq \Rn$ y $k\in \N_{0}$. Entonces $C^{k}(U, V)$ 
 	\label{eq: generalFormEDO}
 \end{equation}
 
-donde $F \in C(U)$ con $U$ un subconjunto abierto de $\R^{k+2}$, $x = x(t) \subseteq C(J)$ con $J \subseteq \R$ y
+donde $F \in C(U)$ con $U$ un subconjunto abierto de $\R^{k+2}$, \linebreak $x = x(t) \in C^k(J)$ con $J \subseteq \R$ y
 
 \begin{equation*}
-	x^{(k)}(t) = \frac{d^{k}x(t)}{dt^{k}}, \quad k \in \N_{0}.
+	x^{(k)}(t) = \frac{d^{k}x(t)}{dt^{k}}, \quad k \in \N.
 \end{equation*}
 
 Al máximo orden $k$ de la derivada $x^{(k)}$ en \eqref{eq: generalFormEDO} se le llama el \textit{orden} de la ecuación diferencial. Frecuentemente a $t$ se le conoce como la \textit{variable independiente} y a $x$ como la \textit{variable dependiente}.
@@ -124,7 +124,7 @@ Un \textit{sistema no lineal} de EDOs \textit{no autónomo} de primer orden es u
 	\label{eq:generalFormSisEDOs}
 \end{equation}
 
-donde $f:E \longrightarrow \Rn$ con $E$ un subconjunto abierto de $\R^{n+1}$, $x = (x_{1}, \cdots, x_{n})$ y
+donde $f:E \longrightarrow \Rn$ con $E$ un subconjunto abierto de $\R^{n+1}$, \linebreak $x = (x_{1}, \ldots, x_{n})$ y
 
 \begin{equation*}
 	\dot{x} = \frac{dx}{dt} = 
@@ -180,69 +180,69 @@ Sea $J=(\alpha, \beta)$ la unión de todos los intervalos abiertos $I$ tales que
 
 El sistema \eqref{eq: sisAut} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del sistema \eqref{eq: sisAut} también se denominan \textit{curvas solución}, \textit{trayectorias} u \textit{órbitas}. Esto, en el sentido cualitativo.
 
-El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: pvi} en el plano $\Rn$.
+El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: sisAut} en el plano $\Rn$.
 
 En un \textit{sistema autónomo bidimensional}
 \begin{equation}
 	\begin{aligned}
-		\dot{x} &= f(x, y) \\
-		\dot{y} &= g(x, y),
+		\dot{x} &= f_1(x, y) \\
+		\dot{y} &= f_2(x, y),
 	\end{aligned}
 	\label{eq: sisAutBid}
 \end{equation}
 
-podemos encontrar una aproximación global de curvas solución, a través del método de las isoclinas. Del sistema \eqref{eq: sisAutBid} obtenemos el sistema de primer orden $dy/dx = g(x, y)/f(x, y)$. Ignorando el hecho de que esto podría no estar bien definido en $f(x, y) = 0$, el método consiste en encontrar curvas $y=h(x)$ o $x=h(y)$ en las que la pendiente del campo vectorial $dy/dx = c$ es constante. Dichas curvas se obtienen solucionando la ecuación
+podemos encontrar una aproximación global de curvas solución, a través del método de las isoclinas. Del sistema \eqref{eq: sisAutBid} obtenemos el sistema de primer orden $dy/dx = f_2(x, y)/f_1(x, y)$. Ignorando el hecho de que esto podría no estar bien definido en $f_1(x, y) = 0$, el método consiste en encontrar curvas $y=h(x)$ o $x=h(y)$ en las que la pendiente del campo vectorial $dy/dx = c$ es constante. Dichas curvas se obtienen solucionando la ecuación
 
 \begin{equation*}
-	g(x, y) = cf(x, y),
+	f_2(x, y) = cf_1(x, y),
 	\label{eq: pendiente}
 \end{equation*}
 
-y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, pues su importancia radica en la interpretación gráfica de esta. Se muestra un ejemplo de todo lo anterior en la \autoref{fig: example}.
+y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, pues su importancia radica en la interpretación gráfica de esta. Se muestra un ejemplo de todo lo anterior en la \autoref{fig: example}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/Example.pdf}
-	\caption{Ejemplo de campo vectorial, trayectorias, retrato fase e isoclinas ($c=0$) del sistema \eqref{eq: pvi} asociado a $f(x)=(x_{1},\sin{x_{2}})$.}
+	\caption{Ejemplo de campo vectorial, trayectorias, retrato fase e isoclinas ($c=0$) del sistema \eqref{eq: sisAut} asociado a $f(x,y)=(x,\sin{y})$.}
 	\label{fig: example}
 \end{figure}
 
-Otro caso relevante para nuestro estudio corresponde al sistema autónomo bidimensional \eqref{eq: sisAutBid}, o sistema planar, definido por funciones polinómicas $f$ y $g$ (denotadas, por ejemplo, como $P(x,y)$ y $Q(x,y)$). A este tipo de sistemas se les denomina \emph{sistemas diferenciales polinómicos} de grado $n$, donde $n$ representa el grado máximo de los polinomios que componen el sistema. Usualmente, se asocian a un campo vectorial $X = P(x,y) \frac{\partial}{\partial x} + Q(x,y) \frac{\partial}{\partial y}$, con $P$ y $Q$ funciones $C^r$ definidas en un abierto $U \subset \R^2$; una notación simplificada es $X = (P,Q)$. No existe distinción entre el campo vectorial $X$ y el sistema polinómico, ya que ambas representan meras formas equivalentes de denotación.
+Otro caso relevante para nuestro estudio corresponde al sistema autónomo bidimensional \eqref{eq: sisAutBid}, o sistema planar, definido por funciones polinómicas $f_1$ y $f_2$ (denotadas, por ejemplo, como $P(x,y)$ y $Q(x,y)$). A este tipo de sistemas se les denomina \emph{sistemas diferenciales polinómicos} de grado $n$, donde $n$ representa el grado máximo de los polinomios que componen el sistema. Usualmente, se asocian a un campo vectorial $X = P(x,y) \frac{\partial}{\partial x} + Q(x,y) \frac{\partial}{\partial y}$, con $P$ y $Q$ funciones en $C^r(U)$, donde, $U \subset \R^2$ es un abierto; una notación simplificada es $X = (P,Q)$. No existe distinción entre el campo vectorial $X$ y el sistema polinómico, ya que ambas representan formas equivalentes de denotación.
 
 En algunas ocasiones las trayectorias o curvas solución de un sistema pueden ser cerradas y aisladas, es decir, no hay más trayectorias cerradas en una cierta región, dichas curvas solución son denominadas un \textit{ciclo límite}; si todas las trayectorias vecinas se acercan al ciclo límite decimos que el ciclo límite es \textit{estable} o \textit{atractor}, en otros casos el ciclo límite es \textit{inestable} o en casos excepcionales \textit{medio-estable}, donde las trayectorias vecinas se alejan y se acercan simultáneamente dentro y fuera del ciclo límite. En la \autoref{fig: CicloLimiteEstableInestable} se muestra un ejemplo de estos dos primeros casos.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/CicloLimEstInest.pdf}
-	\caption{Ejemplo de ciclos limites del sistema \eqref{eq: pvi} asociado a $f(x) = (-x_{2} + x_{1}(r^{4} -3r^{2} + 1), x_{1} + x_{2}(r^{4} -3r^{2} + 1))$ con $r^{2} = x_{1}^{2} + x_{2}^{2}$.}
+	\caption{Ejemplo de ciclos limites del sistema \eqref{eq: sisAut} asociado a \linebreak $f(x, y) = (-y + x(r^{4} -3r^{2} + 1), x + y(r^{4} -3r^{2} + 1))$ con $r^{2} = x^{2} + y^{2}$.}
 	\label{fig: CicloLimiteEstableInestable}
 \end{figure}
 
 \begin{defi}
-	Sea $\mathcal{M}_{n}(\R)$ el conjunto de matrices cuadradas de tamaño $n$ con entradas en $\R$ y sea $A \in \mathcal{M}_{n}(\R)$. Un escalar $\lambda \in \R$ es un valor propio de $A$ si existe un vector no nulo $v \in \Rn$ tal que, $Av = \lambda v$. Un vector $v \in \Rn$ tal que $Av = \lambda v$ es llamado un vector propio de $A$ asociado al valor propio $\lambda$.
+	Sea $\mathcal{M}_{n}(\R)$ el conjunto de matrices cuadradas de tamaño $n$ con entradas en $\R$ y sea $A \in \mathcal{M}_{n}(\R)$. Un escalar $\lambda \in \R$ es un valor propio de $A$ si existe un vector no nulo $v \in \Rn$ tal que, $Av = \lambda v$. Un vector no nulo $v \in \Rn$ tal que $Av = \lambda v$ es llamado un vector propio de $A$ asociado al valor propio $\lambda$.
 \end{defi}
 
 \begin{defi}
-	Sea $A \in \mathcal{M}_{n}(\R)$ decimos que $A$ es diagonalizable si existe una matriz invertible $P \in \mathcal{M}_{n}(\R)$ y una matriz diagonal $D$ tal que $P^{-1}AP = D$.
+	Sea $A \in \mathcal{M}_{n}(\R)$ decimos que $A$ es diagonalizable si existe una matriz invertible $P \in \mathcal{M}_{n}(\R)$ y una matriz diagonal $D \in \mathcal{M}_{n}(\R)$ tal que $P^{-1}AP = D$.
 \end{defi}
 
 \begin{defi}
-	Un punto $x_{0} \in \Rn$ es llamada una singularidad, un punto de equilibrio o punto crítico de \eqref{eq: sisAut} si $f(x_{0})=0$. Un punto crítico $x_{0}$ es llamado un punto de equilibrio hiperbólico de \eqref{eq: sisAut} si ninguno de los valores propios de la matriz jacobiana $Df(x_{0})$ tiene parte real cero, en caso contrario, se dice no hiperbólico. El sistema lineal \eqref{eq: sisLinAuto} con la matriz $A = Df(x_{0})$ es llamado la linealización de \eqref{eq: sisAut} en el punto $x_{0}$.
+	Un punto $x_{0} \in \Rn$ es llamada una singularidad, un punto de equilibrio o punto crítico de \eqref{eq: sisAut} si $f(x_{0})=0$. Un punto crítico $x_{0}$ es llamado un punto crítico hiperbólico de \eqref{eq: sisAut} si ninguno de los valores propios de la matriz jacobiana $Df(x_{0})$ tiene parte real cero, en caso contrario, se dice no hiperbólico. El sistema lineal \eqref{eq: sisLinAuto} con la matriz $A = Df(x_{0})$ es llamado la linealización de \eqref{eq: sisAut} en el punto $x_{0}$.
 \end{defi}
 
 \begin{defi}
-	Un punto crítico $x_{0} \in \Rn$ es llamado un sumidero de \eqref{eq: sisAut} si todos los valores propios de la matriz jacobiana $Df(x_{0})$ tienen parte real negativa; es llamado una fuente de \eqref{eq: sisAut} si todos los valores propios de la matriz $Df(x_{0})$ tienen parte real positiva; y es llamado un punto silla de \eqref{eq: sisAut} si es un punto de equilibrio hiperbólico y $Df(x_{0})$ tiene al menos un valor propio con parte real positiva y al menos un valor propio con parte real negativa.
+	Un punto crítico $x_{0} \in \Rn$ es llamado un sumidero de \eqref{eq: sisAut} si todos los valores propios de la matriz jacobiana $Df(x_{0})$ tienen parte real negativa; es llamado una fuente de \eqref{eq: sisAut} si todos los valores propios de la matriz $Df(x_{0})$ tienen parte real positiva; y es llamado un punto silla de \eqref{eq: sisAut} si es un punto crítico hiperbólico y $Df(x_{0})$ tiene al menos un valor propio con parte real positiva y al menos un valor propio con parte real negativa.
 \end{defi}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=1\textwidth]{img/EquilibriumPoints.pdf}
-	\caption{Ejemplo de puntos de equilibrio en el origen de sistemas lineales bidimensionales.}
+	\caption{Ejemplo de puntos críticos en el origen de sistemas lineales bidimensionales.}
 	\label{fig: EquilibriumPoints}
 \end{figure}
 
 \begin{defi}
-	Sean $E$ un subconjunto de $\Rn$, $f \in C^{1}(E)$ y $\phi_{t}$ el flujo del sistema \eqref{eq: sisAut} definida para todo $t \in \R$. Entonces un conjunto $S \subset E$ es llamado invariante con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t\in \R$, y $S$ es llamado invariante positivo (o negativo) con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t \geq 0$ (o $t\leq0$). Si además, $S$ es un conjunto conexo y cerrado, decimos que $S$ es una región de atrapamiento o "trapping region"\cite[p. 204]{strogatz2014}.
+	Sean $E$ un subconjunto de $\Rn$, $f \in C^{1}(E)$ y $\phi_{t}$ el flujo del sistema \eqref{eq: sisAut} definida para todo $t \in \R$. Entonces un conjunto $S \subset E$ es llamado invariante con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t\in \R$, y $S$ es llamado invariante positivo (o negativo) con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t \geq 0$ (o $t\leq0$). Si además, $S$ es un conjunto conexo y cerrado, decimos que $S$ es una región de atrapamiento o ``trapping region" \cite[p. 204]{strogatz2014}.
 \end{defi}
 
 \begin{teo}[Poincaré-Bendixson]\label{teo: poincareB}
@@ -264,24 +264,24 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 			W^{u}(x_{0}) &= \{ x\in U | \phi_{t}(x) \rightarrow x_{0} \text{ cuando } t\rightarrow -\infty, \text{y } \phi_{t}(x)\in U \text{ para todo } t \leq 0 \},
 		\end{aligned}
 	\end{equation*}
-	donde $U \subseteq \Rn$ es una vecindad del punto de equilibrio $x_{0}$. Si $U = \Rn$ los conjuntos $W^{s}(x_{0})$ y $W^{u}(x_{0})$ son llamados las variedades globales estable e inestable, respectivamente, del punto crítico $x_{0}$. 
+	donde $U \subseteq \Rn$ es una vecindad del punto crítico $x_{0}$. Si $U = \Rn$ los conjuntos $W^{s}(x_{0})$ y $W^{u}(x_{0})$ son llamados las variedades globales estable e inestable, respectivamente, del punto crítico $x_{0}$. 
 \end{defi}
 
-En ocasiones puede ocurrir que ciertas orbitas inician en la variedad inestable de un punto de equilibrio $x_{0}$ y finalizan en la variedad estable de otro punto crítico $x_{1}$. Tales trayectorias son llamadas \textit{órbitas heteroclínicas} si $x_{0} \neq x_{1}$ y \textit{órbitas homoclínicas} si $x_{0} = x_{1}$.
+En ocasiones puede ocurrir que ciertas orbitas inician en la variedad inestable de un punto crítico $x_{0}$ y finalizan en la variedad estable de otro punto crítico $x_{1}$. Tales trayectorias son llamadas \textit{órbitas heteroclínicas} si $x_{0} \neq x_{1}$ y \textit{órbitas homoclínicas} si $x_{0} = x_{1}$.
 
-Algo también de relevancia que se puede observar en la \autoref{fig:comparacion}, es que las trayectorias resaltadas dividen el plano de fases en regiones con diferentes comportamientos cualitativos, por ejemplo, la órbita homoclínica de la \autoref{fig: homoclinic} divide el plano de fase en dos regiones: una con un comportamiento hiperbólico y la otra con una dinámica periódica alrededor del punto $(0,1)$. Dichas trayectorias con esta cualidad son denominadas \textit{separatrices}.
+Algo también de relevancia que se puede observar en la \autoref{fig:comparacion}, es que las trayectorias resaltadas dividen el plano de fases en regiones con diferentes comportamientos cualitativos, por ejemplo, la órbita homoclínica de la \linebreak \autoref{fig: homoclinic} divide el plano de fase en dos regiones: una con un comportamiento hiperbólico y la otra con una dinámica periódica alrededor del punto $(0,1)$. Dichas trayectorias con esta cualidad son denominadas \textit{separatrices}.
 
 \begin{figure} %[H] Quita la ubicación automática
 	\centering
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{img/Heteroclinic.pdf}
-		\caption{Retrato fase del sistema \eqref{eq: sisAut} asociado a $f(x) = (y-y^3, -x-y^2)$.}
+		\caption{Retrato fase del sistema \eqref{eq: sisAut} asociado a $f(x,y) = (y-y^3, -x-y^2)$.}
 		\label{fig: heteroclinic}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{img/Homoclinic.pdf}
-		\caption{Retrato fase del sistema \eqref{eq: sisAut} asociado a $f(x) = (y, x-x^2)$.}
+		\caption{Retrato fase del sistema \eqref{eq: sisAut} asociado a $f(x,y) = (y, x-x^2)$.}
 		\label{fig: homoclinic}
 	\end{subfigure}
 	\caption{Ejemplos de variedad estable e inestable, órbitas heroclínicas y órbita homoclínica.}
@@ -289,7 +289,7 @@ Algo también de relevancia que se puede observar en la \autoref{fig:comparacion
 \end{figure}
 
 \begin{teo}[Hartman-Grobman]\label{teo: hartman}
-	Sea $E$ un subconjunto abierto de $\Rn$ que contiene al origen, sea $f \in C^{1}(E)$, y sea $\phi_{t}$ el flujo del sistema no lineal \eqref{eq: sisAut}. Suponga que $0$ es un punto de equilibrio hiperbólico. Entonces existe un homeomorfismo $H$ de un conjunto abierto $U$ que contiene al origen hacia un conjunto abierto $V$ que contiene al origen, tal que para cada $x_{0} \in U$, existe un intervalo abierto $I_{0} \subset \R$ que contiene al cero, tal que para todo $x_{0} \in U$ y $t \in I_{0}$
+	Sea $E$ un subconjunto abierto de $\Rn$ que contiene al origen, sea $f \in C^{1}(E)$, y sea $\phi_{t}$ el flujo del sistema no lineal \eqref{eq: sisAut}. Suponga que $0$ es un punto crítico hiperbólico. Entonces existe un homeomorfismo $H$ de un conjunto abierto $U$ que contiene al origen hacia un conjunto abierto $V$ que contiene al origen, tal que para cada $x_{0} \in U$, existe un intervalo abierto $I_{0} \subset \R$ que contiene al cero, tal que para todo $x_{0} \in U$ y $t \in I_{0}$
 	
 	\begin{equation*}
 		H \circ \phi_{t}(x_{0}) = e^{At}H(x_{0});
@@ -316,10 +316,11 @@ En la teoría cualitativa de los sistemas dinámicos, especialmente para sistema
 Sea 0 un punto de equilibrio de un campo vectorial $C^{\infty}$, $X$  en $\R^{2}$. Considere la función
 \begin{equation}
 	\begin{aligned}
-		\psi : \mathbb{S}^{2} &\longrightarrow \R^{2} \\
-		(\theta , r) &\longmapsto (r \, \cos{\theta}, r \, \sin{\theta}).
+		\psi : \mathbb{S}^{1} \times \mathbb{R} &\longrightarrow \R^{2} \\
+		(\theta , r) &\longmapsto (r \, \cos{\theta}, r \, \sin{\theta}),
 	\end{aligned}
 \end{equation}
+donde $\mathbb{S}^{1}$ representa la circunferencia unitaria centrada en el origen.
 Podemos definir un campo vectorial suave ($C^{\infty}$), $\tilde{X}$ en el cilindro $\mathbb{S}^{1} \times \mathbb{R}$ tal que la aplicacion lineal $\psi_{*}:T_{p}M \longrightarrow T_{\psi(p)}M$ envia el campo vectorial $\tilde{X}$ a $X$, es decir, $\psi_{*}(\tilde{X})=X$, en el sentido que, $D\psi_{v}(\tilde{X}(v)) = X(\psi(v))$. Esto se llama el retroceso (pull back) de $X$ por $\psi$. No es nada más que $X$ escrito en coordenadas polares. La aplicación $\psi$ es un difeomorfismo suave, por lo tanto, un cambio de coordenadas suave en $\mathbb{S}^{1} \times (0,\infty)$, pero no en $\{r=0\}$; aquí, $\psi$ envía $\{r=0\}$ a $(0,0)$, y como tal, la aplicación inversa $\psi^{-1}$ ``explota'' el origen a un círculo. Para estudiar el retrato de fases de $X$ en un vecindario $V$ del origen, basta claramente estudiar el retrato de fases de $\tilde{X}$ en el vecindario $\psi^{-1}(V)$ del círculo $\mathbb{S}^{1}\times \{0\}$. Básicamente, este método se basa en convertir el sistema a coordenadas polares y estudiarlo en $r=0$, en caso de que el campo vectorial se anule, consideramos el nuevo campo vectorial $$\bar{X}=\dfrac{1}{r^{k}}\tilde{X},$$ donde $k$ es el menor natural que no permite esta nulidad; este cociente no cambia las órbitas de $\tilde{X}$ ni su sentido de dirección, sino la parametrización por tiempo $t$. 
 
 Aunque el cilindro es una buena superficie para obtener una visión global de $\tilde{X}$ y su retrato de fases, a menudo es menos apropiado para hacer cálculos, ya que constantemente tenemos que tratar con expresiones trigonométricas. Por esa razón puede ser preferible hacer los cálculos en diferentes cartas.
@@ -403,11 +404,11 @@ Si
 	\dot{x} = f_{\mu}(x) \quad x \in \Rn, \quad \mu \in \R^{k}
 	\label{eq: sisParametro}
 \end{equation}
-es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, la estructura cualitativa del flujo puede cambiar, en particular, puntos críticos pueden ser creados o destruidos, o también su estabilidad puede cambiar, de igual manera trayectorias cerradas pueden aparecer o desaparecer. Estos cambios cualitativos en las dinámicas del sistema son llamadas \textit{bifurcaciones} y los valores paramétricos para los cuales este cambio ocurre son llamados \textit{valores de bifurcación}. Dependiendo del comportamiento del sistema al manipular dichos parámetros surgen diversos tipos de bifurcación.
+es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, la estructura cualitativa del flujo puede cambiar, en particular, puntos críticos pueden ser creados o destruidos, o también su estabilidad puede cambiar, de igual manera trayectorias cerradas pueden aparecer o desaparecer. Estos cambios cualitativos en las dinámicas del sistema son llamadas \textit{bifurcaciones} y los valores paramétricos para los cuales este cambio ocurre son llamados \textit{valores de bifurcación}. Dependiendo del comportamiento del sistema al manipular dichos parámetros surgen diversos tipos de bifurcación. Sin perdida de generalidad vamos a suponer que en cada un de los tipos de bifurcación que veremos a continuación el valor de bifurcación es $\mu=0$.
 
 \subsection*{Bifurcación silla-nodo}
 
-La bifurcación silla-nodo es el mecanismo básico en el cual puntos de equilibrio son creados y destruidos dependiendo de los parametros usados en el sistema \ref{eq: sisParametro}. En la \autoref{fig: bifSillaNodo} se ejemplifica este tipo de bifurcación.
+La bifurcación silla-nodo es el mecanismo básico en el cual puntos de equilibrio son creados y destruidos dependiendo de los parametros usados en el sistema \ref{eq: sisParametro}. En la \autoref{fig: bifSillaNodo} se ejemplifica este tipo de bifurcación, en el cual para $\mu<0$ no existe ningún punto crítico, para $\mu=0$ existe un único punto crítico y para $\mu>0$ hay presencia de dos puntos críticos.
 
 \begin{figure}[H]
 	\centering
@@ -418,7 +419,7 @@ La bifurcación silla-nodo es el mecanismo básico en el cual puntos de equilibr
 
 \subsection*{Bifurcación transcrítica}
 
-Existen ciertas situaciones científicas en las que debe existir un punto fijo para todos los valores de un parámetro y nunca puede destruirse. Por ejemplo, en ecuaciones logísticas y otros modelos simples para el crecimiento de una sola especie, existe un punto fijo en la población cero, independientemente del valor de la tasa de crecimiento. Sin embargo, dicho punto fijo puede cambiar su estabilidad al variar el parámetro. La bifurcación transcrítica es el mecanismo estándar para tales cambios de estabilidad. En la \autoref{fig: bifTranscritica} se ejemplifica este tipo de bifurcación.
+Existen ciertas situaciones científicas en las que debe existir un punto crítico para todos los valores de un parámetro y nunca puede destruirse. Por ejemplo, en ecuaciones logísticas y otros modelos simples para el crecimiento de una sola especie, existe un punto crítico en la población cero, independientemente del valor de la tasa de crecimiento. Sin embargo, dicho punto crítico puede cambiar su estabilidad al variar el parámetro. La bifurcación transcrítica es el mecanismo estándar para tales cambios de estabilidad. En la \autoref{fig: bifTranscritica} se ejemplifica este tipo de bifurcación, en donde el origen para $\mu<0$ es un nodo atractor, un punto silla-nodo para el valor de bifurcación, y una silla hiperbólica para $\mu>0$.
 
 \begin{figure}[H]
 	\centering
@@ -448,7 +449,7 @@ si reemplazamos $x$ por $-x$ y luego cancelamos los signos menos resultantes en 
 		\dot{x} &= \mu x +x^3
 	\end{aligned}
 \end{equation*}
-Esta invariancia es la expresión matemática de la simetría izquierda-derecha mencionada anteriormente. (En términos más técnicos, se dice que el campo vectorial es equivariante). El retrato fase de este sistema para diferentes valores de $\mu$ se puede visualizar en la \autoref{fig: bifPitchforkSup}.
+Esta invariancia es la expresión matemática de la simetría izquierda-derecha mencionada anteriormente. (En términos más técnicos, se dice que el campo vectorial es equivariante). El retrato fase de este sistema para diferentes valores de $\mu$ se puede visualizar en la \autoref{fig: bifPitchforkSup}, en donde dos puntos críticos aparacen en pares simétricos para $\mu>0$.
 
 \begin{figure}[H]
 	\centering
@@ -459,7 +460,7 @@ Esta invariancia es la expresión matemática de la simetría izquierda-derecha 
 
 \subsubsection*{Bifurcación de pitchfork subcrítica}
 
-De manera similar que en el supercrítico ahora los puntos críticos solo existen por debajo del valor de bifurcación ($\mu = 0$, en el caso del ejemplo mostrado en la \autoref{fig: bifPitchforkSub}).
+De manera similar que en el supercrítico ahora los puntos críticos solo existen por debajo del valor de bifurcación ($\mu < 0$) como se muestra en la \autoref{fig: bifPitchforkSub}.
 
 \begin{figure}[H]
 	\centering
@@ -470,11 +471,13 @@ De manera similar que en el supercrítico ahora los puntos críticos solo existe
 
 \subsection*{Bifurcaciones de Hopf}
 
-Supongamos que un sistema bidimensional tiene un punto fijo estable. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$.? Los autovalores del Jacobiano son la clave. Si el punto fijo es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ deben estar en el semiplano izquierdo Re$\lambda <0$. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos o bien son conjugados complejos. Para desestabilizar el punto fijo, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$. Al igual que las bifurcaciones en horquilla, las bifurcaciones de Hopf se presentan en variedades supercríticas y subcríticas.
+Supongamos que un sistema bidimensional tiene un punto crítico estable, el cual, existe para cualquier valor paramétrico. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$.? Los autovalores del Jacobiano son la clave. Si el punto crítico es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ en el plano complejo, deben estar en el semiplano izquierdo Re$\lambda <0$. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos o bien son conjugados complejos. Para desestabilizar el punto crítico, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, analíticamente, este hecho se ve reflejado de la siguiente manera: considere los valores propios complejos del jacobiano como $\lambda(\mu)=\alpha(\mu) \pm i\omega(\mu)$. En el valor de bifurcación $\mu=\mu_0$ el jacobiano debe poseer valores propios complejos puros, es decir, $\alpha(\mu_0)=0$ y $\omega(\mu_0)>0$, conocida como \textit{condición espectral}; además, el hecho de que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, se describe mediante la \textit{condición de transversalidad} $$\left. \frac{d}{d\mu}(\alpha(\mu)) \right|_{\mu=\mu_0} \neq 0.$$ Además de ello, el \textit{primer coeficiente de Lyapunov} ($l_1$) no debe anularse, donde este coeficiente será especificado más adelante. 
+
+Al igual que las bifurcaciones en horquilla, las bifurcaciones de Hopf se presentan en variedades supercríticas y subcríticas.
 
 \subsubsection*{Bifurcación de Hopf supercrítica}
 
-En términos del flujo en el espacio de fases, una bifurcación de Hopf supercrítica ocurre cuando una espiral estable se transforma en una espiral inestable rodeada por un pequeño ciclo límite casi elíptico. Las bifurcaciones de Hopf pueden ocurrir en espacios de fases de cualquier dimensión $n \geq 2$.
+En términos del flujo en el espacio de fases, una bifurcación de Hopf supercrítica ocurre cuando una espiral estable se transforma en una espiral inestable rodeada por un pequeño ciclo límite casi elíptico. Las bifurcaciones de Hopf pueden ocurrir en espacios de fases de cualquier dimensión $n \geq 2$. La ejemplificación de este tipo de bifurcación se puede evidenciar en la \autoref{fig: bifHopfSup}, donde un ciclo límite estable aparece para $\mu>0$, con el origen perdiendo su estabilidad en este caso.
 
 \begin{figure}[H]
 	\centering
@@ -507,7 +510,7 @@ La respuesta funcional más básica, la de tipo 1, es la que se asume por ejempl
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.5\textwidth]{img/type1FunctionalResponse.pdf}
-	\caption{Respuesta funcional de Holling tipo I.}
+	\caption{Respuesta funcional de Holling tipo 1.}
 	\label{fig: type1FunctionalResponse}
 \end{figure}
 
@@ -522,30 +525,27 @@ Sin embargo, manipular una presa sigue requiriendo el mismo tiempo, y por lo tan
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.5\textwidth]{img/type2FunctionalResponse.pdf}
-	\caption{Respuesta funcional de Holling tipo II.}
+	\caption{Respuesta funcional de Holling tipo 2.}
 	\label{fig: type2FunctionalResponse}
 \end{figure}
 
 \subsection*{Respuesta funcional tipo 3}
- Las respuestas funcionales de tipo 3, a altas densidades de presas, son similares a una respuesta de tipo 2, y las explicaciones para ambas son las mismas. Sin embargo, a bajas densidades de presas, la respuesta de tipo 3 presenta una fase de aceleración, donde un aumento de la densidad conduce a un aumento más que lineal de la tasa de consumo. Por lo tanto, en general, una respuesta de tipo 3 tiene forma de S o sigmoidea.
- 
- En general, esta forma sigmoidea y la respuesta funcional de tipo 3 surgirán siempre que un aumento de la densidad de alimento conduzca a un aumento de la eficiencia de búsqueda o tasa de ataque del consumidor, o a una disminución de su tiempo de manipulación, ya que ambas determinan la tasa de consumo. Por ejemplo, un depredador puede interesarse por una especie de presa en particular solo cuando su abundancia relativa en la comunidad de presas es suficientemente alta.
- 
- 
- \begin{figure}[H]
- 	\centering
- 	\includegraphics[width=.5\textwidth]{img/type3FunctionalResponse.pdf}
- 	\caption{Respuesta funcional de Holling tipo III.}
- 	\label{fig: type3FunctionalResponse}
- \end{figure}
- 
+Las respuestas funcionales de tipo 3, a altas densidades de presas, son similares a una respuesta de tipo 2, y las explicaciones para ambas son las mismas. Sin embargo, a bajas densidades de presas, la respuesta de tipo 3 presenta una fase de aceleración, donde un aumento de la densidad conduce a un aumento más que lineal de la tasa de consumo. Por lo tanto, en general, una respuesta de tipo 3 tiene forma de S o sigmoidea. 
+En general, esta forma sigmoidea y la respuesta funcional de tipo 3 surgirán siempre que un aumento de la densidad de alimento conduzca a un aumento de la eficiencia de búsqueda o tasa de ataque del consumidor, o a una disminución de su tiempo de manipulación, ya que ambas determinan la tasa de consumo. Por ejemplo, un depredador puede interesarse por una especie de presa en particular solo cuando su abundancia relativa en la comunidad de presas es suficientemente alta.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{img/type3FunctionalResponse.pdf}
+	\caption{Respuesta funcional de Holling tipo 3.}
+	\label{fig: type3FunctionalResponse}
+\end{figure}
+
 \subsection*{Respuesta funcional tipo 4}
 
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.5\textwidth]{img/type4FunctionalResponse.pdf}
-	\caption{Respuesta funcional tipo IV.}
+	\caption{Respuesta funcional tipo 4.}
 	\label{fig: type4FunctionalResponse}
 \end{figure}
 
@@ -577,7 +577,7 @@ El modelo presa-depredador de Leslie-Gower es una variante del modelo de Lotka-V
 \begin{equation}
 	\left\{
 	\begin{aligned}
-		\dfrac{dN}{dt} &= aN(1-\frac{N}{K})-bNP) \\
+		\dfrac{dN}{dt} &= aN\left((1-\frac{N}{K})-bNP\right) \\
 		\frac{dP}{dt} &= P(cN-d)
 	\end{aligned},
 	\right.
@@ -587,7 +587,7 @@ Otra variante que se encuentra en diversas fuentes es aquella en la que se incor
 \begin{equation}
 	\left\{
 	\begin{aligned}
-		\dfrac{dN}{dt} &= aN(1-\frac{N}{K})-bNP) \\
+		\dfrac{dN}{dt} &= aN\left((1-\frac{N}{K})-bNP\right) \\
 		\frac{dP}{dt} &= cPN-dP
 	\end{aligned},
 	\right.
