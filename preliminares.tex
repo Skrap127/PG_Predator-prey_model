@@ -471,13 +471,19 @@ De manera similar que en el supercrítico ahora los puntos críticos solo existe
 
 \subsection*{Bifurcaciones de Hopf}
 
-Supongamos que un sistema bidimensional tiene un punto crítico estable, el cual, existe para cualquier valor paramétrico. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$.? Los autovalores del Jacobiano son la clave. Si el punto crítico es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ en el plano complejo, deben estar en el semiplano izquierdo Re$\lambda <0$. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos o bien son conjugados complejos. Para desestabilizar el punto crítico, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, analíticamente, este hecho se ve reflejado de la siguiente manera: considere los valores propios complejos del jacobiano como $\lambda(\mu)=\alpha(\mu) \pm i\omega(\mu)$. En el valor de bifurcación $\mu=\mu_0$ el jacobiano debe poseer valores propios complejos puros, es decir, $\alpha(\mu_0)=0$ y $\omega(\mu_0)>0$, conocida como \textit{condición espectral}; además, el hecho de que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, se describe mediante la \textit{condición de transversalidad} $$\left. \frac{d}{d\mu}(\alpha(\mu)) \right|_{\mu=\mu_0} \neq 0.$$ Además de ello, el \textit{primer coeficiente de Lyapunov} ($l_1$) no debe anularse, donde este coeficiente será especificado más adelante. 
-
+Supongamos que un sistema bidimensional tiene un punto crítico estable, el cual, existe para cualquier valor paramétrico. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$.? Los autovalores del Jacobiano son la clave. Si el punto crítico es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ en el plano complejo, deben estar en el semiplano izquierdo Re$\lambda <0$. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos o bien son conjugados complejos. Para desestabilizar el punto crítico, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, analíticamente, este hecho se ve reflejado de la siguiente manera: considere los valores propios complejos del jacobiano como $\lambda(\mu)=\alpha(\mu) \pm i\omega(\mu)$. En el valor de bifurcación $\mu=\mu_0$ el jacobiano debe poseer valores propios complejos puros, es decir, $\alpha(\mu_0)=0$ y $\omega(\mu_0)>0$, conocida como \textit{condición espectral}; además, el hecho de que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, se describe mediante la \textit{condición de transversalidad} $$\left. \frac{d}{d\mu}(\alpha(\mu)) \right|_{\mu=\mu_0} \neq 0.$$ Además de ello, el \textit{primer coeficiente de Lyapunov} ($l_1$) no debe anularse, donde este coeficiente será especificado más adelante, bajo estas condiciones decimos que ocurre una \textit{bifurcación de Hopf} en $\mu=\mu_0$. Dado el caso de que $l_1 = 0$, y además la aplicación $\mu \mapsto (\alpha(\mu), l_1(\mu))$, sea regular en $\mu=\mu_0$, en el sentido que
+\begin{equation*}
+	\det \begin{pmatrix}
+		\frac{\partial \alpha(\mu)}{\partial A} & \frac{\partial \alpha(\mu)}{\partial B} \\[6pt]
+		\frac{\partial l_1(\mu)}{\partial A} & \frac{\partial l_1(\mu)}{\partial B} 
+	\end{pmatrix} \neq 0,
+\end{equation*}
+y si además de ello, el \textit{segundo coeficiente de Lyapunov} ($l_2$) no se anula, donde este coeficiente será especificado más adelante; decimos que ocurre una \textit{bifurcación de Hopf generalizada o de Bautin}.
 Al igual que las bifurcaciones en horquilla, las bifurcaciones de Hopf se presentan en variedades supercríticas y subcríticas.
 
 \subsubsection*{Bifurcación de Hopf supercrítica}
 
-En términos del flujo en el espacio de fases, una bifurcación de Hopf supercrítica ocurre cuando una espiral estable se transforma en una espiral inestable rodeada por un pequeño ciclo límite casi elíptico. Las bifurcaciones de Hopf pueden ocurrir en espacios de fases de cualquier dimensión $n \geq 2$. La ejemplificación de este tipo de bifurcación se puede evidenciar en la \autoref{fig: bifHopfSup}, donde un ciclo límite estable aparece para $\mu>0$, con el origen perdiendo su estabilidad en este caso.
+En términos del flujo en el espacio de fases, una bifurcación de Hopf supercrítica ocurre cuando una espiral estable se transforma en una espiral inestable rodeada por un pequeño ciclo límite estable casi elíptico, o de igual manera cuando $l_1 > 0$. Las bifurcaciones de Hopf pueden ocurrir en espacios de fases de cualquier dimensión $n \geq 2$. La ejemplificación de este tipo de bifurcación se puede evidenciar en la \autoref{fig: bifHopfSup}, donde un ciclo límite estable aparece para $\mu>0$, con el origen perdiendo su estabilidad en este caso.
 
 \begin{figure}[H]
 	\centering
@@ -488,7 +494,7 @@ En términos del flujo en el espacio de fases, una bifurcación de Hopf supercr�
 
 \subsubsection*{Bifurcación de Hopf subcrítica}
 
-El caso subcrítico es siempre mucho más dramático y potencialmente peligroso en aplicaciones de ingeniería. Tras la bifurcación, las trayectorias deben saltar a un atractor distante, que puede ser un punto fijo, otro ciclo límite, el infinito o, en tres dimensiones o más, un atractor caótico.
+El caso subcrítico es siempre mucho más dramático y potencialmente peligroso en aplicaciones de ingeniería. Ocurre cuando $l_1 < 0$, tras la bifurcación, las trayectorias deben saltar a un atractor distante, que puede ser un punto fijo, otro ciclo límite (inestable), el infinito o, en tres dimensiones o más, un atractor caótico.
 
 \begin{figure}[H]
 	\centering
@@ -521,6 +527,7 @@ La respuesta de tipo 2 se explica por el hecho de que un depredador debe dedicar
 
 Sin embargo, manipular una presa sigue requiriendo el mismo tiempo, y por lo tanto, la manipulación en general ocupa una proporción cada vez mayor del tiempo del depredador, hasta que, a altas densidades de presas, este dedica prácticamente todo su tiempo a manipularla. Por lo tanto, la tasa de consumo se aproxima y luego alcanza un máximo (la meseta), determinado por el número máximo de manipulaciones que se pueden realizar en el tiempo total disponible.
 
+Este comportamiento es descrito a través de la expresión $$\frac{A}{N+B},$$ donde $A$ y $B$ son constantes positivas y $N$ representa la población de las presas.
 
 \begin{figure}[H]
 	\centering
@@ -532,6 +539,7 @@ Sin embargo, manipular una presa sigue requiriendo el mismo tiempo, y por lo tan
 \subsection*{Respuesta funcional tipo 3}
 Las respuestas funcionales de tipo 3, a altas densidades de presas, son similares a una respuesta de tipo 2, y las explicaciones para ambas son las mismas. Sin embargo, a bajas densidades de presas, la respuesta de tipo 3 presenta una fase de aceleración, donde un aumento de la densidad conduce a un aumento más que lineal de la tasa de consumo. Por lo tanto, en general, una respuesta de tipo 3 tiene forma de S o sigmoidea. 
 En general, esta forma sigmoidea y la respuesta funcional de tipo 3 surgirán siempre que un aumento de la densidad de alimento conduzca a un aumento de la eficiencia de búsqueda o tasa de ataque del consumidor, o a una disminución de su tiempo de manipulación, ya que ambas determinan la tasa de consumo. Por ejemplo, un depredador puede interesarse por una especie de presa en particular solo cuando su abundancia relativa en la comunidad de presas es suficientemente alta.
+Esta forma sigmoidea se representa a través de $$\frac{AN}{N^2+B^2},$$ donde $A$ y $B$ son constantes positivas y $N$ representa la población de las presas.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=.5\textwidth]{img/type3FunctionalResponse.pdf}
@@ -573,23 +581,26 @@ El modelo \eqref{eq: lotka-volterra} se conoce como el \textit{modelo de Lotka-V
 
 \subsection*{Modelo Leslie-Gower}
 
-El modelo presa-depredador de Leslie-Gower es una variante del modelo de Lotka-Volterra. La principal diferencia radica en la incorporación de un término adicional que convierte el crecimiento exponencial de las presas, presente en el sistema de Lotka-Volterra, en un crecimiento logístico. En este caso, se considera la capacidad de carga del entorno, lo que limita el crecimiento de la población de presas. El modelo resultante es el siguiente:
+El modelo presa-depredador de Leslie-Gower es una variante del modelo de Lotka-Volterra. La principal diferencia radica en la incorporación de un término adicional que convierte el crecimiento exponencial de las presas, presente en el sistema de Lotka-Volterra, en un crecimiento logístico; además la capacidad de carga de los depredadores es directamente proporcional a la densidad de las presas. En este caso, se considera la capacidad de carga del entorno $K$, lo que limita el crecimiento de la población de presas. El modelo resultante es el siguiente:
 \begin{equation}
 	\left\{
 	\begin{aligned}
-		\dfrac{dN}{dt} &= aN\left((1-\frac{N}{K})-bNP\right) \\
-		\frac{dP}{dt} &= P(cN-d)
+		\dfrac{dN}{dt} &= N\left[r\left(1-\frac{N}{K}\right)-PR(N)\right] \\
+		\frac{dP}{dt} &= k\left( 1 - \frac{hP}{N} \right)
 	\end{aligned},
 	\right.
 	\label{eq: leslie}
 \end{equation}
-Otra variante que se encuentra en diversas fuentes es aquella en la que se incorpora la capacidad de carga del medio ambiente para los depredadores, denotada como $K_{y}$. Esta capacidad depende de la cantidad de presas disponibles, es decir, $K_{y} = nx$. Como resultado, el sistema se transforma de la siguiente manera:
+donde $r, \; k$ y $h$ son constantes positivas y $R(N)$ representa alguna de las respuestas funcionales descritas anteriormente.
+
+Otra variante que se encuentra en diversas fuentes es aquella en la que se incorpora algún tipo de respuesta funcional a los depredadores:
 \begin{equation}
 	\left\{
 	\begin{aligned}
-		\dfrac{dN}{dt} &= aN\left((1-\frac{N}{K})-bNP\right) \\
-		\frac{dP}{dt} &= cPN-dP
+		\dfrac{dN}{dt} &= N\left[r\left(1-\frac{N}{K}\right)-PR(N)\right] \\
+		\frac{dP}{dt} &= -d+eR(N)
 	\end{aligned},
 	\right.
 	\label{eq: leslie-gower}
 \end{equation}
+donde $d$ y $e$ representan constantes positivas.

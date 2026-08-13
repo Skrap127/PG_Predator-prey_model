@@ -540,7 +540,7 @@ Ahora, para la normalización necesaria $\langle p,q \rangle =1$, tomamos por ej
 	\end{pmatrix},
 	\label{eq: vecComplejos}
 \end{equation}
-donde el factor de escala de $\tilde{p}$, está dado por $1/\overline{\langle \tilde{p},q \rangle}$. Ahora, con en el fin de determinar la parte no lineal de nuestro sistema, realizamos \linebreak $(h_1(\bar{u}, \bar{v}),h_2(\bar{u}, \bar{v}))^T - Dh(0,0)(\bar{u},\bar{v})^T$. La cual resluta estar compuesta por:
+donde el factor de escala de $\tilde{p}$, está dado por $1/\overline{\langle \tilde{p},q \rangle}$. Ahora, con en el fin de determinar la parte no lineal de nuestro sistema, realizamos \linebreak $(h_1(\bar{u}, \bar{v}),h_2(\bar{u}, \bar{v}))^T - Dh(0,0)(\bar{u},\bar{v})^T$. La cual resulta estar compuesta por:
 \begin{equation}
 	\begin{aligned}
 		F_1(\bar{u}, \bar{v}) = h_1(\bar{u}, \bar{v}) - a\bar{u} - b\bar{v}\\
@@ -700,17 +700,17 @@ La curva $L_1 = 0$ y la región de restricciones del sistema, puede observarse e
 	Otro método para calcular el primer número de lyapunov es trasladar el sistema de estudio a la forma
 	\begin{equation*}
 		\begin{cases}
-			\dot{X} = -\omega Y + G_1(X, Y) \\
-			\dot{Y} = \omega X + G_2(X, Y)
+			\dot{X} = -\omega Y + \tilde{G}_1(X, Y) \\
+			\dot{Y} = \omega X + \tilde{G}_2(X, Y)
 		\end{cases}
 		\label{eq: normalFormWn}
 	\end{equation*}
-	donde $\pm \omega i$ son los valores propios de la matriz jacobiana en el origen y $G_{1,2}$ contiene los términos no lineales del sistema. El primer coeficiente de Lyapunov podrá ser determinado a partir de las derivadas parciales de $G_{1,2}$ evaluadas en 0 \cite[p. 152]{guckenheimer1983}: 
+	donde $\pm \omega i$ son los valores propios de la matriz jacobiana en el origen y $\tilde{G}_{1,2}$ contiene los términos no lineales del sistema. El primer coeficiente de Lyapunov podrá ser determinado a partir de las derivadas parciales de $\tilde{G}_{1,2}$ evaluadas en 0 \cite[p. 152]{guckenheimer1983}: 
 	\begin{equation*}
 		\begin{aligned}
-			16\tilde{l_1} &= G_{1,xxx} + G_{1,xyy} + G_{2,xxy} + G_{2,yyy} \\
-			&+ \frac{1}{\omega} [ G_{1,xy}(G_{1,xx} + G_{1,yy}) - G_{2,xy}(G_{2,xx} + G_{2,yy}) \\
-			&- G_{1,xx}G_{2,xx} + G_{1,yy}G_{2,yy} ].
+			16\tilde{l_1} &= \tilde{G}_{1,xxx} + \tilde{G}_{1,xyy} + \tilde{G}_{2,xxy} + \tilde{G}_{2,yyy} \\
+			&+ \frac{1}{\omega} [ \tilde{G}_{1,xy}(\tilde{G}_{1,xx} + \tilde{G}_{1,yy}) - \tilde{G}_{2,xy}(\tilde{G}_{2,xx} + \tilde{G}_{2,yy}) \\
+			&- \tilde{G}_{1,xx}\tilde{G}_{2,xx} + \tilde{G}_{1,yy}\tilde{G}_{2,yy} ].
 		\end{aligned}
 	\end{equation*}
 	Siguiendo esta metodología, para el sistema \eqref{eq: modelo2Hen0} obtenemos que
@@ -798,10 +798,16 @@ con $p=(p_1,p_2)$ y $q=(q_1,q_2)$ dadas por \eqref{eq: vecComplejos}, donde $$m 
 		g_{12} = & \frac{m+i}{m} \{3A_c^2(m^2+1) + H[30H(m^2+1)\\
 		& + m[B_c(-3i + m(4 - 3mi)) + 3m(Q-4) + 3Qi] + 12(Q-1)]\} \\
 		g_{03} = & \frac{-3(m+i)^2}{m} \{A_c^2(m+i) \\
-		& + H\left[10H(m+i) + 4i(Q-1) + m(B_c(3 - mi) + Q -4)\right]\}
+		& + H\left[10H(m+i) + 4i(Q-1) + m(B_c(3 - mi) + Q -4)\right]\},
 	\end{aligned}
 \end{equation*}
-
+donde
+\begin{equation*}
+	\begin{aligned}
+		B_c &= \frac{2-3H - \sqrt{3H(4 - H)}}{2} \\
+		Q &= H^2 \frac{H[2-3(3-H)]+(1-H)\sqrt{3H(4-H)}+4}{4-3H(3-H)}
+	\end{aligned}
+\end{equation*}
 Tomando en cuenta estas expresiones computamos $l_2$, para el cual se obtienen algunos valores como los mostrados en la siguiente tabla.
 \begin{table}[H]
 	\centering
@@ -826,7 +832,7 @@ Tomando en cuenta estas expresiones computamos $l_2$, para el cual se obtienen a
 	\end{tabular}
 \end{table}
 
-Tomando en cuenta los datos obtenidos en la \autoref{tab:ejemplosL2}, graficamos $-l_2$ en escala logarítmica (ver \autoref{fig: curvaL_2H}), el cual será estrictamente positivo, es decir, tendríamos que para cualquier valor $H \in \left(0,(3 - \sqrt{6})/3 \right)$, $l_2<0$; por lo tanto, el punto crítico $(H,H)$ es un foco débil estable de segundo orden \cite[p. 518]{chicone2024}, rodeado por un ciclo límite inestable y este a su vez, por un ciclo límite estable.
+Tomando en cuenta los datos obtenidos en la \autoref{tab:ejemplosL2}, graficamos $-l_2$ en escala logarítmica (ver \autoref{fig: curvaL_2H}), el cual será estrictamente positivo, es decir, tendríamos que para cualquier valor $H \in \left(0,(3 - \sqrt{6})/3 \right)$, $l_2<0$; por lo tanto, el punto crítico $(H,H)$ es un foco débil estable de segundo orden \cite[p. 518]{chicone2024}, rodeado por un ciclo límite inestable y este a su vez, por un ciclo límite estable por la misma razón que el caso de la bifurcación de Hopf subcrítica.
 
 \begin{figure}
 	\centering
@@ -847,12 +853,44 @@ Ya que $l_2$ es siempre negativo, obtenemos el siguiente teorema.
 	Una bifurcación de Hopf generalizada (Bautin) ocurre en el equilibrio $(H, H)$ para el valor de bifurcación $\mu_0=(A_c, B_c)$.
 \end{teo}
 \begin{proof}
-	Es claro que para $A= A_c$, $l_1 = 0$; así, para que ocurra una bifurcación de Bautín se deben satisfacer la condición espectral y la de transversalidad. Por lo anteriormente planteado, el Jacobiano de la función evaluado en el equilibrio $(H, H)$ para $B = B_c$, posee un par de autovalores imaginarios puros $\lambda_1, \; \lambda_2 = \pm \omega i$, donde $\omega = \sqrt{\det (M)} > 0$, satisfaciendo así la condición espectral. Por otra parte, el mapeo $\mu \longmapsto \left(Re(\lambda(\mu)), l_1\right)$ debe ser regular en $\mu=\mu_0$, es decir
+	Es claro que para $A= A_c$, $l_1 = 0$; así, para que ocurra una bifurcación de Bautín se deben satisfacer la condición espectral y la de transversalidad. Por el \Cref{teo:Hopf} la condición espectral se cumple. Por otra parte, el mapeo $\mu \longmapsto \left(Re(\lambda(\mu)), l_1\right)$ debe ser regular en $\mu=\mu_0$, es decir
 	\begin{equation*}
-		\det \begin{pmatrix}
+		\det \left. \begin{pmatrix}
 			\frac{\partial Re(\lambda(\mu))}{\partial A} & \frac{\partial Re(\lambda(\mu))}{\partial B} \\[6pt]
-			\frac{\partial l_1}{\partial A} & \frac{\partial l_1}{\partial B} 
-		\end{pmatrix} \neq 0.
+			\frac{\partial l_1(\mu)}{\partial A} & \frac{\partial l_1(\mu)}{\partial B} 
+		\end{pmatrix} \right|_{\mu=\mu_0} \neq 0
 	\end{equation*}
-	Como, por el \Cref{teo:Hopf} sabemos que $\left. \frac{d}{dB}(Re(\lambda(\mu))) \right|_{B=B_c} \neq 0$, entonces la regularidad se reduce a probar que $$\left. \frac{d l_1}{dA} \right|_{\mu=\mu_0} \neq 0$$ lo cual se cumple.
+	esto es
+	\begin{equation}
+		\left. - \frac{\partial Re(\lambda(\mu))}{\partial B} \left( \frac{\partial l_1(\mu)}{\partial A} - \frac{\frac{\partial Re(\lambda(\mu))}{\partial A}}{\frac{\partial Re(\lambda(\mu))}{\partial B}} \frac{\partial l_1(\mu)}{\partial B} \right) \right|_{\mu=\mu_0} \neq 0.
+		\label{eq: regularidadBautin}
+	\end{equation}
+	Como $Re(\lambda(\mu_0))=0$ y del \Cref{teo:Hopf} sabemos que \linebreak $\left. \frac{\partial Re(\lambda(\mu))}{\partial B} \right|_{\mu=\mu_0} \neq 0$, por el teorema de la función implícita existe una función $\phi(A)=B$ con dominio en una vecindad $V$ de $A_c$ tal que
+	\begin{equation}
+		B'=\phi'(A)= - \frac{\frac{\partial Re(\lambda(\mu))}{\partial A}}{\frac{\partial Re(\lambda(\mu))}{\partial B}}, \; A \in V.
+		\label{eq: teoFunImpli}
+	\end{equation}
+	Considerando lo anterior, por la regla de la cadena $$\frac{d l_1(A, \phi(A))}{dA} = \frac{\partial l_1(A, \phi(A))}{\partial A} + \phi'(A) \frac{\partial l_1(A, \phi(A))}{\partial \phi(A)},$$ así por lo anterior y por \eqref{eq: teoFunImpli} para una vecindad $V$ de $A_c$ la regularidad \eqref{eq: regularidadBautin} se reduce a probar que $$\left. \frac{d l_1(A, \phi(A))}{dA} \right|_{A=A_c} \neq 0.$$ Ahora, nótese que la función $\phi(A)$ está dada simplemente por $B_c(A)$ obtenida en \eqref{eq: Bcritico}, por lo que basta mostrar que la derivada con respecto a $A$ de $l_1$ determinada en \eqref{eq: l1Kuznetsov}, no se anula para $A=A_c$. Con este objetivo, considerando
+	\begin{equation*}
+		\begin{aligned}
+			N &= 2A^2(1 - H)([4 - 3H(3 - H)]A^4 -4H^3A^2 - (3 - H)H^5) \\
+			I &= (H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2)
+		\end{aligned}
+	\end{equation*}
+	de \eqref{eq: l1Kuznetsov} tenemos que $$l_1 = \frac{N}{(A^2+H^2)I^{3/2}},$$ asi
+	\begin{equation}
+		\frac{dl_1}{dA} = \frac{N' (A^2+H^2) I^{3/2} - N \left[2AI^{3/2} + (3/2)(A^2+H^2) I^{1/2} I' \right]}{(A^2+H^2)^2 I^3},
+	\end{equation}
+	Por las restricciones del sistema $(A^2+H^2) I^{3/2} > 0$ y como $N=0$ en $A=A_c$ tenemos que $\left. \frac{d l_1}{dA} \right|_{A=A_c} \neq 0$ si, y solo si $N' \neq 0$ para $A=A_c$. Ahora el signo de
+	\begin{equation*}
+		N'= 4A(1-H) \left(3[4-3H(3-H)]A^4-8H^3A^2-(3-H)H^5\right)
+	\end{equation*}
+	estará determinado por la expresión $$3[4-3H(3-H)]A^4-8H^3A^2-(3-H)H^5$$ la cual se anulará para
+	\begin{equation*}
+		\begin{aligned}
+			A^2 &= \dfrac{8H^3 \pm \sqrt{64 H^6 + 12[4 - 3H(3-H)] (3-H)H^5}}{6[4-3H(3-H)]} \\
+			&= \frac{1}{3} \dfrac{4H^3 + H^2\sqrt{36H - H^2[77 - 9H(6 - H)]}}{4-3H(3-H)} \neq A^2_c.
+		\end{aligned}
+	\end{equation*}
+	Cumpliéndose así la condiciones necesarias para la bifurcación de Hopf generalizada en $\mu=\mu_0$.
 \end{proof}
