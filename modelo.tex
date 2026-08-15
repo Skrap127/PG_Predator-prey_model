@@ -274,7 +274,7 @@ En el punto crítico $(0,\theta_1)$, obtenemos la matriz:
 	\end{bmatrix},
 	\label{eq:jacobianaModelo2PolarEn(0,0)}
 \end{equation*}
-con valores propios $\lambda_r = A^{2}>0, \; \lambda_\theta = A^{2}(B-1),$ radial y tangencial, respectivamente. Por lo tanto, $(0, \theta_1)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$ si $B<1$, es una fuente si $B>1$ y un punto crítico no hiperbólico si $B=1$. Aquí observamos qué la estabilidad de este punto de equilibrio depende del parámetro $B$, la cual influirá en la estructura cualitativa del campo $\bar{Y_{\eta}}(r,\theta)$ y por ende en la del sistema \eqref{eq: modelo2}. % Así, obtenemos que hay un cambio cualitativo en el valor de bifurcación $B=1$, posteriormente se analizará que tipo de bifurcación se presenta en este modelo.
+con valores propios $\lambda_r = A^{2}>0, \; \lambda_\theta = A^{2}(B-1),$ radial y tangencial, respectivamente. Por lo tanto, $(0, \theta_1)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$ si \linebreak $B<1$, es una fuente si $B>1$ y un punto crítico no hiperbólico si $B=1$. Aquí observamos qué la estabilidad de este punto de equilibrio depende del parámetro $B$, la cual influirá en la estructura cualitativa del campo $\bar{Y_{\eta}}(r,\theta)$ y por ende en la del sistema \eqref{eq: modelo2}. % Así, obtenemos que hay un cambio cualitativo en el valor de bifurcación $B=1$, posteriormente se analizará que tipo de bifurcación se presenta en este modelo.
 
 Ahora, debido a que en el caso $B=1$ el punto $(0,\theta_1)$ es un punto no hiperbólico, no es posible aplicar el teorema de Harmant-Grobman para determinar su estabilidad y por ello recurriremos al teorema de la variedad central (TVC).
 
@@ -313,7 +313,7 @@ con valores propios $\lambda_r = -A^{2}B<0$ y $\lambda_\theta = A^{2}B>0$. Por l
 
 \subsubsection*{Estabilidad en $(0, \theta_3)$ con $\theta_3=\arctg\left((B-1)/B\right)$}
 
-Ahora, denotando $k = \left( \dfrac{B-1}{B} \right)$, donde $B>1$, y tomando en cuenta las identidades
+Ahora, denotando $k = \dfrac{B-1}{B}$, donde $B>1$, y tomando en cuenta las identidades
 \begin{equation*}
 	\begin{aligned}
 		\sin(\theta_3) &= \dfrac{k}{\sqrt{1+k^{2}}} \\
@@ -335,7 +335,7 @@ donde
 		b_{22}(\theta_3) &= B(k^{3}-2k+1) -2k^{2}(B-1) - 1
 	\end{aligned}
 \end{equation*}
-reemplazando $k = \left( \dfrac{B-1}{B} \right)$, obtenemos que:
+reemplazando $k = \dfrac{B-1}{B}$, obtenemos que:
 \begin{equation*}
 	\begin{aligned}
 		b_{11}(\theta_3) &= 1 + B\dfrac{(B-1)^{2}}{B^{2}}\left(1-\dfrac{B-1}{B}\right) \\ 
@@ -347,7 +347,7 @@ reemplazando $k = \left( \dfrac{B-1}{B} \right)$, obtenemos que:
 \end{equation*}
 Así,
 \begin{equation*}
-	D\bar{Y_{\eta}}\left(0,\arctg(b)\right) =
+	D\bar{Y_{\eta}}\left(0,\theta_3\right) =
 	\begin{bmatrix}
 		\dfrac{A^2 B}{(2B^{2}-2B+1)^{1/2}} & 0 \\
 		\dfrac{A^2 B^4 (B-1)}{(2B^{2}-2B+1)^{2}} & -\dfrac{A^2 B^2 (B-1)}{(2B^{2}-2B+1)^{1/2}}
@@ -362,7 +362,7 @@ Con valores propios $$\lambda_r = \dfrac{A^2 B}{(2B^{2}-2B+1)^{1/2}}>0 \; \text{
 	\label{fig: BlowUp Modelo 2}
 \end{figure}
 
-Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto con sus respectivos valores propios radiales y tangenciales, podemos determinar como se comporta cualitativamente el origen del campo $Y_{\eta}$ en una cierta vecindad. Este comportamiento se puede evidenciar en la figura \ref{fig: BlowUp Modelo 2}, en donde, para el caso $B\leq1$ vemos que el primer cuadrante consta de un único sector hiperbólico, y para $B>1$ de uno parabólico y uno hiperbólico. Recordemos que la finalidad de la técnica del blow-up es determinar el comportamiento del origen en $Y_{\eta}$, en sí, este proceso nos permite determinar que trayectorias entran o salen del origen, y son determinadas por la pendiente $\tan \theta^*$, donde $\theta^*$ es un punto crítico de $\bar{Y_{\eta}}$. Por ende, en el primer cuadrante de $Y_{\eta}$ hay tres de estas trayectorias: $v=0$ que corresponde a la orbita con pendiente $\tan\theta_1=0$, $u=0$ que corresponde a la orbita con pendiente $\tan\theta_2= \infty$ y la orbita determinada por la pendiente $\tan\theta_3=\dfrac{B-1}{B}$, la cual, esta última solo se da para el caso $B>1$, y además define una curva separatriz puesto que divide el retrato de fase en dos sectores con comportamientos cualitativos distintos (parabólico e hiperbólico).
+Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto con sus respectivos valores propios radiales y tangenciales, podemos determinar como se comporta cualitativamente el origen del campo $Y_{\eta}$ en una cierta vecindad. Este comportamiento se puede evidenciar en la figura \ref{fig: BlowUp Modelo 2}, en donde, para el caso $B\leq1$ vemos que el primer cuadrante consta de un único sector hiperbólico, y para $B>1$ de uno parabólico y uno hiperbólico. Recordemos que la finalidad de la técnica del blow-up es determinar el comportamiento del origen en $Y_{\eta}$, en sí, este proceso nos permite determinar que trayectorias entran o salen del origen, y son determinadas por la pendiente $\tan \theta^*$, donde $\theta^*$ es un punto crítico de $\bar{Y_{\eta}}$. Por ende, en el primer cuadrante de $Y_{\eta}$ hay tres de estas trayectorias: $v=0$ que corresponde a la orbita con pendiente $\tan\theta_1=0$, $u=0$ que corresponde a la orbita con pendiente $\tan\theta_2= \infty$ y la orbita determinada por la pendiente $\tan\theta_3=\dfrac{B-1}{B}$, la cual solo se da para el caso $B>1$, y además define una curva separatriz puesto que divide el retrato de fase en dos sectores con comportamientos cualitativos distintos (parabólico e hiperbólico).
 
 \begin{figure}
 	\centering
@@ -388,7 +388,7 @@ Con el fin de reducir los posibles casos que se pueden dar en los valores propio
 	Q=\dfrac{(1-H)(A^2+H^{2})}{H^{2}},
 	\label{eq: Q}
 \end{equation}
-anteriormente discutida en la \Cref{pro:exitenciaH}. Así, tendríamos que en $(H,H)$:
+anteriormente discutida en la \Cref{pro:exitenciaH}. Así, tendríamos que la matriz jacobiana del sistema \eqref{eq: modelo2} en $(H,H)$ es:
 \begin{equation}
 	Df(H,H) =
 	\begin{bmatrix}
@@ -397,7 +397,7 @@ anteriormente discutida en la \Cref{pro:exitenciaH}. Así, tendríamos que en $(
 	\end{bmatrix}.
 	\label{eq:jacobianaModelo2En(H,H)}
 \end{equation}
-Los valores propios se hallan del polinomio característico $$\lambda^2 - \operatorname{tr}(M) \lambda + \det(M) = 0,$$ con $M = Dg(H,H)$, estos es:
+Los valores propios se hallan del polinomio característico $$\lambda^2 - \operatorname{tr}(M) \lambda + \det(M) = 0,$$ con $M = Df(H,H)$, estos es:
 \begin{equation*}
 	\lambda(\mu) = \dfrac{\operatorname{tr}(M) \pm \sqrt{\Delta}}{2},
 \end{equation*}
@@ -469,32 +469,34 @@ con
 		b &= -H(1-H)(A^2+H^2).
 	\end{aligned}
 \end{equation*}
-Supongamos que el origen es un punto crítico del sistema
+Como el origen es un punto crítico del sistema \eqref{eq: modelo2Hen0}, este puede expresarse como
 \begin{equation}
-	(\dot{x}, \dot{y})^T=A(x,y)^T+(F_1(x,y), F_2(x,y))^T,
+	\left(\dfrac{d\bar{u}}{d \tau}, \dfrac{d\bar{v}}{d \tau}\right)^T=Dh(0,0)(\bar{v},\bar{v})^T+(F_1(\bar{v},\bar{v}), F_2(\bar{u},\bar{v}))^T,
 	\label{eq: sistemal1}
 \end{equation}
-donde $A$ es la matriz jacobiana evaluada en 0, con valores propios complejos puros $\pm \omega i$, y $(F_1, F_2)$ son las expansiones de Taylor en 0, de los terminos no lineales del sistema. El primer coeficiente de Lyapunov está dado por
+donde $(F_1, F_2)$ son las expansiones de Taylor en 0, de los terminos no lineales del sistema. El primer coeficiente de Lyapunov está dado por
 \begin{equation}
 	l_1 = \frac{1}{2 \omega^2}Re(i g_{20}g_{11} + \omega g_{21}),
 	\label{eq: l1}
 \end{equation}
 donde las expresiones $ g_{20}, g_{11}$ y $g_{21}$ se determinan a partir del sistema \eqref{eq: sistemal1} transformado a la forma normal de Poincaré:
 \begin{equation}
-	\dot{z} = \omega i z + \sum_{2 \le k+l \le 3} \frac{1}{k!l!} g_{kl} z^k \bar{z}^l + O(|z|^4).
+	\dot{z} = \omega i z + \sum_{2 \le k+l \le 3} \frac{1}{k!l!} g_{kl} z^k \bar{z}^l + O(|z|^4)
 	\label{eq: normalForm}
 \end{equation}
-O de igual manera, considerando la función de variable compleja
-\begin{equation}
-	G(z,w) = \bar{p_1}F_1(zq_1+w\bar{q_1}, zq_2+w\bar{q_2}) + \bar{p_2}F_2(zq_1+w\bar{q_1}, zq_2+w\bar{q_2}),
-	\label{eq: funComplejaL1}
-\end{equation}
-donde $p=(p_1,p_2)$ y $q=(q_1,q_2)$ son los autovectores asociados a los valores propios complejos puros $\omega i \; \text{y } -\omega i$, de la matriz jacobiana $A$ y su transpuesta $A^T$, respectivamente; además, se debe cumplir que $\langle p,q \rangle =1$. Las expresiones necesarias para el cálculo del primer coeficiente de Lyapunov \eqref{eq: l1}, estarán dadas por las derivadas parciales
+con $z=\langle p,(\bar{u},\bar{v}) \rangle$, donde $p=(p_1,p_2)$ es el autovector asociado al valor propio complejo puro $-\omega i$ de la matriz jacobiana $Dh(0,0)^T$, considerando el producto interno $\langle m,n \rangle = \bar{m}_1 n_1 + \bar{m}_2 n_2$.
+
+Las expresiones necesarias para el cálculo del primer coeficiente de Lyapunov \eqref{eq: l1} también pueden determinarse a partir de las igualdades
 \begin{equation}
 	g_{20}=G_{zz}, \; g_{11}=G_{zw}, \; g_{21}=G_{zzw},
 	\label{eq: derFunComplejaL1}
 \end{equation}
-evaluadas en $z=w=0$ \cite[p. 101]{Kuznetsov2023}.
+con $G_{z_k w_l}$ dadas por las derivadas parciales evaluadas en $z=w=0$ de la función de variable compleja
+\begin{equation}
+	G(z,w) = \bar{p_1}F_1(zq_1+w\bar{q_1}, zq_2+w\bar{q_2}) + \bar{p_2}F_2(zq_1+w\bar{q_1}, zq_2+w\bar{q_2}),
+	\label{eq: funComplejaL1}
+\end{equation}
+con $w = z - \frac{g_{20}}{2\omega i} z^2 + \frac{g_{11}}{\omega i} z \bar{z} + \frac{g_{02}}{3\omega i} \bar{z}^2 + O(|z|^3)$, donde $q=(q_1,q_2)$ es el autovector asociado al valor propio complejo puro $\omega i$, de la matriz jacobiana $Dh(0,0)$; además, se debe cumplir que $\langle p,q \rangle =1$, más detalles al respecto se pueden encontrar en \textit{Kuznetsov} \cite[p.  ~101]{Kuznetsov2023}.
 
 Para determinar \eqref{eq: derFunComplejaL1}, debemos hallar $q,\tilde{p} \in \C^2$: $$Dh(0,0)q=i\omega q, \; Dh(0,0)^T \tilde{p}=-i\omega \tilde{p}.$$ Para ello considermos la siguiente notación $$\omega i= \sqrt{\det (M)} \; i = \sqrt{ad} \; i,$$ donde $d = H[H^3+A^2(2-H)]$. Para obtener $q$ solucionamos el sistema, $(Dh(0, 0) - \omega i I)U = 0$, esto es:
 \begin{equation}
@@ -525,22 +527,22 @@ Análogamente, determinamos
 	1
 \end{pmatrix}.
 \end{equation*}
-Ahora, para la normalización necesaria $\langle p,q \rangle =1$, tomamos por ejemplo
+Ahora, tomando $p=(1/\overline{\langle \tilde{p},q \rangle})\tilde{p}$ obtenemos $\langle p,q \rangle =1$, donde
 \begin{equation}
-	q =
-	\begin{pmatrix}
-		1+mi\\
-		1
-	\end{pmatrix}, \;
 	p = \frac{1}{2}\left( 1-\frac{i}{m}\right) \tilde{p}
 	= \frac{1}{2}
 	\begin{pmatrix}
 		i/m\\
 		1 - i/m
 	\end{pmatrix},
+	q =
+	\begin{pmatrix}
+		1+mi\\
+		1
+	\end{pmatrix}.
 	\label{eq: vecComplejos}
 \end{equation}
-donde el factor de escala de $\tilde{p}$, está dado por $1/\overline{\langle \tilde{p},q \rangle}$. Ahora, con en el fin de determinar la parte no lineal de nuestro sistema, realizamos \linebreak $(h_1(\bar{u}, \bar{v}),h_2(\bar{u}, \bar{v}))^T - Dh(0,0)(\bar{u},\bar{v})^T$. La cual resulta estar compuesta por:
+Con en el fin de determinar la parte no lineal de nuestro sistema, realizamos \linebreak $(h_1(\bar{u}, \bar{v}),h_2(\bar{u}, \bar{v}))^T - Dh(0,0)(\bar{u},\bar{v})^T$. La cual resulta estar compuesta por:
 \begin{equation}
 	\begin{aligned}
 		F_1(\bar{u}, \bar{v}) = h_1(\bar{u}, \bar{v}) - a\bar{u} - b\bar{v}\\
@@ -776,7 +778,7 @@ con $\omega = \sqrt{ad}$, donde $$d = H^4+\frac{H^3(2-H) [2H+(1-H) \sqrt{3H(4-H)
 	\label{eq: normalForml2}
 \end{equation}
 O de igual manera, considerando las derivadas parciales de la función de variable compleja \eqref{eq: funComplejaL1},
-con $p=(p_1,p_2)$ y $q=(q_1,q_2)$ dadas por \eqref{eq: vecComplejos}, donde $$m = \sqrt{\frac{d}{a}} = \sqrt{\frac{H(7-3H)+(1-H)\sqrt{3H(4-H)}}{2-6H(2-H)}}.$$ Las expresiones necesarias para el cálculo del segundo coeficiente de Lyapunov \eqref{eq: l2}, estarán dadas por las derivadas parciales $g_{kl}=G_{z_k w_l}$ evaluadas en $z=w=0$ \cite[p. 344]{Kuznetsov2023}. Las expresiones $g_{20}, \; g_{11}, \; \text{y } g_{21}$ están dadas por \eqref{eq: g_klModelo2} remplazando $A=A_c$, además
+con $p=(p_1,p_2)$ y $q=(q_1,q_2)$ dadas por \eqref{eq: vecComplejos}, donde $$m = \sqrt{\frac{d}{a}} = \sqrt{\frac{H(7-3H)+(1-H)\sqrt{3H(4-H)}}{2-6H(2-H)}}.$$ Las expresiones necesarias para el cálculo del segundo coeficiente de Lyapunov \eqref{eq: l2}, estarán dadas por las derivadas parciales $g_{kl}=G_{z_k w_l}$ evaluadas en $z=w=0$ \cite[p. 344]{Kuznetsov2023}. Los términos $g_{20}, \; g_{11}, \; \text{y } g_{21}$ se determinan de \eqref{eq: g_klModelo2} remplazando $A=A_c$, además
 \begin{equation}
 	\begin{aligned}
 		g_{31} = & \frac{i}{m} \{6(m^2+1)[-2 + (B_c-4)mi + (B_c+2)m^2 \\
@@ -881,7 +883,7 @@ Ya que $l_2$ es siempre negativo, obtenemos el siguiente teorema.
 	\begin{equation}
 		\frac{dl_1}{dA} = \frac{N' (A^2+H^2) I^{3/2} - N \left[2AI^{3/2} + (3/2)(A^2+H^2) I^{1/2} I' \right]}{(A^2+H^2)^2 I^3},
 	\end{equation}
-	Por las restricciones del sistema $(A^2+H^2) I^{3/2} > 0$ y como $N=0$ en $A=A_c$ tenemos que $\left. \frac{d l_1}{dA} \right|_{A=A_c} \neq 0$ si, y solo si $N' \neq 0$ para $A=A_c$. Ahora el signo de
+	por las restricciones del sistema $(A^2+H^2) I^{3/2} > 0$ y como $N=0$ en $A=A_c$ tenemos que $\left. \frac{d l_1}{dA} \right|_{A=A_c} \neq 0$ si, y solo si $N' \neq 0$ para $A=A_c$. Ahora el signo de
 	\begin{equation*}
 		N'= 4A(1-H) \left(3[4-3H(3-H)]A^4-8H^3A^2-(3-H)H^5\right)
 	\end{equation*}

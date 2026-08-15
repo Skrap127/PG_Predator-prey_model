@@ -357,45 +357,45 @@ en el sentido de que $\psi=\psi^{y}\circ K^{y}$. Llamamos a esto un \textit{blow
 
 Como se mencionó anteriormente, al aplicar el blow-up al origen, este se transforma en un conjunto que puede contener nuevos puntos de equilibrio. Si alguno de estos puntos no resulta ser hiperbolico, es posible iterar nuevamente el proceso hasta que se logre lo ideal. De este modo, tras un número finito de blow-ups sucesivos, se puede determinar el retrato de fase local asociado a la singularidad original.
 
-\subsection{Compactificación de Poincaré}
-Al investigar la estructura cualitativa del retrato de fase de sistemas de ecuaciones diferenciales ordinarias (EDOs) definidos en todo el plano, resulta especialmente relevante comprender el comportamiento de las trayectorias a medida que las variables $x$ e $y$ tienden a infinito, es decir, su comportamiento ``en el infinito''.
-
-Por ejemplo, estudiar lo que ocurre en el infinito puede permitir identificar con claridad el estado de equilibrio al que se dirige una separatriz que parte de un punto de silla, o bien establecer la existencia de un ciclo límite. En consecuencia, el análisis del comportamiento de las trayectorias en el infinito constituye un aspecto fundamental en el estudio cualitativo de sistemas dinámicos.
-
-Una forma de obtener información sobre el comportamiento de tales trayectorias es (intentar) compactificar el espacio cartesiano, de modo que el campo vectorial se extienda a una esfera unitaria $\mathbb{S}^{2}$ que contenga los ``puntos en el infinito''; este método es atribuido a Poincaré y es conocido como la \textit{compactificación de Poincaré}.
-
-Consideremos el campo vectorial plano dado por
-\begin{equation}
-	\begin{aligned}
-		\dot{x} &= f(x, y) \\
-		\dot{y} &= g(x, y),
-	\end{aligned}
-	\label{eq: camVecPlano}
-\end{equation}
-la esfera unitaria $\mathbb{S}^{2} = \{ (x,y,z) : x^{2} + y^{2} + z^{2} = 1 \}$ y el plano tangente $\Pi$ al polo norte; que es el punto con coordenadas (0,0,1). El traslado del sistema \eqref{eq: camVecPlano} al plano $\Pi$, dada por la función natural $(x,y) \longmapsto (x,y,1)$ es:
-\begin{equation}
-	\begin{aligned}
-		\dot{x} &= f(x, y) \\
-		\dot{y} &= g(x, y) \\
-		\dot{z} &= 0
-	\end{aligned}
-	\label{eq: 3camVec}
-\end{equation}
-La idea es ``proyectar'' el sistema \eqref{eq: camVecPlano} a la esfera unitaria mediante una proyección central; entonces, el comportamiento del sistema cerca del infinito es el mismo que el comportamiento del sistema proyectado cerca del ecuador de la esfera.
-
-La proyección central se define de la siguiente manera: Un punto $p \in \Pi$ se asigna a la esfera asignando el único punto en la esfera que se encuentra en el segmento de línea desde el origen en $\R ^{3}$ hasta el punto $p$ (Veáse la \autoref{fig: poincareCompactification}). Para evitar un campo vectorial especificado por tres componentes, estudiaremos el campo vectorial proyectado restringido a un sistema de coordenadas en la esfera donde el campo vectorial es nuevamente plano. Además, para obtener la compactificación deseada, elegiremos coordenadas locales definidas en conjuntos abiertos que contienen porciones del ecuador de la esfera.
-
-La proyección central $Q: \Pi \rightarrow \mathbb{S}^{2}$ es dada por:
-\begin{equation*}
-	Q(x,y,1)=(X,Y,Z)=(\frac{x}{\sqrt{x^{2}+y^{2}+1}},\frac{y}{\sqrt{x^{2}+y^{2}+1}},\frac{1}{\sqrt{x^{2}+y^{2}+1}}).
-\end{equation*}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\textwidth]{img/poincareCompactification.pdf}
-	\caption{Esfera de Poincaré.}
-	\label{fig: poincareCompactification}
-\end{figure}
+%\subsection{Compactificación de Poincaré}
+%Al investigar la estructura cualitativa del retrato de fase de sistemas de ecuaciones diferenciales ordinarias (EDOs) definidos en todo el plano, resulta especialmente relevante comprender el comportamiento de las trayectorias a medida que las variables $x$ e $y$ tienden a infinito, es decir, su comportamiento ``en el infinito''.
+%
+%Por ejemplo, estudiar lo que ocurre en el infinito puede permitir identificar con claridad el estado de equilibrio al que se dirige una separatriz que parte de un punto de silla, o bien establecer la existencia de un ciclo límite. En consecuencia, el análisis del comportamiento de las trayectorias en el infinito constituye un aspecto fundamental en el estudio cualitativo de sistemas dinámicos.
+%
+%Una forma de obtener información sobre el comportamiento de tales trayectorias es (intentar) compactificar el espacio cartesiano, de modo que el campo vectorial se extienda a una esfera unitaria $\mathbb{S}^{2}$ que contenga los ``puntos en el infinito''; este método es atribuido a Poincaré y es conocido como la \textit{compactificación de Poincaré}.
+%
+%Consideremos el campo vectorial plano dado por
+%\begin{equation}
+%	\begin{aligned}
+%		\dot{x} &= f(x, y) \\
+%		\dot{y} &= g(x, y),
+%	\end{aligned}
+%	\label{eq: camVecPlano}
+%\end{equation}
+%la esfera unitaria $\mathbb{S}^{2} = \{ (x,y,z) : x^{2} + y^{2} + z^{2} = 1 \}$ y el plano tangente $\Pi$ al polo norte; que es el punto con coordenadas (0,0,1). El traslado del sistema \eqref{eq: camVecPlano} al plano $\Pi$, dada por la función natural $(x,y) \longmapsto (x,y,1)$ es:
+%\begin{equation}
+%	\begin{aligned}
+%		\dot{x} &= f(x, y) \\
+%		\dot{y} &= g(x, y) \\
+%		\dot{z} &= 0
+%	\end{aligned}
+%	\label{eq: 3camVec}
+%\end{equation}
+%La idea es ``proyectar'' el sistema \eqref{eq: camVecPlano} a la esfera unitaria mediante una proyección central; entonces, el comportamiento del sistema cerca del infinito es el mismo que el comportamiento del sistema proyectado cerca del ecuador de la esfera.
+%
+%La proyección central se define de la siguiente manera: Un punto $p \in \Pi$ se asigna a la esfera asignando el único punto en la esfera que se encuentra en el segmento de línea desde el origen en $\R ^{3}$ hasta el punto $p$ (Veáse la \autoref{fig: poincareCompactification}). Para evitar un campo vectorial especificado por tres componentes, estudiaremos el campo vectorial proyectado restringido a un sistema de coordenadas en la esfera donde el campo vectorial es nuevamente plano. Además, para obtener la compactificación deseada, elegiremos coordenadas locales definidas en conjuntos abiertos que contienen porciones del ecuador de la esfera.
+%
+%La proyección central $Q: \Pi \rightarrow \mathbb{S}^{2}$ es dada por:
+%\begin{equation*}
+%	Q(x,y,1)=(X,Y,Z)=(\frac{x}{\sqrt{x^{2}+y^{2}+1}},\frac{y}{\sqrt{x^{2}+y^{2}+1}},\frac{1}{\sqrt{x^{2}+y^{2}+1}}).
+%\end{equation*}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=0.7\textwidth]{img/poincareCompactification.pdf}
+%	\caption{Esfera de Poincaré.}
+%	\label{fig: poincareCompactification}
+%\end{figure}
 
 \section{Bifurcaciones}
 
@@ -473,10 +473,10 @@ De manera similar que en el supercrítico ahora los puntos críticos solo existe
 
 Supongamos que un sistema bidimensional tiene un punto crítico estable, el cual, existe para cualquier valor paramétrico. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$.? Los autovalores del Jacobiano son la clave. Si el punto crítico es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ en el plano complejo, deben estar en el semiplano izquierdo Re$\lambda <0$. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos o bien son conjugados complejos. Para desestabilizar el punto crítico, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, analíticamente, este hecho se ve reflejado de la siguiente manera: considere los valores propios complejos del jacobiano como $\lambda(\mu)=\alpha(\mu) \pm i\omega(\mu)$. En el valor de bifurcación $\mu=\mu_0$ el jacobiano debe poseer valores propios complejos puros, es decir, $\alpha(\mu_0)=0$ y $\omega(\mu_0)>0$, conocida como \textit{condición espectral}; además, el hecho de que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, se describe mediante la \textit{condición de transversalidad} $$\left. \frac{d}{d\mu}(\alpha(\mu)) \right|_{\mu=\mu_0} \neq 0.$$ Además de ello, el \textit{primer coeficiente de Lyapunov} ($l_1$) no debe anularse, donde este coeficiente será especificado más adelante, bajo estas condiciones decimos que ocurre una \textit{bifurcación de Hopf} en $\mu=\mu_0$. Dado el caso de que $l_1 = 0$, y además la aplicación $\mu \mapsto (\alpha(\mu), l_1(\mu))$, sea regular en $\mu=\mu_0$, en el sentido que
 \begin{equation*}
-	\det \begin{pmatrix}
+	\det \left. \begin{pmatrix}
 		\frac{\partial \alpha(\mu)}{\partial A} & \frac{\partial \alpha(\mu)}{\partial B} \\[6pt]
 		\frac{\partial l_1(\mu)}{\partial A} & \frac{\partial l_1(\mu)}{\partial B} 
-	\end{pmatrix} \neq 0,
+	\end{pmatrix} \right|_{\mu=\mu_0} \neq 0,
 \end{equation*}
 y si además de ello, el \textit{segundo coeficiente de Lyapunov} ($l_2$) no se anula, donde este coeficiente será especificado más adelante; decimos que ocurre una \textit{bifurcación de Hopf generalizada o de Bautin}.
 Al igual que las bifurcaciones en horquilla, las bifurcaciones de Hopf se presentan en variedades supercríticas y subcríticas.
@@ -547,15 +547,15 @@ Esta forma sigmoidea se representa a través de $$\frac{AN}{N^2+B^2},$$ donde $A
 	\label{fig: type3FunctionalResponse}
 \end{figure}
 
-\subsection*{Respuesta funcional tipo 4}
-
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=.5\textwidth]{img/type4FunctionalResponse.pdf}
-	\caption{Respuesta funcional tipo 4.}
-	\label{fig: type4FunctionalResponse}
-\end{figure}
+%\subsection*{Respuesta funcional tipo 4}
+%
+%
+%\begin{figure}[H]
+%	\centering
+%	\includegraphics[width=.5\textwidth]{img/type4FunctionalResponse.pdf}
+%	\caption{Respuesta funcional tipo 4.}
+%	\label{fig: type4FunctionalResponse}
+%\end{figure}
 
 \subsection*{Modelo Lotka-Volterra}
 
