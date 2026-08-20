@@ -2,88 +2,88 @@
 
 Para el análisis del módelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea que se lleva acabo en el presente trabajo, requerimos de ciertos conceptos fundamentales, los cuales se abarcan en la presente sección, esto, con el objetivo de lograr una mejor compresión de todo lo que se presenta posteriormente.
 
-\section*{Posible lista de conceptos a definir}
-
-Conceptos relacionados a los mostrados en \cite{articulo}
-
-\begin{enumerate}
-	\item \textbf{Álgebra lineal}
-	\begin{itemize}
-		\item Espacios vectoriales
-		\item Autovalores y autovectores \checkmark \cite[p. 182]{hoffman1961linear}
-		\item Diagonalización de matrices \checkmark
-		\item Sistemas lineales y no lineales de ecuaciones \checkmark
-		\item Cambios de base y transformaciones lineales
-	\end{itemize}
-	
-	\item \textbf{Ecuaciones diferenciales ordinarias (EDOs)}
-	\begin{itemize}
-		\item Ecuaciones diferenciales ordinarias (EDO) \checkmark  \cite[p. 6]{teschl2012}
-		\item Teorema de existencia y unicidad \checkmark \cite[p. 74]{perko2001}
-		\item Métodos numéricos básicos (Euler, Runge-Kutta)
-	\end{itemize}
-	
-	
-	\item \textbf{Geometría diferencial}
-	\begin{itemize}
-		\item Variedades diferenciables
-		\item Difeomorfismos
-		\item Homeomorfismos
-		\item Campos vectoriales sobre variedades
-	\end{itemize}
-	
-	\item \textbf{Teoría cualitativa de EDOs}
-	\begin{itemize}
-		\item Sistemas diferenciales polinómicos \checkmark \cite[p. I]{Dumortier2006}
-		\item Campo vectorial asociado a un sistema \checkmark \cite[p. 128]{teschl2012}
-		\item Trayectorias \checkmark \cite[p. 128]{teschl2012}
-		\item Diagramas de fase \checkmark
-		\item Isoclinas \checkmark  \cite[p. 53-54]{guckenheimer1983}
-		\item Puntos críticos y clasificación \checkmark \cite[p. 102]{perko2001}
-		\item Conjuntos invariantes \checkmark \cite[p. 99]{perko2001}
-		\item Separatrices  \checkmark \cite[p. 159]{strogatz2014}
-		\item Compactificación de Poincaré \checkmark \cite[p. 216]{Andronov1973} \cite[p. 66]{Chicone2024}
-		\item Variedades estables e inestables \checkmark \cite[p. 13]{guckenheimer1983}
-		\item Reescalamiento y reparametrización temporal
-		\item Desingularización (incluyendo blowing-up)
-	\end{itemize}
-	
-	\item \textbf{Sistemas dinámicos}
-	\begin{itemize}
-		\item Sistemas autónomos y no autónomos \checkmark
-		\item Intervalo maximal de existencia \checkmark \cite[p. 89-90]{perko2001}
-		\item El flujo de un sistema de EDOs \checkmark \cite[p. 96]{perko2001}
-		\item Sistemas equivalentes topológicamente \checkmark \cite[p. 155]{strogatz2014}
-		\item Ciclos límite \checkmark \cite[p. 196]{strogatz2014}
-		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.) \checkmark \cite[p. 118]{guckenheimer1983} \cite[Capítulos 3 y 8]{strogatz2014}
-		\item Diagramas de bifurcación
-		\item Estabilidad de sistemas no lineales
-		\item Teorema de Hartman-Grobman \checkmark \cite[p. 120-121]{perko2001}
-		\item Método del número de Lyapunov
-		\item Órbitas heteroclínicas y homoclínicas \checkmark \cite[p. 150]{teschl2012}
-		\item Teorema de Poincaré-Bendixson \checkmark \cite[p. 203]{strogatz2014}
-	\end{itemize}
-	
-	\item \textbf{Biología matemática / Modelos ecológicos}
-	\begin{itemize}
-		\item Ecuaciones logísticas y crecimiento poblacional \checkmark
-		\item Modelos presa-depredador clásicos (Lotka-Volterra) \checkmark \cite[p. 79]{murray2002}
-		\item Respuestas funcionales de Holling (tipos I, II, III)\checkmark \cite[p. 589]{Begon2006Ecology}
-		\item Modelo Leslie-Gower
-		\item Modelo May–Holling–Turner
-		\item Crecimiento logístico
-		\item Efecto Allee
-		\item Ecuaciones de tipo Kolmogorov
-	\end{itemize}
-	
-	\item \textbf{Métodos algebraicos y analíticos}
-	\begin{itemize}
-		\item Regla de los signos de Descartes
-		\item Análisis de estabilidad lineal y no lineal
-		\item Polar blowing-up method \cite[p. 91]{Dumortier2006} \cite[p. 362]{guckenheimer1983} \cite[p. 64]{Chicone2024}
-		\item Sistemas tangentes
-	\end{itemize}
-\end{enumerate}
+%\section*{Posible lista de conceptos a definir}
+%
+%Conceptos relacionados a los mostrados en \cite{articulo}
+%
+%\begin{enumerate}
+%	\item \textbf{Álgebra lineal}
+%	\begin{itemize}
+%		\item Espacios vectoriales
+%		\item Autovalores y autovectores \checkmark \cite[p. 182]{hoffman1961linear}
+%		\item Diagonalización de matrices \checkmark
+%		\item Sistemas lineales y no lineales de ecuaciones \checkmark
+%		\item Cambios de base y transformaciones lineales
+%	\end{itemize}
+%	
+%	\item \textbf{Ecuaciones diferenciales ordinarias (EDOs)}
+%	\begin{itemize}
+%		\item Ecuaciones diferenciales ordinarias (EDO) \checkmark  \cite[p. 6]{teschl2012}
+%		\item Teorema de existencia y unicidad \checkmark \cite[p. 74]{perko2001}
+%		\item Métodos numéricos básicos (Euler, Runge-Kutta)
+%	\end{itemize}
+%	
+%	
+%	\item \textbf{Geometría diferencial}
+%	\begin{itemize}
+%		\item Variedades diferenciables
+%		\item Difeomorfismos
+%		\item Homeomorfismos
+%		\item Campos vectoriales sobre variedades
+%	\end{itemize}
+%	
+%	\item \textbf{Teoría cualitativa de EDOs}
+%	\begin{itemize}
+%		\item Sistemas diferenciales polinómicos \checkmark \cite[p. I]{Dumortier2006}
+%		\item Campo vectorial asociado a un sistema \checkmark \cite[p. 128]{teschl2012}
+%		\item Trayectorias \checkmark \cite[p. 128]{teschl2012}
+%		\item Diagramas de fase \checkmark
+%		\item Isoclinas \checkmark  \cite[p. 53-54]{guckenheimer1983}
+%		\item Puntos críticos y clasificación \checkmark \cite[p. 102]{perko2001}
+%		\item Conjuntos invariantes \checkmark \cite[p. 99]{perko2001}
+%		\item Separatrices  \checkmark \cite[p. 159]{strogatz2014}
+%		\item Compactificación de Poincaré \checkmark \cite[p. 216]{Andronov1973} \cite[p. 66]{Chicone2024}
+%		\item Variedades estables e inestables \checkmark \cite[p. 13]{guckenheimer1983}
+%		\item Reescalamiento y reparametrización temporal
+%		\item Desingularización (incluyendo blowing-up)
+%	\end{itemize}
+%	
+%	\item \textbf{Sistemas dinámicos}
+%	\begin{itemize}
+%		\item Sistemas autónomos y no autónomos \checkmark
+%		\item Intervalo maximal de existencia \checkmark \cite[p. 89-90]{perko2001}
+%		\item El flujo de un sistema de EDOs \checkmark \cite[p. 96]{perko2001}
+%		\item Sistemas equivalentes topológicamente \checkmark \cite[p. 155]{strogatz2014}
+%		\item Ciclos límite \checkmark \cite[p. 196]{strogatz2014}
+%		\item Bifurcaciones (saddle-node, Hopf, pitchfork, etc.) \checkmark \cite[p. 118]{guckenheimer1983} \cite[Capítulos 3 y 8]{strogatz2014}
+%		\item Diagramas de bifurcación
+%		\item Estabilidad de sistemas no lineales
+%		\item Teorema de Hartman-Grobman \checkmark \cite[p. 120-121]{perko2001}
+%		\item Método del número de Lyapunov
+%		\item Órbitas heteroclínicas y homoclínicas \checkmark \cite[p. 150]{teschl2012}
+%		\item Teorema de Poincaré-Bendixson \checkmark \cite[p. 203]{strogatz2014}
+%	\end{itemize}
+%	
+%	\item \textbf{Biología matemática / Modelos ecológicos}
+%	\begin{itemize}
+%		\item Ecuaciones logísticas y crecimiento poblacional \checkmark
+%		\item Modelos presa-depredador clásicos (Lotka-Volterra) \checkmark \cite[p. 79]{murray2002}
+%		\item Respuestas funcionales de Holling (tipos I, II, III)\checkmark \cite[p. 589]{Begon2006Ecology}
+%		\item Modelo Leslie-Gower
+%		\item Modelo May–Holling–Turner
+%		\item Crecimiento logístico
+%		\item Efecto Allee
+%		\item Ecuaciones de tipo Kolmogorov
+%	\end{itemize}
+%	
+%	\item \textbf{Métodos algebraicos y analíticos}
+%	\begin{itemize}
+%		\item Regla de los signos de Descartes
+%		\item Análisis de estabilidad lineal y no lineal
+%		\item Polar blowing-up method \cite[p. 91]{Dumortier2006} \cite[p. 362]{guckenheimer1983} \cite[p. 64]{Chicone2024}
+%		\item Sistemas tangentes
+%	\end{itemize}
+%\end{enumerate}
 
 \section{Ecuaciones diferenciales ordinarias (EDOs)}
 

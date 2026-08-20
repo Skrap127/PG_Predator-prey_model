@@ -346,23 +346,44 @@ reemplazando $k = \dfrac{B-1}{B}$, obtenemos que:
 	\end{aligned}
 \end{equation*}
 Así,
-\begin{equation*}
+\begin{equation}
 	D\bar{Y_{\eta}}\left(0,\theta_3\right) =
 	\begin{bmatrix}
 		\dfrac{A^2 B}{(2B^{2}-2B+1)^{1/2}} & 0 \\
 		\dfrac{A^2 B^4 (B-1)}{(2B^{2}-2B+1)^{2}} & -\dfrac{A^2 B^2 (B-1)}{(2B^{2}-2B+1)^{1/2}}
 	\end{bmatrix}.
 	\label{eq:jacobianaModelo2PolarEn(0,b)}
-\end{equation*}
-Con valores propios $$\lambda_r = \dfrac{A^2 B}{(2B^{2}-2B+1)^{1/2}}>0 \; \text{y} \; \lambda_\theta = -\dfrac{A^2 B^2 (B-1)}{(2B^{2}-2B+1)^{1/2}}<0.$$ Por lo tanto, $(0,\theta_3)$ es un punto silla.
+\end{equation}
+Con valores propios $$\lambda_r = \dfrac{A^2 B}{(2B^{2}-2B+1)^{1/2}}>0 \; \text{y} \; \lambda_\theta = -\dfrac{A^2 B^2 (B-1)}{(2B^{2}-2B+1)^{1/2}}<0.$$ Por lo tanto, $(0,\theta_3)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$.
+
 \begin{figure}
 	\centering
-	\includegraphics[width=.7\textwidth]{img/blowingUpPolar.pdf}
-	\caption{Blow-up en el origen del sistema \eqref{eq: modelo2} para el caso $B>1$.}
+	\begin{subfigure}{0.305\textwidth}
+		\includegraphics[width=\textwidth]{img/blowingUpPolar(Bmen1).pdf}
+		\caption{$B < 1$.}
+		\label{fig: BlowUp Modelo 2 B<1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.305\textwidth}
+		\includegraphics[width=\textwidth]{img/blowingUpPolar(Bigu1).pdf}
+		\caption{$B = 1$.}
+		\label{fig: BlowUp Modelo 2 B=1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.35\textwidth}
+		\includegraphics[width=\textwidth]{img/blowingUpPolar(Bmay1).pdf}
+		\caption{$B > 1$.}
+		\label{fig: BlowUp Modelo 2 B>1}
+	\end{subfigure}
+	\caption{Blow-up en el origen del sistema \eqref{eq: modelo2} para diferentes valores de $B$.}
 	\label{fig: BlowUp Modelo 2}
 \end{figure}
 
 Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto con sus respectivos valores propios radiales y tangenciales, podemos determinar como se comporta cualitativamente el origen del campo $Y_{\eta}$ en una cierta vecindad. Este comportamiento se puede evidenciar en la figura \ref{fig: BlowUp Modelo 2}, en donde, para el caso $B\leq1$ vemos que el primer cuadrante consta de un único sector hiperbólico, y para $B>1$ de uno parabólico y uno hiperbólico. Recordemos que la finalidad de la técnica del blow-up es determinar el comportamiento del origen en $Y_{\eta}$, en sí, este proceso nos permite determinar que trayectorias entran o salen del origen, y son determinadas por la pendiente $\tan \theta^*$, donde $\theta^*$ es un punto crítico de $\bar{Y_{\eta}}$. Por ende, en el primer cuadrante de $Y_{\eta}$ hay tres de estas trayectorias: $v=0$ que corresponde a la orbita con pendiente $\tan\theta_1=0$, $u=0$ que corresponde a la orbita con pendiente $\tan\theta_2= \infty$ y la orbita determinada por la pendiente $\tan\theta_3=\dfrac{B-1}{B}$, la cual solo se da para el caso $B>1$, y además define una curva separatriz puesto que divide el retrato de fase en dos sectores con comportamientos cualitativos distintos (parabólico e hiperbólico).
+
+\begin{remark}
+	De \eqref{eq:jacobianaModelo2PolarEn(0,b)} deducimos que para el caso $B<1$, $\theta_3$ es una fuente del campo $\bar{Y_{\eta}}(0,\theta)$, la estabilidad de los puntos antipodales ($\theta + \pi$) que son mostrados en la \autoref{fig: BlowUp Modelo 2}, pueden ser determinados a partir de la matriz jacobiana $D\bar{Y_{\eta}}(0,\theta + \pi)$ cuyos valores propios solo difieren del signo de los autovalores de $D\bar{Y_{\eta}}(0,\theta)$. La formula del índice de Poincaré $$i=\frac{e-h}{2}+1=0,$$ donde $e$ denota la cantidad de sectores elípticos y $h$ la de sectores hiperbólicos del origen, nos permiten clasificar a este como un punto silla-nodo del sistema \eqref{eq: modelo2}.
+\end{remark}
 
 \begin{figure}
 	\centering
