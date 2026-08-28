@@ -323,37 +323,37 @@ Sea 0 un punto de equilibrio de un campo vectorial $C^{\infty}$, $X$  en $\R^{2}
 donde $\mathbb{S}^{1}$ representa la circunferencia unitaria centrada en el origen.
 Podemos definir un campo vectorial suave ($C^{\infty}$), $\tilde{X}$ en el cilindro $\mathbb{S}^{1} \times \mathbb{R}$ tal que la aplicacion lineal $\psi_{*}:T_{p}M \longrightarrow T_{\psi(p)}M$ envia el campo vectorial $\tilde{X}$ a $X$, es decir, $\psi_{*}(\tilde{X})=X$, en el sentido que, $D\psi_{v}(\tilde{X}(v)) = X(\psi(v))$. Esto se llama el retroceso (pull back) de $X$ por $\psi$. No es nada más que $X$ escrito en coordenadas polares. La aplicación $\psi$ es un difeomorfismo suave, por lo tanto, un cambio de coordenadas suave en $\mathbb{S}^{1} \times (0,\infty)$, pero no en $\{r=0\}$; aquí, $\psi$ envía $\{r=0\}$ a $(0,0)$, y como tal, la aplicación inversa $\psi^{-1}$ ``explota'' el origen a un círculo. Para estudiar el retrato de fases de $X$ en un vecindario $V$ del origen, basta claramente estudiar el retrato de fases de $\tilde{X}$ en el vecindario $\psi^{-1}(V)$ del círculo $\mathbb{S}^{1}\times \{0\}$. Básicamente, este método se basa en convertir el sistema a coordenadas polares y estudiarlo en $r=0$, en caso de que el campo vectorial se anule, consideramos el nuevo campo vectorial $$\bar{X}=\dfrac{1}{r^{k}}\tilde{X},$$ donde $k$ es el menor natural que no permite esta nulidad; este cociente no cambia las órbitas de $\tilde{X}$ ni su sentido de dirección, sino la parametrización por tiempo $t$. 
 
-Aunque el cilindro es una buena superficie para obtener una visión global de $\tilde{X}$ y su retrato de fases, a menudo es menos apropiado para hacer cálculos, ya que constantemente tenemos que tratar con expresiones trigonométricas. Por esa razón puede ser preferible hacer los cálculos en diferentes cartas.
-
-En las partes del cilindro dadas, respectivamente, por $\theta\in(-\pi/2,\pi/2)$ y $\theta\in(\pi/2,3\pi/2)$ usamos una carta dada por
-$$
-K^{x}:(\theta,r)\mapsto (r\cos\theta,\tan\theta)=(\bar{x},\bar{y}).
-$$
-
-En esta carta la expresión del blow-up $\psi$ está dada por
-$$
-\psi^{x}:(\bar{x},\bar{y})\mapsto (\bar{x},\bar{x}\bar{y}).
-$$
-
-En efecto vemos que
-$$
-\psi=\psi^{x}\circ K^{x}:(\theta,r)\xmapsto{K^{x}}(r\cos\theta,\tan\theta)
-\xmapsto{\psi^{x}}(r\cos\theta,r\cos\theta\tan\theta)=(r\cos\theta,r\sin\theta).
-$$
-
-Llamamos a esto un \textit{blow-up en la dirección $x$}; el retroceso de $X$ mediante $\psi^{x}$ se denota por $\tilde{X}^{x}$, es decir $(\psi^{x})_{*}(\tilde{X}^{x})=X$.
-
-En las partes del cilindro dadas, respectivamente, por $\theta\in(0,\pi)$ y $\theta\in(\pi,2\pi)$ usamos una carta dada por
-$$
-K^{y}:(\theta,r)\mapsto (\cot\theta,r\sin\theta)=(\bar{x},\bar{y}).
-$$
-
-En esta carta la expresión del blow-up $\psi$ está dada por
-$$
-\psi^{y}:(\bar{x},\bar{y})\mapsto (\bar{x}\bar{y},\bar{y}).
-$$
-
-en el sentido de que $\psi=\psi^{y}\circ K^{y}$. Llamamos a esto un \textit{blow-up en la dirección $y$}; el retroceso de $X$ mediante $\psi^{y}$ se denota por $\tilde{X}^{y}$, es decir $(\psi^{y})_{*}(\tilde{X}^{y})=X$. Tanto $\psi^{x}$ como $\psi^{y}$ se llaman \textit{blow-ups direccionales}.
+%Aunque el cilindro es una buena superficie para obtener una visión global de $\tilde{X}$ y su retrato de fases, a menudo es menos apropiado para hacer cálculos, ya que constantemente tenemos que tratar con expresiones trigonométricas. Por esa razón puede ser preferible hacer los cálculos en diferentes cartas.
+%
+%En las partes del cilindro dadas, respectivamente, por $\theta\in(-\pi/2,\pi/2)$ y $\theta\in(\pi/2,3\pi/2)$ usamos una carta dada por
+%$$
+%K^{x}:(\theta,r)\mapsto (r\cos\theta,\tan\theta)=(\bar{x},\bar{y}).
+%$$
+%
+%En esta carta la expresión del blow-up $\psi$ está dada por
+%$$
+%\psi^{x}:(\bar{x},\bar{y})\mapsto (\bar{x},\bar{x}\bar{y}).
+%$$
+%
+%En efecto vemos que
+%$$
+%\psi=\psi^{x}\circ K^{x}:(\theta,r)\xmapsto{K^{x}}(r\cos\theta,\tan\theta)
+%\xmapsto{\psi^{x}}(r\cos\theta,r\cos\theta\tan\theta)=(r\cos\theta,r\sin\theta).
+%$$
+%
+%Llamamos a esto un \textit{blow-up en la dirección $x$}; el retroceso de $X$ mediante $\psi^{x}$ se denota por $\tilde{X}^{x}$, es decir $(\psi^{x})_{*}(\tilde{X}^{x})=X$.
+%
+%En las partes del cilindro dadas, respectivamente, por $\theta\in(0,\pi)$ y $\theta\in(\pi,2\pi)$ usamos una carta dada por
+%$$
+%K^{y}:(\theta,r)\mapsto (\cot\theta,r\sin\theta)=(\bar{x},\bar{y}).
+%$$
+%
+%En esta carta la expresión del blow-up $\psi$ está dada por
+%$$
+%\psi^{y}:(\bar{x},\bar{y})\mapsto (\bar{x}\bar{y},\bar{y}).
+%$$
+%
+%en el sentido de que $\psi=\psi^{y}\circ K^{y}$. Llamamos a esto un \textit{blow-up en la dirección $y$}; el retroceso de $X$ mediante $\psi^{y}$ se denota por $\tilde{X}^{y}$, es decir $(\psi^{y})_{*}(\tilde{X}^{y})=X$. Tanto $\psi^{x}$ como $\psi^{y}$ se llaman \textit{blow-ups direccionales}.
 
 Como se mencionó anteriormente, al aplicar el blow-up al origen, este se transforma en un conjunto que puede contener nuevos puntos de equilibrio. Si alguno de estos puntos no resulta ser hiperbolico, es posible iterar nuevamente el proceso hasta que se logre lo ideal. De este modo, tras un número finito de blow-ups sucesivos, se puede determinar el retrato de fase local asociado a la singularidad original.
 
@@ -487,7 +487,7 @@ En términos del flujo en el espacio de fases, una bifurcación de Hopf supercr�
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{img/bifHopfSup.pdf}
+	\includegraphics[width=.99\textwidth]{img/bifHopfSup.pdf}
 	\caption{Ejemplo de bifurcación de Hopf supercrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(r,\theta)=(\mu r - r^3,1 + r^2)$.}
 	\label{fig: bifHopfSup}
 \end{figure}
@@ -498,7 +498,7 @@ El caso subcrítico es siempre mucho más dramático y potencialmente peligroso 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=1\textwidth]{img/bifHopfSub.pdf}
+	\includegraphics[width=.99\textwidth]{img/bifHopfSub.pdf}
 	\caption{Ejemplo de bifurcación de Hopf subcrítica en el sistema \eqref{eq: sisParametro} asociado a $f_{\mu}(x,y)=(\mu x-y+x y^2, x+a y+y^3)$.}
 	\label{fig: bifHopfSub}
 \end{figure}
@@ -513,7 +513,7 @@ Por ejemplo en los modelos presa-depredador, los efectos beneficiosos que la com
 \subsection*{Respuesta funcional tipo 1}
 La respuesta funcional más básica, la de tipo 1, es la que se asume por ejemplo en las ecuaciones de Lotka-Volterra: la tasa de consumo aumenta linealmente con la densidad de presas. Esto se indica mediante la constante $b$ en el sistema \ref{eq: lotka-volterra}.
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
 	\includegraphics[width=.5\textwidth]{img/type1FunctionalResponse.pdf}
 	\caption{Respuesta funcional de Holling tipo 1.}
@@ -529,7 +529,7 @@ Sin embargo, manipular una presa sigue requiriendo el mismo tiempo, y por lo tan
 
 Este comportamiento es descrito a través de la expresión $$\frac{A}{N+B},$$ donde $A$ y $B$ son constantes positivas y $N$ representa la población de las presas.
 
-\begin{figure}[H]
+\begin{figure}
 	\centering
 	\includegraphics[width=.5\textwidth]{img/type2FunctionalResponse.pdf}
 	\caption{Respuesta funcional de Holling tipo 2.}
@@ -540,7 +540,7 @@ Este comportamiento es descrito a través de la expresión $$\frac{A}{N+B},$$ do
 Las respuestas funcionales de tipo 3, a altas densidades de presas, son similares a una respuesta de tipo 2, y las explicaciones para ambas son las mismas. Sin embargo, a bajas densidades de presas, la respuesta de tipo 3 presenta una fase de aceleración, donde un aumento de la densidad conduce a un aumento más que lineal de la tasa de consumo. Por lo tanto, en general, una respuesta de tipo 3 tiene forma de S o sigmoidea. 
 En general, esta forma sigmoidea y la respuesta funcional de tipo 3 surgirán siempre que un aumento de la densidad de alimento conduzca a un aumento de la eficiencia de búsqueda o tasa de ataque del consumidor, o a una disminución de su tiempo de manipulación, ya que ambas determinan la tasa de consumo. Por ejemplo, un depredador puede interesarse por una especie de presa en particular solo cuando su abundancia relativa en la comunidad de presas es suficientemente alta.
 Esta forma sigmoidea se representa a través de $$\frac{AN}{N^2+B^2},$$ donde $A$ y $B$ son constantes positivas y $N$ representa la población de las presas.
-\begin{figure}[H]
+\begin{figure}
 	\centering
 	\includegraphics[width=.5\textwidth]{img/type3FunctionalResponse.pdf}
 	\caption{Respuesta funcional de Holling tipo 3.}
@@ -556,7 +556,7 @@ Esta forma sigmoidea se representa a través de $$\frac{AN}{N^2+B^2},$$ donde $A
 %	\caption{Respuesta funcional tipo 4.}
 %	\label{fig: type4FunctionalResponse}
 %\end{figure}
-
+\newpage
 \subsection*{Modelo Lotka-Volterra}
 
 Volterra (1926) fue el primero en proponer un modelo simple para la depredación de una especie por otra para explicar los niveles oscilatorios de ciertas capturas de peces en el Adriático. Si $N(t)$ es la población de presas y $P(t)$ la del depredador en el tiempo $t$, entonces el modelo de Volterra es

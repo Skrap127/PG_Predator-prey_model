@@ -51,7 +51,7 @@ Con el propósito de analizar el comportamiento cualitativo del sistema y simpli
 		\dfrac{dv}{dt} = s \left(1-\dfrac{v}{u}\right)v
 	\end{cases}.
 \end{equation*}
-Posteriormente, se realiza un reescalado de la variable temporal mediante la relación diferencial $d\tau = r/[u(u^2+A^2)]dt $, donde $A = a/K$. Dado que el factor de escala $r/[u(u^2+A^2)]$ es una función suave y positiva en el conjunto de definición $\bar{\Omega} = \{ (u, v) \in \R^{2} \; | \; u > 0, \; v \geq 0 \}$, la dirección de las trayectorias se preserva \cite{chicone2024}[p.~14](Colocar proposicion 1.14 en preli). Al aplicar el reescalado se obtiene el siguiente sistema topológicamente equivalente.
+Posteriormente, se realiza un reescalado de la variable temporal mediante la relación diferencial $d\tau = r/[u(u^2+A^2)]dt $, donde $A = a/K$. Dado que el factor de escala $r/[u(u^2+A^2)]$ es una función suave y positiva en el conjunto de definición $\bar{\Omega} = \{ (u, v) \in \R^{2} \; | \; u > 0, \; v \geq 0 \}$, la dirección de las trayectorias se preserva \cite{chicone2024}[p.~14]. Al aplicar el reescalado se obtiene el siguiente sistema topológicamente equivalente.
 \begin{equation*}
 	\begin{cases}
 		\dfrac{du}{d\tau} = \left((1-u)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right) - \dfrac{qn}{r} uv\right)u^{2} \\
@@ -200,7 +200,7 @@ Los valores propios de la matriz
 \end{equation*}
 están dados por $\lambda_1 = -(1+A^{2}) < 0$ y $\lambda_2 = B(1+A^{2}) > 0$. Dado que tienen signos opuestos, tenemos que $(1,0)$ es un punto silla.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=.5\textwidth]{img/puntoDeEquilibrio(1,0).pdf}
 	\caption{Punto de equilibrio $(1, 0)$ para valores paramétricos aleatorios.}
@@ -246,7 +246,7 @@ para determinar el comportamiento del sistema \eqref{eq: modelo2} en una vecinda
 
 Hallemos los puntos críticos de $\bar{Y_{\eta}}(0,\theta)$ ubicados en el primer cuadrante. Igualando el campo vectorial $\bar{Y_{\eta}}(0,\theta)$ a cero, debe ocurrir al menos que $\cos\theta$, $\sin\theta$ o $B\cos\theta-B\sin\theta-\cos\theta$ se anule. Esto ocurre para los valores $\theta_1 = 0, \; \theta_2 = \dfrac{\pi}{2}$ y los que cumplan la igualdad $$\dfrac{B-1}{B}\cos\theta=\sin\theta,$$ es decir, $\theta_3 = \arctg\left( \dfrac{B-1}{B} \right)$; aquí, notemos que el escenario de relevancia es para el caso $B>1$, pues para $B=1$ estaríamos hablando de $\theta_3 = \theta_1 = 0$ y para $B<1$, $\theta_3$ no estaría en el primer cuadrante.
 
-Ahora, dada la matriz jacobiana:
+La matriz jacobiana del campo $\bar{Y}_{\eta}(0,\theta)$ esta dada por
 \begin{equation*}
 	D\bar{Y_{\eta}}(0,\theta) =
 	\begin{bmatrix}
@@ -313,7 +313,7 @@ con valores propios $\lambda_r = -A^{2}B<0$ y $\lambda_\theta = A^{2}B>0$. Por l
 
 \subsubsection*{Estabilidad en $(0, \theta_3)$ con $\theta_3=\arctg\left((B-1)/B\right)$}
 
-Ahora, denotando $k = \dfrac{B-1}{B}$, donde $B>1$, y tomando en cuenta las identidades
+Denotando $k = \dfrac{B-1}{B}$, donde $B>1$, y tomando en cuenta las identidades
 \begin{equation*}
 	\begin{aligned}
 		\sin(\theta_3) &= \dfrac{k}{\sqrt{1+k^{2}}} \\
@@ -354,9 +354,11 @@ Así,
 	\end{bmatrix}.
 	\label{eq:jacobianaModelo2PolarEn(0,b)}
 \end{equation}
-Con valores propios $$\lambda_r = \dfrac{A^2 B}{(2B^{2}-2B+1)^{1/2}}>0 \; \text{y} \; \lambda_\theta = -\dfrac{A^2 B^2 (B-1)}{(2B^{2}-2B+1)^{1/2}}<0.$$ Por lo tanto, $(0,\theta_3)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$.
+Con valores propios $$\lambda_r = \dfrac{A^2 B}{(2B^{2}-2B+1)^{1/2}}>0 \; \text{y} \; \lambda_\theta = -\dfrac{A^2 B^2 (B-1)}{(2B^{2}-2B+1)^{1/2}}<0.$$ Por lo tanto, $(0,\theta_3)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$. \\
 
-\begin{figure}
+Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto con sus respectivos valores propios radiales y tangenciales, podemos determinar como se comporta cualitativamente el origen del campo $Y_{\eta}$ en una cierta vecindad. Este comportamiento se puede evidenciar en la figura \ref{fig: BlowUp Modelo 2}, en donde, para el caso $B\leq1$ vemos que el primer cuadrante consta de un único sector hiperbólico, y para $B>1$ de uno parabólico y uno hiperbólico. Recordemos que la finalidad de la técnica del blow-up es determinar el comportamiento del origen en $Y_{\eta}$, en sí, este proceso nos permite determinar que trayectorias entran o salen del origen, y son determinadas por la pendiente $\tan \theta^*$, donde $\theta^*$ es un punto crítico de $\bar{Y_{\eta}}$. Por ende, en el primer cuadrante de $Y_{\eta}$ hay tres de estas trayectorias: $v=0$ que corresponde a la orbita con pendiente $\tan\theta_1=0$, $u=0$ que corresponde a la orbita con pendiente $\tan\theta_2= \infty$ y la orbita determinada por la pendiente $\tan\theta_3=\dfrac{B-1}{B}$, la cual solo se da para el caso $B>1$, y además define una curva separatriz puesto que divide el retrato de fase en dos sectores con comportamientos cualitativos distintos (parabólico e hiperbólico).
+
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}{0.305\textwidth}
 		\includegraphics[width=\textwidth]{img/blowingUpPolar(Bmen1).pdf}
@@ -379,13 +381,11 @@ Con valores propios $$\lambda_r = \dfrac{A^2 B}{(2B^{2}-2B+1)^{1/2}}>0 \; \text{
 	\label{fig: BlowUp Modelo 2}
 \end{figure}
 
-Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto con sus respectivos valores propios radiales y tangenciales, podemos determinar como se comporta cualitativamente el origen del campo $Y_{\eta}$ en una cierta vecindad. Este comportamiento se puede evidenciar en la figura \ref{fig: BlowUp Modelo 2}, en donde, para el caso $B\leq1$ vemos que el primer cuadrante consta de un único sector hiperbólico, y para $B>1$ de uno parabólico y uno hiperbólico. Recordemos que la finalidad de la técnica del blow-up es determinar el comportamiento del origen en $Y_{\eta}$, en sí, este proceso nos permite determinar que trayectorias entran o salen del origen, y son determinadas por la pendiente $\tan \theta^*$, donde $\theta^*$ es un punto crítico de $\bar{Y_{\eta}}$. Por ende, en el primer cuadrante de $Y_{\eta}$ hay tres de estas trayectorias: $v=0$ que corresponde a la orbita con pendiente $\tan\theta_1=0$, $u=0$ que corresponde a la orbita con pendiente $\tan\theta_2= \infty$ y la orbita determinada por la pendiente $\tan\theta_3=\dfrac{B-1}{B}$, la cual solo se da para el caso $B>1$, y además define una curva separatriz puesto que divide el retrato de fase en dos sectores con comportamientos cualitativos distintos (parabólico e hiperbólico).
-
 \begin{remark}
-	De \eqref{eq:jacobianaModelo2PolarEn(0,b)} deducimos que para el caso $B<1$, $\theta_3$ es una fuente del campo $\bar{Y_{\eta}}(0,\theta)$, la estabilidad de los puntos antipodales ($\theta + \pi$) que son mostrados en la \autoref{fig: BlowUp Modelo 2}, pueden ser determinados a partir de la matriz jacobiana $D\bar{Y_{\eta}}(0,\theta + \pi)$ cuyos valores propios solo difieren del signo de los autovalores de $D\bar{Y_{\eta}}(0,\theta)$. La formula del índice de Poincaré $$i=\frac{e-h}{2}+1=0,$$ donde $e$ denota la cantidad de sectores elípticos y $h$ la de sectores hiperbólicos del origen, nos permiten clasificar a este como un punto silla-nodo del sistema \eqref{eq: modelo2}.
+	De \eqref{eq:jacobianaModelo2PolarEn(0,b)} deducimos que para el caso $B<1$, $\theta_3$ está ubicado en el cuarto cuadrante y es un punto repulsor o fuente del campo $\bar{Y_{\eta}}(0,\theta)$, la estabilidad de los puntos antipodales ($\theta + \pi$) que son mostrados en la \autoref{fig: BlowUp Modelo 2}, pueden ser determinados a partir de la matriz jacobiana $D\bar{Y_{\eta}}(0,\theta + \pi)$ cuyos valores propios solo difieren del signo de los autovalores de $D\bar{Y_{\eta}}(0,\theta)$. La formula del índice de Poincaré $$i=\frac{e-h}{2}+1=0,$$ donde $e$ denota la cantidad de sectores elípticos y $h$ la de sectores hiperbólicos del origen \cite[p.~179]{Dumortier2006}, nos indica que este punto en el sistema \eqref{eq: modelo2} tiene un comportamiento local tipo silla-nodo.
 \end{remark}
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\begin{subfigure}{0.49\textwidth}
 		\includegraphics[width=\textwidth]{img/puntoDeEquilibrio(0,0)conBmenor1.pdf}
@@ -450,9 +450,9 @@ y puesto que $B>0$, esto se da bajo las restricciones: $$H<1/2 \; \text{ y } \; 
 Dado que la linealización no garantiza que $(H, H)$ sea un punto centro para el caso $B=B_c$, ya que en este caso el punto de equilibrio es no hiperbólico, se es de importancia verificar si $(H, H)$ es un punto centro o un foco débil en el sistema no linealizado. Con el propósito de validar la estructura cualitativa en este caso, calcularemos el primer número de Lyapunov.
 %; esto no es sólo con este fin, sino con el de validar que tipo de bifurcación de Hopf se nos presenta, puesto que dicha característica esta garantizada debido al siguiente teorema.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{img/puntoDeEquilibrio(H,H).pdf}
+	\includegraphics[width=.85\textwidth]{img/puntoDeEquilibrio(H,H).pdf}
 	\caption{Punto de equilibrio $(H, H)$ para diferentes valores paramétricos.}
 	\label{fig: eq(H,H)Modelo2}
 \end{figure}
@@ -505,19 +505,19 @@ donde las expresiones $ g_{20}, g_{11}$ y $g_{21}$ se determinan a partir del si
 	\dot{z} = \omega i z + \sum_{2 \le k+l \le 3} \frac{1}{k!l!} g_{kl} z^k \bar{z}^l + O(|z|^4)
 	\label{eq: normalForm}
 \end{equation}
-con $z=\langle p,(\bar{u},\bar{v}) \rangle$, donde $p=(p_1,p_2)$ es el autovector asociado al valor propio complejo puro $-\omega i$ de la matriz jacobiana $Dh(0,0)^T$, considerando el producto interno $\langle m,n \rangle = \bar{m}_1 n_1 + \bar{m}_2 n_2$.
+con $z=\langle p,(\bar{u},\bar{v}) \rangle$, donde $p=(p_1,p_2)$ es el autovector asociado al valor propio complejo puro $-\omega i$ de la matriz jacobiana $Dh(0,0)^T$, considerando el producto interno $\langle m,n \rangle = \bar{m}_1 n_1 + \bar{m}_2 n_2$. \\
 
 Las expresiones necesarias para el cálculo del primer coeficiente de Lyapunov \eqref{eq: l1} también pueden determinarse a partir de las igualdades
 \begin{equation}
 	g_{20}=G_{zz}, \; g_{11}=G_{zw}, \; g_{21}=G_{zzw},
 	\label{eq: derFunComplejaL1}
 \end{equation}
-con $G_{z_k w_l}$ dadas por las derivadas parciales evaluadas en $z=w=0$ de la función de variable compleja
+con $G_{z z}, \;G_{z w}$ y $G_{z z w}$ dadas por las derivadas parciales evaluadas en \linebreak $z=w=0$ de la función de variable compleja
 \begin{equation}
 	G(z,w) = \bar{p_1}F_1(zq_1+w\bar{q_1}, zq_2+w\bar{q_2}) + \bar{p_2}F_2(zq_1+w\bar{q_1}, zq_2+w\bar{q_2}),
 	\label{eq: funComplejaL1}
 \end{equation}
-con $w = z - \frac{g_{20}}{2\omega i} z^2 + \frac{g_{11}}{\omega i} z \bar{z} + \frac{g_{02}}{3\omega i} \bar{z}^2 + O(|z|^3)$, donde $q=(q_1,q_2)$ es el autovector asociado al valor propio complejo puro $\omega i$, de la matriz jacobiana $Dh(0,0)$; además, se debe cumplir que $\langle p,q \rangle =1$, más detalles al respecto se pueden encontrar en \textit{Kuznetsov} \cite[p.  ~101]{Kuznetsov2023}.
+con $w = z - \frac{g_{20}}{2\omega i} z^2 + \frac{g_{11}}{\omega i} z \bar{z} + \frac{g_{02}}{3\omega i} \bar{z}^2 + O(|z|^3)$, donde $q=(q_1,q_2)$ es el autovector asociado al valor propio complejo puro $\omega i$, de la matriz jacobiana $Dh(0,0)$; además, se debe cumplir que $\langle p,q \rangle =1$, más detalles al respecto se pueden encontrar en \textit{Kuznetsov} \cite[p.  ~101]{Kuznetsov2023}. \\
 
 Para determinar \eqref{eq: derFunComplejaL1}, debemos hallar $q,\tilde{p} \in \C^2$: $$Dh(0,0)q=i\omega q, \; Dh(0,0)^T \tilde{p}=-i\omega \tilde{p}.$$ Para ello considermos la siguiente notación $$\omega i= \sqrt{\det (M)} \; i = \sqrt{ad} \; i,$$ donde $d = H[H^3+A^2(2-H)]$. Para obtener $q$ solucionamos el sistema, $(Dh(0, 0) - \omega i I)U = 0$, esto es:
 \begin{equation}
@@ -668,9 +668,9 @@ Reemplazando los valores conocidos, de \eqref{eq: l1}, obtenemos que
 	l_1 = \dfrac{2A^2(1 - H)([4 - 3H(3 - H)]A^4 -4H^3A^2 - (3 - H)H^5)}{(A^2 + H^2)[(H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2)]^{3/2}},
 	\label{eq: l1Kuznetsov}
 \end{equation}
-donde el signo de $l_1$ dependerá exclusivamente del valor
+donde el signo de $l_1$ dependerá exclusivamente del signo de la expresión
 \begin{equation}
-	[4 - 3H(3-H)]A^4 - 4H^3A^2 - (3-H)H^5,
+	L_1 = [4 - 3H(3-H)]A^4 - 4H^3A^2 - (3-H)H^5,
 	\label{eq: sgnL1}
 \end{equation}
 con $4 - 3H(3-H) > 0$ (puesto que $H \in (0, 1/2)$). El primer coeficiente de Lyapunov se anulará para:
@@ -696,29 +696,16 @@ este hecho da consecuencia al siguiente teorma.
 	\end{equation*}
 	Cumpliendo así las condiciones para que una bifurcación de Hopf ocurra para $B = B_c$ y $A\neq A_c$.
 \end{proof}
-La curva $L_1 = 0$ y la región de restricciones del sistema, puede observarse en la \autoref{fig: curvaL_1AH}. El modelo contará con una bifurcación de Hopf subcrítica ($L_1 > 0$) para los valores de $A$ y $H$ que se encuentren por encima de esta curva y dentro de la región restrictiva, en este caso, $(H,H)$ es un foco débil estable rodeado por un ciclo límite inestable; de manera análoga el sistema poseerá una bifurcación de Hopf supercrítica para los valores que se encuentren debajo de esta curva y dentro de la región dada por las restricciones del sistema, aquí, $(H,H)$ es un foco débil inestable rodeado por un ciclo límite estable. El caso $L_1 > 0$, es de vital importancia debido a las características del sistema, como la región $\Gamma$ es invariante, y los demás puntos críticos no poseen propiedades atractoras dentro de la región, las trayectorias fuera del ciclo límite inestable deben tender a otro ciclo limite estable según el teorema de Poincaré-Bendixson, esto garantiza la existencia de un ciclo límite adicional en este caso.
+
+La curva $L_1 = 0$ y la región de restricciones del sistema, puede observarse en la \autoref{fig: curvaL_1AH}. El modelo contará con una bifurcación de Hopf subcrítica ($L_1 > 0$) para los valores de $A$ y $H$ que se encuentren por encima de esta curva y dentro de la región restrictiva, en este caso, $(H,H)$ es un foco débil estable rodeado por un ciclo límite inestable; de manera análoga el sistema poseerá una bifurcación de Hopf supercrítica para los valores que se encuentren debajo de esta curva y dentro de la región dada por las restricciones del sistema, aquí, $(H,H)$ es un foco débil inestable rodeado por un único ciclo límite estable. El caso $L_1 > 0$, es de vital importancia debido a las características del sistema, como la región $\Gamma$ es invariante, y los demás puntos críticos no poseen propiedades atractoras dentro de la región, las trayectorias fuera del ciclo límite inestable deben tender a otro ciclo limite estable según el teorema de Poincaré-Bendixson, esto garantiza la existencia de un ciclo límite adicional en este caso.
+
 \begin{figure}
 	\centering
-	\includegraphics[width=.8\textwidth]{img/CurvaLyapunovAH.pdf}
+	\includegraphics[width=.7\textwidth]{img/CurvaLyapunovAH.pdf}
 	\caption{Curva $L_1 = 0$ y la región dada por las restricciones $H<1/2$ y $A^2 < H(1-2H)$.}
 	\label{fig: curvaL_1AH}
 \end{figure}
-\begin{figure}
-	\centering
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{img/HopfSuperCentrolineal.pdf}
-		\caption{Bifurcación de Hopf supercrítica ($L_1 = -0.0250864$) del sistema \eqref{eq: modelo2} para los valores $A = 0.05; \; H = 0.4; \; B=B_c=0.181538$ y $Q=0.609375$ con el punto crítico de estudio como un foco débil inestable.}
-		\label{fig: bifurcacionHopfsup}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}{0.49\textwidth}
-		\includegraphics[width=\textwidth]{img/HopfSubCentrolineal.pdf}
-		\caption{Bifurcación de Hopf subcrítica ($L_1 = 0.0589$) del sistema \eqref{eq: modelo2} para los valores $A = 0.05; \; H = 0.06; \; B=B_c=0.109508$ y $Q=1.59278$ con el punto crítico de estudio como un foco débil estable.}
-		\label{fig: bifurcacionHopfsub}
-	\end{subfigure}
-	\caption{Bifurcación de Hopf del sistema \eqref{eq: modelo2}.}
-	\label{fig: bifurcacionHopf}
-\end{figure}
+
 \begin{remark}
 	Otro método para calcular el primer número de lyapunov es trasladar el sistema de estudio a la forma
 	\begin{equation*}
@@ -728,7 +715,7 @@ La curva $L_1 = 0$ y la región de restricciones del sistema, puede observarse e
 		\end{cases}
 		\label{eq: normalFormWn}
 	\end{equation*}
-	donde $\pm \omega i$ son los valores propios de la matriz jacobiana en el origen y $\tilde{G}_{1,2}$ contiene los términos no lineales del sistema. El primer coeficiente de Lyapunov podrá ser determinado a partir de las derivadas parciales de $\tilde{G}_{1,2}$ evaluadas en 0 \cite[p. 152]{guckenheimer1983}: 
+	donde $\pm \omega i$ son los valores propios de la matriz jacobiana en el origen y \linebreak $\tilde{G}=(\tilde{G}_1,\tilde{G}_2)$ contiene los términos no lineales del sistema. El primer coeficiente de Lyapunov podrá ser determinado a partir de las derivadas parciales de $\tilde{G}$ evaluadas en 0 \cite[p. 152]{guckenheimer1983}: 
 	\begin{equation*}
 		\begin{aligned}
 			16\tilde{l_1} &= \tilde{G}_{1,xxx} + \tilde{G}_{1,xyy} + \tilde{G}_{2,xxy} + \tilde{G}_{2,yyy} \\
@@ -743,7 +730,26 @@ La curva $L_1 = 0$ y la región de restricciones del sistema, puede observarse e
 	\end{equation*}
 	Al igual que en el primer método empleado el signo de este valor depende de la expresión \eqref{eq: sgnL1}. Las diferencias en $l_1$ y $\tilde{l_1}$, se deben principalmente a la metodología impuesta para obtener este coeficiente, más sin embargo, no altera las conclusiones obtenidas. 
 \end{remark}
+
 Ahora, nótese que para el valor paramétrico $A=A_c$, el primer coeficiente de lyapunov se anula, teniendo como consecuencia no poder definir la estabilidad del punto de equilibrio $(H, H)$, en este caso. Para poder determinarla, debemos proceder a calcular el segundo coeficiente de lyapunov.
+
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{img/HopfSubCentrolineal.pdf}
+		\caption{Bifurcación de Hopf subcrítica \linebreak ($l_1 = 0.0589$) del sistema \eqref{eq: modelo2} para los valores $A = 0.05; \; H = 0.06; \; B=B_c=0.109508$ y $Q=1.59278$ con el punto crítico de estudio como un foco débil estable.}
+		\label{fig: bifurcacionHopfsub}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{img/HopfSuperCentrolineal.pdf}
+		\caption{Bifurcación de Hopf supercrítica ($l_1 = -0.0250864$) del sistema \eqref{eq: modelo2} para los valores $A = 0.05; \; H = 0.4; \; B=B_c=0.181538$ y $Q=0.609375$ con el punto crítico de estudio como un foco débil inestable.}
+		\label{fig: bifurcacionHopfsup}
+	\end{subfigure}
+	\caption{Bifurcación de Hopf del sistema \eqref{eq: modelo2}.}
+	\label{fig: bifurcacionHopf}
+\end{figure}
+
 %Esto además nos permitirá determinar que tipo de bifurcación de Bautin se nos presenta.
 %
 %\begin{teo}
@@ -763,7 +769,7 @@ Procedemos a reemplazar el valor paramétrico $A=A_c$ en el sistema \eqref{eq: f
 	\end{cases}
 	\label{eq: normalFormZn}
 \end{equation}
-con $F_{1,2}$ dadas por las expansiones \eqref{eq: expansionF1,2}, sustituyendo $A=A_c$. La matriz jacobiana del sistema \eqref{eq: normalFormZn} en el origen estaría dada simplemente por la matriz \eqref{eq:jacobianamodelo2Hen0} realizando la sustitución correspondiente:
+con $F=(F_{1}, F_2)$ dadas por las expansiones \eqref{eq: expansionF1,2}, sustituyendo $A=A_c$. La matriz jacobiana del sistema \eqref{eq: normalFormZn} en el origen estaría dada simplemente por la matriz \eqref{eq:jacobianamodelo2Hen0} realizando la sustitución correspondiente:
 \begin{equation}
 	Dh(0,0) =
 	\begin{bmatrix}
@@ -799,7 +805,7 @@ con $\omega = \sqrt{ad}$, donde $$d = H^4+\frac{H^3(2-H) [2H+(1-H) \sqrt{3H(4-H)
 	\label{eq: normalForml2}
 \end{equation}
 O de igual manera, considerando las derivadas parciales de la función de variable compleja \eqref{eq: funComplejaL1},
-con $p=(p_1,p_2)$ y $q=(q_1,q_2)$ dadas por \eqref{eq: vecComplejos}, donde $$m = \sqrt{\frac{d}{a}} = \sqrt{\frac{H(7-3H)+(1-H)\sqrt{3H(4-H)}}{2-6H(2-H)}}.$$ Las expresiones necesarias para el cálculo del segundo coeficiente de Lyapunov \eqref{eq: l2}, estarán dadas por las derivadas parciales $g_{kl}=G_{z_k w_l}$ evaluadas en $z=w=0$ \cite[p. 344]{Kuznetsov2023}. Los términos $g_{20}, \; g_{11}, \; \text{y } g_{21}$ se determinan de \eqref{eq: g_klModelo2} remplazando $A=A_c$, además
+con $p=(p_1,p_2)$ y $q=(q_1,q_2)$ dadas por \eqref{eq: vecComplejos}, donde $$m = \sqrt{\frac{d}{a}} = \sqrt{\frac{H(7-3H)+(1-H)\sqrt{3H(4-H)}}{2-6H(2-H)}}.$$ Las expresiones necesarias para el cálculo del segundo coeficiente de Lyapunov \eqref{eq: l2}, estarán dadas por los términos $g_{kl}=G_{z w}$ que representan las derivadas parciales de G evaluadas en $z=w=0$, donde por ejemplo \linebreak $g_{02}=G_{ww}, \; g_{31}=G_{zzzw}$, de manera similar se determinan las demás expresiones \cite[p. 344]{Kuznetsov2023}. Los términos $g_{20}, \; g_{11}, \; \text{y } g_{21}$ se determinan de \eqref{eq: g_klModelo2} remplazando $A=A_c$, además
 \begin{equation}
 	\begin{aligned}
 		g_{31} = & \frac{i}{m} \{6(m^2+1)[-2 + (B_c-4)mi + (B_c+2)m^2 \\
@@ -811,13 +817,13 @@ con $p=(p_1,p_2)$ y $q=(q_1,q_2)$ dadas por \eqref{eq: vecComplejos}, donde $$m 
 		g_{40} = & \frac{12i}{m} \{ 5H(m-i)^4 - (m-i)^2[-1 + (B_c+1)m^2 \\
 		& + Q + (B_c + Q - 2)mi] \} \\
 		g_{13} = & \frac{-6i}{m} (m+i)^2[-2 + 10H - B_cmi \\
-		& + m^2(B_c + 10H-2) + Q(mi+2)] \\
-		g_{30} = & \frac{3}{m} \{ [A_c^2 + 2H(5H-2)](m-i)^3 \\
-		& + B_cHm(1 - mi)[m(m-4i)-3] + HQ(m-i)^2(m-4i) \} \\
+		& + m^2(B_c + 10H-2) + Q(mi+2)]
 	\end{aligned}
 \end{equation}
 \begin{equation*}
 	\begin{aligned}
+		g_{30} = & \frac{3}{m} \{ [A_c^2 + 2H(5H-2)](m-i)^3 \\
+		& + B_cHm(1 - mi)[m(m-4i)-3] + HQ(m-i)^2(m-4i) \} \\
 		g_{12} = & \frac{m+i}{m} \{3A_c^2(m^2+1) + H[30H(m^2+1)\\
 		& + m[B_c(-3i + m(4 - 3mi)) + 3m(Q-4) + 3Qi] + 12(Q-1)]\} \\
 		g_{03} = & \frac{-3(m+i)^2}{m} \{A_c^2(m+i) \\
@@ -855,19 +861,13 @@ Tomando en cuenta estas expresiones computamos $l_2$, para el cual se obtienen a
 	\end{tabular}
 \end{table}
 
-Tomando en cuenta los datos obtenidos en la \autoref{tab:ejemplosL2}, graficamos $-l_2$ en escala logarítmica (ver \autoref{fig: curvaL_2H}), el cual será estrictamente positivo, es decir, tendríamos que para cualquier valor $H \in \left(0,(3 - \sqrt{6})/3 \right)$, $l_2<0$; por lo tanto, el punto crítico $(H,H)$ es un foco débil estable de segundo orden \cite[p. 518]{chicone2024}, rodeado por un ciclo límite inestable y este a su vez, por un ciclo límite estable por la misma razón que el caso de la bifurcación de Hopf subcrítica.
+Tomando en cuenta los datos obtenidos en la \autoref{tab:ejemplosL2}, graficamos $-l_2$ en escala logarítmica (ver \autoref{fig: curvaL_2H}), el cual será estrictamente positivo, es decir, tendríamos que para cualquier valor $H \in \left(0,(3 - \sqrt{6})/3 \right)$, $l_2<0$; por lo tanto, el punto crítico $(H,H)$ es un foco débil estable de segundo orden \cite[p. 518]{chicone2024}, rodeado por un ciclo límite inestable y este a su vez, por un ciclo límite estable.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=.6\textwidth]{img/CurvaLyapunov2H.pdf}
 	\caption{Curva $-l_2$ en escala logarítmica, dentro del dominio biológicamente relevante $0 < H < (3 - \sqrt{6})/3$.}
 	\label{fig: curvaL_2H}
-\end{figure}
-\begin{figure}
-	\centering
-	\includegraphics[width=.6\textwidth]{img/HopfGeneralCentrolineal.pdf}
-	\caption{Bifurcación de Hopf generalizada ($l_2 = -65014.612$) del sistema \eqref{eq: modelo2} para los valores $H = 0.086966; \; A = A_c = 0.050591; \; B=B_c=0.36435$ y $Q=1.22202$ con el punto crítico de estudio como un foco débil estable de segundo orden.}
-	\label{fig: bifurcacionHopfGeneral}
 \end{figure}
 
 Ya que $l_2$ es siempre negativo, obtenemos el siguiente teorema.
@@ -876,7 +876,7 @@ Ya que $l_2$ es siempre negativo, obtenemos el siguiente teorema.
 	Una bifurcación de Hopf generalizada (Bautin) ocurre en el equilibrio $(H, H)$ para el valor de bifurcación $\mu_0=(A_c, B_c)$.
 \end{teo}
 \begin{proof}
-	Es claro que para $A= A_c$, $l_1 = 0$; así, para que ocurra una bifurcación de Bautín se deben satisfacer la condición espectral y la de transversalidad. Por el \Cref{teo:Hopf} la condición espectral se cumple. Por otra parte, el mapeo $\mu \longmapsto \left(Re(\lambda(\mu)), l_1\right)$ debe ser regular en $\mu=\mu_0$, es decir
+	Es claro que para $A= A_c$, $l_1 = 0$; así, para que ocurra una bifurcación de Bautín se deben satisfacer la condición espectral y la de transversalidad. Por el \Cref{teo:Hopf} la condición espectral se cumple. Por otra parte, el mapeo $\mu = (A,B) \longmapsto \left(Re(\lambda(\mu)), l_1(\mu)\right)$ debe ser regular en $\mu=\mu_0$, es decir
 	\begin{equation*}
 		\det \left. \begin{pmatrix}
 			\frac{\partial Re(\lambda(\mu))}{\partial A} & \frac{\partial Re(\lambda(\mu))}{\partial B} \\[6pt]
@@ -888,7 +888,7 @@ Ya que $l_2$ es siempre negativo, obtenemos el siguiente teorema.
 		\left. - \frac{\partial Re(\lambda(\mu))}{\partial B} \left( \frac{\partial l_1(\mu)}{\partial A} - \frac{\frac{\partial Re(\lambda(\mu))}{\partial A}}{\frac{\partial Re(\lambda(\mu))}{\partial B}} \frac{\partial l_1(\mu)}{\partial B} \right) \right|_{\mu=\mu_0} \neq 0.
 		\label{eq: regularidadBautin}
 	\end{equation}
-	Como $Re(\lambda(\mu_0))=0$ y del \Cref{teo:Hopf} sabemos que \linebreak $\left. \frac{\partial Re(\lambda(\mu))}{\partial B} \right|_{\mu=\mu_0} \neq 0$, por el teorema de la función implícita existe una función $\phi(A)=B$ con dominio en una vecindad $V$ de $A_c$ tal que
+	Como $Re(\lambda(\mu_0))=0$ y del \Cref{teo:Hopf} sabemos que \linebreak $\left. \frac{\partial Re(\lambda(\mu))}{\partial B} \right|_{\mu=\mu_0} \neq 0$, por el teorema de la función implícita existe una función diferenciable $\phi(A)=B$ con dominio en una vecindad $V$ de $A_c$ tal que
 	\begin{equation}
 		B'=\phi'(A)= - \frac{\frac{\partial Re(\lambda(\mu))}{\partial A}}{\frac{\partial Re(\lambda(\mu))}{\partial B}}, \; A \in V.
 		\label{eq: teoFunImpli}
@@ -917,3 +917,10 @@ Ya que $l_2$ es siempre negativo, obtenemos el siguiente teorema.
 	\end{equation*}
 	Cumpliéndose así la condiciones necesarias para la bifurcación de Hopf generalizada en $\mu=\mu_0$.
 \end{proof}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.6\textwidth]{img/HopfGeneralCentrolineal.pdf}
+	\caption{Bifurcación de Hopf generalizada ($l_2 = -65014.612$) del sistema \eqref{eq: modelo2} para los valores $H = 0.086966; \; A = A_c = 0.050591; \; B=B_c=0.36435$ y $Q=1.22202$ con el punto crítico de estudio como un foco débil estable de segundo orden.}
+	\label{fig: bifurcacionHopfGeneral}
+\end{figure}

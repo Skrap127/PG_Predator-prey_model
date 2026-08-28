@@ -1,0 +1,130 @@
+%\chapter{Conclusiones}
+%En este trabajo se realizó un análisis cualitativo y local de un modelo depredador-presa con respuesta funcional Holling tipo 3, propuesto originalmente por Gonzáles-Olivares, et al., 2015 \cite{articulo}. Tras un cambio de variables y un reescalado temporal con el fin de facilitar el análsis se logro obtener un sistema topologicamente equivalente, que este a su vez permitio analizar el origen algo que el sistema original no permitia estudiar, tras un detallado estudio de este nuevo sistema polinomial de 5to orden de ecuaciones diferenciales ordinarias, se obtuvieron los siguientes resultados:
+%
+%\begin{enumerate}
+%	\item Se determinó que el cuadrado unitario $$\Gamma = \{ (u, v) \in \R^{2} \; | \; 0 \leq u \leq 1, \; 0 \leq v \leq 1 \} \subset \tilde{\Omega},$$ es una región positivamente invariante, concluyendo así que las soluciones son acotadas dentro de esta región.
+%	\item Se obtivieron tres puntos de equilibrio biológicamente relevantes: \linebreak $(0,0), \; (1,0) \; \text{y} \; (H,H)$ con $H \in (0,1)$ determinado por la interseccion de las isoclinas \eqref{eq:isoclina-presa_modelo2} y $u=v$.
+%	\item Se clasificó el punto de equilibrio $(1,0)$ como un punto silla sin importar el valor de los parámetros del sistema.
+%	\item Se demostró que el punto de equilibrio $(0,0)$ se comporta localmente como una silla sin importar los valores paramétricos, tras haber determinado el índice de Poincaré realizando un análisis sectorial a través de la técnica del explotado polar (Blowing-up), en el cual se halló que si el parámetro $B$ es mayor o igual que 1, el primer cuadrante constará de una separatriz determinada por la pendiente $\tan \theta_3 = \dfrac{B-1}{B}$, la cual divide el retrato fase en dos sectores distintos: hiperbólico y parabólico; por otra parte, si $B<1$ el primer cuadrante estará dado por un único sector hiperbólico.  
+%	\item Se halló que la estabilidad del punto de equilibrio $(H,H)$ está fuertemente relacionada con los valores paramétricos, obteniendo la siguiente clasificación:
+%	\begin{itemize}
+%		\item Si $B<B_c$ y
+%		\subitem $\Delta < 0$, $(H,H)$ es un foco inestable.
+%		\subitem $\Delta = 0$, $(H,H)$ es un nodo degenerado inestable.
+%		\subitem $\Delta > 0$, $(H,H)$ es un nodo inestable.
+%		\item Si $B=B_c$ y
+%		\subitem $A < A_c$, ocurre una bifurcación de Hopf supercrítica por lo que $(H,H)$ es un foco débil inestable rodeado de un ciclo límite estable.
+%		\subitem $A = A_c$, ocurre una bifurcación de Bautin supercrítica ($l_2<0$), por lo que $(H,H)$ es un foco débil estable de segundo orden rodeado por un pequeño ciclo límite inestable que a su vez esta dentro de un segundo ciclo limite estable.
+%		\subitem $A > A_c$, ocurre una bifurcación de Hopf subcrítica por lo que $(H,H)$ es un foco débil estable rodeado de un ciclo límite inestable.
+%		\item Si $B>B_c$ y
+%		\subitem $\Delta < 0$, $(H,H)$ es un foco estable.
+%		\subitem $\Delta = 0$, $(H,H)$ es un nodo degenerado estable.
+%		\subitem $\Delta > 0$, $(H,H)$ es un nodo estable.
+%	\end{itemize}
+%\end{enumerate}
+%
+%\chapter{Discusión y trabajos a futuro}
+%El difeomorfismo aplicado para la equivalencia topologia entre el sistema original y el sistema polinomial \eqref{eq:modelo1}, garantiza que el estudio biologicamente relevante para el modelo polinomial \eqref{eq: modelo2} se encuentra dentro de la región $\Gamma$, debido a la ``normalización" hecha en las sustituciones $u = x/K$ y $v = y / n K $ impuesta por las capacidades de carga tanto de la presa como el depredador, haciendo irrelevante el estudio fuera del cuadrado unitario $\Gamma$.
+%
+%El caso $B<B_c$ donde el equilibrio $(H,H)$ es inestable, garantiza la existencia de un ciclo límite estable, debido a la region de atrapamiento $\Gamma$, a que los demas puntos criticos no poseen propiedades atractoras y al teorema de poincaré-bendixson, por tal misma razon se garantiza la existencia de un segundo ciclo límite estable para el caso de la bifurcacion de Hopf subcritica $B=B_c$ y $A>A_c$, en este caso donde hay dos ciclos limites y en el caso de la bifurcación de Bautin ($(A_c,B_c)$), es posible que ante la variación de los parámetros restantes se produzca una colision de ciclos limites dando como resultado en un ciclo limite semiestable, esto tambien es conocido como bifurcacion de ciclos limites y puede ser de estudio, mas informacion al respecto puede encontrarse en \cite[p. ~189]{Kuznetsov2023}.
+%
+%Para el caso $B>1$ es altamente probable que la orbita separatriz determinada por la pendiente $\tan \theta_3 = \dfrac{B-1}{B}$, tambien constituya una orbita heteroclinica entre $(0,0) \; \text{y} \; (H,H)$ debido a que estariamos en el caso $B>B_c$ donde el equilibrio $(H,H)$ es estable, bastaría mostrar que dicha separatiz en realidad pertenece a la variedad estable de $(H,H)$.
+%
+%La proyección a futuro de las densidades poblacionales, estará fuertemente arraigada a las condiciones iniciales y a los valores paramétricos, en general, la única posbilidad de que ambas especies logren extinguirse solo se da en el caso de que las condiciones iniciales se encuntre sobre el semieje positivo $u=0$, es decir ante la ausencia de presas, ahora ante la ausencia de depredadores, es decir, si las condiciones iniciales se encuentran dentro del semieje positivo $v=0$, las presas tenderan al equilibrio $(1,0)$, en otras palabras creceran hasta tal punto que el ambiente lo pueda soportar. En otro caso, si las condiciones iniciales estan fuera de los semiejes positivos las especies tenderan a una orbita periódica (ciclo límite) o al equilibrio $(H,H)$, donde esta última tendencia puede ser extremadamente lenta si el equilibrio es un foco debil estable o peor aún si es de segundo orden. En conclusión, bajo condiciones inciales factibles (fuera de los ejes) la preservación de las especies que se moldeen al sistema estudiado, está garantizada, revelando así la importancia de todo lo estudiado en el presente trabajo.
+
+\chapter{Conclusiones}
+
+En este trabajo se realizó un análisis cualitativo y local de un modelo depredador--presa tipo Leslie-Gower con respuesta funcional de Holling tipo III, propuesto originalmente por Gonzáles-Olivares et al.~\cite{articulo}. Mediante un cambio de variables y un reescalamiento temporal, realizado con el propósito de facilitar el análisis, se obtuvo un sistema topológicamente equivalente al modelo original. Esta transformación permitió, además, incorporar el origen al dominio de estudio y analizar su comportamiento local, aspecto que no era posible estudiar directamente en el sistema original.
+
+A partir del estudio cualitativo del sistema polinomial de quinto orden obtenido, se establecieron los siguientes resultados:
+
+\begin{enumerate}
+	\item Se determinó que el cuadrado unitario
+	\[
+	\Gamma =
+	\left\{
+	(u,v)\in\mathbb{R}^{2} \; \middle| \;
+	0\leq u\leq 1,\;
+	0\leq v\leq 1
+	\right\}
+	\subset \tilde{\Omega}
+	\]
+	es una región positivamente invariante. En consecuencia, toda solución que inicia en $\Gamma$ permanece en esta región para todo tiempo futuro, por lo que las soluciones biológicamente relevantes son acotadas, lo que demuestra que el modelo Leslie-Gower modificado está bien planteado.
+	
+	\item Se obtuvieron tres puntos de equilibrio biológicamente relevantes:
+	\[
+	(0,0), \qquad (1,0), \qquad \text{y} \qquad (H,H),
+	\]
+	donde $H\in(0,1)$ está determinado por la intersección de las isoclinas
+	\eqref{eq:isoclina-presa_modelo2} y $u=v$.
+	
+	\item Se clasificó el punto de equilibrio $(1,0)$ como un punto silla, independientemente de los valores de los parámetros del sistema.
+	
+	\item Se demostró que el punto de equilibrio $(0,0)$ se comporta localmente como un punto silla, independientemente de los valores de los parámetros. Para ello, se determinó su índice de Poincaré mediante un análisis sectorial basado en la técnica de \emph{blowing-up} (explotado polar).
+	
+	En particular, cuando $B\geq 1$, se encontró que el primer cuadrante contiene una separatriz cuya dirección está determinada por
+	\[
+	\tan\theta_3=\frac{B-1}{B}.
+	\]
+	Esta separatriz divide el retrato de fase local en dos sectores: uno hiperbólico y otro parabólico. Por otro lado, cuando $B<1$, el primer cuadrante está constituido localmente por un único sector hiperbólico.
+	
+	\item Se determinó que la estabilidad del punto de equilibrio $(H,H)$ depende de manera fundamental de los valores de los parámetros del sistema. En particular, se obtuvo la siguiente clasificación:
+	
+	\begin{itemize}
+		\item Si $B<B_c$, entonces:
+		\begin{itemize}
+			\item si $\Delta<0$, el equilibrio $(H,H)$ es un foco inestable;
+			\item si $\Delta=0$, $(H,H)$ es un nodo degenerado inestable;
+			\item si $\Delta>0$, $(H,H)$ es un nodo inestable.
+		\end{itemize}
+		
+		\item Si $B=B_c$, entonces:
+		\begin{itemize}
+			\item si $A<A_c$, ocurre una bifurcación de Hopf supercrítica, por lo que $(H,H)$ es un foco débil inestable rodeado por un ciclo límite estable;
+			
+			\item si $A=A_c$, ocurre una bifurcación de Bautin supercrítica, con $l_2<0$. En este caso, $(H,H)$ es un foco débil estable de segundo orden, rodeado por un ciclo límite pequeño e inestable, el cual se encuentra contenido en el interior de un segundo ciclo límite estable;
+			
+			\item si $A>A_c$, ocurre una bifurcación de Hopf subcrítica, por lo que $(H,H)$ es un foco débil estable rodeado por un ciclo límite inestable.
+		\end{itemize}
+		
+		\item Si $B>B_c$, entonces:
+		\begin{itemize}
+			\item si $\Delta<0$, el equilibrio $(H,H)$ es un foco estable;
+			\item si $\Delta=0$, $(H,H)$ es un nodo degenerado estable;
+			\item si $\Delta>0$, $(H,H)$ es un nodo estable.
+		\end{itemize}
+	\end{itemize}
+\end{enumerate}
+
+En conjunto, estos resultados permiten caracterizar la dinámica local de los principales estados de equilibrio del modelo y establecer una relación entre la estabilidad del equilibrio de coexistencia $(H,H)$, la aparición de ciclos límite y la variación de los parámetros del sistema. Asimismo, el análisis realizado proporciona una descripción cualitativa de los posibles comportamientos asintóticos de las poblaciones dentro de la región biológicamente relevante.
+
+
+\chapter{Discusión y trabajos a futuro}
+
+El difeomorfismo empleado para establecer la equivalencia topológica entre el sistema original y el sistema polinomial \eqref{eq:modelo1} permite restringir el análisis biológicamente relevante del modelo transformado a la región $\Gamma$. En efecto, las sustituciones
+\[
+u=\frac{x}{K},
+\qquad
+v=\frac{y}{nK},
+\]
+normalizan las densidades poblacionales con respecto a las capacidades de carga asociadas a la presa y al depredador. De esta manera, los valores $u=1$ y $v=1$ representan, respectivamente, los niveles de población asociados a dichas capacidades de carga. Por tanto, el estudio de la dinámica dentro del cuadrado unitario $\Gamma$ resulta particularmente relevante desde el punto de vista biológico.
+
+Uno de los principales resultados obtenidos está relacionado con la existencia de ciclos límite y su dependencia respecto de los parámetros del modelo. Cuando $B<B_c$, el equilibrio $(H,H)$ es inestable. Dado que $\Gamma$ es una región positivamente invariante y que los restantes puntos de equilibrio no presentan propiedades atractoras en el interior de la región, el teorema de Poincaré--Bendixson proporciona un mecanismo para establecer la existencia de una órbita periódica bajo las condiciones apropiadas. En particular, este resultado es consistente con la interpretación biológica de oscilaciones persistentes en las densidades de presa y depredador.
+
+Por otra parte, en el punto de Bautin $(A_c,B_c)$ se identificó la presencia de dos ciclos límite, uno estable y otro inestable. Esta configuración plantea la posibilidad de que, ante una variación adicional de los parámetros, ambos ciclos límite colisionen y den lugar a un ciclo límite semiestable. Este fenómeno corresponde a una bifurcación de ciclos límite y constituye una extensión natural del análisis realizado. Un estudio detallado de este tipo de bifurcaciones puede consultarse en \cite[p.~189]{Kuznetsov2023}.
+
+Otro problema de interés surge para $B>1$. En este caso, el análisis local del origen permitió identificar una separatriz cuya dirección está determinada por
+\[
+\tan\theta_3=\frac{B-1}{B}.
+\]
+Es razonable plantear como hipótesis que esta órbita separatriz pueda constituir una conexión heteroclínica entre $(0,0)$ y $(H,H)$, particularmente debido a que para $B>B_c$ el equilibrio $(H,H)$ es estable. No obstante, esta afirmación requiere una demostración adicional. En particular, sería necesario establecer que la separatriz asociada al origen pertenece efectivamente a la variedad estable de $(H,H)$. La demostración de esta propiedad constituiría una extensión natural del análisis realizado y permitiría obtener una descripción global más completa del retrato de fase.
+
+Desde el punto de vista biológico, los resultados obtenidos muestran que la dinámica a largo plazo de las poblaciones depende tanto de las condiciones iniciales como de los valores de los parámetros. En particular, dentro de la región biológicamente relevante, la extinción simultánea de ambas especies únicamente puede ocurrir cuando las condiciones iniciales se encuentran sobre el semieje positivo $u=0$, correspondiente a la ausencia inicial de presas. Por otro lado, en ausencia de depredadores, es decir, cuando las condiciones iniciales pertenecen al semieje positivo $v=0$, la dinámica conduce al equilibrio $(1,0)$, que representa el crecimiento de la población de presas hasta el nivel determinado por la capacidad de carga del ambiente.
+
+Cuando ambas poblaciones están inicialmente presentes, es decir, cuando las condiciones iniciales no se encuentren en los semiejes positivos $u=0$ y $v=0$, los resultados obtenidos indican que la dinámica puede conducir al equilibrio de coexistencia $(H,H)$ o a una órbita periódica, dependiendo de los valores de los parámetros y de las condiciones iniciales. Además, cuando $(H,H)$ es un foco débil estable, la convergencia hacia dicho equilibrio puede ser particularmente lenta. Este fenómeno es aún más pronunciado cuando el equilibrio corresponde a un foco débil de segundo orden, como ocurre en el punto de Bautin.
+
+Los resultados anteriores permiten concluir que, para condiciones iniciales biológicamente factibles en las que ambas especies están presentes, el modelo estudiado no predice la extinción de ambas poblaciones. En su lugar, la dinámica conduce hacia un estado de coexistencia estacionario o hacia oscilaciones persistentes representadas por un ciclo límite. Esto resalta la importancia del análisis cualitativo realizado, pues permite identificar no solo los estados de equilibrio del sistema, sino también las estructuras dinámicas responsables de la persistencia o de las oscilaciones de las poblaciones.
+
+El análisis realizado permite caracterizar los principales escenarios dinámicos del sistema y establecer su relación con los cambios de estabilidad de los puntos de equilibrio y con las bifurcaciones identificadas. En particular, los retratos de fase presentados en los capítulos anteriores permiten visualizar la presencia de una curva separatriz para el valor paramétrico estipulado; asimismo la aparición y estabilidad de los ciclos límite, incluyendo el ciclo límite estable que se observa cuando el equilibrio (H,H) pierde su estabilidad, así como el comportamiento asociado a la bifurcación de Hopf subcrítica. Estos resultados numéricos complementan el análisis cualitativo y permiten ilustrar de manera directa los distintos regímenes dinámicos identificados.
+
+Como trabajos a futuro, se propone profundizar en el análisis del sistema. En particular, resulta de interés demostrar o refutar la existencia de la conexión heteroclínica asociada a la separatriz del origen y estudiar rigurosamente las posibles bifurcaciones de ciclos límite alrededor del punto de Bautin. Este análisis permitiría profundizar en la descripción de la dinámica más allá de los resultados locales asociados a los puntos de equilibrio y las bifurcaciones.
