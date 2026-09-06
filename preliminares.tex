@@ -94,13 +94,13 @@ Sean $U \subseteq \Rm, V \subseteq \Rn$ y $k\in \N_{0}$. Entonces $C^{k}(U, V)$ 
 	\label{eq: generalFormEDO}
 \end{equation}
 
-donde $F \in C(U)$ con $U$ un subconjunto abierto de $\R^{k+2}$, \linebreak $x = x(t) \in C^k(J)$ con $J \subseteq \R$ y
+\noindent donde $F \in C(U)$ con $U$ un subconjunto abierto de $\R^{k+2}$, \linebreak $x = x(t) \in C^k(J)$ con $J \subseteq \R$ y
 
 \begin{equation*}
 	x^{(k)}(t) = \frac{d^{k}x(t)}{dt^{k}}, \quad k \in \N.
 \end{equation*}
 
-Al máximo orden $k$ de la derivada $x^{(k)}$ en \eqref{eq: generalFormEDO} se le llama el \textit{orden} de la ecuación diferencial. Frecuentemente a $t$ se le conoce como la \textit{variable independiente} y a $x$ como la \textit{variable dependiente}.
+\noindent Al máximo orden $k$ de la derivada $x^{(k)}$ en \eqref{eq: generalFormEDO} se le llama el \textit{orden} de la ecuación diferencial. Frecuentemente a $t$ se le conoce como la \textit{variable independiente} y a $x$ como la \textit{variable dependiente}.
 
 Una \textit{solución} de la EDO \eqref{eq: generalFormEDO}, es una función $\phi \in C^{k}(I)$ con $I \subseteq J$ un intervalo real, tal que
 
@@ -108,7 +108,7 @@ Una \textit{solución} de la EDO \eqref{eq: generalFormEDO}, es una función $\p
 	F(t, \phi(t), \phi^{(1)}(t), \cdots, \phi^{(k)}(t)) = 0, \quad \text{para todo } t \in I.
 \end{equation*}
 
-De ahora en adelante, asumiremos que se puede resolver $F$ para la derivada más alta, lo que resulta en una ecuación diferencial de la forma
+\noindent De ahora en adelante, asumiremos que se puede resolver $F$ para la derivada más alta, lo que resulta en una ecuación diferencial de la forma
 
 
 \begin{equation}
@@ -124,7 +124,7 @@ Un \textit{sistema no lineal} de EDOs \textit{no autónomo} de primer orden es u
 	\label{eq:generalFormSisEDOs}
 \end{equation}
 
-donde $f:E \longrightarrow \Rn$ con $E$ un subconjunto abierto de $\R^{n+1}$, \linebreak $x = (x_{1}, \ldots, x_{n})$ y
+\noindent donde $f:E \longrightarrow \Rn$ con $E$ un subconjunto abierto de $\R^{n+1}$, \linebreak $x = (x_{1}, \ldots, x_{n})$ y
 
 \begin{equation*}
 	\dot{x} = \frac{dx}{dt} = 
@@ -135,14 +135,14 @@ donde $f:E \longrightarrow \Rn$ con $E$ un subconjunto abierto de $\R^{n+1}$, \l
 	\end{bmatrix}.
 \end{equation*}
 
-Si la función $f$ en \eqref{eq:generalFormSisEDOs} no depende de $t$ entonces $f:\tilde{E} \longrightarrow \Rn$ con $\tilde{E}$ un subconjunto abierto de $\Rn$ y al sistema 
+\noindent Si la función $f$ en \eqref{eq:generalFormSisEDOs} no depende de $t$ entonces $f:\tilde{E} \longrightarrow \Rn$ con $\tilde{E}$ un subconjunto abierto de $\Rn$ y al sistema 
 
 \begin{equation}
 	\dot{x} = f(x),
 	\label{eq: sisAut}
 \end{equation} 
 
-se le conoce como un \textit{sistema no lineal autónomo}.
+\noindent se le conoce como un \textit{sistema autónomo}.
 
 Un \textit{sistema lineal no autónomo} es un sistema de la forma
 
@@ -151,7 +151,7 @@ Un \textit{sistema lineal no autónomo} es un sistema de la forma
 	\label{eq: sistemaLineal}
 \end{equation*}
 
-donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogeneo}. Un \textit{sistema lineal autónomo} es un sistema de la forma
+\noindent donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogeneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogeneo}. Un \textit{sistema lineal autónomo} es un sistema de la forma
 
 \begin{equation}
 	\dot{x} = Ax.
@@ -159,7 +159,7 @@ donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t)
 \end{equation}
 
 \begin{teo}[Existencia y unicidad]\label{teo: Existencia y unicidad}
-	Sea $E$ un subconjunto abierto de $\Rn$ que contiene a $x_{0}$ y asuma que $f \in C^{1}(E)$. Entonces existe un $a>0$ tal que el problema de valor inicial 
+	Sea $E$ un subconjunto abierto de $\Rn$ que contiene a $x_{0}$ y $f \in C^{1}(E)$. Entonces existe un $a>0$ tal que el problema de valor inicial 
 	\begin{equation}
 		\left\{
 		\begin{aligned}
@@ -172,33 +172,31 @@ donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t)
 	tiene una única solución en el intervalo $[-a,a]$.
 \end{teo}
 
-Sea $J=(\alpha, \beta)$ la unión de todos los intervalos abiertos $I$ tales que \eqref{eq: pvi} tiene una solución en $I$, llamamos a J el \textit{intervalo maximal de existencia} del PVI \eqref{eq: pvi}.
+\noindent Sea $J=(\alpha, \beta)$ la unión de todos los intervalos abiertos $I$ tales que \eqref{eq: pvi} tiene una solución en $I$, llamamos a J el \textit{intervalo maximal de existencia} del PVI \eqref{eq: pvi}.
 
 \begin{defi}
 	Sean $E$ un subconjunto abierto de $\Rn$, $f \in C^{1}(E)$, $x_{0} \in E$ y $\phi_{t}(x_{0})$ la solución del PVI \eqref{eq: pvi} en el intervalo maximal de existencia $I(x_{0})$. Entonces para $t\in I(x_{0})$, el conjunto de funciones $\phi_{t}$ defindas por $\phi_{t}(x_{0}) = \phi(t, x_{0})$ es llamado el flujo de la ecuación diferencial \eqref{eq: sisAut} o también el flujo del campo vectorial $f(x)$.
 \end{defi}
 
-El sistema \eqref{eq: sisAut} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del sistema \eqref{eq: sisAut} también se denominan \textit{curvas solución}, \textit{trayectorias} u \textit{órbitas}. Esto, en el sentido cualitativo.
+\noindent El sistema \eqref{eq: sisAut} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del sistema \eqref{eq: sisAut} también se denominan \textit{curvas solución}, \textit{trayectorias} u \textit{órbitas}. Esto, en el sentido cualitativo. El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: sisAut} en el plano $\Rn$. \\
 
-El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: sisAut} en el plano $\Rn$.
-
-En un \textit{sistema autónomo bidimensional}
+Un sistema \eqref{eq: sisAut} bidimensional o planar se puede expresar de la forma
 \begin{equation}
 	\begin{aligned}
-		\dot{x} &= f_1(x, y) \\
-		\dot{y} &= f_2(x, y),
+		\dot{x} &= f_1(x, y), \\
+		\dot{y} &= f_2(x, y).
 	\end{aligned}
 	\label{eq: sisAutBid}
 \end{equation}
 
-podemos encontrar una aproximación global de curvas solución, a través del método de las isoclinas. Del sistema \eqref{eq: sisAutBid} obtenemos el sistema de primer orden $dy/dx = f_2(x, y)/f_1(x, y)$. Ignorando el hecho de que esto podría no estar bien definido en $f_1(x, y) = 0$, el método consiste en encontrar curvas $y=h(x)$ o $x=h(y)$ en las que la pendiente del campo vectorial $dy/dx = c$ es constante. Dichas curvas se obtienen solucionando la ecuación
+\noindent Podemos encontrar una aproximación global de curvas solución del sistema \eqref{eq: sisAutBid}, a través del método de las isoclinas, y tomando en cuenta el sistema de primer orden $dy/dx = f_2(x, y)/f_1(x, y)$. Ignorando el hecho de que esto podría no estar bien definido en $f_1(x, y) = 0$, el método consiste en encontrar curvas $y=h(x)$ o $x=h(y)$ en las que la pendiente del campo vectorial $dy/dx = c$ es constante. Dichas curvas se obtienen solucionando la ecuación
 
 \begin{equation*}
 	f_2(x, y) = cf_1(x, y),
 	\label{eq: pendiente}
 \end{equation*}
 
-y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, pues su importancia radica en la interpretación gráfica de esta. Se muestra un ejemplo de todo lo anterior en la \autoref{fig: example}
+\noindent y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, pues su importancia radica en la interpretación gráfica de esta. Se muestra un ejemplo de todo lo anterior en la \autoref{fig: example} \\
 
 \begin{figure}
 	\centering
@@ -207,7 +205,7 @@ y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas
 	\label{fig: example}
 \end{figure}
 
-Otro caso relevante para nuestro estudio corresponde al sistema autónomo bidimensional \eqref{eq: sisAutBid}, o sistema planar, definido por funciones polinómicas $f_1$ y $f_2$ (denotadas, por ejemplo, como $P(x,y)$ y $Q(x,y)$). A este tipo de sistemas se les denomina \emph{sistemas diferenciales polinómicos} de grado $n$, donde $n$ representa el grado máximo de los polinomios que componen el sistema. Usualmente, se asocian a un campo vectorial $X = P(x,y) \frac{\partial}{\partial x} + Q(x,y) \frac{\partial}{\partial y}$, con $P$ y $Q$ funciones en $C^r(U)$, donde, $U \subset \R^2$ es un abierto; una notación simplificada es $X = (P,Q)$. No existe distinción entre el campo vectorial $X$ y el sistema polinómico, ya que ambas representan formas equivalentes de denotación.
+Otro caso relevante para nuestro estudio, es dado cuando en el sistema autónomo bidimensional \eqref{eq: sisAutBid}, las funciones $f_1$ y $f_2$ son funciones polinómicas que denotaremos por $P(x,y)$ y $Q(x,y)$, respectivamente. A este tipo de sistemas se les denomina \emph{sistemas diferenciales polinómicos} de grado $n$, donde $n$ representa el grado máximo de los polinomios que componen el sistema. Usualmente, se asocian a un campo vectorial $X = P(x,y) \frac{\partial}{\partial x} + Q(x,y) \frac{\partial}{\partial y}$, con $P,Q \in C^r(U)$, donde, $U \subset \R^2$ es un abierto; una notación simplificada es $X = (P,Q)$. No existe distinción entre el campo vectorial $X$ y el sistema polinómico, ya que ambas representan formas equivalentes de denotación. \\
 
 En algunas ocasiones las trayectorias o curvas solución de un sistema pueden ser cerradas y aisladas, es decir, no hay más trayectorias cerradas en una cierta región, dichas curvas solución son denominadas un \textit{ciclo límite}; si todas las trayectorias vecinas se acercan al ciclo límite decimos que el ciclo límite es \textit{estable} o \textit{atractor}, en otros casos el ciclo límite es \textit{inestable} o en casos excepcionales \textit{medio-estable}, donde las trayectorias vecinas se alejan y se acercan simultáneamente dentro y fuera del ciclo límite. En la \autoref{fig: CicloLimiteEstableInestable} se muestra un ejemplo de estos dos primeros casos.
 
@@ -227,7 +225,7 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 \end{defi}
 
 \begin{defi}
-	Un punto $x_{0} \in \Rn$ es llamada una singularidad, un punto de equilibrio o punto crítico de \eqref{eq: sisAut} si $f(x_{0})=0$. Un punto crítico $x_{0}$ es llamado un punto crítico hiperbólico de \eqref{eq: sisAut} si ninguno de los valores propios de la matriz jacobiana $Df(x_{0})$ tiene parte real cero, en caso contrario, se dice no hiperbólico. El sistema lineal \eqref{eq: sisLinAuto} con la matriz $A = Df(x_{0})$ es llamado la linealización de \eqref{eq: sisAut} en el punto $x_{0}$.
+	Un punto $x_{0} \in \Rn$ es llamada una singularidad, un punto de equilibrio o punto crítico de \eqref{eq: sisAut} si $f(x_{0})=0$. Un punto crítico $x_{0}$ es llamado un punto crítico hiperbólico de \eqref{eq: sisAut} si ninguno de los valores propios de la matriz jacobiana $Df(x_{0})$ tiene parte real cero, en caso contrario, se dice que $x_0$ es un punto crítico no hiperbólico. El sistema lineal \eqref{eq: sisLinAuto} con la matriz $A = Df(x_{0})$ es llamado la linealización de \eqref{eq: sisAut} en el punto $x_{0}$.
 \end{defi}
 
 \begin{defi}
@@ -248,7 +246,7 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 \begin{teo}[Poincaré-Bendixson]\label{teo: poincareB}
 	Suponga que:
 	\begin{enumerate}
-		\item $R$ es un subconjunto cerrado y acotado del plano;
+		\item $R$ es un subconjunto cerrado y acotado en el plano;
 		\item $\dot{x} = f(x)$ es un campo vectorial continuamente diferenciable en un conjunto abierto contenido en $R$;
 		\item $R$ no contiene puntos de equilibrio; y
 		\item Existe una trayectoria $C$ ``confinada'' en $R$, esto en el sentido de que inicia en $R$ y se mantiene en $R$ para todo tiempo futuro. 
@@ -295,10 +293,10 @@ Algo también de relevancia que se puede observar en la \autoref{fig:comparacion
 		H \circ \phi_{t}(x_{0}) = e^{At}H(x_{0});
 	\end{equation*}
 	
-	es decir, H mapea trayectorias de \eqref{eq: sisAut} que estan cerca del origen, hacia trayectorias de \eqref{eq: sisLinAuto} cerca al origen preservando la parametrización por tiempo.
+	\noindent es decir, H mapea trayectorias de \eqref{eq: sisAut} que estan cerca del origen, hacia trayectorias de \eqref{eq: sisLinAuto} cerca al origen preservando la parametrización por tiempo.
 \end{teo}
 
-Este importante teorema nos indica que el retrato fase cerca a un punto crítico hiperbólico es topológicamente equivalente al retrato fase de la linealización en dicho punto de equilibrio. Aquí, la \textit{equivalencia topológica} es dada principalmente por la existencia de un \textit{homeomorfismo} (una deformación continua con inversa continua) que mapea trayectorias de un retrato fase local hacia el otro, preservando el sentido del tiempo (o la orientación de las trayectorias), lo cual es posible saberlo a través del determinante de la matriz jacobiana del homeomorfismo, si este es estrictamente positivo, decimos que la transformación preserva el sentido del tiempo o, en caso contrario (determinante negativo), la orientación se revierte. Intuitivamente, dos retratos fases son topológicamente equivalentes si una es una versión distorsionada de la otra. A modo de ejemplo, considere la \autoref{fig: exampleHartman}.
+\noindent Este importante teorema nos indica que el retrato fase cerca a un punto crítico hiperbólico es topológicamente equivalente al retrato fase de la linealización en dicho punto de equilibrio. Aquí, la \textit{equivalencia topológica} es dada principalmente por la existencia de un \textit{homeomorfismo} (una deformación continua con inversa continua) que mapea trayectorias de un retrato fase local hacia el otro, preservando el sentido del tiempo (o la orientación de las trayectorias), lo cual es posible saberlo a través del determinante de la matriz jacobiana del homeomorfismo, si este es estrictamente positivo, decimos que la transformación preserva el sentido del tiempo o, en caso contrario (determinante negativo), la orientación se revierte. Intuitivamente, dos retratos fases son topológicamente equivalentes si una es una versión distorsionada de la otra. A modo de ejemplo, considere la \autoref{fig: exampleHartman}. \\
 
 \begin{figure}
 	\centering
@@ -307,13 +305,12 @@ Este importante teorema nos indica que el retrato fase cerca a un punto crítico
 	\label{fig: exampleHartman}
 \end{figure}
 
-
 Dada la posibilidad de que existan puntos críticos no hiperbólicos en el sistema \eqref{eq: sisAut}, es decir, puntos $x_{0}$ donde alguno de los valores propios de la matriz jacobiana $Df(x_0)$ posee parte real nula, resulta de interés analizar el comportamiento dinámico local en dichos puntos. En estas singularidades no es posible aplicar directamente el \Cref{teo: hartman}, aunque el Teorema de la variedad central nos permita analizar el comportamiento local en los puntos críticos no hiperbólicos donde su matriz jacobiana no se anule (puntos críticos no degenerados), es de nuestro interés analizar el comportamiento de las singularidades que no cumplan esta ultima condición, por lo que se procede a realizar un cambio de coordenadas con el objetivo de eliminar la singularidad y, de esta manera, poder estudiar el comportamiento cualitativo en su entorno mediante uno de estos teoremas. A este procedimiento se le denomina \textit{desingularización del campo vectorial} \eqref{eq: sisAut}. Existen diversas técnicas para desingularizar un sistema dinámico, sin embargo, en este trabajo se enfocará en la desingularización a través del \textit{método de blowing-up} o \textit{blow-up}.
 
 \subsection{Blow-up en $ \R^2$}
-En la teoría cualitativa de los sistemas dinámicos, especialmente para sistemas planos, el blow-up es una herramienta fundamental basada en cambios de variables utilizada para estudiar singularidades. Su objetivo es simplificar el estudio de un punto crítico complicado (generalmente en el origen) transformándolo en un círculo que contiene un número finito de nuevos puntos criticos, a menudo hiperbolicos.
+En la teoría cualitativa de los sistemas dinámicos, especialmente para sistemas planos, el blow-up es una herramienta fundamental basada en cambios de variables utilizada para estudiar singularidades. Su objetivo es simplificar el estudio de un punto crítico complicado (generalmente en el origen) transformándolo en un círculo que contiene un número finito de nuevos puntos criticos, a menudo hiperbólicos.
 
-Sea 0 un punto de equilibrio de un campo vectorial $C^{\infty}$, $X$  en $\R^{2}$. Considere la función
+Sea 0 un punto de equilibrio de un campo vectorial suave $X \in C^{\infty}(\R^{2})$. Considere la función
 \begin{equation}
 	\begin{aligned}
 		\psi : \mathbb{S}^{1} \times \mathbb{R} &\longrightarrow \R^{2} \\
@@ -321,7 +318,7 @@ Sea 0 un punto de equilibrio de un campo vectorial $C^{\infty}$, $X$  en $\R^{2}
 	\end{aligned}
 \end{equation}
 donde $\mathbb{S}^{1}$ representa la circunferencia unitaria centrada en el origen.
-Podemos definir un campo vectorial suave ($C^{\infty}$), $\tilde{X}$ en el cilindro $\mathbb{S}^{1} \times \mathbb{R}$ tal que la aplicacion lineal $\psi_{*}:T_{p}M \longrightarrow T_{\psi(p)}M$ envia el campo vectorial $\tilde{X}$ a $X$, es decir, $\psi_{*}(\tilde{X})=X$, en el sentido que, $D\psi_{v}(\tilde{X}(v)) = X(\psi(v))$. Esto se llama el retroceso (pull back) de $X$ por $\psi$. No es nada más que $X$ escrito en coordenadas polares. La aplicación $\psi$ es un difeomorfismo suave, por lo tanto, un cambio de coordenadas suave en $\mathbb{S}^{1} \times (0,\infty)$, pero no en $\{r=0\}$; aquí, $\psi$ envía $\{r=0\}$ a $(0,0)$, y como tal, la aplicación inversa $\psi^{-1}$ ``explota'' el origen a un círculo. Para estudiar el retrato de fases de $X$ en un vecindario $V$ del origen, basta claramente estudiar el retrato de fases de $\tilde{X}$ en el vecindario $\psi^{-1}(V)$ del círculo $\mathbb{S}^{1}\times \{0\}$. Básicamente, este método se basa en convertir el sistema a coordenadas polares y estudiarlo en $r=0$, en caso de que el campo vectorial se anule, consideramos el nuevo campo vectorial $$\bar{X}=\dfrac{1}{r^{k}}\tilde{X},$$ donde $k$ es el menor natural que no permite esta nulidad; este cociente no cambia las órbitas de $\tilde{X}$ ni su sentido de dirección, sino la parametrización por tiempo $t$. 
+Podemos definir un campo vectorial suave, $\tilde{X}$ en el cilindro $\mathbb{S}^{1} \times \mathbb{R}$ tal que la aplicacion lineal $\psi_{*}:T_{p}M \longrightarrow T_{\psi(p)}M$ envia el campo vectorial $\tilde{X}$ a $X$, es decir, $\psi_{*}(\tilde{X})=X$, en el sentido que, $D\psi_{v}(\tilde{X}(v)) = X(\psi(v))$. Esto se llama el retroceso (pull back) de $X$ por $\psi$. No es nada más que $X$ escrito en coordenadas polares. La aplicación $\psi$ es un difeomorfismo suave, por lo tanto, un cambio de coordenadas suave en $\mathbb{S}^{1} \times (0,\infty)$, pero no en $\{r=0\}$; aquí, $\psi$ envía $\{r=0\}$ a $(0,0)$, y como tal, la aplicación inversa $\psi^{-1}$ ``explota'' el origen a un círculo. Para estudiar el retrato de fases de $X$ en un vecindario $V$ del origen, basta claramente estudiar el retrato de fases de $\tilde{X}$ en el vecindario $\psi^{-1}(V)$ del círculo $\mathbb{S}^{1}\times \{0\}$. Básicamente, este método se basa en convertir el sistema a coordenadas polares y estudiarlo en $r=0$, en caso de que el campo vectorial se anule, consideramos el nuevo campo vectorial $$\bar{X}=\dfrac{1}{r^{k}}\tilde{X},$$ donde $k$ es el menor natural que no permite esta nulidad; este cociente no cambia las órbitas de $\tilde{X}$ ni su sentido de dirección, sino la parametrización por tiempo $t$. 
 
 %Aunque el cilindro es una buena superficie para obtener una visión global de $\tilde{X}$ y su retrato de fases, a menudo es menos apropiado para hacer cálculos, ya que constantemente tenemos que tratar con expresiones trigonométricas. Por esa razón puede ser preferible hacer los cálculos en diferentes cartas.
 %
@@ -441,7 +438,7 @@ Este tipo de bifurcación es característico de sistemas que son invariantes ant
 		\dot{y} &= -y
 	\end{aligned}
 \end{equation*}
-si reemplazamos $x$ por $-x$ y luego cancelamos los signos menos resultantes en ambos lados de la ecuación, obtenemos el sistema original. 
+si en la primera ecuación reemplazamos $x$ por $-x$ tenemos
 \begin{equation*}
 	\begin{aligned}
 		\dot{(-x)} &= \mu (-x) +(-x)^3 \\
@@ -449,7 +446,7 @@ si reemplazamos $x$ por $-x$ y luego cancelamos los signos menos resultantes en 
 		\dot{x} &= \mu x +x^3
 	\end{aligned}
 \end{equation*}
-Esta invariancia es la expresión matemática de la simetría izquierda-derecha mencionada anteriormente. (En términos más técnicos, se dice que el campo vectorial es equivariante). El retrato fase de este sistema para diferentes valores de $\mu$ se puede visualizar en la \autoref{fig: bifPitchforkSup}, en donde dos puntos críticos aparacen en pares simétricos para $\mu>0$.
+Por tanto obtenemos el sistema original. Esta invariancia es la expresión matemática de la simetría izquierda-derecha mencionada anteriormente. El retrato fase de este sistema para diferentes valores de $\mu$ se puede visualizar en la \autoref{fig: bifPitchforkSup}, en donde dos puntos críticos aparacen en pares simétricos para $\mu>0$.
 
 \begin{figure}[H]
 	\centering
@@ -471,19 +468,19 @@ De manera similar que en el supercrítico ahora los puntos críticos solo existe
 
 \subsection*{Bifurcaciones de Hopf}
 
-Supongamos que un sistema bidimensional tiene un punto crítico estable, el cual, existe para cualquier valor paramétrico. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$.? Los autovalores del Jacobiano son la clave. Si el punto crítico es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ en el plano complejo, deben estar en el semiplano izquierdo Re$\lambda <0$. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos o bien son conjugados complejos. Para desestabilizar el punto crítico, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, analíticamente, este hecho se ve reflejado de la siguiente manera: considere los valores propios complejos del jacobiano como $\lambda(\mu)=\alpha(\mu) \pm i\omega(\mu)$. En el valor de bifurcación $\mu=\mu_0$ el jacobiano debe poseer valores propios complejos puros, es decir, $\alpha(\mu_0)=0$ y $\omega(\mu_0)>0$, conocida como \textit{condición espectral}; además, el hecho de que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, se describe mediante la \textit{condición de transversalidad} $$\left. \frac{d}{d\mu}(\alpha(\mu)) \right|_{\mu=\mu_0} \neq 0.$$ Además de ello, el \textit{primer coeficiente de Lyapunov} ($l_1$) no debe anularse, donde este coeficiente será especificado más adelante, bajo estas condiciones decimos que ocurre una \textit{bifurcación de Hopf} en $\mu=\mu_0$. Dado el caso de que $l_1 = 0$, y además la aplicación $\mu \mapsto (\alpha(\mu), l_1(\mu))$, sea regular en $\mu=\mu_0$, en el sentido que
+Supongamos que un sistema bidimensional tiene un punto crítico estable, el cual, existe para cualquier valor paramétrico. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$? Los autovalores del Jacobiano son la clave. Si el punto crítico es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ en el plano complejo, deben estar en el semiplano izquierdo Re$\lambda <0$. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos o bien son conjugados complejos. Para desestabilizar el punto crítico, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, analíticamente, este hecho se ve reflejado de la siguiente manera: considere los valores propios complejos del jacobiano como $\lambda(\mu)=\alpha(\mu) \pm i\omega(\mu)$. En el valor de bifurcación $\mu=\mu_0$ el jacobiano debe poseer valores propios complejos puros, es decir, $\alpha(\mu_0)=0$ y $\omega(\mu_0)>0$, conocida como \textit{condición espectral}; ahora, el hecho de que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, se describe mediante la \textit{condición de transversalidad} $$\left. \frac{d}{d\mu}(\alpha(\mu)) \right|_{\mu=\mu_0} \neq 0.$$ Además, el \textit{primer coeficiente de Lyapunov} ($l_1$) no debe anularse, este coeficiente será especificado más adelante, bajo estas condiciones decimos que ocurre una \textit{bifurcación de Hopf} en $\mu=\mu_0$. Dado el caso de que $l_1 = 0$, y la aplicación $\mu \mapsto (\alpha(\mu), l_1(\mu))$, sea regular en $\mu=\mu_0$, en el sentido que
 \begin{equation*}
 	\det \left. \begin{pmatrix}
 		\frac{\partial \alpha(\mu)}{\partial A} & \frac{\partial \alpha(\mu)}{\partial B} \\[6pt]
 		\frac{\partial l_1(\mu)}{\partial A} & \frac{\partial l_1(\mu)}{\partial B} 
 	\end{pmatrix} \right|_{\mu=\mu_0} \neq 0,
 \end{equation*}
-y si además de ello, el \textit{segundo coeficiente de Lyapunov} ($l_2$) no se anula, donde este coeficiente será especificado más adelante; decimos que ocurre una \textit{bifurcación de Hopf generalizada o de Bautin}.
+y si además, el \textit{segundo coeficiente de Lyapunov} ($l_2$) no se anula, este coeficiente será especificado más adelante; decimos que ocurre una \textit{bifurcación de Hopf generalizada o de Bautin}. Pese a lo anteriormente descrito las bifurcaciones de Hopf ocurren en espacios de fases de cualquier dimensión $n \geq 2$.
 Al igual que las bifurcaciones en horquilla, las bifurcaciones de Hopf se presentan en variedades supercríticas y subcríticas.
 
 \subsubsection*{Bifurcación de Hopf supercrítica}
 
-En términos del flujo en el espacio de fases, una bifurcación de Hopf supercrítica ocurre cuando una espiral estable se transforma en una espiral inestable rodeada por un pequeño ciclo límite estable casi elíptico, o de igual manera cuando $l_1 > 0$. Las bifurcaciones de Hopf pueden ocurrir en espacios de fases de cualquier dimensión $n \geq 2$. La ejemplificación de este tipo de bifurcación se puede evidenciar en la \autoref{fig: bifHopfSup}, donde un ciclo límite estable aparece para $\mu>0$, con el origen perdiendo su estabilidad en este caso.
+En términos del flujo en el espacio de fases, una bifurcación de Hopf supercrítica ocurre cuando una espiral estable se transforma en una espiral inestable rodeada por un pequeño ciclo límite estable casi elíptico, o de igual manera cuando $l_1 > 0$. La ejemplificación de este tipo de bifurcación se puede evidenciar en la \autoref{fig: bifHopfSup}, donde un ciclo límite estable aparece para $\mu>0$, con el origen perdiendo su estabilidad en este caso.
 
 \begin{figure}[H]
 	\centering

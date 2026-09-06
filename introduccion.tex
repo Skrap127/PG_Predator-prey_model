@@ -1,12 +1,32 @@
-\chapter{Introducción}
-	Las ecuaciones diferenciales han demostrado ser instrumentos fundamentales para modelar fenómenos de la vida real, particularmente en ecología, física y procesos biológicos cotidianos. Dado que la mayoría de estos modelos no admiten soluciones explícitas, el análisis cualitativo se torna esencial para caracterizar el comportamiento dinámico a largo plazo, empleando técnicas como la localización de puntos de equilibrio, su estabilidad y la detección de fenómenos globales tales como ciclos límite o bifurcaciones. Este trabajo, se centrará en el estudio de un modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea propuesto por González-Olivares et al. (2015) \cite{articulo}, caracterizado por el sistema
-	\begin{equation*}
-		\begin{cases} 
-			\frac{dx}{dt} = (r \left(1 - \frac{x}{K}\right) - \frac{q x y}{x^2 + a^2})x \\ 
-			\frac{dy}{dt} = s \left(1 - \frac{y}{n x}\right) y
-		\end{cases},
-	\end{equation*}
+\chapter*{Introducción}
+\addcontentsline{toc}{chapter}{Introducción}
+Las ecuaciones diferenciales han demostrado ser instrumentos fundamentales para modelar fenómenos de la vida real, particularmente en ecología, física y procesos biológicos cotidianos. Dado que la mayoría de estos modelos no admiten soluciones explícitas, el análisis cualitativo se torna esencial para caracterizar el comportamiento dinámico a largo plazo, empleando técnicas como la localización de puntos de equilibrio, su estabilidad y la detección de fenómenos globales tales como ciclos límite o bifurcaciones. Este trabajo, se centrará en el estudio de un modelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea propuesto por González-Olivares et al. (2015) \cite{articulo}, caracterizado por el sistema
+\begin{equation*}
+	\begin{cases} 
+		\frac{dx}{dt} = (r \left(1 - \frac{x}{K}\right) - \frac{q x y}{x^2 + a^2})x \\ 
+		\frac{dy}{dt} = s \left(1 - \frac{y}{n x}\right) y
+	\end{cases}
+\end{equation*}
 	
-	donde $x(t)$ y $y(t)$ representan las densidades de presa y depredador, respectivamente; $r$ es la tasa intrínseca de crecimiento de la presa, $K$ su capacidad de carga ambiental, $q$ la tasa máxima de consumo por depredador, $a$ representa la cantidad de presas necesarias para lograr la mitad de la tasa de saturación, $s$ la tasa de crecimiento intrínseco del depredador y $n$ una medida de la calidad alimenticia convertida en nuevos depredadores \cite[p. 1895]{articulo}.
+donde $x(t)$ y $y(t)$ representan las densidades de presa y depredador, respectivamente; $r$ es la tasa intrínseca de crecimiento de la presa, $K$ su capacidad de carga ambiental, $q$ la tasa máxima de consumo por depredador, $a$ representa la cantidad de presas necesarias para lograr la mitad de la tasa de saturación, $s$ la tasa de crecimiento intrínseco del depredador y $n$ una medida de la calidad alimenticia convertida en nuevos depredadores \cite[p. 1895]{articulo}.
 	
-	La relevancia ecológica de este modelo radica en su capacidad para describir interacciones reales donde la respuesta funcional sigmoidea estabiliza las poblaciones, como en el caso de focas y salmones en ríos, donde la depredación es mínima a bajas densidades de presa pero intensiva a densidades elevadas \cite[p. 1896]{articulo}. Los objetivos principales consisten en un análisis cualitativo exhaustivo: localización y estabilidad de puntos críticos, existencia de comportamientos cualitativos especiales como, ciclos límites, bifurcaciones y curvas separatrices \cite{articulo}. Este enfoque permitirá predecir la coexistencia o extinción de especies, ilustrando la aplicabilidad matemática en la conservación ecológica.
+La relevancia ecológica de este modelo radica en su capacidad para describir interacciones reales donde la respuesta funcional sigmoidea estabiliza las poblaciones, como en el caso de focas y salmones en ríos, donde la depredación es mínima a bajas densidades de presa pero intensiva a densidades elevadas \cite[p. 1896]{articulo}. Los objetivos principales consisten en un análisis cualitativo exhaustivo: localización y estabilidad de puntos críticos, existencia de comportamientos cualitativos especiales como, ciclos límites, bifurcaciones y curvas separatrices \cite{articulo}. Este enfoque permitirá predecir la coexistencia o extinción de especies, ilustrando la aplicabilidad matemática en la conservación ecológica.
+	
+El presente trabajo de grado no se limita a una mera exposición de los resultados del artículo de referencia; por el contrario, realiza un contraste crítico que permite corregir y ampliar el análisis cualitativo del sistema adimensionalizado
+
+$$ \begin{cases} 
+	\frac{du}{d\tau} = \left( (1-u)(u^2 + A^2) - Quv \right) u^2, \\ 
+	\frac{dv}{d\tau} = B(u-v)(u^2 + A^2)v.
+\end{cases} $$
+
+Para dar cuenta de estos desarrollos, la estructura del documento se organiza de la siguiente manera:
+	
+\begin{itemize}
+	\item \textbf{Capítulo 1: Preliminares.} En este capítulo se recopilan los elementos fundamentales de la teoría cualitativa de sistemas dinámicos planos. Se detallan de manera formal los conceptos de equivalencia topológica, retratos de fase, el Teorema de Poincaré-Bendixson y la teoría de bifurcaciones locales. De igual forma, se introduce rigurosamente el método de desingularización de \textit{blow-up} polar y las bases ecológicas de las respuestas funcionales de Holling tipo I, II y III.
+		
+	\item \textbf{Capítulo 2: El Modelo de Leslie-Gower con Respuesta Funcional Sigmoidea.} Este capítulo constituye el aporte principal del trabajo. Se presenta el difeomorfismo de adimensionalización y se demuestra analíticamente que el cuadrado unitario:
+	$$ \Gamma = \{ (u,v) \in \mathbb{R}^2 \mid 0 \le u \le 1, 0 \le v \le 1 \} $$
+	es una región positivamente invariante, garantizando la acotación de las soluciones con relevancia biológica. Posteriormente, se realiza el estudio de estabilidad local de los puntos de equilibrio $(1,0)$, del origen degenerado $(0,0)$ (mediante \textit{blow-up}) y del punto interior de coexistencia $(H,H)$. Concluye con el cálculo del primer y segundo coeficiente de Lyapunov ($l_1$ y $l_2$), determinando las condiciones de existencia de la bifurcación de Hopf y de Bautin.
+		
+	\item \textbf{Capítulo 3 y 4: Conclusiones, discusión y trabajos futuros.} Se sintetizan los resultados cualitativos y dinámicos obtenidos, destacando bajo qué condiciones paramétricas el sistema predice la persistencia oscilatoria o la convergencia a un estado estacionario de coexistencia de las especies, además se proponen nuevas líneas de investigación.
+\end{itemize}
