@@ -47,7 +47,7 @@ A partir del estudio cualitativo del sistema polinomial de quinto orden obtenido
 	0\leq u\leq 1,\;
 	0\leq v\leq 1
 	\right\}
-	\subset \tilde{\Omega}
+	\subset \tilde{\Omega},
 	\]
 	es una región positivamente invariante. En consecuencia, toda solución que inicia en $\Gamma$ permanece en esta región para todo tiempo futuro, por lo que las soluciones biológicamente relevantes son acotadas, lo que demuestra que el modelo Leslie-Gower modificado está bien planteado.
 	
@@ -107,24 +107,44 @@ u=\frac{x}{K},
 \qquad
 v=\frac{y}{nK},
 \]
-normalizan las densidades poblacionales con respecto a las capacidades de carga asociadas a la presa y al depredador. De esta manera, los valores $u=1$ y $v=1$ representan, respectivamente, los niveles de población asociados a dichas capacidades de carga. Por tanto, el estudio de la dinámica dentro del cuadrado unitario $\Gamma$ resulta particularmente relevante desde el punto de vista biológico.
+normalizan las densidades poblacionales con respecto a las capacidades de carga asociadas a la presa y al depredador. De esta manera, los valores $u=1$ y $v=1$ representan, respectivamente, los niveles de población asociados a dichas capacidades de carga. Por tanto, el estudio de la dinámica dentro del cuadrado unitario $\Gamma$ resulta particularmente relevante desde el punto de vista biológico.\\
 
-Uno de los principales resultados obtenidos está relacionado con la existencia de ciclos límite y su dependencia respecto de los parámetros del modelo. Cuando $B<B_c$, el equilibrio $(H,H)$ es inestable. Dado que $\Gamma$ es una región positivamente invariante y que los restantes puntos de equilibrio no presentan propiedades atractoras en el interior de la región, el teorema de Poincaré--Bendixson proporciona un mecanismo para establecer la existencia de una órbita periódica bajo las condiciones apropiadas. En particular, este resultado es consistente con la interpretación biológica de oscilaciones persistentes en las densidades de presa y depredador.
+Uno de los principales resultados obtenidos está relacionado con la existencia de ciclos límite y su dependencia respecto de los parámetros del modelo. Cuando $B<B_c$, el equilibrio $(H,H)$ es inestable. Dado que $\Gamma$ es una región positivamente invariante y que los restantes puntos de equilibrio no presentan propiedades atractoras en el interior de la región, el teorema de Poincaré--Bendixson proporciona un mecanismo para establecer la existencia de una órbita periódica bajo las condiciones apropiadas; similarmente, es posible garantizar la existencia de un ciclo límite adicional en el caso donde ocurre una bifurcación de Hopf subcrítica. En particular, estos resultados son consistentes con la interpretación biológica de oscilaciones persistentes en las densidades de presa y depredador.
 
-Por otra parte, en el punto de Bautin $(A_c,B_c)$ se identificó la presencia de dos ciclos límite, uno estable y otro inestable. Esta configuración plantea la posibilidad de que, ante una variación adicional de los parámetros, ambos ciclos límite colisionen y den lugar a un ciclo límite semiestable. Este fenómeno corresponde a una bifurcación de ciclos límite y constituye una extensión natural del análisis realizado. Un estudio detallado de este tipo de bifurcaciones puede consultarse en \cite[p.~189]{Kuznetsov2023}.
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{img/hFocoInestable.pdf}
+		\caption{Retrato fase del sistema \eqref{eq: modelo2} para $A = 0.03; \; B = 0.3$ y $Q = 0.707$ con $(H,H)$ como foco inestable, rodeado por un ciclo límite estable.}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=\textwidth]{img/HopfSubCentrolinealVersion2.pdf}
+		\caption{Bifurcación de Hopf subcrítica del sistema \eqref{eq: modelo2} para $A = 0.078; \; B = 0.0643$ y $Q = 1.594$ con $(H,H)$ como foco débil estable, rodeado por un ciclo límite inestable y este a su vez por una orbita periódica estable.}
+	\end{subfigure}
+	\caption{Orbitas periódicas del modelo de estudio.}
+\end{figure}
+
+Por otra parte, en el punto de Bautin $(A_c,B_c)$ se identificó la presencia de dos ciclos límite, uno estable y otro inestable. Esta configuración plantea la posibilidad de que, ante una variación adicional de los parámetros, ambos ciclos límite colisionen y den lugar a un ciclo límite semiestable. Este fenómeno corresponde a una bifurcación de ciclos límite y constituye una extensión natural del análisis realizado. Un estudio detallado de este tipo de bifurcaciones puede consultarse en \cite[p.~189]{Kuznetsov2023}.\\
 
 Otro problema de interés surge para $B>1$. En este caso, el análisis local del origen permitió identificar una separatriz cuya dirección está determinada por
 \[
 \tan\theta_3=\frac{B-1}{B}.
 \]
-Es razonable plantear como hipótesis que esta órbita separatriz pueda constituir una conexión heteroclínica entre $(0,0)$ y $(H,H)$, particularmente debido a que para $B>B_c$ el equilibrio $(H,H)$ es estable. No obstante, esta afirmación requiere una demostración adicional. En particular, sería necesario establecer que la separatriz asociada al origen pertenece efectivamente a la variedad estable de $(H,H)$. La demostración de esta propiedad constituiría una extensión natural del análisis realizado y permitiría obtener una descripción global más completa del retrato de fase.
+Es razonable plantear como hipótesis que esta órbita separatriz pueda constituir una conexión heteroclínica entre $(0,0)$ y $(H,H)$, particularmente debido a que para $B>B_c$ el equilibrio $(H,H)$ es estable. No obstante, esta afirmación requiere una demostración adicional. En particular, sería necesario establecer que la separatriz asociada al origen pertenece efectivamente a la variedad estable de $(H,H)$. La demostración de esta propiedad constituiría una extensión natural del análisis realizado y permitiría obtener una descripción global más completa del retrato de fase. \\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.5\textwidth]{img/VariedadesInestablesOrigenBmayor1.pdf}
+	\caption{Variedad inestable e isoclina asociada a la pendiente $\frac{B-1}{B}$ del sistema \eqref{eq: modelo2}, para $A = 0.05; \; B = 1.5$ y $Q = 0.61$.}
+\end{figure}
 
 Desde el punto de vista biológico, los resultados obtenidos muestran que la dinámica a largo plazo de las poblaciones depende tanto de las condiciones iniciales como de los valores de los parámetros. En particular, dentro de la región biológicamente relevante, la extinción simultánea de ambas especies únicamente puede ocurrir cuando las condiciones iniciales se encuentran sobre el semieje positivo $u=0$, correspondiente a la ausencia inicial de presas. Por otro lado, en ausencia de depredadores, es decir, cuando las condiciones iniciales pertenecen al semieje positivo $v=0$, la dinámica conduce al equilibrio $(1,0)$, que representa el crecimiento de la población de presas hasta el nivel determinado por la capacidad de carga del ambiente.
 
-Cuando ambas poblaciones están inicialmente presentes, es decir, cuando las condiciones iniciales no se encuentren en los semiejes positivos $u=0$ y $v=0$, los resultados obtenidos indican que la dinámica puede conducir al equilibrio de coexistencia $(H,H)$ o a una órbita periódica, dependiendo de los valores de los parámetros y de las condiciones iniciales. Además, cuando $(H,H)$ es un foco débil estable, la convergencia hacia dicho equilibrio puede ser particularmente lenta. Este fenómeno es aún más pronunciado cuando el equilibrio corresponde a un foco débil de segundo orden, como ocurre en el punto de Bautin.
+\noindent Cuando ambas poblaciones están inicialmente presentes, es decir, cuando las condiciones iniciales no se encuentren en los semiejes positivos $u=0$ y $v=0$, los resultados obtenidos indican que la dinámica puede conducir al equilibrio de coexistencia $(H,H)$ o a una órbita periódica, dependiendo de los valores de los parámetros y de las condiciones iniciales. Además, cuando $(H,H)$ es un foco débil estable, la convergencia hacia dicho equilibrio puede ser particularmente lenta. Este fenómeno es aún más pronunciado cuando el equilibrio corresponde a un foco débil de segundo orden, como ocurre en el punto de Bautin.
 
-Los resultados anteriores permiten concluir que, para condiciones iniciales biológicamente factibles en las que ambas especies están presentes, el modelo estudiado no predice la extinción de ambas poblaciones. En su lugar, la dinámica conduce hacia un estado de coexistencia estacionario o hacia oscilaciones persistentes representadas por un ciclo límite. Esto resalta la importancia del análisis cualitativo realizado, pues permite identificar no solo los estados de equilibrio del sistema, sino también las estructuras dinámicas responsables de la persistencia o de las oscilaciones de las poblaciones.
+\noindent Los resultados anteriores permiten concluir que, para condiciones iniciales biológicamente factibles en las que ambas especies están presentes, el modelo estudiado no predice la extinción de ambas poblaciones. En su lugar, la dinámica conduce hacia un estado de coexistencia estacionario o hacia oscilaciones persistentes representadas por un ciclo límite. Esto resalta la importancia del análisis cualitativo realizado, pues permite identificar no solo los estados de equilibrio del sistema, sino también las estructuras dinámicas responsables de la persistencia o de las oscilaciones de las poblaciones.\\
 
-El análisis realizado permite caracterizar los principales escenarios dinámicos del sistema y establecer su relación con los cambios de estabilidad de los puntos de equilibrio y con las bifurcaciones identificadas. En particular, los retratos de fase presentados en los capítulos anteriores permiten visualizar la presencia de una curva separatriz para el valor paramétrico estipulado; asimismo la aparición y estabilidad de los ciclos límite, incluyendo el ciclo límite estable que se observa cuando el equilibrio (H,H) pierde su estabilidad, así como el comportamiento asociado a la bifurcación de Hopf subcrítica. Estos resultados numéricos complementan el análisis cualitativo y permiten ilustrar de manera directa los distintos regímenes dinámicos identificados.
+El análisis realizado permite caracterizar los principales escenarios dinámicos del sistema y establecer su relación con los cambios de estabilidad de los puntos de equilibrio y con las bifurcaciones identificadas. En particular, los retratos de fase presentados en los capítulos anteriores permiten visualizar la presencia de una curva separatriz para el valor paramétrico estipulado; asimismo la aparición y estabilidad de los ciclos límite, incluyendo el ciclo límite estable que se observa cuando el equilibrio (H,H) pierde su estabilidad, así como el comportamiento asociado a la bifurcación de Hopf subcrítica. Estos resultados numéricos complementan el análisis cualitativo y permiten ilustrar de manera directa los distintos regímenes dinámicos identificados.\\
 
 Como trabajos a futuro, se propone profundizar en el análisis del sistema. En particular, resulta de interés demostrar o refutar la existencia de la conexión heteroclínica asociada a la separatriz del origen y estudiar rigurosamente las posibles bifurcaciones de ciclos límite alrededor del punto de Bautin. Este análisis permitiría profundizar en la descripción de la dinámica más allá de los resultados locales asociados a los puntos de equilibrio y las bifurcaciones.

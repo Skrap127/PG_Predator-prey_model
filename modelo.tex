@@ -15,7 +15,7 @@ El modelo se describe mediante el siguiente sistema autónomo de ecuaciones dife
 	\label{eq:modelo1}
 \end{equation}
 
-donde $x(t)$ y $y(t)$ representan las densidades poblacionales de presas y depredadores, respectivamente, para $t \geq 0$. Los parámetros $\mu = (r, a, s, K, n, q) \in \R^6_{+}$ son estrictamente positivos y tienen el siguiente significado biológico:
+\noindent donde $x(t)$ y $y(t)$ representan las densidades poblacionales de presas y depredadores, respectivamente, para $t \geq 0$. Los parámetros $\mu = (r, a, s, K, n, q) \in \R^6_{+}$ son estrictamente positivos y tienen el siguiente significado biológico:
 
 \begin{itemize}
 	\item $r$: tasa de crecimiento intrínseco de las presas;
@@ -26,7 +26,7 @@ donde $x(t)$ y $y(t)$ representan las densidades poblacionales de presas y depre
 	\item $n$: medida de la calidad alimenticia, que indica la eficiencia de conversión de presas consumidas en nuevos depredadores.
 \end{itemize}
 
-El sistema \eqref{eq:modelo1} no está definido en $x=0$ (eje $y$), por lo que el dominio biológicamente relevante es el conjunto $\Omega = \{ (x,y) \in \R^2 \mid x > 0, \; y \geq 0 \}$.
+\noindent El sistema \eqref{eq:modelo1} no está definido en $x=0$ (eje $y$), por lo que el dominio biológicamente relevante es el conjunto $\Omega = \{ (x,y) \in \R^2 \mid x > 0, \; y \geq 0 \}$.
 
 \section{Análisis}
 
@@ -34,28 +34,28 @@ Los puntos críticos de \eqref{eq:modelo1} se obtienen resolviendo el sistema
 
 \begin{equation}
 	\begin{cases}
-		\left(r \left(1 - \dfrac{x}{K}\right) - \dfrac{q x y}{x^2 + a^2}\right) x = 0 \\
-		s \left(1 - \dfrac{y}{n x}\right) y = 0
-	\end{cases}.
+		\left(r \left(1 - \dfrac{x}{K}\right) - \dfrac{q x y}{x^2 + a^2}\right) x = 0, \\
+		s \left(1 - \dfrac{y}{n x}\right) y = 0.
+	\end{cases}
 	\label{eq:sistema-eq}
 \end{equation}
 
-De la segunda ecuación, $y = 0$ o $y = n x$. Para $y=0$, se obtiene $x = K$, por tanto $(K,0)$ es un punto crítico. De las intersecciones de las isoclinas $$y = n x, \; \; \; \; \; \; y = \dfrac{r}{q x} \left(1 - \dfrac{x}{K}\right) (x^2 + a^2),$$
+\noindent De la segunda ecuación, $y = 0$ o $y = n x$. Para $y=0$, se obtiene $x = K$, por tanto $(K,0)$ es un punto crítico. De las intersecciones de las isoclinas $$y = n x, \; \; \; \; \; \; y = \dfrac{r}{q x} \left(1 - \dfrac{x}{K}\right) (x^2 + a^2),$$
 
-se obtinene los demás puntos críticos del sistema, donde se verificará más adelante que solo existe una solución $(x_e, y_e) \in \R^2$,  el cual existe en el primer cuadrante si y solo si $x_e < K$.
+\noindent se obtinene los demás puntos críticos del sistema, donde se verificará más adelante que solo existe una solución $(x_e, y_e) \in \R^2$,  el cual existe en el primer cuadrante si y solo si $x_e < K$. \\
 
 Con el propósito de analizar el comportamiento cualitativo del sistema y simplificar los cálculos algebraicos, introducimos el cambio de variables $x = K u$ y $y = n K v$, la cual define una transformacion lineal y por ende, un difeomorfismo entre el sistema \eqref{eq:modelo1} y el resultante:
 \begin{equation*}
 	\begin{cases}
-		\dfrac{du}{dt} = r\left((1-u) - \dfrac{qn}{r} \dfrac{uv}{u^{2}+\left(\dfrac{a}{K}\right)^{2}}\right)u \\
-		\dfrac{dv}{dt} = s \left(1-\dfrac{v}{u}\right)v
-	\end{cases}.
+		\dfrac{du}{dt} = r\left((1-u) - \dfrac{qn}{r} \dfrac{uv}{u^{2}+\left(\dfrac{a}{K}\right)^{2}}\right)u, \\
+		\dfrac{dv}{dt} = s \left(1-\dfrac{v}{u}\right)v,
+	\end{cases}
 \end{equation*}
-Posteriormente, se realiza un reescalado de la variable temporal mediante la relación diferencial $d\tau = r/[u(u^2+A^2)]dt $, donde $A = a/K$. Dado que el factor de escala $r/[u(u^2+A^2)]$ es una función suave y positiva en el conjunto de definición $\bar{\Omega} = \{ (u, v) \in \R^{2} \; | \; u > 0, \; v \geq 0 \}$, la dirección de las trayectorias se preserva \cite{chicone2024}[p.~14]. Al aplicar el reescalado se obtiene el siguiente sistema topológicamente equivalente.
+Posteriormente, se realiza un reescalado de la variable temporal mediante la relación diferencial $d\tau = r/[u(u^2+A^2)]dt $, donde $A = a/K$. Dado que el factor de escala $r/[u(u^2+A^2)]$ es una función suave y positiva en el conjunto de definición $\bar{\Omega} = \{ (u, v) \in \R^{2} \; | \; u > 0, \; v \geq 0 \}$, la dirección de las trayectorias se preserva \cite{chicone2024}[p.~14]. Al aplicar el reescalado se obtiene el siguiente sistema topológicamente equivalente
 \begin{equation*}
 	\begin{cases}
-		\dfrac{du}{d\tau} = \left((1-u)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right) - \dfrac{qn}{r} uv\right)u^{2} \\
-		\dfrac{dv}{d\tau} = \dfrac{s}{r} \left(u-v\right)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)v
+		\dfrac{du}{d\tau} = \left((1-u)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right) - \dfrac{qn}{r} uv\right)u^{2}, \\
+		\dfrac{dv}{d\tau} = \dfrac{s}{r} \left(u-v\right)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)v.
 	\end{cases}
 \end{equation*}
 Esto da paso a la siguiente proposición.
@@ -65,12 +65,12 @@ Esto da paso a la siguiente proposición.
 	\begin{equation}
 		Y_{\eta}:
 		\begin{cases}
-			\dfrac{du}{d \tau} = \left((1 - u)(u^{2} + A^{2}) - Q u v\right)u^{2} \\ \\
-			\dfrac{dv}{d \tau} = B(u - v)(u^{2} + A^{2})v
-		\end{cases},
+			\dfrac{du}{d \tau} = \left((1 - u)(u^{2} + A^{2}) - Q u v\right)u^{2}, \\ \\
+			\dfrac{dv}{d \tau} = B(u - v)(u^{2} + A^{2})v,
+		\end{cases}
 		\label{eq: modelo2}
 	\end{equation}
-	donde, $\eta = (A, Q, B) \in (0, 1) \times \R^{2}_{+}$ con $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r}, \; B = \dfrac{s}{r}$.
+	donde $\eta = (A, Q, B) \in (0, 1) \times \R^{2}_{+}$ con $A = \dfrac{a}{K}, \; Q = \dfrac{qn}{r}, \; B = \dfrac{s}{r}$.
 \end{pro}
 
 \begin{proof}
@@ -109,7 +109,7 @@ Esto da paso a la siguiente proposición.
 \end{remark}
 \begin{remark}
     El sistema \eqref{eq: modelo2} está definido en $$\tilde{\Omega} = \{ (u, v) \in \R^{2} \; | \; u \geq 0, \; v \geq 0 \}.$$
-    Recordemos que el modelo original \eqref{eq:modelo1}, no está definido en el eje $y$ y en particular en $(0,0)$ debido a la forma de la respuesta funcional Leslie-Gower. Al expresar el sistema como un campo polinomial de quinto orden, los autores logran una extensión topológicamente equivalente que sí es válida en el origen. Esto permite estudiar la extinción simultánea de ambas especies, algo que el modelo original impedía analíticamente.
+    Recordemos que el modelo original \eqref{eq:modelo1}, no está definido en el eje $y$ y en particular en $(0,0)$ debido a la forma de la respuesta funcional Leslie-Gower. Al expresar el sistema como un campo polinomial de quinto orden, los autores logran una extensión topológicamente equivalente que sí es válida en el origen. Esto permite estudiar la extinción simultánea de ambas especies, algo que el modelo original impedía analíticamente. \\
 \end{remark}
 Del cambio de variable $x = Ku$, podemos deducir que en un sentido biológico el máximo valor que puede tomar $u$ es $1$, debido a que $K$ representa el umbral máximo de presas que puede soportar el ambiente. Además como $y = nx$ representa la capacidad de carga del depredador, el máximo valor que puede tomar $y$ es $nK$, así del cambio de variable $y = n K v$, el máximo valor que puede tomar $v$ es también $1$. Por lo que sólo tiene sentido biológico analizar la región $$\Gamma = \{ (u, v) \in \R^{2} \; | \; 0 \leq u \leq 1, \; 0 \leq v \leq 1 \} \subset \tilde{\Omega}.$$
 \begin{lem}
@@ -128,18 +128,18 @@ Del cambio de variable $x = Ku$, podemos deducir que en un sentido biológico el
 		\item para $v=1$, tenemos que $\dot{v}=B(u-1)(u^2+A^2)$. Dado que $0\leq u \leq1$, el factor $(u-1)$ es no positivo, lo que implica $\dot{v} \leq0$. Específicamente, $\dot{v} =0$ si y solo si $u=1$. En el vértice $(1,1)$, el campo vectorial se reduce a $(-Q,0)$, lo que indica un flujo puramente horizontal hacia la izquierda, manteniendo así el flujo del campo sobre el borde superior o entrando al interior de la región $\Gamma$ en el caso $u<1$.
 	\end{itemize}
 	
-	Por lo tanto, el cuadrado unitario $\Gamma$ es una región positivamente invariante.
+	\noindent Por lo tanto, el cuadrado unitario $\Gamma$ es una región positivamente invariante.
 \end{proof}
 \begin{remark}
-	Es claro que el conjunto $\Gamma \subset \R^2$ es conexo y cerrado, por lo que $\Gamma$ es una región de atrapamiento. Además, al ser $\Gamma$ un conjunto acotado, las soluciones del sistema \eqref{eq: modelo2} son acotadas en  $\Gamma$.
+	Es claro que el conjunto $\Gamma \subset \R^2$ es conexo y cerrado, por lo que $\Gamma$ es una región de atrapamiento. Además, al ser $\Gamma$ un conjunto acotado, las soluciones del sistema \eqref{eq: modelo2} son acotadas en  $\Gamma$. \\
 	\label{re:atrapamiento}
 \end{remark}
 Los puntos críticos de \eqref{eq: modelo2} se obtienen resolviendo el sistema
 \begin{equation}
 	\begin{cases}
-		((1 - u)(u^{2} + A^{2}) - Q u v)u^{2} = 0\\
-		B(u - v)(u^{2} + A^{2})v = 0
-	\end{cases}.
+		((1 - u)(u^{2} + A^{2}) - Q u v)u^{2} = 0,\\
+		B(u - v)(u^{2} + A^{2})v = 0.
+	\end{cases}
 \end{equation}
 De la primera: $u=0$ o
 \begin{equation}
@@ -163,13 +163,12 @@ Debido a la naturaleza de nuestro problema, solo son de interés las raíces rea
 		\item Si $Q-1 \geq 0, \; P(u)$ tiene 1 cambio de signo, y $$P(-u)=-u^{3}+(Q-1)u^{2}-A^{2}u-A^{2}$$ tiene 2 cambios de signo. Por lo tanto, $P(u)$ tiene una raíz real positiva y dos negativas, o una raíz real positiva y dos complejas.
 		\item Si $Q-1<0, \; P(u)$ tiene 3 cambios de signo y $P(-u)$ tiene 0 cambios de signo. Por lo tanto, $P(u)$ tiene tres raíces reales positivas, o una sola raíz real positiva y dos complejas.
 	\end{itemize}
-	En todo caso, se garantiza la existencia de al menos una raíz real positiva. Descartemos ahora la posible existencia de tres raíces reales positivas simultáneamente. Sea $H$ una raíz real positiva de $P$ entonces el cociente entre $P(u)$ y el monomio $u - H$ es $$P_{1}(u) = u^{2}+(Q-1+H)u+(Q-1+H)H+A^{2}$$ con resto $$R(u) = H^{3}+(Q-1)H^{2}+A^{2}H-A^{2} = 0,$$ de aquí $$Q-1+H = \frac{(1-H)A^{2}}{H^{2}}>0$$ reemplazando en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\frac{(1-H)A^{2}}{H^{2}}u+\frac{A^{2}}{H},$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq:polinomioIsoclinasModelo2} consta de una única raíz real positiva $H$. Además, nótese que: $$P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$$ así por el teorema del valor intermedio, esta raíz $H \in (0,1)$, esto también se puede deducir de la isoclina \eqref{eq:isoclina-presa_modelo2}.
+	En todo caso, se garantiza la existencia de al menos una raíz real positiva. Descartemos ahora la posible existencia de tres raíces reales positivas simultáneamente. Sea $H$ una raíz real positiva de $P$ entonces el cociente entre $P(u)$ y el monomio $u - H$ es $$P_{1}(u) = u^{2}+(Q-1+H)u+(Q-1+H)H+A^{2},$$ con resto $$R(u) = H^{3}+(Q-1)H^{2}+A^{2}H-A^{2} = 0,$$ de aquí $$Q-1+H = \frac{(1-H)A^{2}}{H^{2}}>0,$$ reemplazando en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\frac{(1-H)A^{2}}{H^{2}}u+\frac{A^{2}}{H},$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq:polinomioIsoclinasModelo2} consta de una única raíz real positiva $H$. Además, nótese que: $$P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$$ así por el teorema del valor intermedio, esta raíz $H \in (0,1)$, esto también se puede deducir de la isoclina \eqref{eq:isoclina-presa_modelo2}.
 \end{proof}
 
 \begin{remark}
 	Con esta ultima proposición se concluye que el sistema \eqref{eq: modelo2} posee tres puntos de equilibrio biológicamente relevantes: $(0,0), \; (1,0) \text{ y } (H,H),$ donde, $H \in (0,1)$.
 \end{remark}
-
 %https://www-mathplanet-com.translate.goog/education/algebra-2/polynomial-functions/descartes-rule-of-sign?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es
 
 Considerando $f(u,v)=(f_1(u, v), f_2(u, v))$, la matriz jacobiana del sistema \eqref{eq: modelo2} está dada por
@@ -184,9 +183,9 @@ Considerando $f(u,v)=(f_1(u, v), f_2(u, v))$, la matriz jacobiana del sistema \e
 donde
 \begin{equation*}
 	\begin{aligned}
-		a_{11} &= -5u^{4} + 4u^{3} - (3A^{2} + 3Qv)u^{2} + 2A^{2}u \\
-		a_{21} &= 3Bu^{2}v+BvA^{2}-2Bv^{2}u
-	\end{aligned}.
+		a_{11} &= -5u^{4} + 4u^{3} - (3A^{2} + 3Qv)u^{2} + 2A^{2}u, \\
+		a_{21} &= 3Bu^{2}v+BvA^{2}-2Bv^{2}u.
+	\end{aligned}
 \end{equation*}
 \subsection{Estabilidad del punto de equilibrio $(1,0)$}
 Los valores propios de la matriz
@@ -195,7 +194,7 @@ Los valores propios de la matriz
 	\begin{bmatrix}
 		-(1+A^{2}) & -Q \\
 		0 & B(1+A^{2})
-	\end{bmatrix}
+	\end{bmatrix},
 	\label{eq:jacobianaModelo2En(1,0)}
 \end{equation*}
 están dados por $\lambda_1 = -(1+A^{2}) < 0$ y $\lambda_2 = B(1+A^{2}) > 0$. Dado que tienen signos opuestos, tenemos que $(1,0)$ es un punto silla.
@@ -217,23 +216,22 @@ Al evaluar el origen en la matriz \eqref{eq:jacobianaModelo2} obtenemos
 	\end{bmatrix}.
 	\label{eq:jacobianaModelo2En(0,0)}
 \end{equation*}
-En particular, para este punto crítico al obtener la matriz nula, deducimos que $(0,0)$ es un punto no hiperbólico y degenerado, por lo que no es posible determinar la estabilidad de este punto por medio de la linealización ni el teorema de la variedad central, por ello, para analizar el comportamiento de este punto de equilibrio se recurrirá a desingularizarlo a través del método de blowing-up polar.
+En particular, para este punto crítico al obtener la matriz nula, deducimos que $(0,0)$ es un punto no hiperbólico y degenerado, por lo que no es posible determinar la estabilidad de este punto por medio de la linealización ni el teorema de la variedad central, por ello, para analizar el comportamiento de este punto de equilibrio se recurrirá a desingularizarlo a través del método de blowing-up polar. \\
 
-Para ello, escribamos el sistema \eqref{eq: modelo2} en coordenadas polares. Sustituyendo $u = r \cos\theta$ y $v = r \sin\theta$, obtenemos que $r^{2}=u^{2}+v^{2} \;\text{ y }\; \theta = \arctg\left(\dfrac{v}{u}\right)$ con $u\neq0$. Derivando con respecto al tiempo $\tau$: $$\dot{r}=\cos\theta\dot{u} + \sin\theta\dot{v} \;\text{ y }\; \dot{\theta}=\dfrac{\dot{v}\cos\theta-\dot{u}\sin\theta}{r}.$$ Reemplazando $\dot{u}$ y $\dot{v}$ obtenemos el sistema:
+\noindent Para ello, escribamos el sistema \eqref{eq: modelo2} en coordenadas polares. Sustituyendo $u = r \cos\theta$ y $v = r \sin\theta$, obtenemos que $r^{2}=u^{2}+v^{2} \;\text{ y }\; \theta = \arctg\left(\dfrac{v}{u}\right)$ con $u\neq0$. Derivando con respecto al tiempo $\tau$: $$\dot{r}=\cos\theta\dot{u} + \sin\theta\dot{v} \;\text{ y }\; \dot{\theta}=\dfrac{\dot{v}\cos\theta-\dot{u}\sin\theta}{r}.$$ Reemplazando $\dot{u}$ y $\dot{v}$ obtenemos el sistema:
 \begin{equation*}
 	\begin{cases}
-		\dot{r} &= r^{2} g_1(r, \theta)
-		\\
-		\dot{\theta} &= r g_2(r, \theta)
-	\end{cases},
+		\dot{r} &= r^{2} g_1(r, \theta), \\
+		\dot{\theta} &= r g_2(r, \theta),
+	\end{cases}
 \end{equation*}
 donde
 \begin{equation*}
 	\begin{aligned}
-		g_1(r, \theta) &= -Qr^{2}\cos^{4}\theta\sin\theta- r^{3}\cos^{6}\theta+ r^{2}\cos^{5}\theta \\ &-A^{2}r\cos^{4}\theta+ A^{2}\cos^{3}\theta + Br^{2}\cos^{3}\theta\sin^{2}\theta \\ &-Br^{2}\cos^{2}\theta\sin^{3}\theta+ A^{2}B\cos\theta\sin^{2}\theta- A^{2}B\sin^{3}\theta
+		g_1(r, \theta) &= -Qr^{2}\cos^{4}\theta\sin\theta- r^{3}\cos^{6}\theta+ r^{2}\cos^{5}\theta \\ &-A^{2}r\cos^{4}\theta+ A^{2}\cos^{3}\theta + Br^{2}\cos^{3}\theta\sin^{2}\theta \\ &-Br^{2}\cos^{2}\theta\sin^{3}\theta+ A^{2}B\cos\theta\sin^{2}\theta- A^{2}B\sin^{3}\theta,
 		\\
-		g_2(r, \theta) &= Br^{2}\cos^{4}\theta\sin\theta- Br^{2}\cos^{3}\theta\sin^{2}\theta+ A^{2}B\cos^{2}\theta\sin\theta \\ &-A^{2}B\cos\theta\sin^{2}\theta+ Qr^{2}\cos^{3}\theta\sin^{2}\theta + r^{3}\cos^{5}\theta\sin\theta \\ &-r^{2}\cos^{4}\theta\sin\theta+ A^{2}r\cos^{3}\theta\sin\theta- A^{2}\cos^{2}\theta\sin\theta
-	\end{aligned},
+		g_2(r, \theta) &= Br^{2}\cos^{4}\theta\sin\theta- Br^{2}\cos^{3}\theta\sin^{2}\theta+ A^{2}B\cos^{2}\theta\sin\theta \\ &-A^{2}B\cos\theta\sin^{2}\theta+ Qr^{2}\cos^{3}\theta\sin^{2}\theta + r^{3}\cos^{5}\theta\sin\theta \\ &-r^{2}\cos^{4}\theta\sin\theta+ A^{2}r\cos^{3}\theta\sin\theta- A^{2}\cos^{2}\theta\sin\theta,
+	\end{aligned}
 \end{equation*}
 es decir, obtuvimos el campo vectorial $$\tilde{Y_{\eta}}(r,\theta) = r^{2}g_1(r,\theta) \partial_r + rg_2(r,\theta) \partial_\theta.$$ Dividiendo por $r$ obtenemos un nuevo campo $$\bar{Y_{\eta}}(r,\theta) = rg_1(r,\theta) \partial_r + g_2(r,\theta) \partial_\theta,$$ el cual, en $\{r=0\}$ es cualitativamente equivalente a una vecindad del origen del campo vectorial $Y_{\eta}$ dado por el sistema \eqref{eq: modelo2}, es decir, basta analizar el retrato fase del campo vectorial:
 \begin{equation*}
@@ -242,11 +240,11 @@ es decir, obtuvimos el campo vectorial $$\tilde{Y_{\eta}}(r,\theta) = r^{2}g_1(r
 		&= A^{2}\cos\theta\sin\theta (B\cos\theta-B\sin\theta-\cos\theta),
 	\end{aligned}
 \end{equation*}
-para determinar el comportamiento del sistema \eqref{eq: modelo2} en una vecindad del origen.
+para determinar el comportamiento del sistema \eqref{eq: modelo2} en una vecindad del origen. \\
 
-Hallemos los puntos críticos de $\bar{Y_{\eta}}(0,\theta)$ ubicados en el primer cuadrante. Igualando el campo vectorial $\bar{Y_{\eta}}(0,\theta)$ a cero, debe ocurrir al menos que $\cos\theta$, $\sin\theta$ o $B\cos\theta-B\sin\theta-\cos\theta$ se anule. Esto ocurre para los valores $\theta_1 = 0, \; \theta_2 = \dfrac{\pi}{2}$ y los que cumplan la igualdad $$\dfrac{B-1}{B}\cos\theta=\sin\theta,$$ es decir, $\theta_3 = \arctg\left( \dfrac{B-1}{B} \right)$; aquí, notemos que el escenario de relevancia es para el caso $B>1$, pues para $B=1$ estaríamos hablando de $\theta_3 = \theta_1 = 0$ y para $B<1$, $\theta_3$ no estaría en el primer cuadrante.
+\noindent Hallemos los puntos críticos de $\bar{Y_{\eta}}(0,\theta)$ ubicados en el primer cuadrante. Igualando el campo vectorial $\bar{Y_{\eta}}(0,\theta)$ a cero, debe ocurrir al menos que $\cos\theta$, $\sin\theta$ o $B\cos\theta-B\sin\theta-\cos\theta$ se anule. Esto ocurre para los valores $\theta_1 = 0, \; \theta_2 = \dfrac{\pi}{2}$ y los que cumplan la igualdad $$\dfrac{B-1}{B}\cos\theta=\sin\theta,$$ es decir, $\theta_3 = \arctg\left( \dfrac{B-1}{B} \right)$; aquí, notemos que el escenario de relevancia es para el caso $B>1$, pues para $B=1$ estaríamos hablando de $\theta_3 = \theta_1 = 0$ y para $B<1$, $\theta_3$ no estaría en el primer cuadrante. \\
 
-La matriz jacobiana del campo $\bar{Y}_{\eta}(0,\theta)$ esta dada por
+\noindent La matriz jacobiana del campo $\bar{Y}_{\eta}(0,\theta)$ esta dada por
 \begin{equation*}
 	D\bar{Y_{\eta}}(0,\theta) =
 	\begin{bmatrix}
@@ -258,7 +256,7 @@ La matriz jacobiana del campo $\bar{Y}_{\eta}(0,\theta)$ esta dada por
 con
 \begin{equation*}
 	\begin{aligned}
-		b_{11}(\theta) &= A^{2}\cos^{3}\theta + A^{2}B[\cos\theta\sin^{2}\theta - \sin^{3}\theta] \\
+		b_{11}(\theta) &= A^{2}\cos^{3}\theta + A^{2}B[\cos\theta\sin^{2}\theta - \sin^{3}\theta], \\
 		b_{22}(\theta) &= A^{2}B[\sin^{3}\theta + \cos^{3}\theta - 2\sin^{2}\theta\cos\theta - 2\sin\theta\cos^{2}\theta] \\
 		& \;\;\;\; + A^{2}[2\cos\theta\sin^{2}\theta - \cos^{3}\theta].
 	\end{aligned}
@@ -274,24 +272,29 @@ En el punto crítico $(0,\theta_1)$, obtenemos la matriz:
 	\end{bmatrix},
 	\label{eq:jacobianaModelo2PolarEn(0,0)}
 \end{equation*}
-con valores propios $\lambda_r = A^{2}>0, \; \lambda_\theta = A^{2}(B-1),$ radial y tangencial, respectivamente. Por lo tanto, $(0, \theta_1)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$ si \linebreak $B<1$, es una fuente si $B>1$ y un punto crítico no hiperbólico si $B=1$. Aquí observamos qué la estabilidad de este punto de equilibrio depende del parámetro $B$, la cual influirá en la estructura cualitativa del campo $\bar{Y_{\eta}}(r,\theta)$ y por ende en la del sistema \eqref{eq: modelo2}. % Así, obtenemos que hay un cambio cualitativo en el valor de bifurcación $B=1$, posteriormente se analizará que tipo de bifurcación se presenta en este modelo.
+con valores propios $\lambda_r = A^{2}>0, \; \lambda_\theta = A^{2}(B-1),$ radial y tangencial, respectivamente. Por lo tanto, $(0, \theta_1)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$ si \linebreak $B<1$, es una fuente si $B>1$ y un punto crítico no hiperbólico si $B=1$. Aquí observamos qué la estabilidad de este punto de equilibrio depende del parámetro $B$, la cual influirá en la estructura cualitativa del campo $\bar{Y_{\eta}}(r,\theta)$ y por ende en la del sistema \eqref{eq: modelo2}. \\ % Así, obtenemos que hay un cambio cualitativo en el valor de bifurcación $B=1$, posteriormente se analizará que tipo de bifurcación se presenta en este modelo.
 
-Ahora, debido a que en el caso $B=1$ el punto $(0,\theta_1)$ es un punto no hiperbólico, no es posible aplicar el teorema de Harmant-Grobman para determinar su estabilidad y por ello recurriremos al teorema de la variedad central (TVC).
+\noindent Ahora, debido a que en el caso $B=1$ el punto $(0,\theta_1)$ es un punto no hiperbólico, no es posible aplicar el teorema de Harmant-Grobman para determinar su estabilidad y por ello recurriremos al teorema de la variedad central (TVC). \\
 
-Recordemos que el TVC nos garantiza la existencia de una curva invariante $r = h(\theta)$ que define la variedad central en una vecindad del origen, cuyo flujo esta determinado por la ecuación diferencial $\dot{\theta} = g_2(h(\theta), \theta)$. En nuestro caso, al estar determinando la estabilidad de los puntos críticos en el circulo ${r = 0}$, esto conlleva a la omisión de tener que especificar como esta definida la curva invariante $h(\theta)$. Por ende, para precisar la estabilidad del origen para el caso $B = 1$, solo basta determinar el flujo de la ecuación diferencial
+\noindent Recordemos que el TVC nos garantiza la existencia de una curva invariante $r = h(\theta)$ que define la variedad central en una vecindad del origen, cuyo flujo esta determinado por la ecuación diferencial $\dot{\theta} = g_2(h(\theta), \theta)$. En nuestro caso, al estar determinando la estabilidad de los puntos críticos en el circulo ${r = 0}$, esto conlleva a la omisión de tener que especificar como esta definida la curva invariante $h(\theta)$. Por ende, para precisar la estabilidad del origen para el caso $B = 1$, solo basta determinar el flujo de la ecuación diferencial
 \begin{equation}
 	\dot{\theta} = g_2(0, \theta) = - A^2 \sin ^2 \theta \cos \theta;
 	\label{eq:flujotheta0}
 \end{equation}
 para ello, hallemos los primeros términos de la expansión en serie de Taylor de $ - A^2 \sin ^2 \theta \cos \theta$ alrededor de $\theta = 0$. Como
-
-\begin{equation*}
-	\begin{aligned}
-		\sin \theta &= \theta - \dfrac{\theta^3}{3!} + \mathcal{O}(\theta^ 5) \\
-		\sin^2 \theta &= \theta^2 + \mathcal{O}(\theta^ 4) \\
-		\cos \theta &= 1 - \dfrac{\theta^2}{2!} + \mathcal{O}(\theta^ 4)
-	\end{aligned},
-\end{equation*}
+$$
+	\sin \theta = \theta - \dfrac{\theta^3}{3!} + \mathcal{O}(\theta^ 5), \quad
+	\sin^2 \theta = \theta^2 + \mathcal{O}(\theta^ 4) \quad \text{y} \quad
+	\cos \theta = 1 - \dfrac{\theta^2}{2!} + \mathcal{O}(\theta^ 4),
+$$
+%
+%\begin{equation*}
+%	\begin{aligned}
+%		\sin \theta &= \theta - \dfrac{\theta^3}{3!} + \mathcal{O}(\theta^ 5) \\
+%		\sin^2 \theta &= \theta^2 + \mathcal{O}(\theta^ 4) \\
+%		\cos \theta &= 1 - \dfrac{\theta^2}{2!} + \mathcal{O}(\theta^ 4)
+%	\end{aligned}
+%\end{equation*}
 entonces, de \eqref{eq:flujotheta0} tenemos 
 \begin{equation*}
 	\dot{\theta} = - A^2 \sin ^2 \theta \cos \theta = -A^2 \theta^2 + \mathcal{O}(\theta^ 4).
@@ -316,9 +319,9 @@ con valores propios $\lambda_r = -A^{2}B<0$ y $\lambda_\theta = A^{2}B>0$. Por l
 Denotando $k = \dfrac{B-1}{B}$, donde $B>1$, y tomando en cuenta las identidades
 \begin{equation*}
 	\begin{aligned}
-		\sin(\theta_3) &= \dfrac{k}{\sqrt{1+k^{2}}} \\
-		\cos(\theta_3) &= \dfrac{1}{\sqrt{1+k^{2}}}
-	\end{aligned},
+		\sin(\theta_3) &= \dfrac{k}{\sqrt{1+k^{2}}}, \\
+		\cos(\theta_3) &= \dfrac{1}{\sqrt{1+k^{2}}},
+	\end{aligned}
 \end{equation*}
 llegamos a que
 \begin{equation*}
@@ -331,18 +334,18 @@ llegamos a que
 donde
 \begin{equation*}
 	\begin{aligned}
-		b_{11}(\theta_3) &= 1 + Bk^{2}(1-k) \\
-		b_{22}(\theta_3) &= B(k^{3}-2k+1) -2k^{2}(B-1) - 1
+		b_{11}(\theta_3) &= 1 + Bk^{2}(1-k), \\
+		b_{22}(\theta_3) &= B(k^{3}-2k+1) -2k^{2}(B-1) - 1,
 	\end{aligned}
 \end{equation*}
 reemplazando $k = \dfrac{B-1}{B}$, obtenemos que:
 \begin{equation*}
 	\begin{aligned}
 		b_{11}(\theta_3) &= 1 + B\dfrac{(B-1)^{2}}{B^{2}}\left(1-\dfrac{B-1}{B}\right) \\ 
-		&=\dfrac{2B^{2}-2B+1}{B^{2}} \\
+		&=\dfrac{2B^{2}-2B+1}{B^{2}}, \\
 		b_{22}(\theta_3) &= B\left(\dfrac{(B-1)^{3}}{B^{3}}-2\dfrac{B-1}{B}+1\right) -2\dfrac{(B-1)^{2}}{B^{2}}(B-1) - 1 \\ 
-		&= -\dfrac{(B-1)(2B^{2}-2B+1)}{B} \\
-		1+k^{2} &= \dfrac{2B^{2}-2B+1}{B^{2}}
+		&= -\dfrac{(B-1)(2B^{2}-2B+1)}{B}, \\
+		1+k^{2} &= \dfrac{2B^{2}-2B+1}{B^{2}}.
 	\end{aligned}
 \end{equation*}
 Así,
@@ -354,7 +357,7 @@ Así,
 	\end{bmatrix}.
 	\label{eq:jacobianaModelo2PolarEn(0,b)}
 \end{equation}
-Con valores propios $$\lambda_r = \dfrac{A^2 B}{(2B^{2}-2B+1)^{1/2}}>0 \; \text{y} \; \lambda_\theta = -\dfrac{A^2 B^2 (B-1)}{(2B^{2}-2B+1)^{1/2}}<0.$$ Por lo tanto, $(0,\theta_3)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$. \\
+Con valores propios $$\lambda_r = \dfrac{A^2 B}{(2B^{2}-2B+1)^{1/2}}>0 \quad \text{y} \quad \lambda_\theta = -\dfrac{A^2 B^2 (B-1)}{(2B^{2}-2B+1)^{1/2}}<0.$$ Por lo tanto, $(0,\theta_3)$ es un punto silla de $\bar{Y_{\eta}}(0,\theta)$. \\
 
 Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto con sus respectivos valores propios radiales y tangenciales, podemos determinar como se comporta cualitativamente el origen del campo $Y_{\eta}$ en una cierta vecindad. Este comportamiento se puede evidenciar en la figura \ref{fig: BlowUp Modelo 2}, en donde, para el caso $B\leq1$ vemos que el primer cuadrante consta de un único sector hiperbólico, y para $B>1$ de uno parabólico y uno hiperbólico. Recordemos que la finalidad de la técnica del blow-up es determinar el comportamiento del origen en $Y_{\eta}$, en sí, este proceso nos permite determinar que trayectorias entran o salen del origen, y son determinadas por la pendiente $\tan \theta^*$, donde $\theta^*$ es un punto crítico de $\bar{Y_{\eta}}$. Por ende, en el primer cuadrante de $Y_{\eta}$ hay tres de estas trayectorias: $v=0$ que corresponde a la orbita con pendiente $\tan\theta_1=0$, $u=0$ que corresponde a la orbita con pendiente $\tan\theta_2= \infty$ y la orbita determinada por la pendiente $\tan\theta_3=\dfrac{B-1}{B}$, la cual solo se da para el caso $B>1$, y además define una curva separatriz puesto que divide el retrato de fase en dos sectores con comportamientos cualitativos distintos (parabólico e hiperbólico).
 
@@ -425,9 +428,9 @@ Los valores propios se hallan del polinomio característico $$\lambda^2 - \opera
 donde $\mu = (A, \; B)$, $\Delta = (\operatorname{tr}(M))^2 - 4\det(M)$ y
 \begin{equation*}
 	\begin{aligned}
-		\operatorname{tr}(M) &= -H(B(A^{2}+H^{2})+H^{2}(2H-1)+A^2) \\
-		\det(M) &= BH^2(A^2+H^2)(H^3+A^2(2-H))
-	\end{aligned}.
+		\operatorname{tr}(M) &= -H(B(A^{2}+H^{2})+H^{2}(2H-1)+A^2), \\
+		\det(M) &= BH^2(A^2+H^2)(H^3+A^2(2-H)).
+	\end{aligned}
 \end{equation*}
 Como $H \in (0, 1)$, $\det(M)>0$ por lo que $(H,H)$ es un punto no degenerado e hiperbólico o un centro lineal; además, no puede ser un punto silla. Así la estabilidad estaría determinada por el signo de la traza y del discriminante $\Delta$, para ello notemos que $\operatorname{tr}(M)=0$ si
 \begin{equation}
@@ -462,16 +465,16 @@ Para proceder con el calculo del primer coeficiente de Lyapunov, debemos traslad
 \begin{equation}
 	W_{\eta}:
 	\begin{cases}
-		\dfrac{d\bar{u}}{d \tau} = h_1(\bar{u}, \bar{v}) \\ \\
-		\dfrac{d\bar{v}}{d \tau} = h_2(\bar{u}, \bar{v})
-	\end{cases},
+		\dfrac{d\bar{u}}{d \tau} = h_1(\bar{u}, \bar{v}), \\ \\
+		\dfrac{d\bar{v}}{d \tau} = h_2(\bar{u}, \bar{v}),
+	\end{cases}
 	\label{eq: modelo2Hen0}
 \end{equation}
-donde,
+donde
 \begin{equation*}
 	\begin{aligned}
-		h_1(\bar{u}, \bar{v}) &= [(1 - \bar{u} - H)[(\bar{u} + H)^{2} + A^{2}] - Q (\bar{u} + H) (\bar{v} + H)](\bar{u} + H)^{2} \\
-		h_2(\bar{u}, \bar{v}) &= B_c(\bar{u} - \bar{v})[(\bar{u} + H)^{2} + A^{2}](\bar{v} + H)
+		h_1(\bar{u}, \bar{v}) &= [(1 - \bar{u} - H)[(\bar{u} + H)^{2} + A^{2}] - Q (\bar{u} + H) (\bar{v} + H)](\bar{u} + H)^{2}, \\
+		h_2(\bar{u}, \bar{v}) &= B_c(\bar{u} - \bar{v})[(\bar{u} + H)^{2} + A^{2}](\bar{v} + H).
 	\end{aligned}
 \end{equation*}
 Por la igualdad \eqref{eq: Q}, la matriz jacobiana del sistema \eqref{eq: modelo2Hen0} en el origen estaría dada simplemente por la matriz \eqref{eq:jacobianaModelo2En(H,H)} sustituyendo $B=B_c$:
@@ -519,15 +522,15 @@ con $G_{z z}, \;G_{z w}$ y $G_{z z w}$ dadas por las derivadas parciales evaluad
 \end{equation}
 con $w = z - \frac{g_{20}}{2\omega i} z^2 + \frac{g_{11}}{\omega i} z \bar{z} + \frac{g_{02}}{3\omega i} \bar{z}^2 + O(|z|^3)$, donde $q=(q_1,q_2)$ es el autovector asociado al valor propio complejo puro $\omega i$, de la matriz jacobiana $Dh(0,0)$; además, se debe cumplir que $\langle p,q \rangle =1$, más detalles al respecto se pueden encontrar en \textit{Kuznetsov} \cite[p.  ~101]{Kuznetsov2023}. \\
 
-Para determinar \eqref{eq: derFunComplejaL1}, debemos hallar $q,\tilde{p} \in \C^2$: $$Dh(0,0)q=i\omega q, \; Dh(0,0)^T \tilde{p}=-i\omega \tilde{p}.$$ Para ello considermos la siguiente notación $$\omega i= \sqrt{\det (M)} \; i = \sqrt{ad} \; i,$$ donde $d = H[H^3+A^2(2-H)]$. Para obtener $q$ solucionamos el sistema, $(Dh(0, 0) - \omega i I)U = 0$, esto es:
+\noindent Para determinar \eqref{eq: derFunComplejaL1}, debemos hallar $q,\tilde{p} \in \C^2$: $$Dh(0,0)q=i\omega q, \; Dh(0,0)^T \tilde{p}=-i\omega \tilde{p}.$$ Para ello considermos la siguiente notación $$\omega i= \sqrt{\det (M)} \; i = \sqrt{ad} \; i,$$ donde $d = H[H^3+A^2(2-H)]$. Para obtener $q$ solucionamos el sistema, $(Dh(0, 0) - \omega i I)U = 0$, esto es:
 \begin{equation}
 	\begin{cases}
-	    (a - \omega i)U_1 + b U_2 = 0\\
-		a U_1 - (a + \omega i)U_2 = 0
-	\end{cases},
+	    (a - \omega i)U_1 + b U_2 = 0,\\
+		a U_1 - (a + \omega i)U_2 = 0,
+	\end{cases}
 	\label{eq: VectoresPropiosOmega}
 \end{equation}
-De aquí $U_1 = [1 + (a+b)/\omega i]U_2$. Tomando $U_2 = 1$, una posible solución es el vector:
+de aquí $U_1 = [1 + (a+b)/\omega i]U_2$. Tomando $U_2 = 1$, una posible solución es el vector:
 \begin{equation}
 	q = 
 	\begin{pmatrix}
@@ -538,7 +541,7 @@ De aquí $U_1 = [1 + (a+b)/\omega i]U_2$. Tomando $U_2 = 1$, una posible soluci�
 	\begin{pmatrix}
 		1 +mi\\
 		1 
-	\end{pmatrix}
+	\end{pmatrix}.
 \end{equation}
 Análogamente, determinamos
 \begin{equation*}
@@ -555,7 +558,7 @@ Ahora, tomando $p=(1/\overline{\langle \tilde{p},q \rangle})\tilde{p}$ obtenemos
 	\begin{pmatrix}
 		i/m\\
 		1 - i/m
-	\end{pmatrix},
+	\end{pmatrix}, \quad
 	q =
 	\begin{pmatrix}
 		1+mi\\
@@ -566,17 +569,17 @@ Ahora, tomando $p=(1/\overline{\langle \tilde{p},q \rangle})\tilde{p}$ obtenemos
 Con en el fin de determinar la parte no lineal de nuestro sistema, realizamos \linebreak $(h_1(\bar{u}, \bar{v}),h_2(\bar{u}, \bar{v}))^T - Dh(0,0)(\bar{u},\bar{v})^T$. La cual resulta estar compuesta por:
 \begin{equation}
 	\begin{aligned}
-		F_1(\bar{u}, \bar{v}) = h_1(\bar{u}, \bar{v}) - a\bar{u} - b\bar{v}\\
-		F_2(\bar{u}, \bar{v}) = h_2(\bar{u}, \bar{v}) - a\bar{u} + a\bar{v}
+		F_1(\bar{u}, \bar{v}) = h_1(\bar{u}, \bar{v}) - a\bar{u} - b\bar{v},\\
+		F_2(\bar{u}, \bar{v}) = h_2(\bar{u}, \bar{v}) - a\bar{u} + a\bar{v}.
 	\end{aligned}
 \end{equation}
 Así el sistema \eqref{eq: modelo2Hen0} pasa a ser:
 \begin{equation}
 	W_{\eta}:
 	\begin{cases}
-		\dfrac{d\bar{u}}{d \tau} = a\bar{u} + b\bar{v} + F_1(\bar{u}, \bar{v})\\
-		\dfrac{d\bar{v}}{d \tau} = a\bar{u} - a\bar{v} + F_2(\bar{u}, \bar{v})
-	\end{cases},
+		\dfrac{d\bar{u}}{d \tau} = a\bar{u} + b\bar{v} + F_1(\bar{u}, \bar{v}),\\
+		\dfrac{d\bar{v}}{d \tau} = a\bar{u} - a\bar{v} + F_2(\bar{u}, \bar{v}),
+	\end{cases}
 	\label{eq: formaBifHopf}
 \end{equation}
 %Dado que el sistema aún no posee la simetría esperada, debemos realizar la sustitución $(\bar{u}, \bar{v})^{T} = P(X, Y)^{T}$. El sistema transformado estará dado por $(\dot{X}, \dot{Y})^T = P^{-1}Dh(0,0)P(X, Y)^{T}+P^{-1}F(P(X, Y)^{T})$, es decir:
@@ -627,43 +630,43 @@ Así el sistema \eqref{eq: modelo2Hen0} pasa a ser:
 %\end{equation*}
 %Reemplazando los valores conocidos  $a,\; b,\text{  y }d$; de \eqref{eq: l1}, obtenemos $$L_1 = \dfrac{A^2 H(1 - H)([4 - 3H(3 - H)]A^4 -4H^3A^2 - (3 - H)H^5)}{2(A^2 + H^2)(H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2)},$$
 
-con expansiones,
+\noindent con expansiones
 \begin{equation}
 	\begin{aligned}
 		F_1 = & -3uv(1 - H)(A^2 + H^2) \\
 		& + u^2\left(-2A^2 + (3 - 7H)H^2 + \frac{3b}{H^2} v \right) \\ 
 		& + u^3\left(\frac{3(1 - 3H)H^2 - A^2}{H} + \frac{b}{H^3} v \right) \\ 
-		& + u^4(1 - 5H) - u^5 \\
+		& + u^4(1 - 5H) - u^5, \\
 		F_2 = & \; u \left(\frac{a(A^2 - H^2)}{H(A^2 + H^2)} v - \frac{2a}{A^2 + H^2} v^2 \right) \\
 		& + u^2\left(\frac{2aH}{A^2 + H^2} + \frac{a}{A^2 + H^2} v - \frac{a}{H(A^2 + H^2)} v^2 \right) \\
-		& + u^3\left( \frac{a}{A^2 + H^2} + \frac{a}{H(A^2 + H^2)} v \right) - \frac{a}{H} v^2
+		& + u^3\left( \frac{a}{A^2 + H^2} + \frac{a}{H(A^2 + H^2)} v \right) - \frac{a}{H} v^2.
 	\end{aligned}
 	\label{eq: expansionF1,2}
 \end{equation}
 
-Considerando la función \eqref{eq: funComplejaL1} y tomando en cuenta las igualdades \eqref{eq: derFunComplejaL1}, tenemos que
+\noindent Considerando la función \eqref{eq: funComplejaL1} y tomando en cuenta las igualdades \eqref{eq: derFunComplejaL1}, tenemos que
 \begin{equation}
 	\begin{aligned}
 %		g_{20} = & \frac{i}{m}\left[ \frac{H^2}{4} \left( 1+34H+28Hm - \frac{H^3+A^2H[-9+2H(11-6H)]}{a} \right) \right. \\
 %		& \left. + A^2(11+6mi-H(6+3mi)) \right] \\
         g_{20} = & \frac{i}{m}\{[A^2(1 - 3H) + 2H^2(3 - 5H)](m-i)^2 \\ 
-        & + B_cm[A^2 + H^2(3 + 2mi)](m+i) - 3H^2Q(m-i)(m-2i) \} \\
+        & + B_cm[A^2 + H^2(3 + 2mi)](m+i) - 3H^2Q(m-i)(m-2i) \}, \\
 %		g_{11} = & - \frac{i}{m} \left[ \frac{2iHdm}{A^2+H^2} + 6\left(A^2(2H-3) + \frac{d}{H}\right) \right. \\
 %		& + \frac{10H^3b}{a} +\frac{A^2(3H-1)b}{a} \\
 %		& \left. + \frac{d[-3(1-H)A^4+2H^2(1+3H)A^2 +H^4(1+7H)]}{a(A^2+H^2)} \right] \\
         g_{11} = & \frac{i}{m} \{A^2(3H-1)(1 + m^2) + H^2[10H(1 + m^2) + 6(Q-1) \\ 
-        & + m^2(-6 + 2B_c - 2B_cmi + 3Q)]\} \\
+        & + m^2(-6 + 2B_c - 2B_cmi + 3Q)]\}, \\
 %		g_{21} = & \frac{i}{m}\left[ 3i[A^2+2H(5H-2)](m+i)(m-i)^2 \right. \\
 %		& + \frac{am(i+m)[3-4mi+(3d/a)]}{A^2+H^2} \\
 %		& \left. + \frac{3b(i-m)[(4+(d/a))i+m]}{H^2} \right]
         g_{21} = & \frac{i}{m} \{3i[A^2 + 2H(5H-2)](m-i)^2(m+i) \\ 
         & + B_cHm(m+i)[3 + m(3m-4i)] \\ 
-        & + 3QH(m-i)(4i + m + m^2i)\}
+        & + 3QH(m-i)(4i + m + m^2i)\},
 	\end{aligned}
 	\label{eq: g_klModelo2}
 \end{equation}
 
-Reemplazando los valores conocidos, de \eqref{eq: l1}, obtenemos que
+\noindent Reemplazando los valores conocidos, de \eqref{eq: l1}, obtenemos que
 \begin{equation}
 	l_1 = \dfrac{2A^2(1 - H)([4 - 3H(3 - H)]A^4 -4H^3A^2 - (3 - H)H^5)}{(A^2 + H^2)[(H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2)]^{3/2}},
 	\label{eq: l1Kuznetsov}
@@ -677,11 +680,11 @@ con $4 - 3H(3-H) > 0$ (puesto que $H \in (0, 1/2)$). El primer coeficiente de Ly
 \begin{equation*}
 	\begin{aligned}
 		A^2 &= \dfrac{4H^3 \pm \sqrt{16 H^6 + 4[4 - 3H(3-H)] (3-H)H^5}}{2 [4-3H(3-H)]} \\
-		&= \dfrac{2H^3 + H^2(1 - H)\sqrt{3H(4 - H)}}{4-3H(3-H)} := A^2_c
+		&= \dfrac{2H^3 + H^2(1 - H)\sqrt{3H(4 - H)}}{4-3H(3-H)} := A^2_c,
 	\end{aligned}
 	\label{eq: parametroBifHopfGeneralizada}
 \end{equation*}
-este hecho da consecuencia al siguiente teorma.
+este hecho da consecuencia al siguiente teorema.
 \begin{teo}
 	Una bifurcación de Hopf ocurre en el equilibrio $(H, H)$ para el valor de bifurcación $B = B_c$ y $A\neq A_c$.
 	\label{teo:Hopf}
@@ -691,7 +694,7 @@ este hecho da consecuencia al siguiente teorma.
 	\begin{equation*}
 		\begin{aligned}
 			\left. \frac{d}{dB}(Re(\lambda(\mu))) \right|_{B=B_c} &= \left. \frac{d}{dB}\left(\frac{\operatorname{tr}(M)}{2}\right) \right|_{B=B_c} \\
-			&= -\frac{1}{2}H(A^{2}+H^{2}) \neq 0
+			&= -\frac{1}{2}H(A^{2}+H^{2}) \neq 0.
 		\end{aligned}
 	\end{equation*}
 	Cumpliendo así las condiciones para que una bifurcación de Hopf ocurra para $B = B_c$ y $A\neq A_c$.
@@ -710,8 +713,8 @@ La curva $L_1 = 0$ y la región de restricciones del sistema, puede observarse e
 	Otro método para calcular el primer número de lyapunov es trasladar el sistema de estudio a la forma
 	\begin{equation*}
 		\begin{cases}
-			\dot{X} = -\omega Y + \tilde{G}_1(X, Y) \\
-			\dot{Y} = \omega X + \tilde{G}_2(X, Y)
+			\dot{X} = -\omega Y + \tilde{G}_1(X, Y), \\
+			\dot{Y} = \omega X + \tilde{G}_2(X, Y),
 		\end{cases}
 		\label{eq: normalFormWn}
 	\end{equation*}
@@ -725,7 +728,7 @@ La curva $L_1 = 0$ y la región de restricciones del sistema, puede observarse e
 	\end{equation*}
 	Siguiendo esta metodología, para el sistema \eqref{eq: modelo2Hen0} obtenemos que
 	\begin{equation*}
-		\tilde{l_1} = \dfrac{A^2 H(1 - H)([4 - 3H(3 - H)]A^4 -4H^3A^2 - (3 - H)H^5)}{2(A^2 + H^2)(H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2)}
+		\tilde{l_1} = \dfrac{A^2 H(1 - H)([4 - 3H(3 - H)]A^4 -4H^3A^2 - (3 - H)H^5)}{2(A^2 + H^2)(H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2)}.
 		\label{eq: l1Perko}
 	\end{equation*}
 	Al igual que en el primer método empleado el signo de este valor depende de la expresión \eqref{eq: sgnL1}. Las diferencias en $l_1$ y $\tilde{l_1}$, se deben principalmente a la metodología impuesta para obtener este coeficiente, más sin embargo, no altera las conclusiones obtenidas. 
@@ -764,8 +767,8 @@ Procedemos a reemplazar el valor paramétrico $A=A_c$ en el sistema \eqref{eq: f
 \begin{equation}
 	Z_{\eta}:
 	\begin{cases}
-		\dfrac{d\bar{u}}{d \tau} = a\bar{u} + b\bar{v} + F_1(\bar{u}, \bar{v})\\
-		\dfrac{d\bar{v}}{d \tau} = a\bar{u} - a\bar{v} + F_2(\bar{u}, \bar{v})
+		\dfrac{d\bar{u}}{d \tau} = a\bar{u} + b\bar{v} + F_1(\bar{u}, \bar{v}),\\
+		\dfrac{d\bar{v}}{d \tau} = a\bar{u} - a\bar{v} + F_2(\bar{u}, \bar{v}),
 	\end{cases}
 	\label{eq: normalFormZn}
 \end{equation}
@@ -775,13 +778,13 @@ con $F=(F_{1}, F_2)$ dadas por las expansiones \eqref{eq: expansionF1,2}, sustit
 	\begin{bmatrix}
 		a & b \\
 		a & - a
-	\end{bmatrix}
+	\end{bmatrix},
 \end{equation}
-donde,
+donde
 \begin{equation*}
 	\begin{aligned}
-		a &= \frac{H^3(1 - H)[4 - 3H(5 - 2H) - \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)} \\
-		b &= -\frac{H^3(1 - H)^2[4 - 3H + \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)}
+		a &= \frac{H^3(1 - H)[4 - 3H(5 - 2H) - \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)}, \\
+		b &= -\frac{H^3(1 - H)^2[4 - 3H + \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)},
 	\end{aligned}
 \end{equation*}
 bajo la restricción $0 < H < (3 - \sqrt{6})/3 \approx 0.1835$ que serían los valores para las cuales se satisfacen las restricciones $H<1/2$, $A^2 < H^2(1-2H)$ planteadas en la \autoref{sec: HH} al sustituir $A = A_c$.
@@ -809,23 +812,23 @@ con $p=(p_1,p_2)$ y $q=(q_1,q_2)$ dadas por \eqref{eq: vecComplejos}, donde $$m 
 \begin{equation}
 	\begin{aligned}
 		g_{31} = & \frac{i}{m} \{6(m^2+1)[-2 + (B_c-4)mi + (B_c+2)m^2 \\
-		& - 10H(m-i)^2] - 6Q(m^3 + 3m -2i)\} \\
-		g_{32} = & \frac{-60}{m}(m-i)^3 (m+i)^2 \\
-		g_{22} = & \frac{2i}{m} [4B_cm^2(1 - mi) + 6(5H-1)(m^2+1)^2 + 6Q(m^2+1)] \\
+		& - 10H(m-i)^2] - 6Q(m^3 + 3m -2i)\}, \\
+		g_{32} = & \frac{-60}{m}(m-i)^3 (m+i)^2, \\
+		g_{22} = & \frac{2i}{m} [4B_cm^2(1 - mi) + 6(5H-1)(m^2+1)^2 + 6Q(m^2+1)], \\
 		g_{02} = & \frac{-(m+i)}{m}\{ A_c^2[1 - 3H + (B_c + 3H - 1)mi] \\
-		& + H^2[6 + 2B_cm^2 + 10Hi(m+i) - 6Q + 3mi(B_c + Q - 2)] \} \\
+		& + H^2[6 + 2B_cm^2 + 10Hi(m+i) - 6Q + 3mi(B_c + Q - 2)] \}, \\
 		g_{40} = & \frac{12i}{m} \{ 5H(m-i)^4 - (m-i)^2[-1 + (B_c+1)m^2 \\
-		& + Q + (B_c + Q - 2)mi] \} \\
+		& + Q + (B_c + Q - 2)mi] \}, \\
 		g_{13} = & \frac{-6i}{m} (m+i)^2[-2 + 10H - B_cmi \\
-		& + m^2(B_c + 10H-2) + Q(mi+2)]
+		& + m^2(B_c + 10H-2) + Q(mi+2)],
 	\end{aligned}
 \end{equation}
 \begin{equation*}
 	\begin{aligned}
 		g_{30} = & \frac{3}{m} \{ [A_c^2 + 2H(5H-2)](m-i)^3 \\
-		& + B_cHm(1 - mi)[m(m-4i)-3] + HQ(m-i)^2(m-4i) \} \\
+		& + B_cHm(1 - mi)[m(m-4i)-3] + HQ(m-i)^2(m-4i) \}, \\
 		g_{12} = & \frac{m+i}{m} \{3A_c^2(m^2+1) + H[30H(m^2+1)\\
-		& + m[B_c(-3i + m(4 - 3mi)) + 3m(Q-4) + 3Qi] + 12(Q-1)]\} \\
+		& + m[B_c(-3i + m(4 - 3mi)) + 3m(Q-4) + 3Qi] + 12(Q-1)]\}, \\
 		g_{03} = & \frac{-3(m+i)^2}{m} \{A_c^2(m+i) \\
 		& + H\left[10H(m+i) + 4i(Q-1) + m(B_c(3 - mi) + Q -4)\right]\},
 	\end{aligned}
@@ -833,8 +836,8 @@ con $p=(p_1,p_2)$ y $q=(q_1,q_2)$ dadas por \eqref{eq: vecComplejos}, donde $$m 
 donde
 \begin{equation*}
 	\begin{aligned}
-		B_c &= \frac{2-3H - \sqrt{3H(4 - H)}}{2} \\
-		Q &= H^2 \frac{H[2-3(3-H)]+(1-H)\sqrt{3H(4-H)}+4}{4-3H(3-H)}
+		B_c &= \frac{2-3H - \sqrt{3H(4 - H)}}{2}, \\
+		Q &= H^2 \frac{H[2-3(3-H)]+(1-H)\sqrt{3H(4-H)}+4}{4-3H(3-H)}.
 	\end{aligned}
 \end{equation*}
 Tomando en cuenta estas expresiones computamos $l_2$, para el cual se obtienen algunos valores como los mostrados en la siguiente tabla.
@@ -861,7 +864,7 @@ Tomando en cuenta estas expresiones computamos $l_2$, para el cual se obtienen a
 	\end{tabular}
 \end{table}
 
-Tomando en cuenta los datos obtenidos en la \autoref{tab:ejemplosL2}, graficamos $-l_2$ en escala logarítmica (ver \autoref{fig: curvaL_2H}), el cual será estrictamente positivo, es decir, tendríamos que para cualquier valor $H \in \left(0,(3 - \sqrt{6})/3 \right)$, $l_2<0$; por lo tanto, el punto crítico $(H,H)$ es un foco débil estable de segundo orden \cite[p. 518]{chicone2024}, rodeado por un ciclo límite inestable y este a su vez, por un ciclo límite estable.
+\noindent Teniendo en cuenta los datos obtenidos en la \autoref{tab:ejemplosL2}, graficamos $-l_2$ en escala logarítmica (ver \autoref{fig: curvaL_2H}), el cual será estrictamente positivo, es decir, tendríamos que para cualquier valor $H \in \left(0,(3 - \sqrt{6})/3 \right)$, $l_2<0$; por lo tanto, el punto crítico $(H,H)$ es un foco débil estable de segundo orden \cite[p. 518]{chicone2024}, rodeado por un ciclo límite inestable y este a su vez, por un ciclo límite estable.
 
 \begin{figure}[H]
 	\centering
@@ -870,7 +873,7 @@ Tomando en cuenta los datos obtenidos en la \autoref{tab:ejemplosL2}, graficamos
 	\label{fig: curvaL_2H}
 \end{figure}
 
-Ya que $l_2$ es siempre negativo, obtenemos el siguiente teorema.
+\noindent Ya que $l_2$ es siempre negativo, obtenemos el siguiente teorema.
 
 \begin{teo}
 	Una bifurcación de Hopf generalizada (Bautin) ocurre en el equilibrio $(H, H)$ para el valor de bifurcación $\mu_0=(A_c, B_c)$.
@@ -881,7 +884,7 @@ Ya que $l_2$ es siempre negativo, obtenemos el siguiente teorema.
 		\det \left. \begin{pmatrix}
 			\frac{\partial Re(\lambda(\mu))}{\partial A} & \frac{\partial Re(\lambda(\mu))}{\partial B} \\[6pt]
 			\frac{\partial l_1(\mu)}{\partial A} & \frac{\partial l_1(\mu)}{\partial B} 
-		\end{pmatrix} \right|_{\mu=\mu_0} \neq 0
+		\end{pmatrix} \right|_{\mu=\mu_0} \neq 0,
 	\end{equation*}
 	esto es
 	\begin{equation}
@@ -896,8 +899,8 @@ Ya que $l_2$ es siempre negativo, obtenemos el siguiente teorema.
 	Considerando lo anterior, por la regla de la cadena $$\frac{d l_1(A, \phi(A))}{dA} = \frac{\partial l_1(A, \phi(A))}{\partial A} + \phi'(A) \frac{\partial l_1(A, \phi(A))}{\partial \phi(A)},$$ así por lo anterior y por \eqref{eq: teoFunImpli} para una vecindad $V$ de $A_c$ la regularidad \eqref{eq: regularidadBautin} se reduce a probar que $$\left. \frac{d l_1(A, \phi(A))}{dA} \right|_{A=A_c} \neq 0.$$ Ahora, nótese que la función $\phi(A)$ está dada simplemente por $B_c(A)$ obtenida en \eqref{eq: Bcritico}, por lo que basta mostrar que la derivada con respecto a $A$ de $l_1$ determinada en \eqref{eq: l1Kuznetsov}, no se anula para $A=A_c$. Con este objetivo, considerando
 	\begin{equation*}
 		\begin{aligned}
-			N &= 2A^2(1 - H)([4 - 3H(3 - H)]A^4 -4H^3A^2 - (3 - H)H^5) \\
-			I &= (H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2)
+			N &= 2A^2(1 - H)([4 - 3H(3 - H)]A^4 -4H^3A^2 - (3 - H)H^5) ,\\
+			I &= (H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2),
 		\end{aligned}
 	\end{equation*}
 	de \eqref{eq: l1Kuznetsov} tenemos que $$l_1 = \frac{N}{(A^2+H^2)I^{3/2}},$$ asi
@@ -908,7 +911,7 @@ Ya que $l_2$ es siempre negativo, obtenemos el siguiente teorema.
 	\begin{equation*}
 		N'= 4A(1-H) \left(3[4-3H(3-H)]A^4-8H^3A^2-(3-H)H^5\right)
 	\end{equation*}
-	estará determinado por la expresión $$3[4-3H(3-H)]A^4-8H^3A^2-(3-H)H^5$$ la cual se anulará para
+	estará determinado por la expresión $$3[4-3H(3-H)]A^4-8H^3A^2-(3-H)H^5,$$ la cual se anulará para
 	\begin{equation*}
 		\begin{aligned}
 			A^2 &= \dfrac{8H^3 \pm \sqrt{64 H^6 + 12[4 - 3H(3-H)] (3-H)H^5}}{6[4-3H(3-H)]} \\

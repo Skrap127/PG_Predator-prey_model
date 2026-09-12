@@ -112,7 +112,7 @@ Una \textit{solución} de la EDO \eqref{eq: generalFormEDO}, es una función $\p
 
 
 \begin{equation}
-	x^{(k)} = f(t, x, x^{(1)}, \cdots, x^{(k-1)}).
+	x^{(k)} = f(t, x, x^{(1)}, \ldots, x^{(k-1)}).
 	\label{eq:EDO}
 \end{equation}
 Por el teorema de la función implícita, esto se puede hacer al menos localmente cerca de algún punto $(t,y)\in U$ si la derivada parcial con respecto a la derivada más alta no se anula en ese punto $\frac{\partial F}{\partial y_{k}} (t,y) \neq 0$.
@@ -120,7 +120,7 @@ Por el teorema de la función implícita, esto se puede hacer al menos localment
 Un \textit{sistema no lineal} de EDOs \textit{no autónomo} de primer orden es un sistema de la forma
 
 \begin{equation}
-	\dot{x} = f(x, t),
+	\dot{x} = f(t, x),
 	\label{eq:generalFormSisEDOs}
 \end{equation}
 
@@ -163,8 +163,8 @@ Un \textit{sistema lineal no autónomo} es un sistema de la forma
 	\begin{equation}
 		\left\{
 		\begin{aligned}
-			\dot{x} = f(x) \\
-			x(0) = x_{0}
+			\dot{x} = f(x), \\
+			x(0) = x_{0},
 		\end{aligned}
 		\right.
 		\label{eq: pvi}
@@ -182,14 +182,16 @@ Un \textit{sistema lineal no autónomo} es un sistema de la forma
 
 Un sistema \eqref{eq: sisAut} bidimensional o planar se puede expresar de la forma
 \begin{equation}
+	\left\{
 	\begin{aligned}
 		\dot{x} &= f_1(x, y), \\
 		\dot{y} &= f_2(x, y).
 	\end{aligned}
+	\right.
 	\label{eq: sisAutBid}
 \end{equation}
 
-\noindent Podemos encontrar una aproximación global de curvas solución del sistema \eqref{eq: sisAutBid}, a través del método de las isoclinas, y tomando en cuenta el sistema de primer orden $dy/dx = f_2(x, y)/f_1(x, y)$. Ignorando el hecho de que esto podría no estar bien definido en $f_1(x, y) = 0$, el método consiste en encontrar curvas $y=h(x)$ o $x=h(y)$ en las que la pendiente del campo vectorial $dy/dx = c$ es constante. Dichas curvas se obtienen solucionando la ecuación
+\noindent Podemos encontrar una aproximación global de curvas solución del sistema \eqref{eq: sisAutBid}, a través del método de las isoclinas y del sistema de primer orden $dy/dx = f_2(x, y)/f_1(x, y)$, ignorando el hecho de que esto podría no estar bien definido en $f_1(x, y) = 0$. El método consiste en encontrar curvas $y=h(x)$ o $x=h(y)$ en las que la pendiente del campo vectorial $dy/dx = c$ es constante. Dichas curvas se obtienen solucionando la ecuación
 
 \begin{equation*}
 	f_2(x, y) = cf_1(x, y),
@@ -225,7 +227,7 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 \end{defi}
 
 \begin{defi}
-	Un punto $x_{0} \in \Rn$ es llamada una singularidad, un punto de equilibrio o punto crítico de \eqref{eq: sisAut} si $f(x_{0})=0$. Un punto crítico $x_{0}$ es llamado un punto crítico hiperbólico de \eqref{eq: sisAut} si ninguno de los valores propios de la matriz jacobiana $Df(x_{0})$ tiene parte real cero, en caso contrario, se dice que $x_0$ es un punto crítico no hiperbólico. El sistema lineal \eqref{eq: sisLinAuto} con la matriz $A = Df(x_{0})$ es llamado la linealización de \eqref{eq: sisAut} en el punto $x_{0}$.
+	Un punto $x_{0} \in \Rn$ es llamada una singularidad, punto de equilibrio o punto crítico de \eqref{eq: sisAut} si $f(x_{0})=0$. Un punto crítico $x_{0}$ es llamado un punto crítico hiperbólico de \eqref{eq: sisAut} si ninguno de los valores propios de la matriz jacobiana $Df(x_{0})$ tiene parte real cero, en caso contrario, se dice que $x_0$ es un punto crítico no hiperbólico. El sistema lineal \eqref{eq: sisLinAuto} con la matriz $A = Df(x_{0})$ es llamado la linealización de \eqref{eq: sisAut} en el punto $x_{0}$.
 \end{defi}
 
 \begin{defi}
@@ -265,7 +267,7 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 	donde $U \subseteq \Rn$ es una vecindad del punto crítico $x_{0}$. Si $U = \Rn$ los conjuntos $W^{s}(x_{0})$ y $W^{u}(x_{0})$ son llamados las variedades globales estable e inestable, respectivamente, del punto crítico $x_{0}$. 
 \end{defi}
 
-En ocasiones puede ocurrir que ciertas orbitas inician en la variedad inestable de un punto crítico $x_{0}$ y finalizan en la variedad estable de otro punto crítico $x_{1}$. Tales trayectorias son llamadas \textit{órbitas heteroclínicas} si $x_{0} \neq x_{1}$ y \textit{órbitas homoclínicas} si $x_{0} = x_{1}$.
+En ocasiones puede ocurrir que ciertas orbitas inician en la variedad inestable de un punto crítico $x_{0}$ y finalizan en la variedad estable de otro punto crítico $x_{1}$. Tales trayectorias son llamadas \textit{órbitas heteroclínicas} si $x_{0} \neq x_{1}$ y \textit{órbitas homoclínicas} si $x_{0} = x_{1}$. \\
 
 Algo también de relevancia que se puede observar en la \autoref{fig:comparacion}, es que las trayectorias resaltadas dividen el plano de fases en regiones con diferentes comportamientos cualitativos, por ejemplo, la órbita homoclínica de la \linebreak \autoref{fig: homoclinic} divide el plano de fase en dos regiones: una con un comportamiento hiperbólico y la otra con una dinámica periódica alrededor del punto $(0,1)$. Dichas trayectorias con esta cualidad son denominadas \textit{separatrices}.
 
@@ -308,7 +310,7 @@ Algo también de relevancia que se puede observar en la \autoref{fig:comparacion
 Dada la posibilidad de que existan puntos críticos no hiperbólicos en el sistema \eqref{eq: sisAut}, es decir, puntos $x_{0}$ donde alguno de los valores propios de la matriz jacobiana $Df(x_0)$ posee parte real nula, resulta de interés analizar el comportamiento dinámico local en dichos puntos. En estas singularidades no es posible aplicar directamente el \Cref{teo: hartman}, aunque el Teorema de la variedad central nos permita analizar el comportamiento local en los puntos críticos no hiperbólicos donde su matriz jacobiana no se anule (puntos críticos no degenerados), es de nuestro interés analizar el comportamiento de las singularidades que no cumplan esta ultima condición, por lo que se procede a realizar un cambio de coordenadas con el objetivo de eliminar la singularidad y, de esta manera, poder estudiar el comportamiento cualitativo en su entorno mediante uno de estos teoremas. A este procedimiento se le denomina \textit{desingularización del campo vectorial} \eqref{eq: sisAut}. Existen diversas técnicas para desingularizar un sistema dinámico, sin embargo, en este trabajo se enfocará en la desingularización a través del \textit{método de blowing-up} o \textit{blow-up}.
 
 \subsection{Blow-up en $ \R^2$}
-En la teoría cualitativa de los sistemas dinámicos, especialmente para sistemas planos, el blow-up es una herramienta fundamental basada en cambios de variables utilizada para estudiar singularidades. Su objetivo es simplificar el estudio de un punto crítico complicado (generalmente en el origen) transformándolo en un círculo que contiene un número finito de nuevos puntos criticos, a menudo hiperbólicos.
+En la teoría cualitativa de los sistemas dinámicos, especialmente para sistemas planos, el blow-up es una herramienta fundamental basada en cambios de variables utilizada para estudiar singularidades. Su objetivo es simplificar el estudio de un punto crítico complicado (generalmente en el origen) transformándolo en un círculo que contiene un número finito de nuevos puntos criticos, a menudo hiperbólicos. \\
 
 Sea 0 un punto de equilibrio de un campo vectorial suave $X \in C^{\infty}(\R^{2})$. Considere la función
 \begin{equation}
@@ -318,7 +320,7 @@ Sea 0 un punto de equilibrio de un campo vectorial suave $X \in C^{\infty}(\R^{2
 	\end{aligned}
 \end{equation}
 donde $\mathbb{S}^{1}$ representa la circunferencia unitaria centrada en el origen.
-Podemos definir un campo vectorial suave, $\tilde{X}$ en el cilindro $\mathbb{S}^{1} \times \mathbb{R}$ tal que la aplicacion lineal $\psi_{*}:T_{p}M \longrightarrow T_{\psi(p)}M$ envia el campo vectorial $\tilde{X}$ a $X$, es decir, $\psi_{*}(\tilde{X})=X$, en el sentido que, $D\psi_{v}(\tilde{X}(v)) = X(\psi(v))$. Esto se llama el retroceso (pull back) de $X$ por $\psi$. No es nada más que $X$ escrito en coordenadas polares. La aplicación $\psi$ es un difeomorfismo suave, por lo tanto, un cambio de coordenadas suave en $\mathbb{S}^{1} \times (0,\infty)$, pero no en $\{r=0\}$; aquí, $\psi$ envía $\{r=0\}$ a $(0,0)$, y como tal, la aplicación inversa $\psi^{-1}$ ``explota'' el origen a un círculo. Para estudiar el retrato de fases de $X$ en un vecindario $V$ del origen, basta claramente estudiar el retrato de fases de $\tilde{X}$ en el vecindario $\psi^{-1}(V)$ del círculo $\mathbb{S}^{1}\times \{0\}$. Básicamente, este método se basa en convertir el sistema a coordenadas polares y estudiarlo en $r=0$, en caso de que el campo vectorial se anule, consideramos el nuevo campo vectorial $$\bar{X}=\dfrac{1}{r^{k}}\tilde{X},$$ donde $k$ es el menor natural que no permite esta nulidad; este cociente no cambia las órbitas de $\tilde{X}$ ni su sentido de dirección, sino la parametrización por tiempo $t$. 
+Podemos definir un campo vectorial suave, $\tilde{X}$ en el cilindro $\mathbb{S}^{1} \times \mathbb{R}$ tal que la aplicacion lineal $\psi_{*}:T_{p}M \longrightarrow T_{\psi(p)}M$ envia el campo vectorial $\tilde{X}$ a $X$, es decir, $\psi_{*}(\tilde{X})=X$, en el sentido que, $D\psi_{v}(\tilde{X}(v)) = X(\psi(v))$. Esto se llama el retroceso (pull back) de $X$ por $\psi$. No es nada más que $X$ escrito en coordenadas polares. La aplicación $\psi$ es un difeomorfismo suave, por lo tanto, un cambio de coordenadas suave en $\mathbb{S}^{1} \times (0,\infty)$, pero no en $\{r=0\}$; aquí, $\psi$ envía $\{r=0\}$ a $(0,0)$, y como tal, la aplicación inversa $\psi^{-1}$ ``explota'' el origen a un círculo. Para estudiar el retrato de fases de $X$ en un vecindario $V$ del origen, basta claramente estudiar el retrato de fases de $\tilde{X}$ en el vecindario $\psi^{-1}(V)$ del círculo $\mathbb{S}^{1}\times \{0\}$. Básicamente, este método se basa en convertir el sistema a coordenadas polares y estudiarlo en $r=0$, en caso de que el campo vectorial se anule, consideramos el nuevo campo vectorial $$\bar{X}=\dfrac{1}{r^{k}}\tilde{X},$$ donde $k$ es el menor natural que no permite esta nulidad; este cociente no cambia las órbitas de $\tilde{X}$ ni su sentido de dirección, sino la parametrización por tiempo $t$. \\
 
 %Aunque el cilindro es una buena superficie para obtener una visión global de $\tilde{X}$ y su retrato de fases, a menudo es menos apropiado para hacer cálculos, ya que constantemente tenemos que tratar con expresiones trigonométricas. Por esa razón puede ser preferible hacer los cálculos en diferentes cartas.
 %
@@ -398,7 +400,7 @@ Como se mencionó anteriormente, al aplicar el blow-up al origen, este se transf
 
 Si
 \begin{equation}
-	\dot{x} = f_{\mu}(x) \quad x \in \Rn, \quad \mu \in \R^{k}
+	\dot{x} = f_{\mu}(x), \quad x \in \Rn, \quad \mu \in \R^{k},
 	\label{eq: sisParametro}
 \end{equation}
 es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, la estructura cualitativa del flujo puede cambiar, en particular, puntos críticos pueden ser creados o destruidos, o también su estabilidad puede cambiar, de igual manera trayectorias cerradas pueden aparecer o desaparecer. Estos cambios cualitativos en las dinámicas del sistema son llamadas \textit{bifurcaciones} y los valores paramétricos para los cuales este cambio ocurre son llamados \textit{valores de bifurcación}. Dependiendo del comportamiento del sistema al manipular dichos parámetros surgen diversos tipos de bifurcación. Sin perdida de generalidad vamos a suponer que en cada un de los tipos de bifurcación que veremos a continuación el valor de bifurcación es $\mu=0$.
@@ -433,10 +435,12 @@ Pasamos ahora a un tercer tipo de bifurcación, la llamada bifurcación de pitch
 
 Este tipo de bifurcación es característico de sistemas que son invariantes ante el cambio de variables $x \rightarrow -x$. Por ejemplo, consideremos el sistema 
 \begin{equation*}
+	\left\{
 	\begin{aligned}
-		\dot{x} &= \mu x +x^3 \\
-		\dot{y} &= -y
+		\dot{x} &= \mu x +x^3, \\
+		\dot{y} &= -y,
 	\end{aligned}
+	\right.
 \end{equation*}
 si en la primera ecuación reemplazamos $x$ por $-x$ tenemos
 \begin{equation*}
@@ -504,9 +508,9 @@ El caso subcrítico es siempre mucho más dramático y potencialmente peligroso 
  
 Dentro de la biología matemática, los modelos ecológicos desempeñan un papel fundamental para predecir el comportamiento de diversas poblaciones, ya sean de bacterias, plantas, animales, etc. Existen múltiples tipos de modelos ecológicos, los cuales dependen de diversos factores, como el \textit{crecimiento poblacional}. Este crecimiento puede manifestarse de diferentes formas: una población $P(t)$, donde $t$ representa el tiempo, puede experimentar distintos tipos de crecimiento, siendo los más comunes el crecimiento exponencial y el crecimiento logístico.
 
-Los modelos basados en crecimiento exponencial resultan poco realistas a largo plazo, ya que no consideran limitaciones ambientales ni de recursos. Por ello, los modelos logísticos, en los que $P(t)$ presenta un crecimiento limitado y controlado por la capacidad del entorno, resultan más relevantes para el estudio de poblaciones reales. A estos modelos se les denomina \textit{ecuaciones logísticas}. 
+\noindent Los modelos basados en crecimiento exponencial resultan poco realistas a largo plazo, ya que no consideran limitaciones ambientales ni de recursos. Por ello, los modelos logísticos, en los que $P(t)$ presenta un crecimiento limitado y controlado por la capacidad del entorno, resultan más relevantes para el estudio de poblaciones reales. A estos modelos se les denomina \textit{ecuaciones logísticas}. 
 
-Por ejemplo en los modelos presa-depredador, los efectos beneficiosos que la comida tiene sobre los depredadores individuales son evidentes. En general, cuanto más alimento consumen los depredadores, mayores son sus tasas de crecimiento, desarrollo y natalidad, y menores sus tasas de mortalidad. Esto, después de todo, es la base de la competencia intraespecífica: las altas densidades, que implican pequeñas cantidades de alimento por individuo, conducen a bajas tasas de crecimiento, altas tasas de mortalidad, etc. Sin embargo, existen diversas maneras en que las relaciones entre la tasa de consumo y el beneficio para el consumidor pueden ser más complejas de lo que parecen inicialmente. A estas relaciones se le denominan \textit{respuestas funcionales} y se dividen en varios tipos. Holling (1959) fue el primero en distinguir tres tipos de respuesta funcional.
+\noindent Por ejemplo en los modelos presa-depredador, los efectos beneficiosos que la comida tiene sobre los depredadores individuales son evidentes. En general, cuanto más alimento consumen los depredadores, mayores son sus tasas de crecimiento, desarrollo y natalidad, y menores sus tasas de mortalidad. Esto, después de todo, es la base de la competencia intraespecífica: las altas densidades, que implican pequeñas cantidades de alimento por individuo, conducen a bajas tasas de crecimiento, altas tasas de mortalidad, etc. Sin embargo, existen diversas maneras en que las relaciones entre la tasa de consumo y el beneficio para el consumidor pueden ser más complejas de lo que parecen inicialmente. A estas relaciones se le denominan \textit{respuestas funcionales} y se dividen en varios tipos. Holling (1959) fue el primero en distinguir tres tipos de respuesta funcional.
 \subsection*{Respuesta funcional tipo 1}
 La respuesta funcional más básica, la de tipo 1, es la que se asume por ejemplo en las ecuaciones de Lotka-Volterra: la tasa de consumo aumenta linealmente con la densidad de presas. Esto se indica mediante la constante $b$ en el sistema \ref{eq: lotka-volterra}.
 
@@ -520,11 +524,11 @@ La respuesta funcional más básica, la de tipo 1, es la que se asume por ejempl
 \subsection*{Respuesta funcional tipo 2}
 La respuesta funcional observada con mayor frecuencia es la respuesta de tipo 2, en la que la tasa de consumo aumenta con la densidad de presas, pero se desacelera gradualmente hasta alcanzar una meseta en la que la tasa de consumo se mantiene constante independientemente de la densidad de presas.
 
-La respuesta de tipo 2 se explica por el hecho de que un depredador debe dedicar tiempo a manipular cada presa que consume (es decir, perseguirla, dominarla y consumirla, y luego prepararse para la búsqueda). A medida que aumenta la densidad de presas, encontrarla se vuelve cada vez más fácil.
+\noindent La respuesta de tipo 2 se explica por el hecho de que un depredador debe dedicar tiempo a manipular cada presa que consume (es decir, perseguirla, dominarla y consumirla, y luego prepararse para la búsqueda). A medida que aumenta la densidad de presas, encontrarla se vuelve cada vez más fácil.
 
-Sin embargo, manipular una presa sigue requiriendo el mismo tiempo, y por lo tanto, la manipulación en general ocupa una proporción cada vez mayor del tiempo del depredador, hasta que, a altas densidades de presas, este dedica prácticamente todo su tiempo a manipularla. Por lo tanto, la tasa de consumo se aproxima y luego alcanza un máximo (la meseta), determinado por el número máximo de manipulaciones que se pueden realizar en el tiempo total disponible.
+\noindent Sin embargo, manipular una presa sigue requiriendo el mismo tiempo, y por lo tanto, la manipulación en general ocupa una proporción cada vez mayor del tiempo del depredador, hasta que, a altas densidades de presas, este dedica prácticamente todo su tiempo a manipularla. Por lo tanto, la tasa de consumo se aproxima y luego alcanza un máximo (la meseta), determinado por el número máximo de manipulaciones que se pueden realizar en el tiempo total disponible.
 
-Este comportamiento es descrito a través de la expresión $$\frac{A}{N+B},$$ donde $A$ y $B$ son constantes positivas y $N$ representa la población de las presas.
+\noindent Este comportamiento es descrito a través de la expresión $$\frac{A}{N+B},$$ donde $A$ y $B$ son constantes positivas y $N$ representa la población de las presas.
 
 \begin{figure}
 	\centering
@@ -561,9 +565,9 @@ Volterra (1926) fue el primero en proponer un modelo simple para la depredación
 \begin{equation}
 	\left\{
 	\begin{aligned}
-		\dfrac{dN}{dt} = N(a-bP) \\
-		\frac{dP}{dt} = P(cN-d)
-	\end{aligned},
+		\dfrac{dN}{dt} = N(a-bP), \\
+		\frac{dP}{dt} = P(cN-d),
+	\end{aligned}
 	\right.
 	\label{eq: lotka-volterra}
 \end{equation}
@@ -582,21 +586,21 @@ El modelo presa-depredador de Leslie-Gower es una variante del modelo de Lotka-V
 \begin{equation}
 	\left\{
 	\begin{aligned}
-		\dfrac{dN}{dt} &= N\left[r\left(1-\frac{N}{K}\right)-PR(N)\right] \\
-		\frac{dP}{dt} &= k\left( 1 - \frac{hP}{N} \right)
-	\end{aligned},
+		\dfrac{dN}{dt} &= N\left[r\left(1-\frac{N}{K}\right)-PR(N)\right], \\
+		\frac{dP}{dt} &= k\left( 1 - \frac{hP}{N} \right),
+	\end{aligned}
 	\right.
 	\label{eq: leslie}
 \end{equation}
-donde $r, \; k$ y $h$ son constantes positivas y $R(N)$ representa alguna de las respuestas funcionales descritas anteriormente.
+donde $r, \; k$ y $h$ son constantes positivas y $R(N)$ representa alguna de las respuestas funcionales descritas anteriormente. \\
 
 Otra variante que se encuentra en diversas fuentes es aquella en la que se incorpora algún tipo de respuesta funcional a los depredadores:
 \begin{equation}
 	\left\{
 	\begin{aligned}
-		\dfrac{dN}{dt} &= N\left[r\left(1-\frac{N}{K}\right)-PR(N)\right] \\
-		\frac{dP}{dt} &= -d+eR(N)
-	\end{aligned},
+		\dfrac{dN}{dt} &= N\left[r\left(1-\frac{N}{K}\right)-PR(N)\right], \\
+		\frac{dP}{dt} &= -d+eR(N),
+	\end{aligned}
 	\right.
 	\label{eq: leslie-gower}
 \end{equation}
