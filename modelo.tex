@@ -163,7 +163,11 @@ Debido a la naturaleza de nuestro problema, solo son de interés las raíces rea
 		\item Si $Q-1 \geq 0, \; P(u)$ tiene 1 cambio de signo, y $$P(-u)=-u^{3}+(Q-1)u^{2}-A^{2}u-A^{2}$$ tiene 2 cambios de signo. Por lo tanto, $P(u)$ tiene una raíz real positiva y dos negativas, o una raíz real positiva y dos complejas.
 		\item Si $Q-1<0, \; P(u)$ tiene 3 cambios de signo y $P(-u)$ tiene 0 cambios de signo. Por lo tanto, $P(u)$ tiene tres raíces reales positivas, o una sola raíz real positiva y dos complejas.
 	\end{itemize}
-	En todo caso, se garantiza la existencia de al menos una raíz real positiva. Descartemos ahora la posible existencia de tres raíces reales positivas simultáneamente. Sea $H$ una raíz real positiva de $P$ entonces el cociente entre $P(u)$ y el monomio $u - H$ es $$P_{1}(u) = u^{2}+(Q-1+H)u+(Q-1+H)H+A^{2},$$ con resto $$R(u) = H^{3}+(Q-1)H^{2}+A^{2}H-A^{2} = 0,$$ de aquí $$Q-1+H = \frac{(1-H)A^{2}}{H^{2}}>0,$$ reemplazando en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\frac{(1-H)A^{2}}{H^{2}}u+\frac{A^{2}}{H},$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq:polinomioIsoclinasModelo2} consta de una única raíz real positiva $H$. Además, nótese que: $$P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$$ así por el teorema del valor intermedio, esta raíz $H \in (0,1)$, esto también se puede deducir de la isoclina \eqref{eq:isoclina-presa_modelo2}.
+	En todo caso, se garantiza la existencia de al menos una raíz real positiva. Descartemos ahora la posible existencia de tres raíces reales positivas simultáneamente. Sea $H$ una raíz real positiva de $P$ entonces el cociente entre $P(u)$ y el monomio $u - H$ es $$P_{1}(u) = u^{2}+(Q-1+H)u+(Q-1+H)H+A^{2},$$ con resto $$R(u) = H^{3}+(Q-1)H^{2}+A^{2}H-A^{2} = 0,$$ de aquí \begin{equation}
+		Q-1+H = \frac{(1-H)A^{2}}{H^{2}},
+		\label{eq: equivalenciaQ}
+	\end{equation}
+	como $P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$ por el teorema del valor intermedio, esta raíz $H \in (0,1)$ y por ende la expresión \eqref{eq: equivalenciaQ} es estrictamente positiva. Reemplazando \eqref{eq: equivalenciaQ} en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\frac{(1-H)A^{2}}{H^{2}}u+\frac{A^{2}}{H},$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq:polinomioIsoclinasModelo2} consta de una única raíz real positiva $H \in (0,1)$.
 \end{proof}
 
 \begin{remark}
@@ -258,7 +262,7 @@ con
 	\begin{aligned}
 		b_{11}(\theta) &= A^{2}\cos^{3}\theta + A^{2}B[\cos\theta\sin^{2}\theta - \sin^{3}\theta], \\
 		b_{22}(\theta) &= A^{2}B[\sin^{3}\theta + \cos^{3}\theta - 2\sin^{2}\theta\cos\theta - 2\sin\theta\cos^{2}\theta] \\
-		& \;\;\;\; + A^{2}[2\cos\theta\sin^{2}\theta - \cos^{3}\theta].
+		&+ A^{2}[2\cos\theta\sin^{2}\theta - \cos^{3}\theta].
 	\end{aligned}
 \end{equation*}
 
@@ -700,14 +704,14 @@ este hecho da consecuencia al siguiente teorema.
 	Cumpliendo así las condiciones para que una bifurcación de Hopf ocurra para $B = B_c$ y $A\neq A_c$.
 \end{proof}
 
-La curva $L_1 = 0$ y la región de restricciones del sistema, puede observarse en la \autoref{fig: curvaL_1AH}. El modelo contará con una bifurcación de Hopf subcrítica ($L_1 > 0$) para los valores de $A$ y $H$ que se encuentren por encima de esta curva y dentro de la región restrictiva, en este caso, $(H,H)$ es un foco débil estable rodeado por un ciclo límite inestable; de manera análoga el sistema poseerá una bifurcación de Hopf supercrítica para los valores que se encuentren debajo de esta curva y dentro de la región dada por las restricciones del sistema, aquí, $(H,H)$ es un foco débil inestable rodeado por un único ciclo límite estable. El caso $L_1 > 0$, es de vital importancia debido a las características del sistema, como la región $\Gamma$ es invariante, y los demás puntos críticos no poseen propiedades atractoras dentro de la región, las trayectorias fuera del ciclo límite inestable deben tender a otro ciclo limite estable según el teorema de Poincaré-Bendixson, esto garantiza la existencia de un ciclo límite adicional en este caso.
-
 \begin{figure}
 	\centering
 	\includegraphics[width=.7\textwidth]{img/CurvaLyapunovAH.pdf}
 	\caption{Curva $L_1 = 0$ y la región dada por las restricciones $H<1/2$ y $A^2 < H(1-2H)$.}
 	\label{fig: curvaL_1AH}
 \end{figure}
+
+La curva $L_1 = 0$ y la región de restricciones del sistema, puede observarse en la \autoref{fig: curvaL_1AH}. El modelo contará con una bifurcación de Hopf subcrítica ($L_1 > 0$) para los valores de $A$ y $H$ que se encuentren por encima de esta curva y dentro de la región restrictiva, en este caso, $(H,H)$ es un foco débil estable rodeado por un ciclo límite inestable; de manera análoga el sistema poseerá una bifurcación de Hopf supercrítica para los valores que se encuentren debajo de esta curva y dentro de la región dada por las restricciones del sistema, aquí, $(H,H)$ es un foco débil inestable rodeado por un único ciclo límite estable. El caso $L_1 > 0$, es de vital importancia debido a las características del sistema, como la región $\Gamma$ es invariante, y los demás puntos críticos no poseen propiedades atractoras dentro de la región, las trayectorias fuera del ciclo límite inestable deben tender a otro ciclo limite estable según el teorema de Poincaré-Bendixson, esto garantiza la existencia de un ciclo límite adicional en este caso.
 
 \begin{remark}
 	Otro método para calcular el primer número de lyapunov es trasladar el sistema de estudio a la forma
