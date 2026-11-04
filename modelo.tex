@@ -28,7 +28,7 @@ El modelo se describe mediante el siguiente sistema autónomo de ecuaciones dife
 
 \noindent El sistema \eqref{eq:modelo1} no está definido en $x=0$ (eje $y$), por lo que el dominio biológicamente relevante es el conjunto $\Omega = \{ (x,y) \in \R^2 \mid x > 0, \; y \geq 0 \}$.
 
-\section{Análisis}
+\section{Análisis del modelo}
 
 Los puntos críticos de \eqref{eq:modelo1} se obtienen resolviendo el sistema
 
@@ -51,7 +51,7 @@ Con el propósito de analizar el comportamiento cualitativo del sistema y simpli
 		\dfrac{dv}{dt} = s \left(1-\dfrac{v}{u}\right)v,
 	\end{cases}
 \end{equation*}
-Posteriormente, se realiza un reescalado de la variable temporal mediante la relación diferencial $d\tau = r/[u(u^2+A^2)]dt $, donde $A = a/K$. Dado que el factor de escala $r/[u(u^2+A^2)]$ es una función suave y positiva en el conjunto de definición $\bar{\Omega} = \{ (u, v) \in \R^{2} \; | \; u > 0, \; v \geq 0 \}$, la dirección de las trayectorias se preserva \cite{chicone2024}[p.~14]. Al aplicar el reescalado se obtiene el siguiente sistema topológicamente equivalente
+Posteriormente, se realiza un reescalado de la variable temporal mediante la relación diferencial $d\tau = r/[u(u^2+A^2)]dt $, donde $A = a/K$. Dado que el factor de escala $r/[u(u^2+A^2)]$ es una función suave y positiva en el conjunto de definición $\hat{\Omega} = \{ (u, v) \in \R^{2} \; | \; u > 0, \; v \geq 0 \}$, la dirección de las trayectorias se preserva \cite{chicone2024}[p.~14]. Al aplicar el reescalado se obtiene el siguiente sistema topológicamente equivalente
 \begin{equation*}
 	\begin{cases}
 		\dfrac{du}{d\tau} = \left((1-u)\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right) - \dfrac{qn}{r} uv\right)u^{2}, \\
@@ -65,7 +65,7 @@ Esto da paso a la siguiente proposición.
 	\begin{equation}
 		Y_{\eta}:
 		\begin{cases}
-			\dfrac{du}{d \tau} = \left((1 - u)(u^{2} + A^{2}) - Q u v\right)u^{2}, \\ \\
+			\dfrac{du}{d \tau} = \left((1 - u)(u^{2} + A^{2}) - Q u v\right)u^{2}, \\[5pt]
 			\dfrac{dv}{d \tau} = B(u - v)(u^{2} + A^{2})v,
 		\end{cases}
 		\label{eq: modelo2}
@@ -74,7 +74,7 @@ Esto da paso a la siguiente proposición.
 \end{pro}
 
 \begin{proof}
-	La transformación $\varphi : \bar{\Omega} \times \R \rightarrow \Omega \times \R$, dada por
+	La transformación $\varphi : \hat{\Omega} \times \R \rightarrow \Omega \times \R$, dada por
 	\begin{equation*}
 		\varphi(u, v, \tau) = \left( Ku, \; nKv, \; \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} \tau \right) = (x, y, t),
 	\end{equation*} define una correspondencia biunívoca y suave entre el sistema \eqref{eq:modelo1} y el \eqref{eq: modelo2}, por lo que $\varphi$ es un difeomorfismo suave, así, $Y_{\eta} = \varphi \circ X_{\mu}$ es topológicamente equivalente al sistema \eqref{eq:modelo1}, donde $Y_{\eta}$ define un sistema polinómico de grado 5.
@@ -85,7 +85,7 @@ Esto da paso a la siguiente proposición.
 \end{remark}
 
 %\begin{remark}
-%	La transformación $\varphi : \bar{\Omega} \times \R \rightarrow \Omega \times \R$, dada por
+%	La transformación $\varphi : \hat{\Omega} \times \R \rightarrow \Omega \times \R$, dada por
 %	\begin{equation*}
 %		\varphi(u, v, \tau) = \left( Ku, \; nKv, \; \dfrac{u\left(u^{2}+\left(\dfrac{a}{K}\right)^{2}\right)}{r} \tau \right) = (x, y, t),
 %	\end{equation*} define una correspondencia biunívoca y suave entre el sistema \eqref{eq:modelo1} y el \eqref{eq: modelo2}, por lo que $\varphi$ es un difeomorfismo suave. Su matriz jacobiana
@@ -164,10 +164,10 @@ Debido a la naturaleza de nuestro problema, solo son de interés las raíces rea
 		\item Si $Q-1<0, \; P(u)$ tiene 3 cambios de signo y $P(-u)$ tiene 0 cambios de signo. Por lo tanto, $P(u)$ tiene tres raíces reales positivas, o una sola raíz real positiva y dos complejas.
 	\end{itemize}
 	En todo caso, se garantiza la existencia de al menos una raíz real positiva. Descartemos ahora la posible existencia de tres raíces reales positivas simultáneamente. Sea $H$ una raíz real positiva de $P$ entonces el cociente entre $P(u)$ y el monomio $u - H$ es $$P_{1}(u) = u^{2}+(Q-1+H)u+(Q-1+H)H+A^{2},$$ con resto $$R(u) = H^{3}+(Q-1)H^{2}+A^{2}H-A^{2} = 0,$$ de aquí \begin{equation}
-		Q-1+H = \frac{(1-H)A^{2}}{H^{2}},
+		Q-1+H = \dfrac{(1-H)A^{2}}{H^{2}},
 		\label{eq: equivalenciaQ}
 	\end{equation}
-	como $P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$ por el teorema del valor intermedio, esta raíz $H \in (0,1)$ y por ende la expresión \eqref{eq: equivalenciaQ} es estrictamente positiva. Reemplazando \eqref{eq: equivalenciaQ} en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\frac{(1-H)A^{2}}{H^{2}}u+\frac{A^{2}}{H},$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq:polinomioIsoclinasModelo2} consta de una única raíz real positiva $H \in (0,1)$.
+	como $P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$ por el teorema del valor intermedio, esta raíz $H \in (0,1)$ y por ende la expresión \eqref{eq: equivalenciaQ} es estrictamente positiva. Reemplazando \eqref{eq: equivalenciaQ} en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\dfrac{(1-H)A^{2}}{H^{2}}u+\dfrac{A^{2}}{H},$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq:polinomioIsoclinasModelo2} consta de una única raíz real positiva $H \in (0,1)$.
 \end{proof}
 
 \begin{remark}
@@ -389,7 +389,7 @@ Luego de hallar la estabilidad de cada punto crítico de $\bar{Y_{\eta}}$, junto
 \end{figure}
 
 \begin{remark}
-	De \eqref{eq:jacobianaModelo2PolarEn(0,b)} deducimos que para el caso $B<1$, $\theta_3$ está ubicado en el cuarto cuadrante y es un punto repulsor o fuente del campo $\bar{Y_{\eta}}(0,\theta)$, la estabilidad de los puntos antipodales ($\theta + \pi$) que son mostrados en la \autoref{fig: BlowUp Modelo 2}, pueden ser determinados a partir de la matriz jacobiana $D\bar{Y_{\eta}}(0,\theta + \pi)$ cuyos valores propios solo difieren del signo de los autovalores de $D\bar{Y_{\eta}}(0,\theta)$. La formula del índice de Poincaré $$i=\frac{e-h}{2}+1=0,$$ donde $e$ denota la cantidad de sectores elípticos y $h$ la de sectores hiperbólicos del origen \cite[p.~179]{Dumortier2006}, nos indica que este punto en el sistema \eqref{eq: modelo2} tiene un comportamiento local tipo silla-nodo.
+	De \eqref{eq:jacobianaModelo2PolarEn(0,b)} deducimos que para el caso $B<1$, $\theta_3$ está ubicado en el cuarto cuadrante y es un punto repulsor o fuente del campo $\bar{Y_{\eta}}(0,\theta)$, la estabilidad de los puntos antipodales ($\theta + \pi$) que son mostrados en la \autoref{fig: BlowUp Modelo 2}, pueden ser determinados a partir de la matriz jacobiana $D\bar{Y_{\eta}}(0,\theta + \pi)$ cuyos valores propios solo difieren del signo de los autovalores de $D\bar{Y_{\eta}}(0,\theta)$. La formula del índice de Poincaré $$i=\dfrac{e-h}{2}+1=0,$$ donde $e$ denota la cantidad de sectores elípticos y $h$ la de sectores hiperbólicos del origen \cite[p.~179]{Dumortier2006}, nos indica que este punto en el sistema \eqref{eq: modelo2} tiene un comportamiento local tipo silla-nodo.
 \end{remark}
 
 \begin{figure}[H]
@@ -441,7 +441,7 @@ Como $H \in (0, 1)$, $\det(M)>0$ por lo que $(H,H)$ es un punto no degenerado e 
 	B = \dfrac{H^2(1-2H) - A^2}{A^2 + H^2} := B_c,
 	\label{eq: Bcritico}
 \end{equation}
-y puesto que $B>0$, esto se da bajo las restricciones: $$H<1/2 \; \text{ y } \; A^2 < H^2(1-2H).$$ Este hecho da paso a los siguientes casos:
+y puesto que $B>0$, esto se da bajo las restricciones: $$H<1/2 \; \text{ y } \; A^2 < H^2(1-2H).$$ Para los valores $(H, A) \in (0, 1) \times (0, 1)$ tales que $H \geq 1/2$ o $A^2 \geq H^2(1-2H)$ se tiene que $\operatorname{tr}(DY_\delta(H,H)) < 0$, por lo que $(H, H)$ es un atractor, los subcasos son determinados a partir del signo del discriminante $\Delta$. Este hecho da paso a los siguientes casos:
 \begin{itemize}
 	\item Si $B<B_c$ y
 	\subitem $\Delta < 0$, $(H,H)$ es un foco inestable.
@@ -504,12 +504,12 @@ Como el origen es un punto crítico del sistema \eqref{eq: modelo2Hen0}, este pu
 \end{equation}
 donde $(F_1, F_2)$ son las expansiones de Taylor en 0, de los terminos no lineales del sistema. El primer coeficiente de Lyapunov está dado por
 \begin{equation}
-	l_1 = \frac{1}{2 \omega^2}Re(i g_{20}g_{11} + \omega g_{21}),
+	l_1 = \dfrac{1}{2 \omega^2}Re(i g_{20}g_{11} + \omega g_{21}),
 	\label{eq: l1}
 \end{equation}
 donde las expresiones $ g_{20}, g_{11}$ y $g_{21}$ se determinan a partir del sistema \eqref{eq: sistemal1} transformado a la forma normal de Poincaré:
 \begin{equation}
-	\dot{z} = \omega i z + \sum_{2 \le k+l \le 3} \frac{1}{k!l!} g_{kl} z^k \bar{z}^l + O(|z|^4)
+	\dot{z} = \omega i z + \sum_{2 \le k+l \le 3} \dfrac{1}{k!l!} g_{kl} z^k \bar{z}^l + O(|z|^4)
 	\label{eq: normalForm}
 \end{equation}
 con $z=\langle p,(\bar{u},\bar{v}) \rangle$, donde $p=(p_1,p_2)$ es el autovector asociado al valor propio complejo puro $-\omega i$ de la matriz jacobiana $Dh(0,0)^T$, considerando el producto interno $\langle m,n \rangle = \bar{m}_1 n_1 + \bar{m}_2 n_2$. \\
@@ -524,7 +524,7 @@ con $G_{z z}, \;G_{z w}$ y $G_{z z w}$ dadas por las derivadas parciales evaluad
 	G(z,w) = \bar{p_1}F_1(zq_1+w\bar{q_1}, zq_2+w\bar{q_2}) + \bar{p_2}F_2(zq_1+w\bar{q_1}, zq_2+w\bar{q_2}),
 	\label{eq: funComplejaL1}
 \end{equation}
-con $w = z - \frac{g_{20}}{2\omega i} z^2 + \frac{g_{11}}{\omega i} z \bar{z} + \frac{g_{02}}{3\omega i} \bar{z}^2 + O(|z|^3)$, donde $q=(q_1,q_2)$ es el autovector asociado al valor propio complejo puro $\omega i$, de la matriz jacobiana $Dh(0,0)$; además, se debe cumplir que $\langle p,q \rangle =1$, más detalles al respecto se pueden encontrar en \textit{Kuznetsov} \cite[p.  ~101]{Kuznetsov2023}. \\
+con $w = z - \dfrac{g_{20}}{2\omega i} z^2 + \dfrac{g_{11}}{\omega i} z \bar{z} + \dfrac{g_{02}}{3\omega i} \bar{z}^2 + O(|z|^3)$, donde $q=(q_1,q_2)$ es el autovector asociado al valor propio complejo puro $\omega i$, de la matriz jacobiana $Dh(0,0)$; además, se debe cumplir que $\langle p,q \rangle =1$, más detalles al respecto se pueden encontrar en \textit{Kuznetsov} \cite[p.  ~101]{Kuznetsov2023}. \\
 
 \noindent Para determinar \eqref{eq: derFunComplejaL1}, debemos hallar $q,\tilde{p} \in \C^2$: $$Dh(0,0)q=i\omega q, \; Dh(0,0)^T \tilde{p}=-i\omega \tilde{p}.$$ Para ello considermos la siguiente notación $$\omega i= \sqrt{\det (M)} \; i = \sqrt{ad} \; i,$$ donde $d = H[H^3+A^2(2-H)]$. Para obtener $q$ solucionamos el sistema, $(Dh(0, 0) - \omega i I)U = 0$, esto es:
 \begin{equation}
@@ -551,14 +551,14 @@ Análogamente, determinamos
 \begin{equation*}
 \tilde{p} =
 \begin{pmatrix}
-	\frac{-1+mi}{1+m^2}\\
+	\dfrac{-1+mi}{1+m^2}\\
 	1
 \end{pmatrix}.
 \end{equation*}
 Ahora, tomando $p=(1/\overline{\langle \tilde{p},q \rangle})\tilde{p}$ obtenemos $\langle p,q \rangle =1$, donde
 \begin{equation}
-	p = \frac{1}{2}\left( 1-\frac{i}{m}\right) \tilde{p}
-	= \frac{1}{2}
+	p = \dfrac{1}{2}\left( 1-\dfrac{i}{m}\right) \tilde{p}
+	= \dfrac{1}{2}
 	\begin{pmatrix}
 		i/m\\
 		1 - i/m
@@ -602,12 +602,12 @@ Así el sistema \eqref{eq: modelo2Hen0} pasa a ser:
 %		G_1(X, Y) &= X [\left((3-B_c) A^2+6 m+13 n-H^2 (3 B_c+9 Q+1)\right) Y \\
 %		&-3 \left(A^2+H (B_c+10 H+3 Q-4)\right) Y^2 \\
 %		&+(-B_c-20 H-3 Q+4) Y^3+\mathcal{O}\left(Y^4\right)] \\
-%		&+X^2 [\frac{1}{2} d \left(3 A^2+6 m+13 n-H^2 (4 B_c+6 Q+1)\right) \\
+%		&+X^2 [\dfrac{1}{2} d \left(3 A^2+6 m+13 n-H^2 (4 B_c+6 Q+1)\right) \\
 %		&-d \left(3 A^2+4 B_c H+6 H (5 H+Q-2)\right) Y \\
 %		&-d (2 B_c+30 H+3 Q-6) Y^2-10 d Y^3+\mathcal{O}\left(Y^4\right)] \\
 %		&+X^3 [-d^2 \left(A^2+H (B_c+10 H+Q-4)\right)-d^2 (B_c+20 H+Q-4) Y \\ 
 %		&-10 d^2 Y^2+\mathcal{O}\left(Y^4\right)]+\mathcal{O}\left(X^4\right)\\
-%		&+ \dfrac{1}{d}[\frac{\left(3 A^2+H^2 (-12 Q-1)+6 m+13 n\right)}{2} Y^2 \\ 
+%		&+ \dfrac{1}{d}[\dfrac{\left(3 A^2+H^2 (-12 Q-1)+6 m+13 n\right)}{2} Y^2 \\ 
 %		&- \left(A^2+2 H (5 H+2 Q-2)\right)Y^3+ \mathcal{O} (Y^4)] \\
 %		\\
 %		G_2(X, Y) &= X \left[B_c d \left(A^2+3 H^2\right) Y+3 B_c d H Y^2+B_c d Y^3+\mathcal{O}\left(Y^4\right)\right] \\
@@ -620,7 +620,7 @@ Así el sistema \eqref{eq: modelo2Hen0} pasa a ser:
 %\begin{equation*}
 %	\begin{aligned}
 %		G_{1,XX} &= d \left(3 A^2-H^2 (4 B_c+6 Q+1)+6 m+13 n\right) \\
-%		G_{1,YY} &= \frac{1}{d}\left(3 A^2+H^2 (-12 Q-1)+6 m+13 n\right) \\
+%		G_{1,YY} &= \dfrac{1}{d}\left(3 A^2+H^2 (-12 Q-1)+6 m+13 n\right) \\
 %		G_{1,XY} &= A^2 (3-B_c)-H^2 (3 B_c+9 Q+1)+6 m+13 n \\
 %		G_{1,XXX} &= -6 d^2 \left(A^2+H (B_c+10 H+Q-4)\right) \\
 %		G_{1,XYY} &= -6 \left(A^2+H (B_c+10 H+3 Q-4)\right) \\ 
@@ -638,12 +638,12 @@ Así el sistema \eqref{eq: modelo2Hen0} pasa a ser:
 \begin{equation}
 	\begin{aligned}
 		F_1 = & -3uv(1 - H)(A^2 + H^2) \\
-		& + u^2\left(-2A^2 + (3 - 7H)H^2 + \frac{3b}{H^2} v \right) \\ 
-		& + u^3\left(\frac{3(1 - 3H)H^2 - A^2}{H} + \frac{b}{H^3} v \right) \\ 
+		& + u^2\left(-2A^2 + (3 - 7H)H^2 + \dfrac{3b}{H^2} v \right) \\ 
+		& + u^3\left(\dfrac{3(1 - 3H)H^2 - A^2}{H} + \dfrac{b}{H^3} v \right) \\ 
 		& + u^4(1 - 5H) - u^5, \\
-		F_2 = & \; u \left(\frac{a(A^2 - H^2)}{H(A^2 + H^2)} v - \frac{2a}{A^2 + H^2} v^2 \right) \\
-		& + u^2\left(\frac{2aH}{A^2 + H^2} + \frac{a}{A^2 + H^2} v - \frac{a}{H(A^2 + H^2)} v^2 \right) \\
-		& + u^3\left( \frac{a}{A^2 + H^2} + \frac{a}{H(A^2 + H^2)} v \right) - \frac{a}{H} v^2.
+		F_2 = & \; u \left(\dfrac{a(A^2 - H^2)}{H(A^2 + H^2)} v - \dfrac{2a}{A^2 + H^2} v^2 \right) \\
+		& + u^2\left(\dfrac{2aH}{A^2 + H^2} + \dfrac{a}{A^2 + H^2} v - \dfrac{a}{H(A^2 + H^2)} v^2 \right) \\
+		& + u^3\left( \dfrac{a}{A^2 + H^2} + \dfrac{a}{H(A^2 + H^2)} v \right) - \dfrac{a}{H} v^2.
 	\end{aligned}
 	\label{eq: expansionF1,2}
 \end{equation}
@@ -651,19 +651,19 @@ Así el sistema \eqref{eq: modelo2Hen0} pasa a ser:
 \noindent Considerando la función \eqref{eq: funComplejaL1} y tomando en cuenta las igualdades \eqref{eq: derFunComplejaL1}, tenemos que
 \begin{equation}
 	\begin{aligned}
-%		g_{20} = & \frac{i}{m}\left[ \frac{H^2}{4} \left( 1+34H+28Hm - \frac{H^3+A^2H[-9+2H(11-6H)]}{a} \right) \right. \\
+%		g_{20} = & \dfrac{i}{m}\left[ \dfrac{H^2}{4} \left( 1+34H+28Hm - \dfrac{H^3+A^2H[-9+2H(11-6H)]}{a} \right) \right. \\
 %		& \left. + A^2(11+6mi-H(6+3mi)) \right] \\
-        g_{20} = & \frac{i}{m}\{[A^2(1 - 3H) + 2H^2(3 - 5H)](m-i)^2 \\ 
+        g_{20} = & \dfrac{i}{m}\{[A^2(1 - 3H) + 2H^2(3 - 5H)](m-i)^2 \\ 
         & + B_cm[A^2 + H^2(3 + 2mi)](m+i) - 3H^2Q(m-i)(m-2i) \}, \\
-%		g_{11} = & - \frac{i}{m} \left[ \frac{2iHdm}{A^2+H^2} + 6\left(A^2(2H-3) + \frac{d}{H}\right) \right. \\
-%		& + \frac{10H^3b}{a} +\frac{A^2(3H-1)b}{a} \\
-%		& \left. + \frac{d[-3(1-H)A^4+2H^2(1+3H)A^2 +H^4(1+7H)]}{a(A^2+H^2)} \right] \\
-        g_{11} = & \frac{i}{m} \{A^2(3H-1)(1 + m^2) + H^2[10H(1 + m^2) + 6(Q-1) \\ 
+%		g_{11} = & - \dfrac{i}{m} \left[ \dfrac{2iHdm}{A^2+H^2} + 6\left(A^2(2H-3) + \dfrac{d}{H}\right) \right. \\
+%		& + \dfrac{10H^3b}{a} +\dfrac{A^2(3H-1)b}{a} \\
+%		& \left. + \dfrac{d[-3(1-H)A^4+2H^2(1+3H)A^2 +H^4(1+7H)]}{a(A^2+H^2)} \right] \\
+        g_{11} = & \dfrac{i}{m} \{A^2(3H-1)(1 + m^2) + H^2[10H(1 + m^2) + 6(Q-1) \\ 
         & + m^2(-6 + 2B_c - 2B_cmi + 3Q)]\}, \\
-%		g_{21} = & \frac{i}{m}\left[ 3i[A^2+2H(5H-2)](m+i)(m-i)^2 \right. \\
-%		& + \frac{am(i+m)[3-4mi+(3d/a)]}{A^2+H^2} \\
-%		& \left. + \frac{3b(i-m)[(4+(d/a))i+m]}{H^2} \right]
-        g_{21} = & \frac{i}{m} \{3i[A^2 + 2H(5H-2)](m-i)^2(m+i) \\ 
+%		g_{21} = & \dfrac{i}{m}\left[ 3i[A^2+2H(5H-2)](m+i)(m-i)^2 \right. \\
+%		& + \dfrac{am(i+m)[3-4mi+(3d/a)]}{A^2+H^2} \\
+%		& \left. + \dfrac{3b(i-m)[(4+(d/a))i+m]}{H^2} \right]
+        g_{21} = & \dfrac{i}{m} \{3i[A^2 + 2H(5H-2)](m-i)^2(m+i) \\ 
         & + B_cHm(m+i)[3 + m(3m-4i)] \\ 
         & + 3QH(m-i)(4i + m + m^2i)\},
 	\end{aligned}
@@ -688,7 +688,7 @@ con $4 - 3H(3-H) > 0$ (puesto que $H \in (0, 1/2)$). El primer coeficiente de Ly
 	\end{aligned}
 	\label{eq: parametroBifHopfGeneralizada}
 \end{equation*}
-este hecho da consecuencia al siguiente teorema.
+Ahora, note que $\forall H \in [(3 - \sqrt{6})/3, 1/2)$, $A_c^2 \geq H^2(1-2H)$ por lo que $A<A_c, \; \forall A$ así $L_1<0$ y $(H,H)$ es un foco débil inestable rodeado por un ciclo límite estable, en este caso. Como consecuencia obtenemos siguiente teorema.
 \begin{teo}
 	Una bifurcación de Hopf ocurre en el equilibrio $(H, H)$ para el valor de bifurcación $B = B_c$ y $A\neq A_c$.
 	\label{teo:Hopf}
@@ -697,8 +697,8 @@ este hecho da consecuencia al siguiente teorema.
 	Es claro que para $A\neq A_c$, $l_1 \neq 0$; así, para que ocurra una bifurcación de Hopf se deben satisfacer la condición espectral y la de transversalidad. Por lo anteriormente planteado, el Jacobiano de la función evaluado en el equilibrio $(H, H)$ para $B = B_c$, posee un par de autovalores imaginarios puros $\lambda_1, \; \lambda_2 = \pm \omega i$, donde $\omega = \sqrt{\det (M)} > 0$, satisfaciendo así la condición espectral. Por otra parte, la velocidad de cruce de la parte real de los autovalores respecto al parámetro de bifurcación $B$, debe ser distinta de cero en el punto crítico:
 	\begin{equation*}
 		\begin{aligned}
-			\left. \frac{d}{dB}(Re(\lambda(\mu))) \right|_{B=B_c} &= \left. \frac{d}{dB}\left(\frac{\operatorname{tr}(M)}{2}\right) \right|_{B=B_c} \\
-			&= -\frac{1}{2}H(A^{2}+H^{2}) \neq 0.
+			\left. \dfrac{d}{dB}(Re(\lambda(\mu))) \right|_{B=B_c} &= \left. \dfrac{d}{dB}\left(\dfrac{\operatorname{tr}(M)}{2}\right) \right|_{B=B_c} \\
+			&= -\dfrac{1}{2}H(A^{2}+H^{2}) \neq 0.
 		\end{aligned}
 	\end{equation*}
 	Cumpliendo así las condiciones para que una bifurcación de Hopf ocurra para $B = B_c$ y $A\neq A_c$.
@@ -726,7 +726,7 @@ La curva $L_1 = 0$ y la región de restricciones del sistema, puede observarse e
 	\begin{equation*}
 		\begin{aligned}
 			16\tilde{l_1} &= \tilde{G}_{1,xxx} + \tilde{G}_{1,xyy} + \tilde{G}_{2,xxy} + \tilde{G}_{2,yyy} \\
-			&+ \frac{1}{\omega} [ \tilde{G}_{1,xy}(\tilde{G}_{1,xx} + \tilde{G}_{1,yy}) - \tilde{G}_{2,xy}(\tilde{G}_{2,xx} + \tilde{G}_{2,yy}) \\
+			&+ \dfrac{1}{\omega} [ \tilde{G}_{1,xy}(\tilde{G}_{1,xx} + \tilde{G}_{1,yy}) - \tilde{G}_{2,xy}(\tilde{G}_{2,xx} + \tilde{G}_{2,yy}) \\
 			&- \tilde{G}_{1,xx}\tilde{G}_{2,xx} + \tilde{G}_{1,yy}\tilde{G}_{2,yy} ].
 		\end{aligned}
 	\end{equation*}
@@ -787,8 +787,8 @@ con $F=(F_{1}, F_2)$ dadas por las expansiones \eqref{eq: expansionF1,2}, sustit
 donde
 \begin{equation*}
 	\begin{aligned}
-		a &= \frac{H^3(1 - H)[4 - 3H(5 - 2H) - \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)}, \\
-		b &= -\frac{H^3(1 - H)^2[4 - 3H + \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)},
+		a &= \dfrac{H^3(1 - H)[4 - 3H(5 - 2H) - \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)}, \\
+		b &= -\dfrac{H^3(1 - H)^2[4 - 3H + \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)},
 	\end{aligned}
 \end{equation*}
 bajo la restricción $0 < H < (3 - \sqrt{6})/3 \approx 0.1835$ que serían los valores para las cuales se satisfacen las restricciones $H<1/2$, $A^2 < H^2(1-2H)$ planteadas en la \autoref{sec: HH} al sustituir $A = A_c$.
@@ -796,52 +796,52 @@ bajo la restricción $0 < H < (3 - \sqrt{6})/3 \approx 0.1835$ que serían los v
 El segundo coeficiente de Lyapunov está dado por
 \begin{equation}
 	\begin{aligned}
-		12l_2 = {} & \frac{1}{\omega} \text{Re } g_{32} \\
-		& + \frac{1}{\omega^2} \text{Im } \left[ g_{20} \bar{g}_{31} - g_{11} (4 g_{31} + 3 \bar{g}_{22}) - \frac{1}{3} g_{02} (g_{40} + \bar{g}_{13}) - g_{30} g_{12} \right] \\
-		& + \frac{1}{\omega^3} \left\{ \text{Re } \left[ g_{20} \left( \bar{g}_{11} (3 g_{12} - \bar{g}_{30}) + g_{02} \left( \bar{g}_{12} - \frac{1}{3} g_{30} \right) + \frac{1}{3} \bar{g}_{02} g_{03} \right) \right.\right. \\
-		& \qquad\qquad\qquad \left. + g_{11} \left( \bar{g}_{02} \left( \frac{5}{3} \bar{g}_{30} + 3 g_{12} \right) + \frac{1}{3} g_{02} \bar{g}_{03} - 4 g_{11} g_{30} \right) \right] \\
+		12l_2 = {} & \dfrac{1}{\omega} \text{Re } g_{32} \\
+		& + \dfrac{1}{\omega^2} \text{Im } \left[ g_{20} \bar{g}_{31} - g_{11} (4 g_{31} + 3 \bar{g}_{22}) - \dfrac{1}{3} g_{02} (g_{40} + \bar{g}_{13}) - g_{30} g_{12} \right] \\
+		& + \dfrac{1}{\omega^3} \left\{ \text{Re } \left[ g_{20} \left( \bar{g}_{11} (3 g_{12} - \bar{g}_{30}) + g_{02} \left( \bar{g}_{12} - \dfrac{1}{3} g_{30} \right) + \dfrac{1}{3} \bar{g}_{02} g_{03} \right) \right.\right. \\
+		& \qquad\qquad\qquad \left. + g_{11} \left( \bar{g}_{02} \left( \dfrac{5}{3} \bar{g}_{30} + 3 g_{12} \right) + \dfrac{1}{3} g_{02} \bar{g}_{03} - 4 g_{11} g_{30} \right) \right] \\
 		& \qquad\qquad \left. + \, 3 \text{ Im}(g_{20} g_{11}) \text{ Im } g_{21} \right\} \\
-		& + \frac{1}{\omega^4} \left\{ \text{Im} \left[ g_{11} \bar{g}_{02} \left( \bar{g}_{20}^2 - 3 \bar{g}_{20} g_{11} - 4 g_{11}^2 \right) \right] \right. \\
+		& + \dfrac{1}{\omega^4} \left\{ \text{Im} \left[ g_{11} \bar{g}_{02} \left( \bar{g}_{20}^2 - 3 \bar{g}_{20} g_{11} - 4 g_{11}^2 \right) \right] \right. \\
 		& \qquad\qquad \left. + \, \text{Im}(g_{20} g_{11}) \left[ 3 \text{ Re}(g_{20} g_{11}) - 2 |g_{02}|^2 \right] \right\},
 	\end{aligned}
 	\label{eq: l2}
 \end{equation}
-con $\omega = \sqrt{ad}$, donde $$d = H^4+\frac{H^3(2-H) [2H+(1-H) \sqrt{3H(4-H)}]}{4-3H(3-H)}$$ y las expresiones $g_{kl}$ se determinan a partir del sistema \eqref{eq: sistemal1} transformado a la forma normal de Poincaré:
+con $\omega = \sqrt{ad}$, donde $$d = H^4+\dfrac{H^3(2-H) [2H+(1-H) \sqrt{3H(4-H)}]}{4-3H(3-H)}$$ y las expresiones $g_{kl}$ se determinan a partir del sistema \eqref{eq: sistemal1} transformado a la forma normal de Poincaré:
 \begin{equation}
-	\dot{z} = \omega i z + \sum_{2 \le k+l \le 5} \frac{1}{k!l!} g_{kl} z^k \bar{z}^l + O(|z|^6).
+	\dot{z} = \omega i z + \sum_{2 \le k+l \le 5} \dfrac{1}{k!l!} g_{kl} z^k \bar{z}^l + O(|z|^6).
 	\label{eq: normalForml2}
 \end{equation}
 O de igual manera, considerando las derivadas parciales de la función de variable compleja \eqref{eq: funComplejaL1},
-con $p=(p_1,p_2)$ y $q=(q_1,q_2)$ dadas por \eqref{eq: vecComplejos}, donde $$m = \sqrt{\frac{d}{a}} = \sqrt{\frac{H(7-3H)+(1-H)\sqrt{3H(4-H)}}{2-6H(2-H)}}.$$ Las expresiones necesarias para el cálculo del segundo coeficiente de Lyapunov \eqref{eq: l2}, estarán dadas por los términos $g_{kl}=G_{z w}$ que representan las derivadas parciales de G evaluadas en $z=w=0$, donde por ejemplo \linebreak $g_{02}=G_{ww}, \; g_{31}=G_{zzzw}$, de manera similar se determinan las demás expresiones \cite[p. 344]{Kuznetsov2023}. Los términos $g_{20}, \; g_{11}, \; \text{y } g_{21}$ se determinan de \eqref{eq: g_klModelo2} remplazando $A=A_c$, además
+con $p=(p_1,p_2)$ y $q=(q_1,q_2)$ dadas por \eqref{eq: vecComplejos}, donde $$m = \sqrt{\dfrac{d}{a}} = \sqrt{\dfrac{H(7-3H)+(1-H)\sqrt{3H(4-H)}}{2-6H(2-H)}}.$$ Las expresiones necesarias para el cálculo del segundo coeficiente de Lyapunov \eqref{eq: l2}, estarán dadas por los términos $g_{kl}=G_{z w}$ que representan las derivadas parciales de G evaluadas en $z=w=0$, donde por ejemplo \linebreak $g_{02}=G_{ww}, \; g_{31}=G_{zzzw}$, de manera similar se determinan las demás expresiones \cite[p. 344]{Kuznetsov2023}. Los términos $g_{20}, \; g_{11}, \; \text{y } g_{21}$ se determinan de \eqref{eq: g_klModelo2} remplazando $A=A_c$, además
 \begin{equation}
 	\begin{aligned}
-		g_{31} = & \frac{i}{m} \{6(m^2+1)[-2 + (B_c-4)mi + (B_c+2)m^2 \\
+		g_{31} = & \dfrac{i}{m} \{6(m^2+1)[-2 + (B_c-4)mi + (B_c+2)m^2 \\
 		& - 10H(m-i)^2] - 6Q(m^3 + 3m -2i)\}, \\
-		g_{32} = & \frac{-60}{m}(m-i)^3 (m+i)^2, \\
-		g_{22} = & \frac{2i}{m} [4B_cm^2(1 - mi) + 6(5H-1)(m^2+1)^2 + 6Q(m^2+1)], \\
-		g_{02} = & \frac{-(m+i)}{m}\{ A_c^2[1 - 3H + (B_c + 3H - 1)mi] \\
+		g_{32} = & \dfrac{-60}{m}(m-i)^3 (m+i)^2, \\
+		g_{22} = & \dfrac{2i}{m} [4B_cm^2(1 - mi) + 6(5H-1)(m^2+1)^2 + 6Q(m^2+1)], \\
+		g_{02} = & \dfrac{-(m+i)}{m}\{ A_c^2[1 - 3H + (B_c + 3H - 1)mi] \\
 		& + H^2[6 + 2B_cm^2 + 10Hi(m+i) - 6Q + 3mi(B_c + Q - 2)] \}, \\
-		g_{40} = & \frac{12i}{m} \{ 5H(m-i)^4 - (m-i)^2[-1 + (B_c+1)m^2 \\
+		g_{40} = & \dfrac{12i}{m} \{ 5H(m-i)^4 - (m-i)^2[-1 + (B_c+1)m^2 \\
 		& + Q + (B_c + Q - 2)mi] \}, \\
-		g_{13} = & \frac{-6i}{m} (m+i)^2[-2 + 10H - B_cmi \\
+		g_{13} = & \dfrac{-6i}{m} (m+i)^2[-2 + 10H - B_cmi \\
 		& + m^2(B_c + 10H-2) + Q(mi+2)],
 	\end{aligned}
 \end{equation}
 \begin{equation*}
 	\begin{aligned}
-		g_{30} = & \frac{3}{m} \{ [A_c^2 + 2H(5H-2)](m-i)^3 \\
+		g_{30} = & \dfrac{3}{m} \{ [A_c^2 + 2H(5H-2)](m-i)^3 \\
 		& + B_cHm(1 - mi)[m(m-4i)-3] + HQ(m-i)^2(m-4i) \}, \\
-		g_{12} = & \frac{m+i}{m} \{3A_c^2(m^2+1) + H[30H(m^2+1)\\
+		g_{12} = & \dfrac{m+i}{m} \{3A_c^2(m^2+1) + H[30H(m^2+1)\\
 		& + m[B_c(-3i + m(4 - 3mi)) + 3m(Q-4) + 3Qi] + 12(Q-1)]\}, \\
-		g_{03} = & \frac{-3(m+i)^2}{m} \{A_c^2(m+i) \\
+		g_{03} = & \dfrac{-3(m+i)^2}{m} \{A_c^2(m+i) \\
 		& + H\left[10H(m+i) + 4i(Q-1) + m(B_c(3 - mi) + Q -4)\right]\},
 	\end{aligned}
 \end{equation*}
 donde
 \begin{equation*}
 	\begin{aligned}
-		B_c &= \frac{2-3H - \sqrt{3H(4 - H)}}{2}, \\
-		Q &= H^2 \frac{H[2-3(3-H)]+(1-H)\sqrt{3H(4-H)}+4}{4-3H(3-H)}.
+		B_c &= \dfrac{2-3H - \sqrt{3H(4 - H)}}{2}, \\
+		Q &= H^2 \dfrac{H[2-3(3-H)]+(1-H)\sqrt{3H(4-H)}+4}{4-3H(3-H)}.
 	\end{aligned}
 \end{equation*}
 Tomando en cuenta estas expresiones computamos $l_2$, para el cual se obtienen algunos valores como los mostrados en la siguiente tabla.
@@ -886,32 +886,32 @@ Tomando en cuenta estas expresiones computamos $l_2$, para el cual se obtienen a
 	Es claro que para $A= A_c$, $l_1 = 0$; así, para que ocurra una bifurcación de Bautín se deben satisfacer la condición espectral y la de transversalidad. Por el \Cref{teo:Hopf} la condición espectral se cumple. Por otra parte, el mapeo $\mu = (A,B) \longmapsto \left(Re(\lambda(\mu)), l_1(\mu)\right)$ debe ser regular en $\mu=\mu_0$, es decir
 	\begin{equation*}
 		\det \left. \begin{pmatrix}
-			\frac{\partial Re(\lambda(\mu))}{\partial A} & \frac{\partial Re(\lambda(\mu))}{\partial B} \\[6pt]
-			\frac{\partial l_1(\mu)}{\partial A} & \frac{\partial l_1(\mu)}{\partial B} 
+			\dfrac{\partial Re(\lambda(\mu))}{\partial A} & \dfrac{\partial Re(\lambda(\mu))}{\partial B} \\[6pt]
+			\dfrac{\partial l_1(\mu)}{\partial A} & \dfrac{\partial l_1(\mu)}{\partial B} 
 		\end{pmatrix} \right|_{\mu=\mu_0} \neq 0,
 	\end{equation*}
 	esto es
 	\begin{equation}
-		\left. - \frac{\partial Re(\lambda(\mu))}{\partial B} \left( \frac{\partial l_1(\mu)}{\partial A} - \frac{\frac{\partial Re(\lambda(\mu))}{\partial A}}{\frac{\partial Re(\lambda(\mu))}{\partial B}} \frac{\partial l_1(\mu)}{\partial B} \right) \right|_{\mu=\mu_0} \neq 0.
+		\left. - \dfrac{\partial Re(\lambda(\mu))}{\partial B} \left( \dfrac{\partial l_1(\mu)}{\partial A} - \dfrac{\dfrac{\partial Re(\lambda(\mu))}{\partial A}}{\dfrac{\partial Re(\lambda(\mu))}{\partial B}} \dfrac{\partial l_1(\mu)}{\partial B} \right) \right|_{\mu=\mu_0} \neq 0.
 		\label{eq: regularidadBautin}
 	\end{equation}
-	Como $Re(\lambda(\mu_0))=0$ y del \Cref{teo:Hopf} sabemos que \linebreak $\left. \frac{\partial Re(\lambda(\mu))}{\partial B} \right|_{\mu=\mu_0} \neq 0$, por el teorema de la función implícita existe una función diferenciable $\phi(A)=B$ con dominio en una vecindad $V$ de $A_c$ tal que
+	Como $Re(\lambda(\mu_0))=0$ y del \Cref{teo:Hopf} sabemos que \linebreak $\left. \dfrac{\partial Re(\lambda(\mu))}{\partial B} \right|_{\mu=\mu_0} \neq 0$, por el teorema de la función implícita existe una función diferenciable $\phi(A)=B$ con dominio en una vecindad $V$ de $A_c$ tal que
 	\begin{equation}
-		\frac{dB}{dA}=\phi'(A)= - \frac{\frac{\partial Re(\lambda(\mu))}{\partial A}}{\frac{\partial Re(\lambda(\mu))}{\partial B}}, \; A \in V.
+		\dfrac{dB}{dA}=\phi'(A)= - \dfrac{\dfrac{\partial Re(\lambda(\mu))}{\partial A}}{\dfrac{\partial Re(\lambda(\mu))}{\partial B}}, \; A \in V.
 		\label{eq: teoFunImpli}
 	\end{equation}
-	Considerando lo anterior, por la regla de la cadena $$\frac{d l_1(A, \phi(A))}{dA} = \frac{\partial l_1(A, \phi(A))}{\partial A} + \phi'(A) \frac{\partial l_1(A, \phi(A))}{\partial \phi(A)},$$ así por lo anterior y por \eqref{eq: teoFunImpli} para una vecindad $V$ de $A_c$ la regularidad \eqref{eq: regularidadBautin} se reduce a probar que $$\left. \frac{d l_1(A, \phi(A))}{dA} \right|_{A=A_c} \neq 0.$$ Ahora, nótese que la función $\phi(A)$ está dada simplemente por $B_c(A)$ obtenida en \eqref{eq: Bcritico}, por lo que basta mostrar que la derivada con respecto a $A$ de $l_1$ determinada en \eqref{eq: l1Kuznetsov}, no se anula para $A=A_c$. Con este objetivo, considerando
+	Considerando lo anterior, por la regla de la cadena $$\dfrac{d l_1(A, \phi(A))}{dA} = \dfrac{\partial l_1(A, \phi(A))}{\partial A} + \phi'(A) \dfrac{\partial l_1(A, \phi(A))}{\partial \phi(A)},$$ así por lo anterior y por \eqref{eq: teoFunImpli} para una vecindad $V$ de $A_c$ la regularidad \eqref{eq: regularidadBautin} se reduce a probar que $$\left. \dfrac{d l_1(A, \phi(A))}{dA} \right|_{A=A_c} \neq 0.$$ Ahora, nótese que la función $\phi(A)$ está dada simplemente por $B_c(A)$ obtenida en \eqref{eq: Bcritico}, por lo que basta mostrar que la derivada con respecto a $A$ de $l_1$ determinada en \eqref{eq: l1Kuznetsov}, no se anula para $A=A_c$. Con este objetivo, considerando
 	\begin{equation*}
 		\begin{aligned}
 			N &= 2A^2(1 - H)([4 - 3H(3 - H)]A^4 -4H^3A^2 - (3 - H)H^5) ,\\
 			I &= (H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2),
 		\end{aligned}
 	\end{equation*}
-	de \eqref{eq: l1Kuznetsov} tenemos que $$l_1 = \frac{N}{(A^2+H^2)I^{3/2}},$$ asi
+	de \eqref{eq: l1Kuznetsov} tenemos que $$l_1 = \dfrac{N}{(A^2+H^2)I^{3/2}},$$ asi
 	\begin{equation}
-		\frac{dl_1}{dA} = \frac{N' (A^2+H^2) I^{3/2} - N \left[2AI^{3/2} + (3/2)(A^2+H^2) I^{1/2} I' \right]}{(A^2+H^2)^2 I^3},
+		\dfrac{dl_1}{dA} = \dfrac{N' (A^2+H^2) I^{3/2} - N \left[2AI^{3/2} + (3/2)(A^2+H^2) I^{1/2} I' \right]}{(A^2+H^2)^2 I^3},
 	\end{equation}
-	por las restricciones del sistema $(A^2+H^2) I^{3/2} > 0$ y como $N=0$ en $A=A_c$ tenemos que $\left. \frac{d l_1}{dA} \right|_{A=A_c} \neq 0$ si, y solo si $N' \neq 0$ para $A=A_c$. Ahora el signo de
+	por las restricciones del sistema $(A^2+H^2) I^{3/2} > 0$ y como $N=0$ en $A=A_c$ tenemos que $\left. \dfrac{d l_1}{dA} \right|_{A=A_c} \neq 0$ si, y solo si $N' \neq 0$ para $A=A_c$. Ahora el signo de
 	\begin{equation*}
 		N'= 4A(1-H) \left(3[4-3H(3-H)]A^4-8H^3A^2-(3-H)H^5\right)
 	\end{equation*}
@@ -919,7 +919,7 @@ Tomando en cuenta estas expresiones computamos $l_2$, para el cual se obtienen a
 	\begin{equation*}
 		\begin{aligned}
 			A^2 &= \dfrac{8H^3 \pm \sqrt{64 H^6 + 12[4 - 3H(3-H)] (3-H)H^5}}{6[4-3H(3-H)]} \\
-			&= \frac{1}{3} \dfrac{4H^3 + H^2\sqrt{36H - H^2[77 - 9H(6 - H)]}}{4-3H(3-H)} \neq A^2_c.
+			&= \dfrac{1}{3} \dfrac{4H^3 + H^2\sqrt{36H - H^2[77 - 9H(6 - H)]}}{4-3H(3-H)} \neq A^2_c.
 		\end{aligned}
 	\end{equation*}
 	Cumpliéndose así la condiciones necesarias para la bifurcación de Hopf generalizada en $\mu=\mu_0$.

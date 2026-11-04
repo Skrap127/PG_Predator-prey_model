@@ -9,6 +9,9 @@
 \usepackage{float}
 \usepackage{enumitem}
 
+\usepackage{caption}
+\captionsetup{font=small}
+
 \newtheorem{theorem}{Teorema}[section]
 \newtheorem{proposition}{Proposición}[section]
 \newtheorem{lemma}{Lema}[section]
@@ -24,14 +27,14 @@
 	\maketitle
 	
 	\begin{abstract}
-    En este artículo se analiza un modelo presa--depredador continuo de tipo Leslie--Gower con respuesta funcional sigmoidea de Holling tipo III. Mediante una transformación de variables y un rescalamiento temporal, el sistema se reduce a un campo polinomial bidimensional topológicamente equivalente que extiende el dominio de estudio al origen $(0,0)$, punto no definido en la formulación original. Se demuestra que el cuadrado unitario $\Gamma = \{ (u, v) \in \mathbb{R}^{2} \; | \; 0 \leq u \leq 1, \; 0 \leq v \leq 1 \}$ es una región positivamente invariante, lo que garantiza el acotamiento de las soluciones y la consistencia biológica del modelo. En el primer cuadrante cerrado se identifican tres puntos de equilibrio biológicamente relevantes: el estado libre de depredadores $(1,0)$, clasificado como un punto silla hiperbólico; el punto interior de coexistencia $(H,H)$ con $H \in (0,1)$; y la singularidad degenerada en el origen $(0,0)$, cuya topología local se determina como de tipo silla--nodo mediante desingularización por blow--up polar. En particular, se demuestra que únicamente para $B > 1$ emerge desde el origen una curva separatriz con pendiente $\tan \theta_3 = \frac{B-1}{B}$, la cual es radialmente inestable y divide el flujo local en un sector hiperbólico y uno parabólico. Para el equilibrio $(H,H)$, se establece la ocurrencia de una bifurcación de Hopf de codimensión 1 y una bifurcación de Bautin (Hopf generalizada) de codimensión 2, mediante la deducción analítica del primer coeficiente de Lyapunov ($l_1$) y la determinación numérica del segundo coeficiente ($l_2$). Los resultados analíticos se respaldan mediante simulaciones numéricas desarrolladas en Wolfram Language, las cuales ilustran la coexistencia de estados estacionarios y la presencia de ciclos límite múltiples. \\
+    En este artículo se analiza un modelo presa--depredador continuo de tipo Leslie--Gower con respuesta funcional sigmoidea de Holling tipo III. Mediante una transformación de variables y un rescalamiento temporal, el sistema se reduce a un campo polinomial bidimensional topológicamente equivalente que extiende el dominio de estudio al origen $(0,0)$, punto no definido en la formulación original. Se demuestra que el cuadrado unitario $\Gamma = \{ (u, v) \in \mathbb{R}^{2} \; | \; 0 \leq u \leq 1, \; 0 \leq v \leq 1 \}$ es una región positivamente invariante, lo que garantiza el acotamiento de las soluciones y la consistencia biológica del modelo. En el primer cuadrante cerrado se identifican tres puntos de equilibrio biológicamente relevantes: el estado libre de depredadores $(1,0)$, clasificado como un punto silla hiperbólico; el punto interior de coexistencia $(H,H)$ con $H \in (0,1)$; y la singularidad degenerada en el origen $(0,0)$, cuya topología local se determina como de tipo silla--nodo mediante desingularización por blow--up polar. En particular, se demuestra que únicamente para $B > 1$ emerge desde el origen una curva separatriz con pendiente $\tan \theta_3 = \dfrac{B-1}{B}$, la cual es radialmente inestable y divide el flujo local en un sector hiperbólico y uno parabólico. Para el equilibrio $(H,H)$, se establece la ocurrencia de una bifurcación de Hopf de codimensión 1 y una bifurcación de Bautin (Hopf generalizada) de codimensión 2, mediante la deducción analítica del primer coeficiente de Lyapunov ($l_1$) y la determinación numérica del segundo coeficiente ($l_2$). Los resultados analíticos se respaldan mediante simulaciones numéricas desarrolladas en Wolfram Language, las cuales ilustran la coexistencia de estados estacionarios y la presencia de ciclos límite múltiples. \\
     
     \noindent \textbf{Palabras Clave:} Modelo de Leslie--Gower, Respuesta funcional sigmoidea, Invariancia positiva, Blow-up polar, Coeficientes de Lyapunov, Bifurcación de Bautin, Ciclos límites.
 	\end{abstract}
 	
 	\section{Introducción}
 	
-	El estudio cualitativo de los modelos de interacción presa-depredador constituye un área central en biomatemática y teoría de sistemas dinámicos. Dentro de esta categoría, los modelos de tipo Leslie-Gower destacan por considerar que la capacidad de carga del depredador es proporcional a la abundancia de la presa \cite{leslie}. Al incorporar una respuesta funcional sigmoidea de tipo Holling III, dada por $\phi(x) = \frac{q x^2}{x^2 + a^2}$, el sistema permite describir escenarios ecológicos biológicamente realistas, tales como la presencia de depredadores generalistas o el fenómeno de cambio de presa (\textit{prey switching}) a bajas densidades poblacionales \cite{murray}. \\
+	El estudio cualitativo de los modelos de interacción presa-depredador constituye un área central en biomatemática y teoría de sistemas dinámicos. Dentro de esta categoría, los modelos de tipo Leslie-Gower destacan por considerar que la capacidad de carga del depredador es proporcional a la abundancia de la presa \cite{leslie}. Al incorporar una respuesta funcional sigmoidea de tipo Holling III, dada por $\phi(x) = \dfrac{q x^2}{x^2 + a^2}$, el sistema permite describir escenarios ecológicos biológicamente realistas, tales como la presencia de depredadores generalistas o el fenómeno de cambio de presa (\textit{prey switching}) a bajas densidades poblacionales \cite{murray}. \\
 	
 	\noindent A pesar de que González-Olivares et al. (2015) introdujeron una adimensionamiento polinomial de quinto orden para estudiar la dinámica del modelo a analizar \cite{articulo}, una descomposición detallada revela serias imprecisiones en la literatura existente: la región de invariancia propuesta en trabajos previos depende de una curva separatriz cuya existencia está condicionada al caso $B > 1$, la naturaleza topológica del origen no hiperbólico $(0,0)$ carece de una desingularización formal, y la estabilidad del punto de coexistencia $(H,H)$ fue catalogada imprecisamente como un foco débil sin determinar las cantidades focales de Lyapunov. \\
 	
@@ -93,7 +96,7 @@
 	\end{proof}
 	
 	\begin{remark}
-		El sistema polinómico de quinto orden \eqref{eq: modelo2}, se puede expresar mediante el campo vectorial $Y_{\eta} = f_1(u,v) \partial_u + f_2(u,v) \partial_v$, donde
+		El sistema polinómico de quinto orden \eqref{eq: modelo2}, se puede expresar mediante el campo vectorial $Y_{\eta} = f_1(u,v) \dfrac{\partial}{\partial u} + f_2(u,v) \dfrac{\partial}{\partial v}$, donde
 		\begin{equation*}
 			f_1(u, v) = ((1 - u)(u^{2} + A^{2}) - Q u v)u^{2} \; \; \; \text{y} \; \; \;
 			f_2(u, v) = B(u - v)(u^{2} + A^{2})v.
@@ -125,7 +128,6 @@
 			a_{21} &= 3Bu^{2}v+BvA^{2}-2Bv^{2}u.
 		\end{aligned}
 	\end{equation*}
-	
 	
 	\section{Resultados principales}
 	Para el sistema \eqref{eq: modelo2} o el campo vectorial $Y_{\eta}$, se tienen los siguientes resultados.
@@ -160,10 +162,10 @@
 		\end{itemize}
 		En todo caso, se garantiza la existencia de al menos una raíz real positiva. Descartemos ahora la posible existencia de tres raíces reales positivas simultáneamente. Sea $H$ una raíz real positiva de $P$ entonces el cociente entre $P(u)$ y el monomio $u - H$ es $$P_{1}(u) = u^{2}+(Q-1+H)u+(Q-1+H)H+A^{2},$$ con resto $$R(u) = H^{3}+(Q-1)H^{2}+A^{2}(H-1) = 0,$$ de aquí 
 		\begin{equation}
-			Q-1+H = \frac{A^{2}(1-H)}{H^{2}},
+			Q-1+H = \dfrac{A^{2}(1-H)}{H^{2}},
 			\label{eq: equivalenciaQ}
 		\end{equation}
-		como $P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$ por el teorema del valor intermedio, esta raíz $H \in (0,1)$ y por ende la expresión \eqref{eq: equivalenciaQ} es estrictamente positiva. Reemplazando \eqref{eq: equivalenciaQ} en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\frac{(1-H)A^{2}}{H^{2}}u+\frac{A^{2}}{H},$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq: polinomioIsoclinasModelo2} consta de una única raíz real positiva $H \in (0,1)$.
+		como $P(0) = -A^{2}<0 \; \text{ y } \; P(1) = Q>0,$ por el teorema del valor intermedio, esta raíz $H \in (0,1)$ y por ende la expresión \eqref{eq: equivalenciaQ} es estrictamente positiva. Reemplazando \eqref{eq: equivalenciaQ} en $P_{1}(u)$ obtenemos $$P_{1}(u) = u^{2}+\dfrac{(1-H)A^{2}}{H^{2}}u+\dfrac{A^{2}}{H},$$ así nuevamente por la regla de los signos de Descartes, concluímos que $P_{1}$ no tiene raíces reales positivas, logrando con ello determinar que el polinomio \eqref{eq: polinomioIsoclinasModelo2} consta de una única raíz real positiva $H \in (0,1)$.
 	\end{proof}
 	
 	\begin{lemma}
@@ -201,7 +203,7 @@
 				g_2(r, \theta) &= Br^{2}\cos^{4}\theta\sin\theta- Br^{2}\cos^{3}\theta\sin^{2}\theta+ A^{2}B\cos^{2}\theta\sin\theta \\ &-A^{2}B\cos\theta\sin^{2}\theta+ Qr^{2}\cos^{3}\theta\sin^{2}\theta + r^{3}\cos^{5}\theta\sin\theta \\ &-r^{2}\cos^{4}\theta\sin\theta+ A^{2}r\cos^{3}\theta\sin\theta- A^{2}\cos^{2}\theta\sin\theta,
 			\end{aligned}
 		\end{equation*}
-		es decir, obtuvimos el campo vectorial $\tilde{Y_{\eta}}(r,\theta) = r^{2}g_1(r,\theta) \partial_r + rg_2(r,\theta) \partial_\theta.$ Dividiendo por $r$ obtenemos un nuevo campo $\bar{Y_{\eta}}(r,\theta) = rg_1(r,\theta) \partial_r + g_2(r,\theta) \partial_\theta,$ el cual, en $\{r=0\}$ es cualitativamente equivalente a una vecindad del origen del campo vectorial $Y_{\eta}$ \cite{dumortier}[p.~91] dado por el sistema \eqref{eq: modelo2}, es decir, basta analizar el retrato fase del campo vectorial:
+		es decir, obtuvimos el campo vectorial $\tilde{Y_{\eta}}(r,\theta) = r^{2}g_1(r,\theta) \dfrac{\partial}{\partial r} + rg_2(r,\theta) \dfrac{\partial}{\partial \theta}.$ Dividiendo por $r$ obtenemos un nuevo campo $\bar{Y_{\eta}}(r,\theta) = rg_1(r,\theta) \dfrac{\partial}{\partial r} + g_2(r,\theta) \dfrac{\partial}{\partial \theta},$ el cual, en $\{r=0\}$ es cualitativamente equivalente a una vecindad del origen del campo vectorial $Y_{\eta}$ \cite{dumortier}[p.~91] dado por el sistema \eqref{eq: modelo2}, es decir, basta analizar el retrato fase del campo vectorial:
 		\begin{equation*}
 			\bar{Y_{\eta}}(0,\theta) = g_2(0, \theta) = A^{2}\cos\theta\sin\theta (B\cos\theta-B\sin\theta-\cos\theta),
 		\end{equation*}
@@ -260,7 +262,7 @@
 	\end{proof}
 	
 	\begin{remark}
-		De la matriz $D\bar{Y_{\eta}}\left(0,\theta_3\right)$ deducimos que para el caso $B<1$, $\theta_3$ está ubicado en el cuarto cuadrante y es un punto repulsor o fuente del campo $\bar{Y_{\eta}}(0,\theta)$, la estabilidad de los puntos antipodales ($\theta_i + \pi$), $i=1,2,3$; pueden ser determinados a partir de la matriz jacobiana $D\bar{Y_{\eta}}(0,\theta_i + \pi)$ cuyos valores propios solo difieren del signo de los autovalores de $D\bar{Y_{\eta}}(0,\theta_i)$. La formula del índice de Poincaré $$I=\frac{e-h}{2}+1=0,$$ donde $e$ denota la cantidad de sectores elípticos y $h$ la de sectores hiperbólicos del origen \cite[p.~179]{dumortier}, nos indica que este punto en el sistema \eqref{eq: modelo2} tiene un comportamiento local tipo silla-nodo. \\
+		De la matriz $D\bar{Y_{\eta}}\left(0,\theta_3\right)$ deducimos que para el caso $B<1$, $\theta_3$ está ubicado en el cuarto cuadrante y es un punto repulsor o fuente del campo $\bar{Y_{\eta}}(0,\theta)$, la estabilidad de los puntos antipodales ($\theta_i + \pi$), $i=1,2,3$; pueden ser determinados a partir de la matriz jacobiana $D\bar{Y_{\eta}}(0,\theta_i + \pi)$ cuyos valores propios solo difieren del signo de los autovalores de $D\bar{Y_{\eta}}(0,\theta_i)$. La formula del índice de Poincaré $$I=\dfrac{e-h}{2}+1=0,$$ donde $e$ denota la cantidad de sectores elípticos y $h$ la de sectores hiperbólicos del origen \cite[p.~179]{dumortier}, nos indica que este punto en el sistema \eqref{eq: modelo2} tiene un comportamiento local tipo silla-nodo. \\
 	\end{remark}
 	
 	\begin{figure}[H]
@@ -283,7 +285,7 @@
 	\end{figure}
 	
 	\begin{theorem}
-		Sean $$A_c = \sqrt{\dfrac{2H^3 + H^2(1 - H)\sqrt{3H(4 - H)}}{4-3H(3-H)}}, \; B_c(A) = \dfrac{H^2(1-2H) - A^2}{A^2 + H^2}<1,$$ $\Delta = (\operatorname{tr}(DY_\delta(H,H)))^2 - 4\det(DY_\delta(H,H))$ y $\mathcal{R} = \left\{ (H, A) \in (0, 1) \times (0, 1) \;\middle|\; H < \frac{1}{2}, \; A^2 < H^2(1 - 2H) \right\}$, para $(H, A) \in \mathcal{R}$ se tienen los siguientes casos:
+		Sean $$A_c = \sqrt{\dfrac{2H^3 + H^2(1 - H)\sqrt{3H(4 - H)}}{4-3H(3-H)}}, \; B_c(A) = \dfrac{H^2(1-2H) - A^2}{A^2 + H^2}<1,$$ $\Delta = (\operatorname{tr}(DY_\delta(H,H)))^2 - 4\det(DY_\delta(H,H))$ y $\mathcal{R} = \left\{ (H, A) \in (0, 1) \times (0, 1) \;\middle|\; H < \dfrac{1}{2}, \; A^2 < H^2(1 - 2H) \right\}$, para $(H, A) \in \mathcal{R}$ se tienen los siguientes casos:
 		\begin{itemize}
 			\item Si $B<B_c(A)$, entonces:
 			\begin{itemize}
@@ -346,7 +348,7 @@
 			B = \dfrac{H^2(1-2H) - A^2}{A^2 + H^2} := B_c(A),
 			\label{eq: Bcritico}
 		\end{equation*}
-		y puesto que $B>0$, $B_c(A)$ debe ser estrictamente positivo, esto se da bajo las restricciones: $H<1/2 \; \text{ y } \; A^2 < H^2(1-2H),$ donde $$B_c(A)=1-2\frac{A^2+H^3}{A^2+H^2}<1.$$ Así para $(H,A) \in \mathcal{R}$, $\operatorname{tr}(DY_\delta(H,H))<0$ si, y solo si $B<B_c$; los subcasos de estabilidad del equilibrio interior en este caso, al igual que para $B>B_c$, son resultados inmediatos determinados a partir de $\lambda_{1,2}(\delta)$ y del signo del discriminante $\Delta.$ \\
+		y puesto que $B>0$, $B_c(A)$ debe ser estrictamente positivo, esto se da bajo las restricciones: $H<1/2 \; \text{ y } \; A^2 < H^2(1-2H),$ donde $$B_c(A)=1-2\dfrac{A^2+H^3}{A^2+H^2}<1.$$ Así para $(H,A) \in \mathcal{R}$, $\operatorname{tr}(DY_\delta(H,H))<0$ si, y solo si $B<B_c$; los subcasos de estabilidad del equilibrio interior en este caso, al igual que para $B>B_c$, son resultados inmediatos determinados a partir de $\lambda_{1,2}(\delta)$ y del signo del discriminante $\Delta.$ \\
 		
 		Ahora, con el propósito de validar la estructura cualitativa para el caso $B = B_c$, calcularemos el primer número de Lyapunov. Para ello trasladamos el equilibrio $(H,H)$ al origen, sustituyendo $u = \bar{u} + H$ y $v = \bar{v} + H$ en el sistema $Y_\delta$. Además, reemplazamos el valor crítico $B_c$, obteniendo:
 		\begin{equation*}
@@ -380,18 +382,18 @@
 		\begin{equation}
 			\begin{aligned}
 				F_1 = & -3\bar{u}\bar{v}(1 - H)(A^2 + H^2) \\
-				& + \bar{u}^2\left(-2A^2 + (3 - 7H)H^2 + \frac{3b}{H^2} \bar{v} \right) \\ 
-				& + \bar{u}^3\left(\frac{3(1 - 3H)H^2 - A^2}{H} + \frac{b}{H^3} \bar{v} \right) \\ 
+				& + \bar{u}^2\left(-2A^2 + (3 - 7H)H^2 + \dfrac{3b}{H^2} \bar{v} \right) \\ 
+				& + \bar{u}^3\left(\dfrac{3(1 - 3H)H^2 - A^2}{H} + \dfrac{b}{H^3} \bar{v} \right) \\ 
 				& + \bar{u}^4(1 - 5H) - \bar{u}^5, \\
-				F_2 = & \; \bar{u} \left(\frac{a(A^2 - H^2)}{H(A^2 + H^2)} \bar{v} - \frac{2a}{A^2 + H^2} \bar{v}^2 \right) \\
-				& + \bar{u}^2\left(\frac{2aH}{A^2 + H^2} + \frac{a}{A^2 + H^2} \bar{v} - \frac{a}{H(A^2 + H^2)} \bar{v}^2 \right) \\
-				& + \bar{u}^3\left( \frac{a}{A^2 + H^2} + \frac{a}{H(A^2 + H^2)} \bar{v} \right) - \frac{a}{H} \bar{v}^2.
+				F_2 = & \; \bar{u} \left(\dfrac{a(A^2 - H^2)}{H(A^2 + H^2)} \bar{v} - \dfrac{2a}{A^2 + H^2} \bar{v}^2 \right) \\
+				& + \bar{u}^2\left(\dfrac{2aH}{A^2 + H^2} + \dfrac{a}{A^2 + H^2} \bar{v} - \dfrac{a}{H(A^2 + H^2)} \bar{v}^2 \right) \\
+				& + \bar{u}^3\left( \dfrac{a}{A^2 + H^2} + \dfrac{a}{H(A^2 + H^2)} \bar{v} \right) - \dfrac{a}{H} \bar{v}^2.
 			\end{aligned}
 			\label{eq: expansionF1,2}
 		\end{equation}
 		El primer coeficiente de Lyapunov estará dado por \cite{kuznetsov}[p.~110]
 		\begin{equation}
-			l_1 = \frac{1}{2 \omega^2}Re(i g_{20}g_{11} + \omega g_{21}),
+			l_1 = \dfrac{1}{2 \omega^2}Re(i g_{20}g_{11} + \omega g_{21}),
 			\label{eq: l1}
 		\end{equation}
 		donde las expresiones $ g_{20}, g_{11}$ y $g_{21}$ se determinan a partir de las igualdades
@@ -422,11 +424,11 @@
 		\noindent Tomando en cuenta lo anterior, tenemos que:
 		\begin{equation}
 			\begin{aligned}
-				g_{20} = & \frac{i}{m}\{[A^2(1 - 3H) + 2H^2(3 - 5H)](m-i)^2 \\ 
+				g_{20} = & \dfrac{i}{m}\{[A^2(1 - 3H) + 2H^2(3 - 5H)](m-i)^2 \\ 
 				& + B_cm[A^2 + H^2(3 + 2mi)](m+i) - 3H^2Q(m-i)(m-2i) \}, \\
-				g_{11} = & \frac{i}{m} \{A^2(3H-1)(1 + m^2) + H^2[10H(1 + m^2) + 6(Q-1) \\ 
+				g_{11} = & \dfrac{i}{m} \{A^2(3H-1)(1 + m^2) + H^2[10H(1 + m^2) + 6(Q-1) \\ 
 				& + m^2(-6 + 2B_c - 2B_cmi + 3Q)]\}, \\
-				g_{21} = & \frac{i}{m} \{3i[A^2 + 2H(5H-2)](m-i)^2(m+i) \\ 
+				g_{21} = & \dfrac{i}{m} \{3i[A^2 + 2H(5H-2)](m-i)^2(m+i) \\ 
 				& + B_cHm(m+i)[3 + m(3m-4i)] \\ 
 				& + 3QH(m-i)(4i + m + m^2i)\},
 			\end{aligned}
@@ -447,7 +449,7 @@
 				A^2 &= \dfrac{2H^3 + H^2(1 - H)\sqrt{3H(4 - H)}}{4-3H(3-H)} := A^2_c,
 			\end{aligned}
 		\end{equation*}
-		$\forall H \in \left(0,(3 - \sqrt{6})/3 \right)$, esta restricción con el fin de que $A_c^2 < H^2(1-2H)$. Así para $A<A_c$, $L_1<0$ y $(H,H)$ es un foco débil inestable rodeado por un único ciclo límite estable. Similarmente para $A>A_c$, $L_1 > 0$ y $(H,H)$ es un foco débil estable rodeado por un ciclo límite inestable. Ahora, note que $\forall H \in [(3 - \sqrt{6})/3, 1/2)$, $A_c^2 \geq H^2(1-2H)$ por lo que $A<A_c, \; \forall A$ así $L_1<0$ y $(H,H)$ es un foco débil inestable rodeado por un único ciclo límite estable, en este caso. \\
+		$\forall H \in \left(0,(3 - \sqrt{6})/3 \right)$, esta restricción con el fin de que $A_c^2 < H^2(1-2H)$. Así para $A<A_c$, $L_1<0$ y $(H,H)$ es un foco débil inestable rodeado por un único ciclo límite estable. Similarmente para $A>A_c$, $L_1 > 0$ y $(H,H)$ es un foco débil estable rodeado por un ciclo límite inestable. Ahora, note que $\forall H \in [(3 - \sqrt{6})/3, 1/2)$, $A_c^2 \geq H^2(1-2H)$ por lo que $A<A_c, \; \forall A$ así $L_1<0$ y $(H,H)$ es un foco débil inestable rodeado por un ciclo límite estable, en este caso. \\
 		
 		\noindent Para poder determinar la estabilidad del equilibrio $(H,H)$ para el caso $A=A_c$, debemos calcular el segundo coeficiente de lyapunov. Procedemos a reemplazar el valor paramétrico $A=A_c$ en el sistema \eqref{eq: sistemal1}, obteniendo:
 		\begin{equation}
@@ -461,53 +463,53 @@
 		con $F_{1}$ y $F_2$ dadas por las expansiones \eqref{eq: expansionF1,2}, sustituyendo $A=A_c$ y
 		\begin{equation*}
 			\begin{aligned}
-				\bar{a} &= \frac{H^3(1 - H)[4 - 3H(5 - 2H) - \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)}, \\
-				\bar{b} &= -\frac{H^3(1 - H)^2[4 - 3H + \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)}.
+				\bar{a} &= \dfrac{H^3(1 - H)[4 - 3H(5 - 2H) - \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)}, \\
+				\bar{b} &= -\dfrac{H^3(1 - H)^2[4 - 3H + \sqrt{3H(4 - H)}]}{4 - 3H(3 - H)}.
 			\end{aligned}
 		\end{equation*}
 		El segundo coeficiente de Lyapunov está dado por \cite{kuznetsov}[p.~344]
 		\begin{equation}
 			\begin{aligned}
-				12l_2 = {} & \frac{1}{\omega} \text{Re } g_{32} \\
-				& + \frac{1}{\omega^2} \text{Im } \left[ g_{20} \bar{g}_{31} - g_{11} (4 g_{31} + 3 \bar{g}_{22}) - \frac{1}{3} g_{02} (g_{40} + \bar{g}_{13}) - g_{30} g_{12} \right] \\
-				& + \frac{1}{\omega^3} \left\{ \text{Re } \left[ g_{20} \left( \bar{g}_{11} (3 g_{12} - \bar{g}_{30}) + g_{02} \left( \bar{g}_{12} - \frac{1}{3} g_{30} \right) + \frac{1}{3} \bar{g}_{02} g_{03} \right) \right.\right. \\
-				& \qquad\qquad\qquad \left. + g_{11} \left( \bar{g}_{02} \left( \frac{5}{3} \bar{g}_{30} + 3 g_{12} \right) + \frac{1}{3} g_{02} \bar{g}_{03} - 4 g_{11} g_{30} \right) \right] \\
+				12l_2 = {} & \dfrac{1}{\omega} \text{Re } g_{32} \\
+				& + \dfrac{1}{\omega^2} \text{Im } \left[ g_{20} \bar{g}_{31} - g_{11} (4 g_{31} + 3 \bar{g}_{22}) - \dfrac{1}{3} g_{02} (g_{40} + \bar{g}_{13}) - g_{30} g_{12} \right] \\
+				& + \dfrac{1}{\omega^3} \left\{ \text{Re } \left[ g_{20} \left( \bar{g}_{11} (3 g_{12} - \bar{g}_{30}) + g_{02} \left( \bar{g}_{12} - \dfrac{1}{3} g_{30} \right) + \dfrac{1}{3} \bar{g}_{02} g_{03} \right) \right.\right. \\
+				& \qquad\qquad\qquad \left. + g_{11} \left( \bar{g}_{02} \left( \dfrac{5}{3} \bar{g}_{30} + 3 g_{12} \right) + \dfrac{1}{3} g_{02} \bar{g}_{03} - 4 g_{11} g_{30} \right) \right] \\
 				& \qquad\qquad \left. + \, 3 \text{ Im}(g_{20} g_{11}) \text{ Im } g_{21} \right\} \\
-				& + \frac{1}{\omega^4} \left\{ \text{Im} \left[ g_{11} \bar{g}_{02} \left( \bar{g}_{20}^2 - 3 \bar{g}_{20} g_{11} - 4 g_{11}^2 \right) \right] \right. \\
+				& + \dfrac{1}{\omega^4} \left\{ \text{Im} \left[ g_{11} \bar{g}_{02} \left( \bar{g}_{20}^2 - 3 \bar{g}_{20} g_{11} - 4 g_{11}^2 \right) \right] \right. \\
 				& \qquad\qquad \left. + \, \text{Im}(g_{20} g_{11}) \left[ 3 \text{ Re}(g_{20} g_{11}) - 2 |g_{02}|^2 \right] \right\},
 			\end{aligned}
 			\label{eq: l2}
 		\end{equation}
-		con $\omega = \sqrt{\bar{a}\bar{d}}$, donde $\bar{d} = H^4+\frac{H^3(2-H) [2H+(1-H) \sqrt{3H(4-H)}]}{4-3H(3-H)}$ y las expresiones $g_{kl}$ estarán dadas por $g_{kl}=G_{z w}$ que representan las derivadas parciales de la función de variable compleja \eqref{eq: funComplejaL1} evaluadas en $z=w=0$ con $p_1, p_2, q_1, q_2$ dadas por \eqref{eq: vecComplejos} reemplazando $m$ por $\bar{m} = \sqrt{\bar{d}/\bar{a}}$, donde por ejemplo $g_{02}=G_{ww}$, $g_{31}=G_{zzzw}$, de manera similar se determinan las demás expresiones. Los términos $g_{20}, \; g_{11}, \; \text{y } g_{21}$ son dados por \eqref{eq: g_klModelo2} remplazando $A=A_c$ y $m = \bar{m}$, además
+		con $\omega = \sqrt{\bar{a}\bar{d}}$, donde $\bar{d} = H^4+\dfrac{H^3(2-H) [2H+(1-H) \sqrt{3H(4-H)}]}{4-3H(3-H)}$ y las expresiones $g_{kl}$ estarán dadas por $g_{kl}=G_{z w}$ que representan las derivadas parciales de la función de variable compleja \eqref{eq: funComplejaL1} evaluadas en $z=w=0$ con $p_1, p_2, q_1, q_2$ dadas por \eqref{eq: vecComplejos} reemplazando $m$ por $\bar{m} = \sqrt{\bar{d}/\bar{a}}$, donde por ejemplo $g_{02}=G_{ww}$, $g_{31}=G_{zzzw}$, de manera similar se determinan las demás expresiones. Los términos $g_{20}, \; g_{11}, \; \text{y } g_{21}$ son dados por \eqref{eq: g_klModelo2} remplazando $A=A_c$ y $m = \bar{m}$, además
 		\begin{equation*}
 			\begin{aligned}
-				g_{31} = & \frac{i}{\bar{m}} \{6(\bar{m}^2+1)[-2 + (B_c-4)\bar{m}i + (B_c+2)\bar{m}^2 \\
+				g_{31} = & \dfrac{i}{\bar{m}} \{6(\bar{m}^2+1)[-2 + (B_c-4)\bar{m}i + (B_c+2)\bar{m}^2 \\
 				& - 10H(\bar{m}-i)^2] - 6Q(\bar{m}^3 + 3\bar{m} -2i)\}, \\
-				g_{32} = & \frac{-60}{\bar{m}}(\bar{m}-i)^3 (\bar{m}+i)^2, \\
-				g_{22} = & \frac{2i}{\bar{m}} [4B_c\bar{m}^2(1 - \bar{m}i) + 6(5H-1)(\bar{m}^2+1)^2 + 6Q(\bar{m}^2+1)], \\
-				g_{02} = & \frac{-(\bar{m}+i)}{\bar{m}}\{ A_c^2[1 - 3H + (B_c + 3H - 1)\bar{m}i] \\
+				g_{32} = & \dfrac{-60}{\bar{m}}(\bar{m}-i)^3 (\bar{m}+i)^2, \\
+				g_{22} = & \dfrac{2i}{\bar{m}} [4B_c\bar{m}^2(1 - \bar{m}i) + 6(5H-1)(\bar{m}^2+1)^2 + 6Q(\bar{m}^2+1)], \\
+				g_{02} = & \dfrac{-(\bar{m}+i)}{\bar{m}}\{ A_c^2[1 - 3H + (B_c + 3H - 1)\bar{m}i] \\
 				& + H^2[6 + 2B_c\bar{m}^2 + 10Hi(\bar{m}+i) - 6Q + 3\bar{m}i(B_c + Q - 2)] \}, \\
-				g_{40} = & \frac{12i}{\bar{m}} \{ 5H(\bar{m}-i)^4 - (\bar{m}-i)^2[-1 + (B_c+1)\bar{m}^2 \\
+				g_{40} = & \dfrac{12i}{\bar{m}} \{ 5H(\bar{m}-i)^4 - (\bar{m}-i)^2[-1 + (B_c+1)\bar{m}^2 \\
 				& + Q + (B_c + Q - 2)\bar{m}i] \}, \\
-				g_{13} = & \frac{-6i}{\bar{m}} (\bar{m}+i)^2[-2 + 10H - B_c\bar{m}i \\
+				g_{13} = & \dfrac{-6i}{\bar{m}} (\bar{m}+i)^2[-2 + 10H - B_c\bar{m}i \\
 				& + \bar{m}^2(B_c + 10H-2) + Q(\bar{m}i+2)], \\
-				g_{30} = & \frac{3}{\bar{m}} \{ [A_c^2 + 2H(5H-2)](\bar{m}-i)^3 \\
+				g_{30} = & \dfrac{3}{\bar{m}} \{ [A_c^2 + 2H(5H-2)](\bar{m}-i)^3 \\
 				& + B_cH\bar{m}(1 - \bar{m}i)[\bar{m}(\bar{m}-4i)-3] + HQ(\bar{m}-i)^2(\bar{m}-4i) \},
 			\end{aligned}
 		\end{equation*}
 		\begin{equation*}
 			\begin{aligned}
-				g_{12} = & \frac{\bar{m}+i}{\bar{m}} \{3A_c^2(\bar{m}^2+1) + H[30H(\bar{m}^2+1)\\
+				g_{12} = & \dfrac{\bar{m}+i}{\bar{m}} \{3A_c^2(\bar{m}^2+1) + H[30H(\bar{m}^2+1)\\
 				& + \bar{m}[B_c(-3i + \bar{m}(4 - 3\bar{m}i)) + 3\bar{m}(Q-4) + 3Qi] + 12(Q-1)]\}, \\
-				g_{03} = & \frac{-3(\bar{m}+i)^2}{\bar{m}} \{A_c^2(\bar{m}+i) \\
+				g_{03} = & \dfrac{-3(\bar{m}+i)^2}{\bar{m}} \{A_c^2(\bar{m}+i) \\
 				& + H\left[10H(\bar{m}+i) + 4i(Q-1) + \bar{m}(B_c(3 - \bar{m}i) + Q -4)\right]\},
 			\end{aligned}
 		\end{equation*}
 		donde
 		\begin{equation*}
 			\begin{aligned}
-				B_c &= \frac{2-3H - \sqrt{3H(4 - H)}}{2}, \\
-				Q &= H^2 \frac{H[2-3(3-H)]+(1-H)\sqrt{3H(4-H)}+4}{4-3H(3-H)}.
+				B_c &= \dfrac{2-3H - \sqrt{3H(4 - H)}}{2}, \\
+				Q &= H^2 \dfrac{H[2-3(3-H)]+(1-H)\sqrt{3H(4-H)}+4}{4-3H(3-H)}.
 			\end{aligned}
 		\end{equation*}
 		Tomando en cuenta lo anterior computamos $l_2$ dada en \eqref{eq: l2}. El cálculo numérico de $l_2$ arroja que para cualquier valor $H \in \left(0,(3 - \sqrt{6})/3 \right)$, $l_2<0$; por lo tanto, el punto crítico $(H,H)$ es un foco débil estable de segundo orden, rodeado por un ciclo límite inestable y este a su vez, por un ciclo límite estable.
@@ -545,8 +547,8 @@
 		Del sistema \eqref{eq: modelo2.1}, por el \autoref{teo: equilibrioH} para $A\neq A_c$, $l_1 \neq 0$; así, para que ocurra una bifurcación de Hopf se deben satisfacer la condición espectral y la de transversalidad. Por el \autoref{teo: equilibrioH}, $DY_\delta(H,H)$ para $B = B_c$, posee un par de autovalores imaginarios puros $\lambda_1, \; \lambda_2 = \pm \sqrt{\det (DY_\delta(H,H))} \; i$, satisfaciendo así la condición espectral. Por otra parte, la velocidad de cruce de la parte real de los autovalores respecto al parámetro de bifurcación $B$, debe ser distinta de cero en el punto crítico, esto es:
 		\begin{equation*}
 			\begin{aligned}
-				\left. \frac{d}{dB}(Re(\lambda(\delta))) \right|_{B=B_c} &= \left. \frac{d}{dB}\left(\frac{\operatorname{tr}(DY_\delta(H,H))}{2}\right) \right|_{B=B_c} \\
-				&= -\frac{1}{2}H(A^{2}+H^{2}) \neq 0.
+				\left. \dfrac{d}{dB}(Re(\lambda(\delta))) \right|_{B=B_c} &= \left. \dfrac{d}{dB}\left(\dfrac{\operatorname{tr}(DY_\delta(H,H))}{2}\right) \right|_{B=B_c} \\
+				&= -\dfrac{1}{2}H(A^{2}+H^{2}) \neq 0.
 			\end{aligned}
 		\end{equation*}
 		Cumpliendo así las condiciones para que una bifurcación de Hopf ocurra en el sistema \eqref{eq: modelo2.1} para $B = B_c$ y $A\neq A_c$. Es claro que, esto también ocurrirá en el sistema \eqref{eq: modelo2} puesto que es topológicamente equivalente con el sistema \eqref{eq: modelo2.1}.
@@ -580,32 +582,32 @@
 		Considere el sistema \eqref{eq: modelo2.1}, por el \autoref{teo: equilibrioH} para $A = A_c$, $l_1 = 0$ y $l_2 \neq 0$; así, para que ocurra una bifurcación de Bautín se deben satisfacer la condición espectral y la de transversalidad. Por el \autoref{teo: BifHopf} la condición espectral se cumple. Por otra parte, el mapeo $\delta = (A,B) \longmapsto \left(Re(\lambda(\delta)), l_1(\delta)\right)$ debe ser regular en $\delta=\delta_0$, es decir
 		\begin{equation*}
 			\det \left. \begin{pmatrix}
-				\frac{\partial Re(\lambda(\delta))}{\partial A} & \frac{\partial Re(\lambda(\delta))}{\partial B} \\[6pt]
-				\frac{\partial l_1(\delta)}{\partial A} & \frac{\partial l_1(\delta)}{\partial B} 
+				\dfrac{\partial Re(\lambda(\delta))}{\partial A} & \dfrac{\partial Re(\lambda(\delta))}{\partial B} \\[6pt]
+				\dfrac{\partial l_1(\delta)}{\partial A} & \dfrac{\partial l_1(\delta)}{\partial B} 
 			\end{pmatrix} \right|_{\delta=\delta_0} \neq 0,
 		\end{equation*}
 		esto es
 		\begin{equation}
-			\left. - \frac{\partial Re(\lambda(\delta))}{\partial B} \left( \frac{\partial l_1(\delta)}{\partial A} - \frac{\frac{\partial Re(\lambda(\delta))}{\partial A}}{\frac{\partial Re(\lambda(\delta))}{\partial B}} \frac{\partial l_1(\delta)}{\partial B} \right) \right|_{\delta=\delta_0} \neq 0.
+			\left. - \dfrac{\partial Re(\lambda(\delta))}{\partial B} \left( \dfrac{\partial l_1(\delta)}{\partial A} - \dfrac{\dfrac{\partial Re(\lambda(\delta))}{\partial A}}{\dfrac{\partial Re(\lambda(\delta))}{\partial B}} \dfrac{\partial l_1(\delta)}{\partial B} \right) \right|_{\delta=\delta_0} \neq 0.
 			\label{eq: regularidadBautin}
 		\end{equation}
-		Como $Re(\lambda(\delta_0))=0$ y del \autoref{teo: BifHopf} sabemos que  $\left. \frac{\partial Re(\lambda(\delta))}{\partial B} \right|_{\delta=\delta_0} \neq 0$, por el teorema de la función implícita existe una función diferenciable $\phi(A)=B$ con dominio en una vecindad $V$ de $A_c$ tal que
+		Como $Re(\lambda(\delta_0))=0$ y del \autoref{teo: BifHopf} sabemos que  $\left. \dfrac{\partial Re(\lambda(\delta))}{\partial B} \right|_{\delta=\delta_0} \neq 0$, por el teorema de la función implícita existe una función diferenciable $\phi(A)=B$ con dominio en una vecindad $V$ de $A_c$ tal que
 		\begin{equation}
-			\frac{dB}{dA}=\phi'(A)= - \frac{\frac{\partial Re(\lambda(\delta))}{\partial A}}{\frac{\partial Re(\lambda(\delta))}{\partial B}}, \; A \in V.
+			\dfrac{dB}{dA}=\phi'(A)= - \dfrac{\dfrac{\partial Re(\lambda(\delta))}{\partial A}}{\dfrac{\partial Re(\lambda(\delta))}{\partial B}}, \; A \in V.
 			\label{eq: teoFunImpli}
 		\end{equation}
-		Considerando lo anterior, por la regla de la cadena $$\frac{d l_1(A, \phi(A))}{dA} = \frac{\partial l_1(A, \phi(A))}{\partial A} + \phi'(A) \frac{\partial l_1(A, \phi(A))}{\partial \phi(A)},$$ así por lo anterior y por \eqref{eq: teoFunImpli} para una vecindad $V$ de $A_c$ la regularidad \eqref{eq: regularidadBautin} se reduce a probar que $$\left. \frac{d l_1(A, \phi(A))}{dA} \right|_{A=A_c} \neq 0.$$ Ahora, nótese que la función $\phi(A)$ está dada simplemente por $B_c(A)$ obtenida en \eqref{eq: Bcritico}, por lo que basta mostrar que la derivada con respecto a $A$ de $l_1$ determinada en \eqref{eq: l1Kuznetsov}, no se anula para $A=A_c$. Con este objetivo, considerando
+		Considerando lo anterior, por la regla de la cadena $$\dfrac{d l_1(A, \phi(A))}{dA} = \dfrac{\partial l_1(A, \phi(A))}{\partial A} + \phi'(A) \dfrac{\partial l_1(A, \phi(A))}{\partial \phi(A)},$$ así por lo anterior y por \eqref{eq: teoFunImpli} para una vecindad $V$ de $A_c$ la regularidad \eqref{eq: regularidadBautin} se reduce a probar que $$\left. \dfrac{d l_1(A, \phi(A))}{dA} \right|_{A=A_c} \neq 0.$$ Ahora, nótese que la función $\phi(A)$ está dada simplemente por $B_c(A)$ obtenida en \eqref{eq: Bcritico}, por lo que basta mostrar que la derivada con respecto a $A$ de $l_1$ determinada en \eqref{eq: l1Kuznetsov}, no se anula para $A=A_c$. Con este objetivo, considerando
 		\begin{equation*}
 			\begin{aligned}
 				N &= 2A^2(1 - H)([4 - 3H(3 - H)]A^4 -4H^3A^2 - (3 - H)H^5) ,\\
 				I &= (H^3 + A^2(2 - H))(H^2(1 - 2H)- A^2),
 			\end{aligned}
 		\end{equation*}
-		de \eqref{eq: l1Kuznetsov} tenemos que $$l_1 = \frac{N}{(A^2+H^2)I^{3/2}},$$ asi
+		de \eqref{eq: l1Kuznetsov} tenemos que $$l_1 = \dfrac{N}{(A^2+H^2)I^{3/2}},$$ asi
 		\begin{equation}
-			\frac{dl_1}{dA} = \frac{N' (A^2+H^2) I^{3/2} - N \left[2AI^{3/2} + (3/2)(A^2+H^2) I^{1/2} I' \right]}{(A^2+H^2)^2 I^3},
+			\dfrac{dl_1}{dA} = \dfrac{N' (A^2+H^2) I^{3/2} - N \left[2AI^{3/2} + (3/2)(A^2+H^2) I^{1/2} I' \right]}{(A^2+H^2)^2 I^3},
 		\end{equation}
-		por las restricciones del sistema $(A^2+H^2) I^{3/2} > 0$ y como $N=0$ en $A=A_c$ tenemos que $\left. \frac{d l_1}{dA} \right|_{A=A_c} \neq 0$ si, y solo si $N' \neq 0$ para $A=A_c$. Ahora el signo de
+		por las restricciones del sistema $(A^2+H^2) I^{3/2} > 0$ y como $N=0$ en $A=A_c$ tenemos que $\left. \dfrac{d l_1}{dA} \right|_{A=A_c} \neq 0$ si, y solo si $N' \neq 0$ para $A=A_c$. Ahora el signo de
 		\begin{equation*}
 			N'= 4A(1-H) \left(3[4-3H(3-H)]A^4-8H^3A^2-(3-H)H^5\right)
 		\end{equation*}
@@ -613,7 +615,7 @@
 		\begin{equation*}
 			\begin{aligned}
 				A^2 &= \dfrac{8H^3 \pm \sqrt{64 H^6 + 12[4 - 3H(3-H)] (3-H)H^5}}{6[4-3H(3-H)]} \\
-				&= \frac{1}{3} \dfrac{4H^3 + H^2\sqrt{36H - H^2[77 - 9H(6 - H)]}}{4-3H(3-H)} \neq A^2_c.
+				&= \dfrac{1}{3} \dfrac{4H^3 + H^2\sqrt{36H - H^2[77 - 9H(6 - H)]}}{4-3H(3-H)} \neq A^2_c.
 			\end{aligned}
 		\end{equation*}
 		Cumpliéndose así la condiciones necesarias para la bifurcación de Hopf generalizada en el sistema \eqref{eq: modelo2.1} para $\delta=\delta_0$. Es claro que, esto también ocurrirá en el sistema \eqref{eq: modelo2} puesto que es topológicamente equivalente con el sistema \eqref{eq: modelo2.1}.
@@ -626,7 +628,7 @@ En este trabajo se realizó un análisis cualitativo y local de un modelo depred
 A partir del estudio cualitativo del sistema polinomial de quinto orden obtenido, se establecieron los siguientes resultados:
 
 \begin{enumerate}[leftmargin=*]
-	\item Se determinó que el cuadrado unitario $\Gamma = \{ (u, v) \in \mathbb{R}^{2} \; | \; 0 \leq u \leq 1, \; 0 \leq v \leq 1 \} \subset \tilde{\Omega}$, es una región positivamente invariante. En consecuencia, toda solución que inicia en $\Gamma$ permanece en esta región para todo tiempo futuro, por lo que las soluciones biológicamente relevantes son acotadas, lo que demuestra que el modelo Leslie-Gower modificado está bien planteado. El difeomorfismo empleado para establecer la equivalencia topológica entre el sistema original y el sistema polinomial \eqref{eq: modelo2} permite restringir el análisis biológicamente relevante del modelo transformado a esta región $\Gamma$. En efecto, las sustituciones $u=\frac{x}{K}, \; v=\frac{y}{nK}$, normalizan las densidades poblacionales con respecto a las capacidades de carga asociadas a la presa y al depredador. De esta manera, los valores $u=1$ y $v=1$ representan, respectivamente, los niveles de población asociados a dichas capacidades de carga. Por tanto, el estudio de la dinámica dentro del cuadrado unitario $\Gamma$ resulta particularmente relevante desde el punto de vista biológico.
+	\item Se determinó que el cuadrado unitario $\Gamma = \{ (u, v) \in \mathbb{R}^{2} \; | \; 0 \leq u \leq 1, \; 0 \leq v \leq 1 \} \subset \tilde{\Omega}$, es una región positivamente invariante. En consecuencia, toda solución que inicia en $\Gamma$ permanece en esta región para todo tiempo futuro, por lo que las soluciones biológicamente relevantes son acotadas, lo que demuestra que el modelo Leslie-Gower modificado está bien planteado. El difeomorfismo empleado para establecer la equivalencia topológica entre el sistema original y el sistema polinomial \eqref{eq: modelo2} permite restringir el análisis biológicamente relevante del modelo transformado a esta región $\Gamma$. En efecto, las sustituciones $u=\dfrac{x}{K}, \; v=\dfrac{y}{nK}$, normalizan las densidades poblacionales con respecto a las capacidades de carga asociadas a la presa y al depredador. De esta manera, los valores $u=1$ y $v=1$ representan, respectivamente, los niveles de población asociados a dichas capacidades de carga. Por tanto, el estudio de la dinámica dentro del cuadrado unitario $\Gamma$ resulta particularmente relevante desde el punto de vista biológico.
 	
 	\item Se obtuvieron tres puntos de equilibrio biológicamente relevantes: $(0,0), \; (1,0), \; \text{y} \; (H,H)$, donde $H\in(0,1)$ está determinado por la intersección de las isoclinas $v = \dfrac{(1-u)(u^2 + A^2)}{Q u}$ y $u=v$.
 	
@@ -642,7 +644,7 @@ A partir del estudio cualitativo del sistema polinomial de quinto orden obtenido
 	
 	En particular, cuando $B>1$, se encontró que el primer cuadrante contiene una separatriz cuya dirección está determinada por
 	\[
-	\tan\theta_3=\frac{B-1}{B}.
+	\tan\theta_3=\dfrac{B-1}{B}.
 	\]
 	Esta separatriz divide el retrato de fase local en dos sectores: uno hiperbólico y otro parabólico; es razonable plantear como hipótesis que esta órbita separatriz pueda constituir una conexión heteroclínica entre $(0,0)$ y $(H,H)$, particularmente debido a que para $B>1>B_c$ el equilibrio $(H,H)$ es estable. No obstante, esta afirmación requiere una demostración adicional. Por otro lado, cuando $B<1$, el primer cuadrante está constituido localmente por un único sector hiperbólico.
 	
@@ -655,7 +657,7 @@ A partir del estudio cualitativo del sistema polinomial de quinto orden obtenido
 		\end{subfigure}
 		\begin{subfigure}[t]{0.43\textwidth}
 			\includegraphics[width=\textwidth]{../img/VariedadesInestablesOrigenBmayor1.pdf}
-			\caption{Variedad inestable e isoclina asociada a la pendiente $\frac{B-1}{B}$ del sistema \eqref{eq: modelo2}, para $A = 0.05; \; B = 1.5$ y $Q = 0.61$.}
+			\caption{Variedad inestable e isoclina asociada a la pendiente $\dfrac{B-1}{B}$ del sistema \eqref{eq: modelo2}, para $A = 0.05; \; B = 1.5$ y $Q = 0.61$.}
 		\end{subfigure}
 		\caption{Comportamiento sectorial del primer cuadrante para diferentes valores de B.}
 	\end{figure}
