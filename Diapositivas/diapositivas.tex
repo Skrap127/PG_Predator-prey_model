@@ -52,10 +52,10 @@
 
 % --- METADATOS ---
 \title[Modelo Leslie-Gower Sigmoide]{Análisis Cualitativo y Bifurcación de Bautin en un Modelo Presa-Depredador de Leslie-Gower con Respuesta Funcional Sigmoidea}
-\subtitle{Trabajo de Grado - Pregrado en Matemáticas}
+\subtitle{XXII Encuentro Internacional de Matemáticas (EIMAT 2026)}
 \author[Y. D. Chilito Inga]{Yerson Danilo Chilito Inga}
 \institute[Unicauca]{Universidad del Cauca \\ Facultad de Ciencias Naturales, Exactas y de la Educación \\ Departamento de Matemáticas}
-\date{4 de noviembre de 2026}
+\date{12 de noviembre de 2026}
 
 \begin{document}
 	
@@ -79,24 +79,28 @@
 	\section{Formulación del Modelo}
 	
 	\begin{frame}{Formulación Ecológica y Adimensionalización}
-		Consideramos el modelo presa-depredador de Leslie-Gower con respuesta funcional de Holling tipo III (sigmoidea):
+		Consideramos el modelo presa-depredador de Leslie-Gower con respuesta funcional de Holling tipo III (sigmoidea) formulado por Gonzales-Olivares et. al. \cite{articulo}:
 		\begin{equation*}
 			\begin{cases} 
-				\dfrac{dx}{dt} = \left[ r \left(1 - \dfrac{x}{K}\right) - \dfrac{q x y}{x^2 + a^2} \right] x, \\
-				\dfrac{dy}{dt} = s \left(1 - \dfrac{y}{n x}\right) y,
+				\dfrac{dx}{dt} = \left[ r \left(1 - \dfrac{x}{K}\right) - \dfrac{q x y}{x^2 + a^2} \right] x \\
+				\dfrac{dy}{dt} = s \left(1 - \dfrac{y}{n x}\right) y
 			\end{cases}
 		\end{equation*}
 		definido en $\Omega = \{ (x,y) \in \mathbb{R}^2 \mid x > 0, \; y \geq 0 \}$ con parámetros $(r, a, s, K, n, q) \in \mathbb{R}^6_+$.
 		
 		\begin{block}{Adimensionalización y Reescalamiento Temporal}
-			Aplicando $x = Ku$, $y = nKv$ y el reescalado temporal $d\tau = \frac{r}{u(u^2+A^2)} dt$, se obtiene el sistema polinomial topológicamente equivalente definido en $\tilde{\Omega} = \{ (u,v) \in \mathbb{R}^2 \mid u \geq 0, \; v \geq 0 \}$:
+			Aplicando $x = Ku$, $y = nKv$ y el reescalado temporal $d\tau = \frac{r}{u(u^2+A^2)} dt$, se obtiene el sistema polinomial topológicamente equivalente en $\hat{\Omega} = \{ (u,v) \in \mathbb{R}^2 \mid u > 0, \; v \geq 0 \}$:
 			\begin{equation*}
 				\begin{cases} 
-					\dfrac{du}{d\tau} = \big[(1-u)(u^2+A^2) - Q u v\big] u^2, \\[4pt]
-					\dfrac{dv}{d\tau} = B (u-v)(u^2+A^2) v,
+					\dfrac{du}{d\tau} = \big[(1-u)(u^2+A^2) - Q u v\big] u^2 \\[4pt]
+					\dfrac{dv}{d\tau} = B (u-v)(u^2+A^2) v
+				\end{cases} \Longleftrightarrow
+				\begin{cases} 
+					\dot{u} = f_1(u,v) \\
+					\dot{v} = f_2(u,v)
 				\end{cases}
 			\end{equation*}
-			donde $A = \frac{a}{K} \in (0, 1)$, $Q = \frac{qn}{r} > 0$, $B = \frac{s}{r} > 0$.
+			definido en $\tilde{\Omega} = \{ (u,v) \in \mathbb{R}^2 \mid u \geq 0, \; v \geq 0 \}$, donde $A = \frac{a}{K} \in (0, 1)$, $Q = \frac{qn}{r} > 0$, $B = \frac{s}{r} > 0$.
 		\end{block}
 	\end{frame}
 	
@@ -171,7 +175,7 @@
 		\end{equation*}
 		Como consecuencia, el residuo de la división de $P(u)$ entre el monomio $u - H$ debe ser nulo: $R(u) = H^{3}+(Q-1)H^{2}+A^{2}(H-1) = 0,$ de lo cual obtenemos la equivalencia $Q = \frac{(1-H)(A^2+H^2)}{H^2}$.
 		\begin{block}{Matriz Jacobiana General}
-			Para $f(u,v) = \big( ((1-u)(u^2+A^2)-Quv)u^2, \; B(u-v)(u^2+A^2)v \big)$, la matriz jacobiana es:
+			Para $f(u,v) = (f_1(u,v), f_2(u,v))$, la matriz jacobiana es:
 			\begin{equation*}
 				Df(u,v) = \begin{bmatrix}
 					-5u^4 + 4u^3 - (3A^2 + 3Qv)u^2 + 2A^2u & -Qu^3 \\
@@ -209,7 +213,7 @@
 				\centering
 				\begin{figure}
 					\centering
-					\includegraphics[width=.8\textwidth]{../img/puntoDeEquilibrio(1,0).pdf}
+					\includegraphics[width=.8\textwidth]{img/puntoDeEquilibrio(1,0).pdf}
 					\caption{\centering Simulación numérica del retrato de fase local cerca de $(1,0)$.}
 				\end{figure}
 			\end{column}
@@ -230,7 +234,7 @@
 			\item $\theta_3 = \arctan\left(\frac{B-1}{B}\right)$ (existente en el primer cuadrante $\iff B > 1$).
 		\end{enumerate}
 		
-		\begin{block}{Matriz Jacobiana en la Frontera del Cilindro $r=0$}
+		\begin{block}{Matriz Jacobiana en la Frontera $r=0$}
 			\begin{equation*}
 				D\bar{Y}_\eta(0,\theta) = \begin{bmatrix}
 					A^2 \cos^3\theta + A^2 B (\cos\theta\sin^2\theta - \sin^3\theta) & 0 \\[4pt]
@@ -264,11 +268,11 @@
 				\centering
 				\begin{figure}
 					\begin{subfigure}{.45\textwidth}
-						\includegraphics[width=\textwidth]{../img/blowingUpPolar(Bmen1).pdf}
+						\includegraphics[width=\textwidth]{img/blowingUpPolar(Bmen1).pdf}
 						\caption{$B < 1$.}
 					\end{subfigure}
 					\begin{subfigure}{.51\textwidth}
-						\includegraphics[width=\textwidth]{../img/blowingUpPolar(Bmay1).pdf}
+						\includegraphics[width=\textwidth]{img/blowingUpPolar(Bmay1).pdf}
 						\caption{$B > 1$.}
 					\end{subfigure}
 					\caption{Blow-up en el origen del sistema adimensional para diferentes valores de $B$.}
@@ -283,13 +287,13 @@
 			\centering
 			\begin{subfigure}[t]{0.4\textwidth}
 				\centering
-				\includegraphics[width=\textwidth]{../img/puntoDeEquilibrio(0,0)conBmenor1Version2.pdf}
+				\includegraphics[width=\textwidth]{img/puntoDeEquilibrio(0,0)conBmenor1Version2.pdf}
 				\caption{$B \le 1$: Único sector hiperbólico en el primer cuadrante.}
 				\label{fig:origen_b_menor}
 			\end{subfigure}
 			\begin{subfigure}[t]{0.4\textwidth}
 				\centering
-				\includegraphics[width=\textwidth]{../img/puntoDeEquilibrio(0,0)conBmayor1Version2.pdf}
+				\includegraphics[width=\textwidth]{img/puntoDeEquilibrio(0,0)conBmayor1Version2.pdf}
 				\caption{$B > 1$: Aparición de separatriz en el primer cuadrante.}
 				\label{fig:origen_b_mayor}
 			\end{subfigure}
@@ -327,7 +331,7 @@
 		\begin{equation*}
 			l_1 = \dfrac{2A^2(1-H) \left\{ \big[4 - 3H(3-H)\big] A^4 - 4H^3 A^2 - (3-H)H^5 \right\}}{(A^2+H^2) \left\{ \big[H^3 + A^2(2-H)\big]\big[H^2(1-2H)-A^2\big] \right\}^{3/2}}.
 		\end{equation*}
-		El coeficiente $l_1$ se anula en el valor crítico $A_c = \sqrt{\dfrac{2H^3 + H^2(1-H)\sqrt{3H(4-H)}}{4 - 3H(3-H)}}$ para $H \in \left(0, \frac{3-\sqrt{6}}{3}\right)$:
+		La determinación de este coeficiente se basa en el método propuesto por Kuznetsov \cite{kuznetsov}. El coeficiente $l_1$ se anula en el valor crítico $A_c = \sqrt{\dfrac{2H^3 + H^2(1-H)\sqrt{3H(4-H)}}{4 - 3H(3-H)}}$ para $H \in \left(0, \frac{3-\sqrt{6}}{3}\right)$:
 		
 		\begin{itemize}
 			\item \textbf{Si $A < A_c \implies l_1 < 0$:} \textbf{Bifurcación de Hopf Supercrítica}. $(H,H)$ es un foco débil inestable rodeado por un ciclo límite estable.
@@ -352,8 +356,8 @@
 			\begin{column}{0.45\textwidth}
 				\centering
 				\begin{figure}
-					\includegraphics[width=.9\textwidth]{../img/CurvaLyapunovAH.pdf}
-					\caption{\centering Curva $l_1 = 0$ y la región dada por las restricciones  $H < \dfrac{1}{2}, \; A^2 < H^2(1 - 2H)$.}
+					\includegraphics[width=.9\textwidth]{img/CurvaLyapunovAHV2.pdf}
+					\caption{\centering Curva del primer coeficiente de Lyapunov nulo ($l_1 = 0$) y regiones de bifurcación de Hopf supercrítica (azul) y subcrítica (rojo).}
 				\end{figure}
 			\end{column}
 		\end{columns}
@@ -365,7 +369,7 @@
 			\begin{column}{0.48\textwidth}
 				\begin{block}{Caso Supercrítico ($l_1 < 0$)}
 					\centering
-					\includegraphics[width=0.55\textwidth]{../img/HopfSuperCentrolineal.pdf}
+					\includegraphics[width=0.55\textwidth]{img/HopfSuperCentrolineal.pdf}
 					
 					\vspace{0.1cm}
 					\raggedright
@@ -378,7 +382,7 @@
 			\begin{column}{0.48\textwidth}
 				\begin{exampleblock}{Caso Subcrítico ($l_1 > 0$)}
 					\centering
-					\includegraphics[width=0.55\textwidth]{../img/HopfSubCentrolinealVersion2.pdf}
+					\includegraphics[width=0.55\textwidth]{img/HopfSubCentrolinealVersion2.pdf}
 					
 					\vspace{0.1cm}
 					\raggedright
@@ -399,7 +403,6 @@
 	\begin{frame}{Conclusiones Principales}
 		\begin{enumerate}
 			\item \textbf{Invariancia Positiva:} Se demostró rigurosamente que el cuadrado unitario $\Gamma = \{ (u,v) \in \mathbb{R}^2 \mid 0 \le u \le 1, \; 0 \le v \le 1 \}$ es un conjunto positivamente invariante, garantizando la acotación y consistencia biológica de las soluciones.
-			\item \textbf{Punto Silla Universal $(1,0)$:} El estado libre de depredadores es un punto silla hiperbólico para cualquier combinación de parámetros.
 			\item \textbf{Singularidad en el Origen $(0,0)$:} La desingularización mediante blow-up polar clasificó el origen como un punto \textbf{Silla--Nodo} ($I=0$) para cualquier combinación de parámetros. Para $B > 1$, se encontró que el primer cuadrante contiene una separatriz inestable respecto al origen, cuya dirección está determinada por $\tan\theta_3 = \frac{B-1}{B}$.
 			\item \textbf{Bifurcaciones de Coexistencia $(H,H)$:} Se establecieron las condiciones analíticas exactas para la bifurcación de Hopf ($B = B_c$) y la bifurcación de Bautin ($B = B_c, \; A = A_c$), demostrando la aparición de oscilaciones persistentes y ciclos límites concéntricos múltiples.
 		\end{enumerate}
@@ -442,6 +445,44 @@
 		\vspace{1cm}
 		{\Huge \textbf{\color{BlueAccent} ¡Muchas Gracias!}} \\[1.5cm]
 		{\large ¿Preguntas o Comentarios?}
+	\end{frame}
+	
+	\begin{frame}
+		\begin{columns}[T]
+			\begin{column}{0.48\textwidth}
+				\begin{table}[H]
+					\centering
+					\caption{Valores de $l_2$ para $H$ dentro del dominio de restricción.}
+					\label{tab:ejemplosL2}
+					
+					\begin{tabular}{ccccl}
+						\hline
+						$H$ & $A_c$ & $B_c$ & $Q$ & $l_2$ \\
+						\hline
+						0.0247 & 0.0096 & 0.6918 & 1.1246 & -1021240 \\
+						0.0645 & 0.0338 & 0.4671 & 1.1932 & -100399 \\
+						0.0646 & 0.0339 & 0.4664 & 1.1933 & -100023 \\
+						0.0900 & 0.0530 & 0.3511 & 1.2257 & -63026.4 \\
+						0.0922 & 0.0548 & 0.3418 & 1.2283 & -61890.6 \\
+						0.0953 & 0.0573 & 0.3289 & 1.2319 & -60651.6 \\
+						0.1529 & 0.1114 & 0.1065 & 1.2971 & -180304 \\
+						0.1633 & 0.1227 & 0.0694 & 1.3091 & -409538 \\
+						0.1717 & 0.1321 & 0.0404 & 1.3190 & -1314910 \\
+						0.1720 & 0.1325 & 0.0392 & 1.3194 & -1402770 \\
+						\hline
+					\end{tabular}
+				\end{table}
+			\end{column}
+			\begin{column}{0.48\textwidth}
+				\centering
+				\begin{figure}
+					\begin{figure}[H]
+						\includegraphics[width=1\textwidth]{img/CurvaLyapunov2H.pdf}
+						\caption{Curva $-l_2$ en escala logarítmica, dentro del dominio biológicamente relevante $0 < H < (3 - \sqrt{6})/3$.}
+					\end{figure}
+				\end{figure}
+			\end{column}
+		\end{columns}
 	\end{frame}
 	
 \end{document}

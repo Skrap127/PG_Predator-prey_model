@@ -1,6 +1,6 @@
 \chapter{Marco teórico}
 
-Para el análisis del módelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea que se lleva acabo en el presente trabajo, requerimos de ciertos conceptos fundamentales, los cuales se abarcan en la presente sección con el objetivo de lograr una mejor compresión de todo lo que se presenta posteriormente.
+Para el análisis del módelo presa-depredador tipo Leslie-Gower con respuesta funcional sigmoidea que se lleva acabo en el presente trabajo, requerimos de ciertos conceptos fundamentales, los cuales se abarcan en la presente sección con el objetivo de lograr una mejor comprensión de todo lo que se presenta posteriormente. Más detalles sobre la teoría de las EDOs, pueden encontrarse por ejemplo en \cite{perko2001}.
 
 %\section*{Posible lista de conceptos a definir}
 %
@@ -87,35 +87,32 @@ Para el análisis del módelo presa-depredador tipo Leslie-Gower con respuesta f
 
 \section{Ecuaciones diferenciales ordinarias (EDOs)}
 
-Sean $U \subseteq \Rm, V \subseteq \Rn$ y $k\in \N_{0}$. Entonces $C^{k}(U, V)$ denota el conjunto de funciones de $U \longrightarrow V$ continuamente diferenciables hasta el orden k. Adicionalmente, para simplificar denotaremos $C^{k}(U, \R)$ como $C^{k}(U)$. Una \textit{ecuación difrencial ordinaria} o EDO es una ecuación para una función desconocida de una sola variable real, que no solo contiene a la función sino también a sus derivadas. De manera general una EDO es de la forma
+Sean $U \subseteq \Rm, V \subseteq \Rn$ y $k\in \N_{0}$. Entonces $C^{k}(U, V)$ denota el conjunto de funciones de $U \longrightarrow V$ continuamente diferenciables en $U$ hasta el orden $k$ inclusive. Adicionalmente, para simplificar denotaremos $C^{k}(U, \R)$ como $C^{k}(U)$. Una \textit{ecuación difrencial ordinaria} o EDO \cite[p. 6]{teschl2012} es una ecuación para una función desconocida de una sola variable real, que no sólo contiene a la función sino también algunas de sus derivadas. De manera general una EDO es de la forma:
 
 \begin{equation}
 	F(t, x, x^{(1)}, \cdots, x^{(k)}) = 0,
 	\label{eq: generalFormEDO}
 \end{equation}
 
-\noindent donde $F \in C(U)$ con $U$ un subconjunto abierto de $\R^{k+2}$, \linebreak $x = x(t) \in C^k(J)$ con $J \subseteq \R$ y
+\noindent donde $F \in C(U)$ con $U$ un subconjunto abierto de $\R^{k+2}$, $x = x(t) \in C^k(J)$ con $J \subseteq \R$ un conjunto abierto no vacío y
 
 \begin{equation*}
-	x^{(k)}(t) = \dfrac{d^{k}x(t)}{dt^{k}}, \quad k \in \N.
+	x^{(k)}(t) = \dfrac{d^{k}x(t)}{dt^{k}}, \quad k \in \N_0.
 \end{equation*}
 
-\noindent Al máximo orden $k$ de la derivada $x^{(k)}$ en \eqref{eq: generalFormEDO} se le llama el \textit{orden} de la ecuación diferencial. Frecuentemente a $t$ se le conoce como la \textit{variable independiente} y a $x$ como la \textit{variable dependiente}.
+\noindent Al máximo orden $k$ de la derivada $x^{(k)}$ en \eqref{eq: generalFormEDO} que interviene de manera no trivial en la ecuación (es decir, cuyo coeficiente no es idénticamente nulo en el dominio considerado), se le llama \textit{orden} de la ecuación diferencial. Frecuentemente a $t$ se le conoce como la \textit{variable independiente} y a $x$ como la \textit{variable dependiente}.
 
-Una \textit{solución} de la EDO \eqref{eq: generalFormEDO}, es una función $\phi \in C^{k}(I)$ con $I \subseteq J$ un intervalo real, tal que
+Una \textit{solución} de la EDO \eqref{eq: generalFormEDO}, es una función $\phi \in C^{k}(I)$ con $I \subseteq J$ un intervalo real abierto no vacío, tal que
 
 \begin{equation*}
-	F(t, \phi(t), \phi^{(1)}(t), \cdots, \phi^{(k)}(t)) = 0, \quad \text{para todo } t \in I.
+	F(t, \phi(t), \phi^{(1)}(t), \cdots, \phi^{(k)}(t)) \equiv 0, \quad \text{para todo } t \in I.
 \end{equation*}
 
-\noindent De ahora en adelante, asumiremos que se puede resolver $F$ para la derivada más alta, lo que resulta en una ecuación diferencial de la forma
-
-
-\begin{equation}
+De ahora en adelante asumiremos que se puede resolver $F$ para la derivada más alta, lo que resulta en una ecuación diferencial de la forma:
+\begin{equation*}
 	x^{(k)} = f(t, x, x^{(1)}, \ldots, x^{(k-1)}).
-	\label{eq:EDO}
-\end{equation}
-Por el teorema de la función implícita, esto se puede hacer al menos localmente cerca de algún punto $(t,y)\in U$ si la derivada parcial con respecto a la derivada más alta no se anula en ese punto $\dfrac{\partial F}{\partial y_{k}} (t,y) \neq 0$.
+\end{equation*}
+\noindent Cabe destacar que no siempre es posible despejar explícitamente la derivada de mayor orden en términos de funciones elementales (por ejemplo, en ecuaciones trascendentes como $\ln(x') + e^{x'} = 0$), ni tampoco en puntos singulares donde la condición de resolubilidad falla. Sin embargo, por el teorema de la función implícita dicho despeje se puede hacer al menos localmente cerca de algún punto $(t,y)\in U$, si la derivada parcial con respecto a la derivada más alta no se anula en ese punto $\frac{\partial F}{\partial y_{k}} (t,y) \neq 0$, donde $y = (y_0, y_1, \dots, y_k) \in \mathbb{R}^{k+1}$ representa el vector de la función y sus derivadas $(x, x', \dots, x^{(k)})$.
 
 Un \textit{sistema no lineal} de EDOs \textit{no autónomo} de primer orden es un sistema de la forma
 
@@ -124,7 +121,7 @@ Un \textit{sistema no lineal} de EDOs \textit{no autónomo} de primer orden es u
 	\label{eq:generalFormSisEDOs}
 \end{equation}
 
-\noindent donde $f:E \longrightarrow \Rn$ con $E$ un subconjunto abierto de $\R^{n+1}$, \linebreak $x = (x_{1}, \ldots, x_{n})$ y
+\noindent donde $f:E \longrightarrow \Rn$ con $E$ un subconjunto abierto de $\R^{n+1}$,  $f=(f_1,\ldots,f_n)$, $x(t) \equiv x = (x_{1}, \ldots, x_{n})$ y
 
 \begin{equation*}
 	\dot{x} = \dfrac{dx}{dt} = 
@@ -151,34 +148,36 @@ Un \textit{sistema lineal no autónomo} es un sistema de la forma
 	\label{eq: sistemaLineal}
 \end{equation*}
 
-\noindent donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogéneo}, además si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y sino \textit{acoplado}, si $b(t) \neq 0$ el sistema es \textit{no homogéneo}. Un \textit{sistema lineal autónomo} es un sistema de la forma
+\noindent donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogéneo}; además, si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y en caso contrario se llama \textit{acoplado}. Si $b(t) \neq \vec{0}$ el sistema es \textit{no homogéneo}. Un \textit{sistema lineal autónomo} es un sistema de la forma
 
 \begin{equation}
 	\dot{x} = Ax.
 	\label{eq: sisLinAuto}
 \end{equation}
 
-\begin{teo}[Existencia y unicidad]\label{teo: Existencia y unicidad}
-	Sea $E$ un subconjunto abierto de $\Rn$ que contiene a $x_{0}$ y $f \in C^{1}(E)$. Entonces existe un $a>0$ tal que el problema de valor inicial 
+\begin{teo}[Existencia y unicidad]\cite[p. 74]{perko2001}\label{teo: Existencia y unicidad}
+	Sea $E$ un subconjunto abierto de $\Rn$ que contiene a $x_{0}$ y $f \in C^{1}(E)$. Entonces existe un $a>0$ tal que el problema de valor inicial (PVI):
 	\begin{equation}
 		\left\{
 		\begin{aligned}
 			\dot{x} = f(x), \\
-			x(0) = x_{0},
+			x(t_0) = x_{0},
 		\end{aligned}
 		\right.
 		\label{eq: pvi}
 	\end{equation}
-	tiene una única solución en el intervalo $[-a,a]$.
+	tiene una única solución en el segmento $[-a,a]$, donde $t_0$ representa el instante inicial.
 \end{teo}
 
-\noindent Sea $J=(\alpha, \beta)$ la unión de todos los intervalos abiertos $I$ tales que \eqref{eq: pvi} tiene una solución en $I$, llamamos a $J$ el \textit{intervalo maximal de existencia} del PVI \eqref{eq: pvi}.
+\noindent Sea $J$ la unión de todos los intervalos abiertos $I$ que contienen a $t_0$ tales que el PVI \eqref{eq: pvi} tiene solución en $I$. Puesto que todos estos intervalos contienen el punto $t_0$, su unión $J = (\alpha, \beta)$ es conexa y, por lo tanto, constituye un intervalo abierto, al cual llamamos el \textit{intervalo maximal de existencia} del PVI \eqref{eq: pvi} \cite[pp. 89--90]{perko2001}.
+
+%\noindent Sea $J=(\alpha, \beta)$ la unión de todos los intervalos abiertos $I$ tales que \eqref{eq: pvi} tiene una solución en $I$, llamamos a $J$ el \textit{intervalo maximal de existencia} del PVI \eqref{eq: pvi} \cite[pp. 89--90]{perko2001}.
 
 \begin{defi}
-	Sean $E$ un subconjunto abierto de $\Rn$, $f \in C^{1}(E)$, $x_{0} \in E$ y $\phi_{t}(x_{0})$ la solución del PVI \eqref{eq: pvi} en el intervalo maximal de existencia $I(x_{0})$. Entonces para $t\in I(x_{0})$, el conjunto de funciones $\phi_{t}$ defindas por $\phi_{t}(x_{0}) = \phi(t, x_{0})$ es llamado el flujo de la ecuación diferencial \eqref{eq: sisAut} o también el flujo del campo vectorial $f(x)$.
+	Sean $E$ un subconjunto abierto de $\Rn$, $f \in C^{1}(E)$, $x_{0} \in E$ y $\phi_{t}(x_{0})$ la solución del PVI \eqref{eq: pvi} en el intervalo maximal de existencia $I(x_{0})$. Entonces para $t\in I(x_{0})$, el conjunto de funciones $\phi_{t}$ defindas por $\phi_{t}(x_{0}) = \phi(t, x_{0})$ es llamado el flujo de la ecuación diferencial \eqref{eq: sisAut} o también el flujo del campo vectorial $f(x)$ \cite[p. 96]{perko2001}.
 \end{defi}
 
-\noindent El sistema \eqref{eq: sisAut} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del sistema \eqref{eq: sisAut} también se denominan \textit{curvas solución}, \textit{trayectorias} u \textit{órbitas}. Esto, en el sentido cualitativo. El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: sisAut} en el plano $\Rn$. \\
+\noindent El sistema \eqref{eq: sisAut} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del sistema \eqref{eq: sisAut} también se denominan \textit{curvas solución}, \textit{trayectorias} u \textit{órbitas} \cite[p. 128]{teschl2012}. Esto, en el sentido cualitativo. El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: sisAut} en el plano $\Rn$ \cite[pp. 53--54]{guckenheimer1983}. \\
 
 Un sistema \eqref{eq: sisAut} bidimensional o planar se puede expresar de la forma
 \begin{equation}
@@ -214,7 +213,7 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/CicloLimEstInest.pdf}
-	\caption{Ciclos límite del sistema \eqref{eq: sisAut} asociado a \linebreak $f(x, y) = (-y + x(r^{4} -3r^{2} + 1), x + y(r^{4} -3r^{2} + 1))$ con $r^{2} = x^{2} + y^{2}$.}
+	\caption{Ciclos límite del sistema \eqref{eq: sisAut} asociado a  $f(x, y) = (-y + x(r^{4} -3r^{2} + 1), x + y(r^{4} -3r^{2} + 1))$ con $r^{2} = x^{2} + y^{2}$.}
 	\label{fig: CicloLimiteEstableInestable}
 \end{figure}
 
@@ -231,7 +230,7 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 \end{defi}
 
 \begin{defi}
-	Un punto crítico $x_{0} \in \Rn$ es llamado un sumidero de \eqref{eq: sisAut} si todos los valores propios de la matriz jacobiana $Df(x_{0})$ tienen parte real negativa; es llamado una fuente de \eqref{eq: sisAut} si todos los valores propios de la matriz $Df(x_{0})$ tienen parte real positiva; y es llamado un punto silla de \eqref{eq: sisAut} si es un punto crítico hiperbólico y $Df(x_{0})$ tiene al menos un valor propio con parte real positiva y al menos un valor propio con parte real negativa.
+	Un punto crítico $x_{0} \in \Rn$ es llamado un sumidero de \eqref{eq: sisAut} si todos los valores propios de la matriz jacobiana $Df(x_{0})$ tienen parte real negativa; es llamado una fuente de \eqref{eq: sisAut} si todos los valores propios de la matriz $Df(x_{0})$ tienen parte real positiva; y es llamado un punto silla de \eqref{eq: sisAut} si es un punto crítico hiperbólico y $Df(x_{0})$ tiene al menos un valor propio con parte real positiva y al menos un valor propio con parte real negativa. \cite[p. 102]{perko2001}
 \end{defi}
 
 \begin{figure}[H]
@@ -242,10 +241,11 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 \end{figure}
 
 \begin{defi}
-	Sean $E$ un subconjunto de $\Rn$, $f \in C^{1}(E)$ y $\phi_{t}$ el flujo del sistema \eqref{eq: sisAut} definida para todo $t \in \R$. Entonces un conjunto $S \subset E$ es llamado invariante con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t\in \R$, y $S$ es llamado invariante positivo (o negativo) con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t \geq 0$ (o $t\leq0$). Si además, $S$ es un conjunto conexo y cerrado, decimos que $S$ es una región de atrapamiento o ``trapping region" \cite[p. 204]{strogatz2014}.
+	Sean $E$ un subconjunto de $\Rn$, $f \in C^{1}(E)$ y $\phi_{t}$ el flujo del sistema \eqref{eq: sisAut} definida para todo $t \in \R$. Entonces un conjunto $S \subset E$ es llamado invariante con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t\in \R$, y $S$ es llamado invariante positivo (o negativo) con respecto al flujo $\phi_{t}$ si $\phi_{t} \subset S$ para todo $t \geq 0$ (o $t\leq0$) \cite[p. 99]{perko2001}. Si además, $S$ es un conjunto conexo y cerrado, decimos que $S$ es una región de atrapamiento o ``trapping region" \cite[p. 204]{strogatz2014}.
 \end{defi}
 
-\begin{teo}[Poincaré-Bendixson]\label{teo: poincareB}
+\begin{teo}[Poincaré-Bendixson] \cite[p. 203]{strogatz2014}
+	\label{teo: poincareB}
 	Suponga que:
 	\begin{enumerate}
 		\item $R$ es un subconjunto cerrado y acotado en el plano;
@@ -264,12 +264,12 @@ En algunas ocasiones las trayectorias o curvas solución de un sistema pueden se
 			W^{u}(x_{0}) &= \{ x\in U | \phi_{t}(x) \rightarrow x_{0} \text{ cuando } t\rightarrow -\infty, \text{y } \phi_{t}(x)\in U \text{ para todo } t \leq 0 \},
 		\end{aligned}
 	\end{equation*}
-	donde $U \subseteq \Rn$ es una vecindad del punto crítico $x_{0}$. Si $U = \Rn$ los conjuntos $W^{s}(x_{0})$ y $W^{u}(x_{0})$ son llamados las variedades globales estable e inestable, respectivamente, del punto crítico $x_{0}$. 
+	donde $U \subseteq \Rn$ es una vecindad del punto crítico $x_{0}$. Si $U = \Rn$ los conjuntos $W^{s}(x_{0})$ y $W^{u}(x_{0})$ son llamados las variedades globales estable e inestable, respectivamente, del punto crítico $x_{0}$ \cite[p. 13]{guckenheimer1983}.
 \end{defi}
 
-En ocasiones puede ocurrir que ciertas orbitas inician en la variedad inestable de un punto crítico $x_{0}$ y finalizan en la variedad estable de otro punto crítico $x_{1}$. Tales trayectorias son llamadas \textit{órbitas heteroclínicas} si $x_{0} \neq x_{1}$ y \textit{órbitas homoclínicas} si $x_{0} = x_{1}$. \\
+En ocasiones puede ocurrir que ciertas orbitas inician en la variedad inestable de un punto crítico $x_{0}$ y finalizan en la variedad estable de otro punto crítico $x_{1}$. Tales trayectorias son llamadas \textit{órbitas heteroclínicas} si $x_{0} \neq x_{1}$ y \textit{órbitas homoclínicas} si $x_{0} = x_{1}$ \cite[p. 150]{teschl2012}. \\
 
-Algo también de relevancia que se puede observar en la \autoref{fig:comparacion}, es que las trayectorias resaltadas dividen el plano de fases en regiones con diferentes comportamientos cualitativos, por ejemplo, la órbita homoclínica de la \linebreak \autoref{fig: homoclinic} divide el plano de fase en dos regiones: una con un comportamiento hiperbólico y la otra con una dinámica periódica alrededor del punto $(0,1)$. Dichas trayectorias con esta cualidad son denominadas \textit{separatrices}.
+Algo también de relevancia que se puede observar en la \autoref{fig:comparacion}, es que las trayectorias resaltadas dividen el plano de fases en regiones con diferentes comportamientos cualitativos, por ejemplo, la órbita homoclínica de la  \autoref{fig: homoclinic} divide el plano de fase en dos regiones: una con un comportamiento hiperbólico y la otra con una dinámica periódica alrededor del punto $(0,1)$. Dichas trayectorias con esta cualidad son denominadas \textit{separatrices} \cite[p. 159]{strogatz2014}.
 
 \begin{figure}[H]
 	\centering
@@ -288,7 +288,8 @@ Algo también de relevancia que se puede observar en la \autoref{fig:comparacion
 	\label{fig:comparacion}
 \end{figure}
 
-\begin{teo}[Hartman-Grobman]\label{teo: hartman}
+\begin{teo}[Hartman-Grobman] \cite[pp. 120--121]{perko2001}
+	\label{teo: hartman}
 	Sea $E$ un subconjunto abierto de $\Rn$ que contiene al origen, sea $f \in C^{1}(E)$, y sea $\phi_{t}$ el flujo del sistema no lineal \eqref{eq: sisAut}. Suponga que $0$ es un punto crítico hiperbólico. Entonces existe un homeomorfismo $H$ de un conjunto abierto $U$ que contiene al origen hacia un conjunto abierto $V$ que contiene al origen, tal que para cada $x_{0} \in U$, existe un intervalo abierto $I_{0} \subset \R$ que contiene al cero, tal que para todo $x_{0} \in U$ y $t \in I_{0}$
 	
 	\begin{equation*}
@@ -298,7 +299,7 @@ Algo también de relevancia que se puede observar en la \autoref{fig:comparacion
 	\noindent es decir, H mapea trayectorias de \eqref{eq: sisAut} que estan cerca del origen, hacia trayectorias de \eqref{eq: sisLinAuto} cerca al origen preservando la parametrización por tiempo.
 \end{teo}
 
-\noindent Este importante teorema nos indica que el retrato fase cerca a un punto crítico hiperbólico es topológicamente equivalente al retrato fase de la linealización en dicho punto de equilibrio. Aquí, la \textit{equivalencia topológica} es dada principalmente por la existencia de un \textit{homeomorfismo} (una deformación continua con inversa continua) que mapea trayectorias de un retrato fase local hacia el otro, preservando el sentido del tiempo (o la orientación de las trayectorias), lo cual es posible saberlo a través del determinante de la matriz jacobiana del homeomorfismo, si este es estrictamente positivo, decimos que la transformación preserva el sentido del tiempo o, en caso contrario (determinante negativo), la orientación se revierte. Intuitivamente, dos retratos fases son topológicamente equivalentes si una es una versión distorsionada de la otra. A modo de ejemplo, considere la \autoref{fig: exampleHartman}. \\
+\noindent Este importante teorema nos indica que el retrato fase cerca a un punto crítico hiperbólico es topológicamente equivalente al retrato fase de la linealización en dicho punto de equilibrio \cite[p. 155]{strogatz2014}. Aquí, la \textit{equivalencia topológica} es dada principalmente por la existencia de un \textit{homeomorfismo} (una deformación continua con inversa continua) que mapea trayectorias de un retrato fase local hacia el otro, preservando el sentido del tiempo (o la orientación de las trayectorias), lo cual es posible saberlo a través del determinante de la matriz jacobiana del homeomorfismo, si este es estrictamente positivo, decimos que la transformación preserva el sentido del tiempo o, en caso contrario (determinante negativo), la orientación se revierte. Intuitivamente, dos retratos fases son topológicamente equivalentes si una es una versión distorsionada de la otra. A modo de ejemplo, considere la \autoref{fig: exampleHartman}. \\
 
 \begin{figure}[H]
 	\centering
@@ -307,7 +308,7 @@ Algo también de relevancia que se puede observar en la \autoref{fig:comparacion
 	\label{fig: exampleHartman}
 \end{figure}
 
-Dada la posibilidad de que existan puntos críticos no hiperbólicos en el sistema \eqref{eq: sisAut}, es decir, puntos $x_{0}$ donde alguno de los valores propios de la matriz jacobiana $Df(x_0)$ posee parte real nula, resulta de interés analizar el comportamiento dinámico local en dichos puntos. En estas singularidades no es posible aplicar directamente el \Cref{teo: hartman}, aunque el Teorema de la variedad central nos permita analizar el comportamiento local en los puntos críticos no hiperbólicos donde su matriz jacobiana no se anule (puntos críticos no degenerados), es de nuestro interés analizar el comportamiento de las singularidades que no cumplan esta ultima condición, por lo que se procede a realizar un cambio de coordenadas con el objetivo de eliminar la singularidad y, de esta manera, poder estudiar el comportamiento cualitativo en su entorno mediante uno de estos teoremas. A este procedimiento se le denomina \textit{desingularización del campo vectorial} \eqref{eq: sisAut}. Existen diversas técnicas para desingularizar un sistema dinámico, sin embargo, en este trabajo se enfocará en la desingularización a través del \textit{método de blowing-up} o \textit{blow-up}.
+Dada la posibilidad de que existan puntos críticos no hiperbólicos en el sistema \eqref{eq: sisAut}, es decir, puntos $x_{0}$ donde alguno de los valores propios de la matriz jacobiana $Df(x_0)$ posee parte real nula, resulta de interés analizar el comportamiento dinámico local en dichos puntos. En estas singularidades no es posible aplicar directamente el \Cref{teo: hartman}, aunque el Teorema de la variedad central nos permita analizar el comportamiento local en los puntos críticos no hiperbólicos donde su matriz jacobiana no se anule (puntos críticos no degenerados), es de nuestro interés analizar el comportamiento de las singularidades que no cumplan esta ultima condición, por lo que se procede a realizar un cambio de coordenadas con el objetivo de eliminar la singularidad y, de esta manera, poder estudiar el comportamiento cualitativo en su entorno mediante uno de estos teoremas. A este procedimiento se le denomina \textit{desingularización del campo vectorial} \eqref{eq: sisAut}. Existen diversas técnicas para desingularizar un sistema dinámico, sin embargo, en este trabajo se enfocará en la desingularización a través del \textit{método de blowing-up} o \textit{blow-up} \cite[p. 91]{Dumortier2006}, \cite[p. 362]{guckenheimer1983}, \cite[p. 64]{Chicone2024}.
 
 \subsection*{Blow-up en $ \R^2$}
 \addcontentsline{toc}{subsection}{Blow-up en $ \R^2$}
@@ -355,7 +356,7 @@ Podemos definir un campo vectorial suave, $\tilde{X}$ en el cilindro $\mathbb{S}
 %
 %en el sentido de que $\psi=\psi^{y}\circ K^{y}$. Llamamos a esto un \textit{blow-up en la dirección $y$}; el retroceso de $X$ mediante $\psi^{y}$ se denota por $\tilde{X}^{y}$, es decir $(\psi^{y})_{*}(\tilde{X}^{y})=X$. Tanto $\psi^{x}$ como $\psi^{y}$ se llaman \textit{blow-ups direccionales}.
 
-Como se mencionó anteriormente, al aplicar el blow-up al origen, este se transforma en un conjunto que puede contener nuevos puntos de equilibrio. Si alguno de estos puntos no resulta ser hiperbolico, es posible iterar nuevamente el proceso hasta que se logre lo ideal. De este modo, tras un número finito de blow-ups sucesivos, se puede determinar el retrato de fase local asociado a la singularidad original.
+Como se mencionó anteriormente, al aplicar el blow-up al origen, este se transforma en un conjunto que puede contener nuevos puntos de equilibrio. Si alguno de estos puntos no resulta ser hiperbolico, es posible iterar nuevamente el proceso hasta que se logre lo ideal. De este modo, tras un número finito de blow-ups sucesivos, se puede determinar el retrato de fase local asociado a la singularidad original \cite[p. I]{Dumortier2006}.
 
 %\subsection{Compactificación de Poincaré}
 %Al investigar la estructura cualitativa del retrato de fase de sistemas de ecuaciones diferenciales ordinarias (EDOs) definidos en todo el plano, resulta especialmente relevante comprender el comportamiento de las trayectorias a medida que las variables $x$ e $y$ tienden a infinito, es decir, su comportamiento ``en el infinito''.
@@ -404,7 +405,7 @@ Si
 	\dot{x} = f_{\mu}(x), \quad x \in \Rn, \quad \mu \in \R^{k},
 	\label{eq: sisParametro}
 \end{equation}
-es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, la estructura cualitativa del flujo puede cambiar, en particular, puntos críticos pueden ser creados o destruidos, o también su estabilidad puede cambiar, de igual manera trayectorias cerradas pueden aparecer o desaparecer. Estos cambios cualitativos en las dinámicas del sistema son llamadas \textit{bifurcaciones} y los valores paramétricos para los cuales este cambio ocurre son llamados \textit{valores de bifurcación}. Dependiendo del comportamiento del sistema al manipular dichos parámetros surgen diversos tipos de bifurcación. Sin perdida de generalidad vamos a suponer que en cada un de los tipos de bifurcación que veremos a continuación el valor de bifurcación es $\mu=0$.
+es un sistema de ecuaciones diferenciales que depende del parámetro $k$-dimensional $\mu$, entonces los puntos de equilibrio de \eqref{eq: sisParametro} son dados por las soluciones de la ecuación $f_{\mu}(x) = 0$. Cuando $\mu$ varia, la estructura cualitativa del flujo puede cambiar, en particular, puntos críticos pueden ser creados o destruidos, o también su estabilidad puede cambiar, de igual manera trayectorias cerradas pueden aparecer o desaparecer. Estos cambios cualitativos en las dinámicas del sistema son llamadas \textit{bifurcaciones} y los valores paramétricos para los cuales este cambio ocurre son llamados \textit{valores de bifurcación} \cite[p. 118]{guckenheimer1983}, \cite[Caps. 3 y 8]{strogatz2014}. Dependiendo del comportamiento del sistema al manipular dichos parámetros surgen diversos tipos de bifurcación. Sin perdida de generalidad vamos a suponer que en cada un de los tipos de bifurcación que veremos a continuación el valor de bifurcación es $\mu=0$.
 
 \subsection{Bifurcación silla-nodo}
 
@@ -473,7 +474,7 @@ De manera similar que en el supercrítico ahora los puntos críticos solo existe
 
 \subsection{Bifurcaciones de Hopf}
 
-Supongamos que un sistema bidimensional tiene un punto crítico estable, el cual, existe para cualquier valor paramétrico. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$? Los autovalores del Jacobiano son la clave. Si el punto crítico es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ en el plano complejo, deben estar en el semiplano izquierdo Re$\lambda <0$. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos o bien son conjugados complejos. Para desestabilizar el punto crítico, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, analíticamente, este hecho se ve reflejado de la siguiente manera: considere los valores propios complejos del jacobiano como $\lambda(\mu)=\alpha(\mu) \pm i\omega(\mu)$. En el valor de bifurcación $\mu=\mu_0$ el jacobiano debe poseer valores propios complejos puros, es decir, $\alpha(\mu_0)=0$ y $\omega(\mu_0)>0$, conocida como \textit{condición espectral}; ahora, el hecho de que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, se describe mediante la \textit{condición de transversalidad} $$\left. \dfrac{d}{d\mu}(\alpha(\mu)) \right|_{\mu=\mu_0} \neq 0.$$ Además, el \textit{primer coeficiente de Lyapunov} ($l_1$) no debe anularse, este coeficiente será especificado más adelante, bajo estas condiciones decimos que ocurre una \textit{bifurcación de Hopf} en $\mu=\mu_0$. Dado el caso de que $l_1 = 0$, y la aplicación $\mu \mapsto (\alpha(\mu), l_1(\mu))$, sea regular en $\mu=\mu_0$, en el sentido que
+Supongamos que un sistema bidimensional tiene un punto crítico estable, el cual, existe para cualquier valor paramétrico. ¿Cuáles son las posibles maneras en que podría perder estabilidad al variar un parámetro $\mu$? Los autovalores del Jacobiano son la clave. Si el punto crítico es estable, los autovalores $\lambda _{1}$, $\lambda _{2}$ en el plano complejo, deben estar en el semiplano izquierdo Re$\lambda <0$ \cite[p. 196]{strogatz2014}. Dado que las $\lambda$'s satisfacen una ecuación cuadrática con coeficientes reales, existen dos posibles escenarios: o bien los autovalores son reales y negativos o bien son conjugados complejos. Para desestabilizar el punto crítico, necesitamos que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, analíticamente, este hecho se ve reflejado de la siguiente manera: considere los valores propios complejos del jacobiano como $\lambda(\mu)=\alpha(\mu) \pm i\omega(\mu)$. En el valor de bifurcación $\mu=\mu_0$ el jacobiano debe poseer valores propios complejos puros, es decir, $\alpha(\mu_0)=0$ y $\omega(\mu_0)>0$, conocida como \textit{condición espectral}; ahora, el hecho de que uno o ambos autovalores crucen al semiplano derecho al variar $\mu$, se describe mediante la \textit{condición de transversalidad} $$\left. \dfrac{d}{d\mu}(\alpha(\mu)) \right|_{\mu=\mu_0} \neq 0.$$ Además, el \textit{primer coeficiente de Lyapunov} ($l_1$) no debe anularse, este coeficiente será especificado más adelante, bajo estas condiciones decimos que ocurre una \textit{bifurcación de Hopf} en $\mu=\mu_0$. Dado el caso de que $l_1 = 0$, y la aplicación $\mu \mapsto (\alpha(\mu), l_1(\mu))$, sea regular en $\mu=\mu_0$, en el sentido que
 \begin{equation*}
 	\det \left. \begin{pmatrix}
 		\dfrac{\partial \alpha(\mu)}{\partial A} & \dfrac{\partial \alpha(\mu)}{\partial B} \\[6pt]
@@ -511,7 +512,7 @@ Dentro de la biología matemática, los modelos ecológicos desempeñan un papel
 
 \noindent Los modelos basados en crecimiento exponencial resultan poco realistas a largo plazo, ya que no consideran limitaciones ambientales ni de recursos. Por ello, los modelos logísticos, en los que $P(t)$ presenta un crecimiento limitado y controlado por la capacidad del entorno, resultan más relevantes para el estudio de poblaciones reales. A estos modelos se les denomina \textit{ecuaciones logísticas}. 
 
-\noindent Por ejemplo en los modelos presa-depredador, los efectos beneficiosos que la comida tiene sobre los depredadores individuales son evidentes. En general, cuanto más alimento consumen los depredadores, mayores son sus tasas de crecimiento, desarrollo y natalidad, y menores sus tasas de mortalidad. Esto, después de todo, es la base de la competencia intraespecífica: las altas densidades, que implican pequeñas cantidades de alimento por individuo, conducen a bajas tasas de crecimiento, altas tasas de mortalidad, etc. Sin embargo, existen diversas maneras en que las relaciones entre la tasa de consumo y el beneficio para el consumidor pueden ser más complejas de lo que parecen inicialmente. A estas relaciones se le denominan \textit{respuestas funcionales} y se dividen en varios tipos. Holling (1959) fue el primero en distinguir tres tipos de respuesta funcional.
+\noindent Por ejemplo en los modelos presa-depredador, los efectos beneficiosos que la comida tiene sobre los depredadores individuales son evidentes. En general, cuanto más alimento consumen los depredadores, mayores son sus tasas de crecimiento, desarrollo y natalidad, y menores sus tasas de mortalidad. Esto, después de todo, es la base de la competencia intraespecífica: las altas densidades, que implican pequeñas cantidades de alimento por individuo, conducen a bajas tasas de crecimiento, altas tasas de mortalidad, etc. Sin embargo, existen diversas maneras en que las relaciones entre la tasa de consumo y el beneficio para el consumidor pueden ser más complejas de lo que parecen inicialmente. A estas relaciones se le denominan \textit{respuestas funcionales} y se dividen en varios tipos. Holling (1959) fue el primero en distinguir tres tipos de respuesta funcional \cite[p. 79]{murray2002}.
 \subsection{Respuesta funcional tipo 1}
 La respuesta funcional más básica, la de tipo 1, es la que se asume por ejemplo en las ecuaciones de Lotka-Volterra: la tasa de consumo aumenta linealmente con la densidad de presas. Esto se indica mediante la constante $b$ en el sistema \ref{eq: lotka-volterra}.
 
