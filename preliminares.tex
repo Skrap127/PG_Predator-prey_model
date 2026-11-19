@@ -42,7 +42,7 @@ Para el análisis del módelo presa-depredador tipo Leslie-Gower con respuesta f
 %		\item Puntos críticos y clasificación \checkmark \cite[p. 102]{perko2001}
 %		\item Conjuntos invariantes \checkmark \cite[p. 99]{perko2001}
 %		\item Separatrices  \checkmark \cite[p. 159]{strogatz2014}
-%		\item Compactificación de Poincaré \checkmark \cite[p. 216]{Andronov1973} \cite[p. 66]{Chicone2024}
+%		\item Compactificación de Poincaré \checkmark \cite[p. 216]{Andronov1973} \cite[p. 66]{chicone2024}
 %		\item Variedades estables e inestables \checkmark \cite[p. 13]{guckenheimer1983}
 %		\item Reescalamiento y reparametrización temporal
 %		\item Desingularización (incluyendo blowing-up)
@@ -112,44 +112,79 @@ De ahora en adelante asumiremos que se puede resolver $F$ para la derivada más 
 \begin{equation*}
 	x^{(k)} = f(t, x, x^{(1)}, \ldots, x^{(k-1)}).
 \end{equation*}
-\noindent Cabe destacar que no siempre es posible despejar explícitamente la derivada de mayor orden en términos de funciones elementales (por ejemplo, en ecuaciones trascendentes como $\ln(x') + e^{x'} = 0$), ni tampoco en puntos singulares donde la condición de resolubilidad falla. Sin embargo, por el teorema de la función implícita dicho despeje se puede hacer al menos localmente cerca de algún punto $(t,y)\in U$, si la derivada parcial con respecto a la derivada más alta no se anula en ese punto $\frac{\partial F}{\partial y_{k}} (t,y) \neq 0$, donde $y = (y_0, y_1, \dots, y_k) \in \mathbb{R}^{k+1}$ representa el vector de la función y sus derivadas $(x, x', \dots, x^{(k)})$.
+\noindent Cabe destacar que no siempre es posible despejar explícitamente la derivada de mayor orden en términos de funciones elementales (por ejemplo, en ecuaciones trascendentes como $\ln(x') + e^{x'} = 0$). Sin embargo, por el teorema de la función implícita dicho despeje se puede hacer al menos localmente cerca de algún punto $(t,y)\in U$, si la derivada parcial con respecto a la derivada más alta no se anula en ese punto $\frac{\partial F}{\partial y_{k}} (t,y) \neq 0$, donde $y = (y_0, y_1, \dots, y_k) \in \mathbb{R}^{k+1}$ representa el vector de la función y sus derivadas $(x, x', \dots, x^{(k)})$.
 
-Un \textit{sistema no lineal} de EDOs \textit{no autónomo} de primer orden es un sistema de la forma
+%Un \textit{sistema no lineal} de EDOs \textit{no autónomo} de primer orden es un sistema de la forma
+%
+%\begin{equation}
+%	\dot{x} = f(t, x),
+%	\label{eq:generalFormSisEDOs}
+%\end{equation}
+%
+%\noindent donde $f:\tilde{E} \longrightarrow \Rn$ con $\tilde{E}$ un subconjunto abierto de $\R^{n+1}$,  $f=(f_1,\ldots,f_n)$, $x(t) \equiv x = (x_{1}, \ldots, x_{n})$ y
+%
+%\begin{equation*}
+%	\dot{x} = \dfrac{dx}{dt} = 
+%	\begin{bmatrix}
+%		\dfrac{dx_{1}}{dt} \\
+%		\vdots \\
+%		\dfrac{dx_{n}}{dt}
+%	\end{bmatrix}.
+%\end{equation*}
+%
+%\noindent Si la función $f$ en \eqref{eq:generalFormSisEDOs} no depende de $t$ entonces $f:E \longrightarrow \Rn$ con $E$ un subconjunto abierto de $\Rn$ y al sistema 
+%
+%\begin{equation}
+%	\dot{x} = f(x),
+%	\label{eq: sisAut}
+%\end{equation} 
+%
+%\noindent se le conoce como un \textit{sistema autónomo}.
+%
+%Un \textit{sistema lineal no autónomo} es un sistema de la forma
+%
+%\begin{equation*}
+%	\dot{x} = A(t)x + b(t),
+%	\label{eq: sistemaLineal}
+%\end{equation*}
+%
+%\noindent donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogéneo}; además, si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y en caso contrario se llama \textit{acoplado}. Si $b(t) \neq \vec{0}$ el sistema es \textit{no homogéneo}.
+%
+%\noindent Un \textit{sistema lineal autónomo} es un sistema de la forma
+%
+%\begin{equation}
+%	\dot{x} = Ax.
+%	\label{eq: sisLinAuto}
+%\end{equation}
 
+
+Un \textit{sistema de EDOs no lineal y no autónomo} de primer orden es un sistema de la forma
 \begin{equation}
 	\dot{x} = f(t, x),
-	\label{eq:generalFormSisEDOs}
+	\label{eq: generalFormSisEDOs}
 \end{equation}
-
-\noindent donde $f:E \longrightarrow \Rn$ con $E$ un subconjunto abierto de $\R^{n+1}$,  $f=(f_1,\ldots,f_n)$, $x(t) \equiv x = (x_{1}, \ldots, x_{n})$ y
-
+donde $f: \Omega \longrightarrow \Rn$ es una función continua definida sobre un conjunto abierto $\Omega \subset \R \times \Rn$. Aquí, $f = (f_1, \ldots, f_n)^\top$, el vector de estado $x$ se define como $x(t) = (x_{1}(t), \ldots, x_{n}(t))^\top \in \mathbb{R}^n$ y su derivada con respecto al tiempo viene dada por
 \begin{equation*}
 	\dot{x} = \dfrac{dx}{dt} = 
 	\begin{bmatrix}
-		\dfrac{dx_{1}}{dt} \\
-		\vdots \\
-		\dfrac{dx_{n}}{dt}
-	\end{bmatrix}.
+			\dfrac{dx_{1}}{dt} \\
+			\vdots \\
+			\dfrac{dx_{n}}{dt}
+		\end{bmatrix}.
 \end{equation*}
 
-\noindent Si la función $f$ en \eqref{eq:generalFormSisEDOs} no depende de $t$ entonces $f:\tilde{E} \longrightarrow \Rn$ con $\tilde{E}$ un subconjunto abierto de $\Rn$ y al sistema 
-
+Si la función $f$ en \eqref{eq: generalFormSisEDOs} no depende de $t$ entonces $f: E \longrightarrow \mathbb{R}^n$ con $E$ un subconjunto abierto de $\Rn$ y al sistema 
 \begin{equation}
 	\dot{x} = f(x),
 	\label{eq: sisAut}
 \end{equation} 
+se le conoce como un \textit{sistema autónomo}.
 
-\noindent se le conoce como un \textit{sistema autónomo}.
-
-Un \textit{sistema lineal no autónomo} es un sistema de la forma
-
+Por otra parte, un \textit{sistema lineal no autónomo} de primer orden es un sistema de la forma
 \begin{equation*}
 	\dot{x} = A(t)x + b(t),
-	\label{eq: sistemaLineal}
 \end{equation*}
-
-\noindent donde $A(t)$ es una matriz $n \times n$ y $b(t)$ es un vector de $\Rn$. Si $b(t) = 0$ el sistema es \textit{homogéneo}; además, si $A$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y en caso contrario se llama \textit{acoplado}. Si $b(t) \neq \vec{0}$ el sistema es \textit{no homogéneo}. Un \textit{sistema lineal autónomo} es un sistema de la forma
-
+donde $A(t)$ es una matriz de entradas continuas de tamaño $n \times n$ y $b(t) \in \Rn$ es un vector continuo. Si $b(t) = 0$ el sistema es \textit{homogéneo}; además, si $A(t)$ es una matriz diagonal decimos que el sistema es \textit{desacoplado} y en caso contrario se llama \textit{acoplado}. Si $b(t) \neq \vec{0}$ el sistema es \textit{no homogéneo}. Finalmente, cuando la matriz $A$ no depende de $t$ y $b(t) = \vec{0}$, se obtiene un \textit{sistema lineal autónomo}:
 \begin{equation}
 	\dot{x} = Ax.
 	\label{eq: sisLinAuto}
@@ -161,59 +196,66 @@ Un \textit{sistema lineal no autónomo} es un sistema de la forma
 		\left\{
 		\begin{aligned}
 			\dot{x} = f(x), \\
-			x(t_0) = x_{0},
+			x(0) = x_{0},
 		\end{aligned}
 		\right.
 		\label{eq: pvi}
 	\end{equation}
-	tiene una única solución en el segmento $[-a,a]$, donde $t_0$ representa el instante inicial.
+%	tiene una única solución en el segmento $[-a,a]$, donde $t_0$ representa el instante inicial.
+    tiene una única solución $\phi(t, x_0)$ en el segmento $[-a,a]$; es decir, existe una única función continuamente diferenciable $\phi: [-a,a] \longrightarrow E$ que satisface $\dot{\phi}(t, x_0) = f(\phi(t, x_0))$ para todo $t \in [-a,a]$ y cumple la condición inicial $\phi(0, x_0) = x_0$.
 \end{teo}
 
-\noindent Sea $J$ la unión de todos los intervalos abiertos $I$ que contienen a $t_0$ tales que el PVI \eqref{eq: pvi} tiene solución en $I$. Puesto que todos estos intervalos contienen el punto $t_0$, su unión $J = (\alpha, \beta)$ es conexa y, por lo tanto, constituye un intervalo abierto, al cual llamamos el \textit{intervalo maximal de existencia} del PVI \eqref{eq: pvi} \cite[pp. 89--90]{perko2001}.
+\noindent Sea $J$ la unión de todos los intervalos abiertos $I$ que contienen al origen $t = 0$ tales que el PVI \eqref{eq: pvi} posee solución en $I$. Puesto que todos estos intervalos contienen al punto $t = 0$, su unión $J = (\alpha, \beta)$ es conexa y, por lo tanto, constituye un intervalo abierto, al cual llamamos el \textit{intervalo maximal de existencia} del PVI \eqref{eq: pvi} \cite[pp.~89--90]{perko2001}.
 
 %\noindent Sea $J=(\alpha, \beta)$ la unión de todos los intervalos abiertos $I$ tales que \eqref{eq: pvi} tiene una solución en $I$, llamamos a $J$ el \textit{intervalo maximal de existencia} del PVI \eqref{eq: pvi} \cite[pp. 89--90]{perko2001}.
 
 \begin{defi}
-	Sean $E$ un subconjunto abierto de $\Rn$, $f \in C^{1}(E)$, $x_{0} \in E$ y $\phi_{t}(x_{0})$ la solución del PVI \eqref{eq: pvi} en el intervalo maximal de existencia $I(x_{0})$. Entonces para $t\in I(x_{0})$, el conjunto de funciones $\phi_{t}$ defindas por $\phi_{t}(x_{0}) = \phi(t, x_{0})$ es llamado el flujo de la ecuación diferencial \eqref{eq: sisAut} o también el flujo del campo vectorial $f(x)$ \cite[p. 96]{perko2001}.
+	Sean $E$ un subconjunto abierto de $\Rn$, $f \in C^{1}(E)$, $x_{0} \in E$ y $\phi(t, x_{0})$ la solución del PVI \eqref{eq: pvi} en el intervalo maximal de existencia $I(x_{0})$. Entonces para $t\in I(x_{0})$, el conjunto de funciones $\phi_{t}$ defindas por $\phi_{t}(x_{0}) = \phi(t, x_{0})$ es llamado el flujo de la ecuación diferencial \eqref{eq: sisAut} o también el flujo del campo vectorial $f(x)$ \cite[p. 96]{perko2001} asociado a la condición inicial $x_0$ .
 \end{defi}
 
-\noindent El sistema \eqref{eq: sisAut} puede considerarse como un campo vectorial de $\Rn$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del sistema \eqref{eq: sisAut} también se denominan \textit{curvas solución}, \textit{trayectorias} u \textit{órbitas} \cite[p. 128]{teschl2012}. Esto, en el sentido cualitativo. El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: sisAut} en el plano $\Rn$ \cite[pp. 53--54]{guckenheimer1983}. \\
+La función $f: E \longrightarrow \Rn$ en \eqref{eq: sisAut} define un campo vectorial sobre el abierto $E$. Dada la condición inicial $x(0) = x_0$, la solución $\phi(t, x_0)$ del PVI \eqref{eq: pvi} describe una curva parametrizada $x = \phi(t, x_0)$ en $E$ cuyo vector velocidad en cada instante $t$ coincide con la dirección del campo en dicho punto, pues por definición de solución se cumple $\dot{\phi}(t, x_0) = f(\phi(t, x_0))$. Por esta razón, geométricamente la trayectoria es tangente al campo vectorial en cada uno de sus puntos.
 
-Un sistema \eqref{eq: sisAut} bidimensional o planar se puede expresar de la forma
+Si bien la solución del PVI analiza la evolución individual a partir de un estado $x_0$ fijado, en la teoría cualitativa de sistemas dinámicos resulta de especial interés comprender el comportamiento global de todas las soluciones posibles del sistema autónomo $\dot{x} = f(x)$. En consecuencia, centraremos el estudio en el sistema general \eqref{eq: sisAut}, donde a cada curva solución también se le denomina \textit{trayectoria} u \textit{órbita} \cite[p.~128]{teschl2012}. El conjunto formado por la totalidad de estas órbitas en el abierto $E \subseteq \mathbb{R}^n$ constituye el \textit{retrato de fase} del sistema, el cual proporciona una visión geométrica completa de la dinámica.
+
+%\noindent La función $f(x)$ dada en el sistema \eqref{eq: sisAut} define un campo vectorial en $E$ y las soluciones del sistema son curvas en $E$ que son tangentes a este campo vectorial en cada punto. Así para obtener una idea geométrica de las soluciones se puede graficar el \textit{campo vectorial asociado al sistema}. En particular, las soluciones del sistema \eqref{eq: sisAut} también se denominan \textit{curvas solución}, \textit{trayectorias} u \textit{órbitas} \cite[p. 128]{teschl2012}. Esto en el sentido cualitativo. El \textit{retrato fase} de un sistema de EDOs es el conjunto de todas las curvas solución del sistema \eqref{eq: sisAut} en el plano $\Rn$ \cite[pp. 53--54]{guckenheimer1983}. \\
+
+Un sistema \eqref{eq: sisAut} bidimensional o plano se puede expresar en la forma:
 \begin{equation}
 	\left\{
 	\begin{aligned}
 		\dot{x} &= f_1(x, y), \\
-		\dot{y} &= f_2(x, y).
+		\dot{y} &= f_2(x, y),
 	\end{aligned}
 	\right.
 	\label{eq: sisAutBid}
 \end{equation}
 
-\noindent Podemos encontrar una aproximación global de curvas solución del sistema \eqref{eq: sisAutBid}, a través del método de las isoclinas y del sistema de primer orden $dy/dx = f_2(x, y)/f_1(x, y)$, ignorando el hecho de que esto podría no estar bien definido en $f_1(x, y) = 0$. El método consiste en encontrar curvas $y=h(x)$ o $x=h(y)$ en las que la pendiente del campo vectorial $dy/dx = c$ es constante. Dichas curvas se obtienen solucionando la ecuación
+\noindent donde $f=(f_1, f_2)$ es una función continua definida sobre un conjunto abierto $E \subset \R^2$. Podemos encontrar una aproximación global de curvas solución del sistema \eqref{eq: sisAutBid}, a través del método de las isoclinas y del sistema de primer orden $dy/dx = f_2(x, y)/f_1(x, y)$, ignorando el hecho de que esto podría no estar bien definido en $f_1(x, y) = 0$. El método consiste en encontrar curvas $y=h(x)$ o $x=h(y)$ en las que la pendiente del campo vectorial $dy/dx = c$ es constante. Dichas curvas se obtienen solucionando la ecuación
 
 \begin{equation*}
 	f_2(x, y) = cf_1(x, y),
 	\label{eq: pendiente}
 \end{equation*}
 
-\noindent y son llamadas \textit{isoclinas}. Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, pues su importancia radica en la interpretación gráfica de esta. Se muestra un ejemplo de todo lo anterior en la \autoref{fig: example} \\
+\noindent y son llamadas \textit{isoclinas} \cite[p. 53-54]{guckenheimer1983}. Las isoclinas se pueden encontrar en sistemas de mayor dimensión pero solo es relevante en los de dos y tres dimensiones, pues su importancia radica en la interpretación gráfica de estas. Se muestra un ejemplo de todo lo anterior en la \autoref{fig: example} \\
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/Example.pdf}
-	\caption{Campo vectorial, trayectorias, retrato fase e isoclinas ($c=0$) del sistema \eqref{eq: sisAut} asociado a $f(x,y)=(x,\sin{y})$.}
+	\caption{Campo vectorial, trayectorias, retrato fase e isoclinas ($c=0$) del sistema \eqref{eq: sisAutBid} asociado al campo vectorial $f(x,y)=(x,\sin{y})$.}
 	\label{fig: example}
 \end{figure}
 
-Otro caso relevante para nuestro estudio, es dado cuando en el sistema autónomo bidimensional \eqref{eq: sisAutBid}, las funciones $f_1$ y $f_2$ son funciones polinómicas que denotaremos por $P(x,y)$ y $Q(x,y)$, respectivamente. A este tipo de sistemas se les denomina \emph{sistemas diferenciales polinómicos} de grado $n$, donde $n$ representa el grado máximo de los polinomios que componen el sistema. Usualmente, se asocian a un campo vectorial $X = P(x,y) \dfrac{\partial}{\partial x} + Q(x,y) \dfrac{\partial}{\partial y}$, con $P,Q \in C^r(U)$, donde, $U \subset \R^2$ es un abierto; una notación simplificada es $X = (P,Q)$. No existe distinción entre el campo vectorial $X$ y el sistema polinómico, ya que ambas representan formas equivalentes de denotación. \\
+Otro caso relevante para nuestro estudio, se tiene cuando en el sistema autónomo bidimensional \eqref{eq: sisAutBid}, $f_1$ y $f_2$ son funciones polinómicas que denotaremos por $P(x,y)$ y $Q(x,y)$, respectivamente. A este tipo de sistemas se les denomina \emph{sistemas diferenciales polinómicos} de grado $n$, donde $n$ representa el grado máximo de los polinomios que componen el sistema.
 
-En algunas ocasiones las trayectorias o curvas solución de un sistema pueden ser cerradas y aisladas, es decir, no hay más trayectorias cerradas en una cierta región, dichas curvas solución son denominadas un \textit{ciclo límite}; si todas las trayectorias vecinas se acercan al ciclo límite decimos que el ciclo límite es \textit{estable} o \textit{atractor}, en otros casos el ciclo límite es \textit{inestable} o en casos excepcionales \textit{medio-estable}, donde las trayectorias vecinas se alejan y se acercan simultáneamente dentro y fuera del ciclo límite. En la \autoref{fig: CicloLimiteEstableInestable} se muestra un ejemplo de estos dos primeros casos.
+ \noindent El interés en los sistemas polinómicos radica en su estructura, la cual permite una potente manipulación algebraica y el empleo de herramientas de computación simbólica, aunque esto no excluye el análisis de campos cuyas componentes no sean polinómicas. Usualmente, los sistemas polinómicos (o cualquier sistema bidimensional) se asocian a un campo vectorial $$X = P(x,y) \dfrac{\partial}{\partial x} + Q(x,y) \dfrac{\partial}{\partial y},$$ el cual también se denota en forma simplificada como $X = (P,Q)$. No existe distinción entre el campo vectorial $X$ y el sistema polinómico, ya que ambas representan formas equivalentes de denotación. \\
+
+En algunas ocasiones las trayectorias o curvas solución de un sistema pueden ser cerradas y aisladas es decir, no hay más trayectorias cerradas en una cierta región; dichas curvas solución son denominadas \textit{ciclo límite}; si todas las trayectorias vecinas se acercan al ciclo límite decimos que el ciclo límite es \textit{estable} o \textit{atractor}, en otros casos el ciclo límite es \textit{inestable} o en casos excepcionales \textit{medio-estable}, donde las trayectorias vecinas se alejan y se acercan simultáneamente dentro y fuera del ciclo límite \cite[p. 196]{strogatz2014}. En la \autoref{fig: CicloLimiteEstableInestable} se muestra un ejemplo de estos dos primeros casos.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{img/CicloLimEstInest.pdf}
-	\caption{Ciclos límite del sistema \eqref{eq: sisAut} asociado a  $f(x, y) = (-y + x(r^{4} -3r^{2} + 1), x + y(r^{4} -3r^{2} + 1))$ con $r^{2} = x^{2} + y^{2}$.}
+	\caption{Ciclos límite del sistema \eqref{eq: sisAutBid} asociado al campo $f(x, y) = (-y + x(r^{4} -3r^{2} + 1), x + y(r^{4} -3r^{2} + 1))$ con $r^{2} = x^{2} + y^{2}$.}
 	\label{fig: CicloLimiteEstableInestable}
 \end{figure}
 
@@ -308,7 +350,7 @@ Algo también de relevancia que se puede observar en la \autoref{fig:comparacion
 	\label{fig: exampleHartman}
 \end{figure}
 
-Dada la posibilidad de que existan puntos críticos no hiperbólicos en el sistema \eqref{eq: sisAut}, es decir, puntos $x_{0}$ donde alguno de los valores propios de la matriz jacobiana $Df(x_0)$ posee parte real nula, resulta de interés analizar el comportamiento dinámico local en dichos puntos. En estas singularidades no es posible aplicar directamente el \Cref{teo: hartman}, aunque el Teorema de la variedad central nos permita analizar el comportamiento local en los puntos críticos no hiperbólicos donde su matriz jacobiana no se anule (puntos críticos no degenerados), es de nuestro interés analizar el comportamiento de las singularidades que no cumplan esta ultima condición, por lo que se procede a realizar un cambio de coordenadas con el objetivo de eliminar la singularidad y, de esta manera, poder estudiar el comportamiento cualitativo en su entorno mediante uno de estos teoremas. A este procedimiento se le denomina \textit{desingularización del campo vectorial} \eqref{eq: sisAut}. Existen diversas técnicas para desingularizar un sistema dinámico, sin embargo, en este trabajo se enfocará en la desingularización a través del \textit{método de blowing-up} o \textit{blow-up} \cite[p. 91]{Dumortier2006}, \cite[p. 362]{guckenheimer1983}, \cite[p. 64]{Chicone2024}.
+Dada la posibilidad de que existan puntos críticos no hiperbólicos en el sistema \eqref{eq: sisAut}, es decir, puntos $x_{0}$ donde alguno de los valores propios de la matriz jacobiana $Df(x_0)$ posee parte real nula, resulta de interés analizar el comportamiento dinámico local en dichos puntos. En estas singularidades no es posible aplicar directamente el \Cref{teo: hartman}, aunque el Teorema de la variedad central nos permita analizar el comportamiento local en los puntos críticos no hiperbólicos donde su matriz jacobiana no se anule (puntos críticos no degenerados), es de nuestro interés analizar el comportamiento de las singularidades que no cumplan esta ultima condición, por lo que se procede a realizar un cambio de coordenadas con el objetivo de eliminar la singularidad y, de esta manera, poder estudiar el comportamiento cualitativo en su entorno mediante uno de estos teoremas. A este procedimiento se le denomina \textit{desingularización del campo vectorial} \eqref{eq: sisAut}. Existen diversas técnicas para desingularizar un sistema dinámico, sin embargo, en este trabajo se enfocará en la desingularización a través del \textit{método de blowing-up} o \textit{blow-up} \cite[p. 91]{Dumortier2006}, \cite[p. 362]{guckenheimer1983}, \cite[p. 64]{chicone2024}.
 
 \subsection*{Blow-up en $ \R^2$}
 \addcontentsline{toc}{subsection}{Blow-up en $ \R^2$}
